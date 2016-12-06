@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>promise 2</title>
+    <script type="text/javascript" charset="utf-8">
+var p1 = new Promise(function (resolve, reject) {
+  setTimeout(() => reject(new Error('fail')), 1000)
+})
+
+var p2 = new Promise(function (resolve, reject) {
+  setTimeout(() => resolve(p1), 3000)
+})
+
+var x = p2.then(result => {
+    console.log("haha:")
+    console.log(result)
+},
+error => {
+  console.log("error: ")
+  console.log(error)
+}).catch(error => {
+    console.log("gotcha")
+    console.log(error)
+})
+
+    </script>
+  </head>
+  <body>
+    body
+  </body>
+</html>

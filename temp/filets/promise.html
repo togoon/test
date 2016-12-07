@@ -7,7 +7,7 @@
     <script type="text/javascript" charset="utf-8">
 /*
 新浏览器支持Promise对象，可以直接用new构造
-构造函数参数是一个函数 f(resolve, reject)
+构造函数参数是一个函数 形如：(resolve, reject) => { 做异步操作 }
 
 它们各自的原型为 resolve(p), reject(p)
 由系统部署
@@ -36,7 +36,7 @@
 // });
 //
 // new Promise(...)和then中，reject的部分都可以缺省
-//
+// then中的reject部分建议缺省，用后面提到的catch来代替 
 //
 //
 //

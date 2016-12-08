@@ -1,3 +1,8 @@
+// 中间件：
+// 可以认为是插件的一种，所谓插件，其含义是：引入插件之后，其他部分还是按照原来的机制执行
+// 即原有的代码不用改。但却有一些新的效果。有一种side effect的感觉
+// 而中间件类型的插件，其更侧重于体现"中间"，即有一种承上启下的性质，类似一种"过滤"器，"变换器"
+//
 // 实际场景：每次action都用日志记录action的内容，以及action之后的状态 
 //
 // 尝试1: 手动记录 ===========================================
@@ -129,9 +134,28 @@ function applyMiddleware(store, middlewares) {
 // 以下是一个什么事都不干（透传）的"空"中间件
 const some_middleware = store => next => action => {
   // 为什么空的中间件也要有这个逻辑呢？
-  // 这是一个
-
+  // 因为中间件是一个承上启下的过程，即在中间某处加上自己的逻辑之后，其需要负责将管道接上
+  // 即使中间件什么都不做，它仍然要做一下"接起来"这个动作
+  // 如何做这个动作，涉及到中间件到底在哪里生效，以及上面几个参数的含义
+  // 
+  // . 中间件是针对store.dispatch函数进行
+  // . redux最终取的是本函数中 action => {...}的部分作为dispatch的替代
+  // . next指的是没有当前中间件之前的dispatch的样子。即它是一个接收action作为参数的函数
+  //
   return next(action)
+
+  // 所以，如果中间件要做点什么，大概是这样：
+  // store => next => action => {
+  //    // any code...
+  //
+  //    // 在某处有这样的调用
+  //    let ret = next(action)
+  //
+  //    // any code...
+  //
+  //    return ret;
+  // }
+
 }
 
 // ======================= 来看看中间件的最终形态吧（直接抄文档的代码）=========================
@@ -171,4 +195,159 @@ let store = createStoreWithMiddleware(todoApp)
 
 // 后面的代码，都不变
 store.dispatch(addTodo('Use Redux'))
+
+// ================================== 官方的7个例子 =========================================
+/**
+ * 记录所有被发起的 action 以及产生的新的 state。
+ */
+const logger = store => next => action => {
+  console.group(action.type) // 跟上面例子相比，增加了日志分组，用于折叠
+  console.info('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd(action.type)
+  return result
+}
+
+/**
+ * 在 state 更新完成和 listener 被通知之后发送崩溃报告。
+ */
+const crashReporter = store => next => action => {
+  try {
+    return next(action)
+  } catch (err) {
+    console.error('Caught an exception!', err)
+    Raven.captureException(err, {
+      extra: {
+        action,
+        state: store.getState()
+      }
+    })
+    throw err
+  }
+}
+
+/**
+ * 用 { meta: { delay: N } } 来让 action 延迟 N 毫秒。
+ * 在这个案例中，让 `dispatch` 返回一个取消 timeout 的函数。
+ */
+const timeoutScheduler = store => next => action => {
+  if (!action.meta || !action.meta.delay) {
+    return next(action)
+  }
+
+  let timeoutId = setTimeout(
+    () => next(action),
+    action.meta.delay
+  )
+
+  return function cancel() {
+    clearTimeout(timeoutId)
+  }
+}
+
+/**
+ * 通过 { meta: { raf: true } } 让 action 在一个 rAF 循环帧中被发起。
+ * 在这个案例中，让 `dispatch` 返回一个从队列中移除该 action 的函数。
+ */
+const rafScheduler = store => next => {
+  let queuedActions = []
+  let frame = null
+
+  function loop() {
+    frame = null
+    try {
+      if (queuedActions.length) {
+        next(queuedActions.shift())
+      }
+    } finally {
+      maybeRaf()
+    }
+  }
+
+  function maybeRaf() {
+    if (queuedActions.length && !frame) {
+      frame = requestAnimationFrame(loop)
+    }
+  }
+
+  return action => {
+    if (!action.meta || !action.meta.raf) {
+      return next(action)
+    }
+
+    queuedActions.push(action)
+    maybeRaf()
+
+    return function cancel() {
+      queuedActions = queuedActions.filter(a => a !== action)
+    }
+  }
+}
+
+/**
+ * 使你除了 action 之外还可以发起 promise。
+ * 如果这个 promise 被 resolved，他的结果将被作为 action 发起。
+ * 这个 promise 会被 `dispatch` 返回，因此调用者可以处理 rejection。
+ */
+const vanillaPromise = store => next => action => {
+  if (typeof action.then !== 'function') {
+    return next(action)
+  }
+
+  return Promise.resolve(action).then(store.dispatch)
+}
+
+/**
+ * 让你可以发起带有一个 { promise } 属性的特殊 action。
+ *
+ * 这个 middleware 会在开始时发起一个 action，并在这个 `promise` resolve 时发起另一个成功（或失败）的 action。
+ *
+ * 为了方便起见，`dispatch` 会返回这个 promise 让调用者可以等待。
+ */
+const readyStatePromise = store => next => action => {
+  if (!action.promise) {
+    return next(action)
+  }
+
+  function makeAction(ready, data) {
+    let newAction = Object.assign({}, action, { ready }, data)
+    delete newAction.promise
+    return newAction
+  }
+
+  next(makeAction(false))
+  return action.promise.then(
+    result => next(makeAction(true, { result })),
+    error => next(makeAction(true, { error }))
+  )
+}
+
+/**
+ * 让你可以发起一个函数来替代 action。
+ * 这个函数接收 `dispatch` 和 `getState` 作为参数。
+ *
+ * 对于（根据 `getState()` 的情况）提前退出，或者异步控制流（ `dispatch()` 一些其他东西）来说，这非常有用。
+ *
+ * `dispatch` 会返回被发起函数的返回值。
+ */
+const thunk = store => next => action =>
+  typeof action === 'function' ?
+    action(store.dispatch, store.getState) :
+    next(action)
+
+// 你可以使用以上全部的 middleware！（当然，这不意味着你必须全都使用。）
+let createStoreWithMiddleware = applyMiddleware(
+  rafScheduler,
+  timeoutScheduler,
+  thunk,
+  vanillaPromise,
+  readyStatePromise,
+  logger,
+  crashReporter
+)(createStore)
+
+let todoApp = combineReducers(reducers)
+let store = createStoreWithMiddleware(todoApp)
+
 

@@ -251,10 +251,15 @@ const timeoutScheduler = store => next => action => {
  * 在这个案例中，让 `dispatch` 返回一个从队列中移除该 action 的函数。
  */
 const rafScheduler = store => next => {
-  let queuedActions = []
-  let frame = null
 
-  function loop() {
+  // 这个中间件限定每次raf最多执行一次action
+
+  let queuedActions = []
+
+  let frame = null // 只是起一个标记的作用
+
+  // 一次循环体
+  function looper() {
     frame = null
     try {
       if (queuedActions.length) {
@@ -265,18 +270,26 @@ const rafScheduler = store => next => {
     }
   }
 
+  // 判断是否要raf
   function maybeRaf() {
     if (queuedActions.length && !frame) {
-      frame = requestAnimationFrame(loop)
+      frame = requestAnimationFrame(looper)
     }
   }
 
+  // 中间件主体 
   return action => {
+
+    // 如果没有 { meta: { raf: true } } 部分，则什么都不干
     if (!action.meta || !action.meta.raf) {
       return next(action)
     }
 
+    // 否则
+
+    // action进队
     queuedActions.push(action)
+
     maybeRaf()
 
     return function cancel() {
@@ -286,23 +299,29 @@ const rafScheduler = store => next => {
 }
 
 /**
- * 使你除了 action 之外还可以发起 promise。
+ * 支持将 promise 作为action被发起
  * 如果这个 promise 被 resolved，他的结果将被作为 action 发起。
  * 这个 promise 会被 `dispatch` 返回，因此调用者可以处理 rejection。
  */
 const vanillaPromise = store => next => action => {
+
+  // 普通的action，直接放过
   if (typeof action.then !== 'function') {
     return next(action)
   }
 
+  // 如果action是一个promise或者是thenable
+  // 那就先then它，将结果重新作为一个action来dispatch
+  // !注：这里需要依赖 store.dispatch，而不是next
+  // 如果是用next的话，仅仅是本次生效，而使用store.dispatch，则可以产生递归的效果
   return Promise.resolve(action).then(store.dispatch)
 }
 
 /**
+ * promise更复杂的场景
+ * 暂不深究
  * 让你可以发起带有一个 { promise } 属性的特殊 action。
- *
  * 这个 middleware 会在开始时发起一个 action，并在这个 `promise` resolve 时发起另一个成功（或失败）的 action。
- *
  * 为了方便起见，`dispatch` 会返回这个 promise 让调用者可以等待。
  */
 const readyStatePromise = store => next => action => {
@@ -326,9 +345,7 @@ const readyStatePromise = store => next => action => {
 /**
  * 让你可以发起一个函数来替代 action。
  * 这个函数接收 `dispatch` 和 `getState` 作为参数。
- *
  * 对于（根据 `getState()` 的情况）提前退出，或者异步控制流（ `dispatch()` 一些其他东西）来说，这非常有用。
- *
  * `dispatch` 会返回被发起函数的返回值。
  */
 const thunk = store => next => action =>
@@ -336,7 +353,7 @@ const thunk = store => next => action =>
     action(store.dispatch, store.getState) :
     next(action)
 
-// 你可以使用以上全部的 middleware！（当然，这不意味着你必须全都使用。）
+
 let createStoreWithMiddleware = applyMiddleware(
   rafScheduler,
   timeoutScheduler,

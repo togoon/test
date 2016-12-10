@@ -29,8 +29,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const VisibleTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps, // 全局的state会作为一部分props传进去
+  mapDispatchToProps // 还传入一个事件响应函数
 )(TodoList)
 
 export default VisibleTodoList

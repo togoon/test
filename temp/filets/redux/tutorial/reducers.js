@@ -12,6 +12,8 @@ function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
 
+let id = 0
+
 // todo相关操作
 function todos(state = [], action) {
   switch (action.type) {
@@ -20,7 +22,8 @@ function todos(state = [], action) {
         ...state,
         {
           text: action.text,
-          completed: false
+          completed: false,
+          id: id++,
         }
       ]
     case TOGGLE_TODO:

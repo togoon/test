@@ -3,11 +3,12 @@ import { render } from 'react-dom'
 import Radium from 'radium';
 
 import ToolPanel from './ToolPanel.js'
+import {border as bd} from './cssobj.js'
 
 const S = {
   main: {
+    ...bd,
     display: "flex",
-    backgroundColor: "red",
     width: 200,
     height: 200,
   },

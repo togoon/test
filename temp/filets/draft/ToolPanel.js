@@ -20,7 +20,8 @@ class ToolPanel extends Component {
     data : [
     "按钮1",
     "按钮2",
-    ]
+    ],
+    sel : null, // 当前选中的，缺省无
   }
 
   render() {

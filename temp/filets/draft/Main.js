@@ -1,5 +1,8 @@
-import React, { Component, PropTypes} from 'react';
-import Radium from 'radium';
+import React, { Component, PropTypes} from 'react'
+import Radium from 'radium'
+
+import _ from 'lodash'
+
 import {border as bd, hsl, bg, flex } from './utils/cssobj.js'
 
 const S = {
@@ -14,11 +17,17 @@ class Main extends Component {
   onClick() {
     let p = this.props
 
-    console.log("draw:" + p.brush);
+    if ( !_.isNull(p.brush) ) {
+      console.log("draw:" + p.brush)
+    }
   }
   
   render() {
-    return <div style={S.main} onClick={this.onClick.bind(this)}>主面板</div>
+    return <div style={S.main} 
+      onClick={this.onClick.bind(this)}
+    >
+      主面板
+    </div>
   }
 }
 

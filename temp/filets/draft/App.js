@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import Radium from 'radium';
+import React, { Component } from 'react'
+import Radium from 'radium'
 
-import {border as bd, flex} from './utils/cssobj.js'
+import {HotKeys} from 'react-hotkeys'
+
+import {border as bd, flex, ptr} from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
 import Main from './Main.js'
 
@@ -10,8 +12,12 @@ const S = {
     ...bd, ...flex,
     width: 1024,
     height: 500,
+    ':hover' : {
+      ...ptr
+    }
   },
 }
+
 
 class App extends Component {
 
@@ -24,13 +30,20 @@ class App extends Component {
     this.setState({ brush:id })
   }
 
+  // 取消画刷
+  offBrush() {
+    this.setState({ brush:null })
+  }
+
   render() {
     let s = this.state
     
-    return <div style={S.main}>
+    return <HotKeys style={S.main} handlers={
+       {'esc' : this.offBrush.bind(this)}
+    } >
       <ToolPanel onPick={this.onBrush.bind(this)}/>
       <Main brush={s.brush}/>
-    </div>
+    </HotKeys>
   }
 }
 

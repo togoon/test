@@ -3,7 +3,7 @@ import Radium from 'radium'
 
 import {HotKeys} from 'react-hotkeys'
 
-import {border as bd, flex, ptr} from './utils/cssobj.js'
+import {border as bd, flex, ptr, bg} from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
 import Main from './Main.js'
 
@@ -13,11 +13,12 @@ const S = {
     width: 1024,
     height: 500,
     ':hover' : {
-      ...ptr
-    }
+      backgroundColor: "red",
+    },
   },
 }
 
+console.log("fuck:", S.main);
 
 class App extends Component {
 

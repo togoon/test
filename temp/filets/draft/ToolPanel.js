@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { border, ptr } from './utils/cssobj.js'
+import { border, ptr, bg, hsl } from './utils/cssobj.js'
 
 const S = {
   main: {
@@ -24,11 +24,17 @@ class ToolPanel extends Component {
     sel : null, // 当前选中的，缺省无
   }
 
+  onClick(i) {
+    this.setState({sel:i})
+  }
+
   render() {
     let s = this.state
     return <div style={S.main}>
-      {s.data.map( (v,k) => 
-        <div key={k} style={S.item}>{v}</div> 
+      {s.data.map( (v,i) => 
+        <div key={i} style={[S.item, i === s.sel ? bg(hsl(178, 32, 75)) : null]} onClick={this.onClick.bind(this, i)}>
+          {v}
+        </div> 
       )}
     </div>
   }

@@ -14,10 +14,22 @@ const S = {
 }
 
 class App extends Component {
+
+  state = {
+    brush: null, // 选中的画刷
+  }
+
+  // 选中一个画刷
+  onBrush(id) {
+    this.setState({ brush:id })
+  }
+
   render() {
+    let s = this.state
+    
     return <div style={S.main}>
-      <ToolPanel/>
-      <Main />
+      <ToolPanel onPick={this.onBrush.bind(this)}/>
+      <Main brush={s.brush}/>
     </div>
   }
 }

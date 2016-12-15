@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 import { border, ptr, bg, hsl } from './utils/cssobj.js'
 
@@ -25,7 +25,10 @@ class ToolPanel extends Component {
   }
 
   onClick(i) {
+    let p = this.props
+    
     this.setState({sel:i})
+    p.onPick(i)
   }
 
   render() {
@@ -38,6 +41,10 @@ class ToolPanel extends Component {
       )}
     </div>
   }
+}
+
+ToolPanel.propTypes = {
+  onPick : PropTypes.func, // 选中一个画刷（图元）的回调 (idx)
 }
 
 export default Radium(ToolPanel);

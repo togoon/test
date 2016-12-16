@@ -12,16 +12,16 @@ const S = css({
   },
 
   item: {
-    ...flex, ...border, ...ptr, ...sz(70),
-    // TODO: 后面用 >< 标记来表示这两个center，可以选的符号有：< > ^ v <|> >|< << >> <^ <-|> 后续好好研究一下它们的意义
-    justifyContent: "center", 
-    alignItems: "center",
+    ...flex('><'), ...border, ...ptr, ...sz(70),
+    marginLeft: 2,
   },
 
   picked: bg(hsl(178, 32, 75)),
 
   title : {
-    
+    ...flex('><'), ...border,
+    ...sz("100%", 30),
+    ...bg(hsl(225, 27, 83)),
   },
   
 

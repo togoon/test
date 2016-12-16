@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
 
-import {css, border as bd, flex, ptr, bg} from './utils/cssobj.js'
+import {css, border as bd, flex, } from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
 import Main from './Main.js'
 
@@ -13,8 +13,6 @@ const S = css({
     height: 500,
   },
 })
-
-console.log("fuck:", S);
 
 class App extends Component {
 
@@ -29,6 +27,7 @@ class App extends Component {
 
   // 取消画刷
   offBrush() {
+    console.log("esc");
     this.setState({ brush:null })
   }
 

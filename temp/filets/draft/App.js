@@ -37,7 +37,7 @@ class App extends Component {
     return <HotKeys className={S.main} handlers={
        {'esc' : this.offBrush.bind(this)}
     } >
-      <ToolPanel onPick={this.onBrush.bind(this)}/>
+      <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} />
       <Main brush={s.brush}/>
     </HotKeys>
   }

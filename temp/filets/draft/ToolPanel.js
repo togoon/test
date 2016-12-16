@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent as Component, PropTypes } from 'react';
 import Radium from 'radium';
 import { border, ptr, bg, hsl } from './utils/cssobj.js'
 
@@ -16,14 +16,23 @@ const S = {
 
 class ToolPanel extends Component {
 
-  state = {
-    data : [
-    "按钮1",
-    "按钮2",
-    ],
-    sel : null, // 当前选中的，缺省无
+  // 初步体验了一下PS模式
+  constructor(p) {
+    super(p)
+
+    this.state = {
+      data : [
+        "Mysql",
+        "Storage",
+      ],
+      sel : p.sel, // 当前选中的，缺省为null
+    }
   }
 
+  componentWillReceiveProps(np) { 
+    this.setState({ sel: np.sel })
+  }
+  
   onClick(i) {
     let p = this.props
     

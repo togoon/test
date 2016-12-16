@@ -1,24 +1,20 @@
 import React, { Component } from 'react'
-import Radium from 'radium'
 
 import {HotKeys} from 'react-hotkeys'
 
-import {border as bd, flex, ptr, bg} from './utils/cssobj.js'
+import {css, border as bd, flex, ptr, bg} from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
 import Main from './Main.js'
 
-const S = {
+const S = css({
   main: {
     ...bd, ...flex,
     width: 1024,
     height: 500,
-    ':hover' : {
-      backgroundColor: "red",
-    },
   },
-}
+})
 
-console.log("fuck:", S.main);
+console.log("fuck:", S);
 
 class App extends Component {
 
@@ -39,7 +35,7 @@ class App extends Component {
   render() {
     let s = this.state
     
-    return <HotKeys style={S.main} handlers={
+    return <HotKeys className={S.main} handlers={
        {'esc' : this.offBrush.bind(this)}
     } >
       <ToolPanel onPick={this.onBrush.bind(this)}/>
@@ -48,5 +44,5 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
 

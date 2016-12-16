@@ -1,16 +1,15 @@
 import React, { PureComponent as Component, PropTypes } from 'react';
 import Radium from 'radium';
-import { border, ptr, bg, hsl } from './utils/cssobj.js'
+import { border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 
 const S = {
   main: {
-    ...border,
+    ...border, ...flex,
     width: 150,
   },
 
   item: {
-    ...border, ...ptr,
-    height: 30,
+    ...border, ...ptr, ...sz(70),
   }
 }
 

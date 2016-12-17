@@ -32,15 +32,25 @@ class Main extends Component {
       console.log("draw:" + p.brush)
     }
   }
+
+  test() {
+    console.log("haha")
+  }
   
   render() {
-    return <div className={cx(S.main, {
+    return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
       onClick={this.onClick.bind(this)}
     >
-      主面板
-    </div>
+      <g transform="translate(100 100)" onClick={this.test.bind(this)} >
+        <rect width="100" height="100" fill="yellow" />
+        <text x="50" y="50" dx="-25" fontFamily="微软雅黑" fontSize="28" dominantBaseline="central">
+          测试
+        </text>
+      </g>
+      <g><rect x="300" y="40" width="100" height="100" fill="burlywood" /></g>
+    </svg>
   }
 }
 

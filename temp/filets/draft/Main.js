@@ -19,7 +19,33 @@ const S = css({
   },
 })
 
+// 图元的映射
+const widgetMap = {
+  mysql : Mysql,
+  storage : Storage,
+}
+
 class Main extends Component {
+
+  state = {
+    data : [ // 图元数据
+      {
+        type : 'mysql',
+        x : 100,
+        y : 100,
+      },
+      {
+        type : 'mysql',
+        x : 300,
+        y : 200,
+      },
+      {
+        type : 'storage',
+        x : 400,
+        y : 40,
+      },
+    ],
+  }
 
   hasBrush() {
     let p = this.props
@@ -39,14 +65,19 @@ class Main extends Component {
   }
   
   render() {
+    let s = this.state
+
+    let Items = s.data.map((item, i) => {
+      let Cls =  widgetMap[item.type]
+      return <Cls key={i} x={item.x} y={item.y} />
+    })
+
     return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
       onClick={this.onClick.bind(this)}
     >
-      <Mysql x={ 100 } y={ 100 } onClick={this.test}/>
-      <Mysql x={300} y={200} />
-      <Storage x={300} y={40} />
+      {Items}
     </svg>
   }
 }
@@ -57,12 +88,7 @@ Main.propTypes = {
 
 export default Main;
 /*
-      <g transform={`translate(100 100)`} onClick={this.test.bind(this)} >
-        <rect width="100" height="100" fill="yellow" />
-        <text x="50" y="50" dx="-35" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
-          Mysql
-        </text>
-      </g>
-      
-  */
-
+      <Mysql x={ 100 } y={ 100 } onClick={this.test}/>
+      <Mysql x={300} y={200} />
+      <Storage x={300} y={40} />
+ */

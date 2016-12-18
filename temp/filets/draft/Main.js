@@ -4,6 +4,7 @@ import _ from 'lodash'
 import cx from 'classnames'
 
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
+import Mysql from './widgets/Mysql.js'
 
 const S = css({
   main: {
@@ -42,12 +43,8 @@ class Main extends Component {
     })} 
       onClick={this.onClick.bind(this)}
     >
-      <g transform="translate(100 100)" onClick={this.test.bind(this)} >
-        <rect width="100" height="100" fill="yellow" />
-        <text x="50" y="50" dx="-35" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
-          Mysql
-        </text>
-      </g>
+      <Mysql x={ 100 } y={ 100 } onClick={this.test}/>
+      <Mysql x={300} y={200} />
       <g><rect x="300" y="40" width="100" height="100" fill="burlywood" /></g>
     </svg>
   }
@@ -58,4 +55,13 @@ Main.propTypes = {
 }
 
 export default Main;
+/*
+      <g transform={`translate(100 100)`} onClick={this.test.bind(this)} >
+        <rect width="100" height="100" fill="yellow" />
+        <text x="50" y="50" dx="-35" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
+          Mysql
+        </text>
+      </g>
+      
+  */
 

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes} from 'react'
-import Radium from 'radium'
 
 import _ from 'lodash'
 import cx from 'classnames'
@@ -45,8 +44,8 @@ class Main extends Component {
     >
       <g transform="translate(100 100)" onClick={this.test.bind(this)} >
         <rect width="100" height="100" fill="yellow" />
-        <text x="50" y="50" dx="-25" fontFamily="微软雅黑" fontSize="28" dominantBaseline="central">
-          测试
+        <text x="50" y="50" dx="-35" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
+          Mysql
         </text>
       </g>
       <g><rect x="300" y="40" width="100" height="100" fill="burlywood" /></g>
@@ -58,5 +57,5 @@ Main.propTypes = {
   brush: PropTypes.number,
 }
 
-export default Radium(Main);
+export default Main;
 

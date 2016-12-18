@@ -27,7 +27,7 @@ const widgetMap = {
 }
 
 function xgen(w, n) {
-  let step = 10
+  let step = 20
   let i = 0
   let start = (w - (step * (n-1))) / 2
   return () => {
@@ -111,11 +111,11 @@ class Main extends Component {
 
       // 输入插口
       let Ins = (()=>{
-        let c = 0
+        let x = xgen(100, _.size(model.in))
 
         return _.map(model.in, ( type, key) => {
           let pr = {
-            x : 20 * (c++),
+            x : x(),
             y : 90,
           }
 
@@ -134,17 +134,17 @@ class Main extends Component {
       // 输出插口
       let Outs = (()=>{
 
-        let c = 0
-
         let outs = model.out
 
         if ( !_.isObject(outs) ) {
           outs = { out : outs }
         }
 
+        let x = xgen(100, _.size(outs))
+
         return _.map(outs, ( type, key) => {
           let pr = {
-            x : 20 * (c++),
+            x : x(),
             y : -10,
           }
 

@@ -26,6 +26,15 @@ const widgetMap = {
   storage : Storage,
 }
 
+function xgen(w, n) {
+  let step = 10
+  let i = 0
+  let start = (w - (step * (n-1))) / 2
+  return () => {
+    return start + ( step * i++ )
+  }
+}
+
 class Main extends Component {
 
   state = {

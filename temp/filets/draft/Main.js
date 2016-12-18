@@ -6,6 +6,7 @@ import cx from 'classnames'
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
+import models from './ObjType.js'
 
 const S = css({
   main: {
@@ -85,8 +86,37 @@ class Main extends Component {
     let s = this.state
 
     let Items = _.map(s.kits, (item, i) => {
-      let Cls =  widgetMap[item.type]
+      let Cls =  widgetMap[item.type] // 取到组件类
       return <Cls key={i} x={item.x} y={item.y} />
+    })
+
+    let Slots = _.map(s.kits, (item, i ) => {
+      let model = models[item.type] // 取到逻辑model
+      // 暂时先弄输出吧
+
+      let pos = {
+        x : item.x+50,
+        y : item.y,
+        width: 10,
+        height: 10,
+        fill : 'chocolate',
+      }
+
+      let Ins = _.map(item.in, (key, type) => {
+        let props = {
+
+        }
+        return <g>
+          <rect {...pos} />
+          <text {...pos}>{key}</text>
+        </g>
+      })
+
+      return <g>
+        <rect {...pos} />
+        <text {...pos}>{model.out}</text>
+      </g>
+
     })
 
     let Links = _.map(s.links, (item, i ) => {
@@ -111,6 +141,7 @@ class Main extends Component {
     >
       {Items}
       {Links}
+      {Slots}
     </svg>
   }
 }

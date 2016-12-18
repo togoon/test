@@ -1,14 +1,8 @@
 export const mysql = {
-  in : [
-    {
-      name : 'volumn',
-      type : 'storage',
-    },
-    {
-      name : 'passwd',
-      type : 'string',
-    }
-  ],
+  in : {
+    volumn : 'storage',
+    passwd : 'string',
+  },
   out : 'mysql',
 }
 

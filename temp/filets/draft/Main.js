@@ -136,7 +136,7 @@ class Main extends Component {
         return _.map(outs, ( type, key) => {
           let pr = {
             x : 20 * (c++),
-            y : 0,
+            y : -10,
           }
 
           let rid = `slot_${i}_${key}`

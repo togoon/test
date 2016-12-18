@@ -1,21 +1,21 @@
 import React, { Component, PropTypes } from 'react'
 
-class Mysql extends Component {
+class Storage extends Component {
 
   render() {
     let p = this.props
     
     return <g transform={`translate(${p.x} ${p.y})`} onClick={p.onClick}>
-      <rect width="100" height="100" fill="yellow" />
-      <text x="50" y="50" dx="-35" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
-        Mysql
+      <rect width="100" height="100" fill="burlywood" />
+      <text x="50" y="50" dx="-45" fontFamily="微软雅黑" fontSize="24" dominantBaseline="central">
+        Storage
       </text>
     </g>
   }
 }
 
 let { number, func } = PropTypes
-Mysql.propTypes = {
+Storage.propTypes = {
 
   // 坐标
   x : number.isRequired,
@@ -25,5 +25,5 @@ Mysql.propTypes = {
   onClick : func,
 }
 
-export default Mysql
+export default Storage
 

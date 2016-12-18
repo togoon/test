@@ -5,6 +5,7 @@ import cx from 'classnames'
 
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
+import Storage from './widgets/Storage.js'
 
 const S = css({
   main: {
@@ -45,7 +46,7 @@ class Main extends Component {
     >
       <Mysql x={ 100 } y={ 100 } onClick={this.test}/>
       <Mysql x={300} y={200} />
-      <g><rect x="300" y="40" width="100" height="100" fill="burlywood" /></g>
+      <Storage x={300} y={40} />
     </svg>
   }
 }

@@ -28,23 +28,40 @@ const widgetMap = {
 class Main extends Component {
 
   state = {
-    data : [ // 图元数据
-      {
+    kits : { // 图元数据
+      m1 : {
         type : 'mysql',
-        x : 100,
+        x : 150,
         y : 100,
       },
-      {
+      m2 : {
         type : 'mysql',
         x : 300,
-        y : 200,
+        y : 100,
       },
-      {
+      s1 : {
+        type : 'storage',
+        x : 100,
+        y : 240,
+      },
+      s2 : {
         type : 'storage',
         x : 400,
-        y : 40,
+        y : 240,
       },
-    ],
+    },
+
+    links : {
+      l1 : {
+        from : 's1',
+        to : 'm1',
+      },
+      l2 : {
+        from : 's2',
+        to : 'm2',
+      },
+    },
+
   }
 
   hasBrush() {
@@ -67,9 +84,24 @@ class Main extends Component {
   render() {
     let s = this.state
 
-    let Items = s.data.map((item, i) => {
+    let Items = _.map(s.kits, (item, i) => {
       let Cls =  widgetMap[item.type]
       return <Cls key={i} x={item.x} y={item.y} />
+    })
+
+    let Links = _.map(s.links, (item, i ) => {
+      let from = s.kits[item.from]
+      let to = s.kits[item.to]
+      
+      let l =  {
+        x1 : from.x,
+        y1 : from.y,
+        x2 : to.x,
+        y2 : to.y,
+        key : i,
+      }
+
+      return <line {...l} stroke="black" />
     })
 
     return <svg className={cx(S.main, {
@@ -78,6 +110,7 @@ class Main extends Component {
       onClick={this.onClick.bind(this)}
     >
       {Items}
+      {Links}
     </svg>
   }
 }

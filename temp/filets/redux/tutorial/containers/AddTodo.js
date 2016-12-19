@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
 // 其props是一个store？
+// 其没有state
 let AddTodo = ({ dispatch }) => {
 
   let input // 用闭包变量来引用子组件/元素

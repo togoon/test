@@ -1,4 +1,4 @@
-import React, { Component, PropTypes} from 'react'
+import React, { PureComponent, PropTypes} from 'react'
 
 import _ from 'lodash'
 import cx from 'classnames'
@@ -75,7 +75,7 @@ function slot_top_left_to_center({x, y}) {
   }
 }
 
-class Main extends Component {
+class Main extends PureComponent {
 
   constructor(p) {
     super(p)
@@ -161,6 +161,8 @@ class Main extends Component {
     this.setState({ 
       kits
     })
+
+    p.onRelease()
   }
 
   grab(kid, e) {
@@ -331,9 +333,10 @@ class Main extends Component {
   }
 }
 
-let { string } = PropTypes
+const { string, func } = PropTypes
 Main.propTypes = {
   brush : string,
+  onRelease : func,
 }
 
 const sm = (s) => {
@@ -344,10 +347,10 @@ const sm = (s) => {
 
 const dm = (d) => {
   return {
-    // onTodoClick: (id) => {
-    //   d(toggleTodo(id))
-    // }
+    onRelease : ()=>{
+      d({ type: 'brush_clear'})
+    },
   }
 }
 
-export default connect(sm)(Main);
+export default connect(sm, dm)(Main);

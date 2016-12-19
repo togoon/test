@@ -1,6 +1,7 @@
 import React, { PureComponent as Component, PropTypes } from 'react';
 import { css, border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 import cx from 'classnames'
+import { connect } from 'react-redux'
 
 const S = css({
 
@@ -82,5 +83,19 @@ ToolPanel.propTypes = {
   onPick : PropTypes.func, // 选中一个画刷（图元）的回调 (idx)
 }
 
-export default ToolPanel
+const sm = (s) => {
+  return {
+    sel : s.brush,
+  }
+}
+
+const dm = (d) => {
+  return {
+    onPick : (key)=>{
+      d({ type: 'brush_set', val: key})
+    },
+  }
+}
+
+export default connect(sm, dm)(ToolPanel)
 

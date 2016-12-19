@@ -45,30 +45,29 @@ class App extends Component {
   }
 
   // 选中一个画刷
-  onBrush(id) {
-    store.dispatch({type: 'brush_set', val: id})
+  // onBrush(id) {
+  //   store.dispatch({type: 'brush_set', val: id})
 
-    this.setState({ brush:id })
-  }
+  //   this.setState({ brush:id })
+  // }
 
   // 取消画刷
   offBrush() {
     console.log("esc");
-    store.dispatch({type: 'brush_clear'})
+    // store.dispatch({type: 'brush_clear'})
 
     this.setState({ brush:null })
   }
 
   render() {
-    const ss = store.getState()
-    console.log("ss", store.getState())
 
-    let s = this.state
+    // let s = this.state
     return <Provider store={store} >
         <HotKeys className={S.main} handlers={
         {'esc' : this.offBrush.bind(this)}
       } >
-        <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} />
+        {/* <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} /> */}
+        <ToolPanel />
         <Main_ />
       </HotKeys>
     </Provider>

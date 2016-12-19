@@ -78,13 +78,15 @@ class Main extends Component {
   constructor(p) {
     super(p)
   
-    this.onClick = this.onClick.bind(this)
-    this.dragItem = this.dragItem.bind(this)
+    this.newItem = this.newItem.bind(this)
+    this.grab = this.grab.bind(this)
+    this.release = this.release.bind(this)
+    this.ifdrag = this.ifdrag.bind(this)
   }
 
   state = {
 
-    kits : M({ // 图元数据
+    kits : M({ // 图元数据, immutable
       m1 : {
         type : 'mysql',
         x : 150,
@@ -121,7 +123,7 @@ class Main extends Component {
       },
     },
 
-    mode : 'normal', // 当前的操作状态，可选值 'drag'
+    mode : 'normal', // 当前的操作状态，可选值 'grab'
 
   }
 
@@ -130,7 +132,7 @@ class Main extends Component {
     return !_.isNull(p.brush) 
   }
 
-  onClick() {
+  newItem() {
     let p = this.props
 
     if ( this.hasBrush() ) {
@@ -138,8 +140,20 @@ class Main extends Component {
     }
   }
 
-  dragItem(id) {
-    this.setState({ mode:'drag' })
+  grab() {
+    this.setState({ mode : 'grab' })
+  }
+
+  release() {
+    this.setState({ mode : 'normal' })
+  }
+
+  ifdrag() {
+    const s = this.state
+    
+    if ( s.mode === 'grab' ) {
+      console.log("drag!!!")
+    }
   }
 
   render() {
@@ -148,7 +162,7 @@ class Main extends Component {
     let Items = []
     s.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={null} />)
+      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.grab} />)
     })
 
     // 插口组
@@ -253,7 +267,7 @@ class Main extends Component {
     return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
-      onClick={this.onClick}
+      onClick={this.newItem} onMouseUp={this.release} onMouseMove={this.ifdrag}
     >
       {Items}
       {Links}

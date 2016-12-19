@@ -2,6 +2,7 @@ import React, { Component, PropTypes} from 'react'
 
 import _ from 'lodash'
 import cx from 'classnames'
+import {Map as M} from 'immutable'
 
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
@@ -83,7 +84,7 @@ class Main extends Component {
 
   state = {
 
-    kits : { // 图元数据
+    kits : M({ // 图元数据
       m1 : {
         type : 'mysql',
         x : 150,
@@ -104,7 +105,7 @@ class Main extends Component {
         x : 400,
         y : 240,
       },
-    },
+    }),
 
     links : {
       l1 : {
@@ -144,9 +145,10 @@ class Main extends Component {
   render() {
     const s = this.state
 
-    let Items = _.map(s.kits, (item, id) => {
+    let Items = []
+    s.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
-      return <Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={null} />
+      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={null} />)
     })
 
     // 插口组
@@ -162,7 +164,8 @@ class Main extends Component {
       // }
     } // 插口坐标缓存
 
-    const Slots = _.map(s.kits, (item, id ) => {
+    let Slots = []
+    s.kits.forEach((item, id ) => {
 
       let model = models[item.type] // 取到逻辑model
 
@@ -187,7 +190,7 @@ class Main extends Component {
 
           xys[key] = xy // 缓存
 
-          return <g {...gp}>
+          return <g key={rid} {...gp}>
             <rect id={rid} width={10} height={10} fill='chocolate' {...xy} />
             <text {...xy} visibility="hidden">
               {key}
@@ -217,7 +220,7 @@ class Main extends Component {
 
           xys[key] = xy // 缓存
 
-          return <g  {...gp}>
+          return <g key={rid} {...gp}>
             <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} />
             <text {...xy} visibility="hidden">
               {key}
@@ -228,7 +231,7 @@ class Main extends Component {
 
       })()
 
-      return [...Ins, ...Outs]
+      Slots =  [...Slots, ...Ins, ...Outs]
 
     })
 

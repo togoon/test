@@ -8,6 +8,7 @@ import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './ObjType.js'
+import uuid from 'uuid/v1' 
 
 const S = css({
   main: {
@@ -137,12 +138,28 @@ class Main extends Component {
     return !_.isNull(p.brush) 
   }
 
-  newItem() {
-    let p = this.props
+  // 点下一个新的图元
+  newItem(e) {
+    const p = this.props
+    const s = this.state
 
-    if ( this.hasBrush() ) {
-      console.log("draw:" + p.brush)
+    if ( !this.hasBrush() ) {
+      return
     }
+
+    console.log("draw:" + p.brush)
+
+    const {top, left} = this.refs.svg.getBoundingClientRect()
+    const kit = {
+      type :  p.brush,
+      x : e.clientX - left,
+      y : e.clientY - top, 
+    }
+
+    const kits = s.kits.set(uuid(), kit)
+    this.setState({ 
+      kits
+    })
   }
 
   grab(kid, e) {
@@ -303,6 +320,7 @@ class Main extends Component {
     return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
+      ref='svg'
       onClick={this.newItem} onMouseUp={this.release} onMouseMove={this.ifdrag.bind(this)}
     >
       {Items}
@@ -312,8 +330,9 @@ class Main extends Component {
   }
 }
 
+let { string } = PropTypes
 Main.propTypes = {
-  brush: PropTypes.number,
+  brush : string,
 }
 
 export default Main;

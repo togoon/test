@@ -35,9 +35,18 @@ class ToolPanel extends Component {
 
     this.state = {
       data : [
-        "Mysql",
-        "Storage",
-        "Tomcat",
+        {
+          name: "Mysql",
+          type: 'mysql',
+        },
+        {
+          name: "Storage",
+          type: 'storage',
+        },
+        {
+          name: "Tomcat",
+          type: 'tomcat',
+        },
       ],
       sel : p.sel, // 当前选中的，缺省为null
     }
@@ -48,7 +57,7 @@ class ToolPanel extends Component {
   }
   
   onClick(i) {
-    let p = this.props
+    const p = this.props
     
     this.setState({sel:i})
     p.onPick(i)
@@ -59,15 +68,17 @@ class ToolPanel extends Component {
     return <div className={S.main}>
       <div className={S.title}>组件库</div>
       {s.data.map( (v,i) => 
-        <div key={i} className={cx(S.item, { [S.picked] : s.sel === i })}  onClick={this.onClick.bind(this, i)}>
-          {v}
+        <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
+          {v.name}
         </div> 
       )}
     </div>
   }
 }
 
+let { any} = PropTypes
 ToolPanel.propTypes = {
+  sel : any,
   onPick : PropTypes.func, // 选中一个画刷（图元）的回调 (idx)
 }
 

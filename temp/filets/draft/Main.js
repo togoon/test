@@ -33,6 +33,7 @@ const SLOT_HEIGHT = 10
 
 // 用于生成一排slot的位置
 function posGen(x, y, n, type) {
+  // TODO: 后面可以考虑让其分担更多render里的细节
   // type: 0 in, 1 out
 
   const step = 20
@@ -51,7 +52,6 @@ function posGen(x, y, n, type) {
       y : ry,
     }
   }
-  
 }
 
 class Main extends Component {
@@ -114,7 +114,7 @@ class Main extends Component {
   }
   
   render() {
-    let s = this.state
+    const s = this.state
 
     let Items = _.map(s.kits, (item, i) => {
       let Cls =  widgetMap[item.type] // 取到组件类
@@ -122,7 +122,19 @@ class Main extends Component {
     })
 
     // 插口组
-    let Slots = _.map(s.kits, (item, i ) => {
+    let slot_coords = {
+      // 形如：
+      // m1 : {
+      //  in : {
+      //    xx {
+      //      x : 100,
+      //      y : 20,
+      //    }
+      //  }
+      // }
+    } // 插口坐标缓存
+
+    const Slots = _.map(s.kits, (item, i ) => {
 
       let model = models[item.type] // 取到逻辑model
 
@@ -136,15 +148,20 @@ class Main extends Component {
 
         const gen = posGen(item.x, item.y, _.size(model.in), 0)
 
+        slot_coords[i] = slot_coords[i] || {}
+        let xys = slot_coords[i].in = {}
+
         return _.map(model.in, ( type, key) => {
 
           let rid = `slot_${i}_${key}`
 
-          const pr = gen()
+          const xy = gen() // 取到当前插口坐标
+
+          xys[key] = xy // 缓存
 
           return <g {...gp}>
-            <rect id={rid} width={10} height={10} fill='chocolate' {...pr} />
-            <text {...pr} visibility="hidden">
+            <rect id={rid} width={10} height={10} fill='chocolate' {...xy} />
+            <text {...xy} visibility="hidden">
               {key}
               <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
             </text>
@@ -152,8 +169,13 @@ class Main extends Component {
         })
       })()
 
+      console.log("slot coords", slot_coords)
+
       // 输出插口
       let Outs = (()=>{
+
+        slot_coords[i] = slot_coords[i] || {}
+        let xys = slot_coords[i].out = {}
 
         let outs = model.out
 
@@ -165,11 +187,13 @@ class Main extends Component {
 
         return _.map(outs, ( type, key) => {
           let rid = `slot_${i}_${key}`
-          const pr = gen()
+          const xy = gen()
+
+          xys[key] = xy // 缓存
 
           return <g  {...gp}>
-            <rect id={rid} width={10} height={10} fill='cornsilk' {...pr} />
-            <text {...pr} visibility="hidden">
+            <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} />
+            <text {...xy} visibility="hidden">
               {key}
               <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
             </text>
@@ -183,8 +207,8 @@ class Main extends Component {
     })
 
     let Links = _.map(s.links, (item, i ) => {
-      let from = s.kits[item.from]
-      let to = s.kits[item.to]
+      const from = slot_coords[item.from].out[item.from_port || 'out']
+      const to = slot_coords[item.to].in[item.to_port]
       
       let l =  {
         x1 : from.x,

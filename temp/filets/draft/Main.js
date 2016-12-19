@@ -30,6 +30,7 @@ const widgetMap = {
 const KIT_WIDTH = 100
 const KIT_HEIGHT = 100
 const SLOT_HEIGHT = 10
+const SLOT_WIDTH = 10
 
 // 用于生成一排slot的位置
 function posGen(x, y, n, type) {
@@ -51,6 +52,14 @@ function posGen(x, y, n, type) {
       x : rx + (step * i++),
       y : ry,
     }
+  }
+}
+
+// slot坐标的修正
+function slot_top_left_to_center({x, y}) {
+  return {
+    x : x + (SLOT_WIDTH / 2),
+    y : y + (SLOT_HEIGHT / 2),
   }
 }
 
@@ -207,8 +216,8 @@ class Main extends Component {
     })
 
     let Links = _.map(s.links, (item, i ) => {
-      const from = slot_coords[item.from].out[item.from_port || 'out']
-      const to = slot_coords[item.to].in[item.to_port]
+      const from = slot_top_left_to_center(slot_coords[item.from].out[item.from_port || 'out'])
+      const to = slot_top_left_to_center(slot_coords[item.to].in[item.to_port])
       
       let l =  {
         x1 : from.x,
@@ -238,8 +247,3 @@ Main.propTypes = {
 }
 
 export default Main;
-/*
-      <Mysql x={ 100 } y={ 100 } onClick={this.test}/>
-      <Mysql x={300} y={200} />
-      <Storage x={300} y={40} />
- */

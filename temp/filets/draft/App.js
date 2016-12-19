@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
 import {css, border as bd, flex, } from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
@@ -13,6 +15,8 @@ const S = css({
     height: 500,
   },
 })
+
+let store = createStore(() => {})
 
 class App extends Component {
 
@@ -33,13 +37,14 @@ class App extends Component {
 
   render() {
     let s = this.state
-    
-    return <HotKeys className={S.main} handlers={
-       {'esc' : this.offBrush.bind(this)}
-    } >
-      <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} />
-      <Main brush={s.brush}/>
-    </HotKeys>
+    return <Provider store={store} >
+        <HotKeys className={S.main} handlers={
+        {'esc' : this.offBrush.bind(this)}
+      } >
+        <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} />
+        <Main brush={s.brush}/>
+      </HotKeys>
+    </Provider>
   }
 }
 

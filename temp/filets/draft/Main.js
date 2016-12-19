@@ -26,6 +26,11 @@ const widgetMap = {
   storage : Storage,
 }
 
+// 图元的宽度，后续考虑弄到某个配置里去
+const KIT_WIDTH = 100
+const KIT_HEIGHT = 100
+const SLOT_HEIGHT = 10
+
 function xgen(w, n) {
   let step = 20
   let i = 0
@@ -33,6 +38,29 @@ function xgen(w, n) {
   return () => {
     return start + ( step * i++ )
   }
+}
+
+// 用于生成一排slot的位置
+function posGen(x, y, n, type) {
+  // type: 0 in, 1 out
+
+  const step = 20
+  let i = 0
+  // 起始相对位置
+  const x0 = (KIT_WIDTH - (step * (n-1))) / 2
+  const y0 = type ? -SLOT_HEIGHT : KIT_HEIGHT-SLOT_HEIGHT
+
+  // 起始绝对位置
+  const rx = x + x0
+  const ry = y + y0
+
+  return () => {
+    return {
+      x : rx + (step * i++),
+      y : y0,
+    }
+  }
+  
 }
 
 class Main extends Component {
@@ -64,11 +92,14 @@ class Main extends Component {
     links : {
       l1 : {
         from : 's1',
+        // from_port: // 如果缺省，则为唯一的"out"
         to : 'm1',
+        to_port: 'volumn',
       },
       l2 : {
         from : 's2',
         to : 'm2',
+        to_port: 'volumn',
       },
     },
 
@@ -111,6 +142,7 @@ class Main extends Component {
 
       // 输入插口
       let Ins = (()=>{
+
         let x = xgen(100, _.size(model.in))
 
         return _.map(model.in, ( type, key) => {

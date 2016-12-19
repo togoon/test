@@ -79,9 +79,7 @@ class Main extends Component {
     super(p)
   
     this.newItem = this.newItem.bind(this)
-    this.grab = this.grab.bind(this)
     this.release = this.release.bind(this)
-    this.ifdrag = this.ifdrag.bind(this)
   }
 
   state = {
@@ -125,6 +123,13 @@ class Main extends Component {
 
     mode : 'normal', // 当前的操作状态，可选值 'grab'
 
+    grabbed_kit: null, // 当前抓住的图元，为其id
+  }
+
+  // 用于在拖动时正确计算图元的坐标
+  drag_delta = {
+    dx : null,
+    dy : null,
   }
 
   hasBrush() {
@@ -140,20 +145,51 @@ class Main extends Component {
     }
   }
 
-  grab() {
-    this.setState({ mode : 'grab' })
+  grab(kid, e) {
+    const s = this.state
+    const kit = s.kits.get(kid)
+    
+    this.drag_delta = {
+      dx : kit.x - e.clientX,
+      dy : kit.y - e.clientY,
+    }
+
+    this.setState({ 
+      mode : 'grab',
+      grabbed_kit : kid,
+    })
   }
 
   release() {
-    this.setState({ mode : 'normal' })
+    this.setState({ 
+      mode : 'normal' ,
+      grabbed_kit : null,
+    })
   }
 
-  ifdrag() {
+  ifdrag(e) {
     const s = this.state
     
-    if ( s.mode === 'grab' ) {
-      console.log("drag!!!")
+    // 只有grab状态才进行拖动
+    if ( s.mode !== 'grab' ) {
+      return
     }
+
+    // 取到对应图元的坐标
+    const kid = s.grabbed_kit
+    const kit = s.kits.get(kid)
+
+    // 更新坐标
+    const kits = s.kits.set(kid, {
+      ...kit,
+      x : e.clientX + this.drag_delta.dx,
+      y : e.clientY + this.drag_delta.dy,
+    })
+
+    // 更新state
+    this.setState({ 
+      kits,
+    })
   }
 
   render() {
@@ -162,7 +198,7 @@ class Main extends Component {
     let Items = []
     s.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.grab} />)
+      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.grab.bind(this, id)} />)
     })
 
     // 插口组
@@ -267,7 +303,7 @@ class Main extends Component {
     return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
-      onClick={this.newItem} onMouseUp={this.release} onMouseMove={this.ifdrag}
+      onClick={this.newItem} onMouseUp={this.release} onMouseMove={this.ifdrag.bind(this)}
     >
       {Items}
       {Links}

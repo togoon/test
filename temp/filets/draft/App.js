@@ -4,10 +4,10 @@ import React, { Component } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
 import { createStore, combineReducers} from 'redux'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 
 import {css, border as bd, flex, } from './utils/cssobj.js'
-import ToolPanel from './ToolPanel.js'
+import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 
 const S = css({
@@ -35,41 +35,41 @@ const app = combineReducers({
   brush,
 })
 
-
 let store = createStore(app)
 
-class App extends Component {
-
-  state = {
-    brush: null, // 选中的画刷
-  }
-
-  // 选中一个画刷
-  // onBrush(id) {
-  //   store.dispatch({type: 'brush_set', val: id})
-
-  //   this.setState({ brush:id })
-  // }
-
-  // 取消画刷
-  offBrush() {
-    console.log("esc");
-    // store.dispatch({type: 'brush_clear'})
-
-    this.setState({ brush:null })
-  }
+class C extends Component {
 
   render() {
+    const p = this.props
 
-    // let s = this.state
+    return <HotKeys className={S.main} handlers={
+      {'esc' : p.offBrush}
+    } >
+      <ToolPanel_ />
+      <Main_ />
+    </HotKeys>
+  }
+}
+
+const { func, } = React.PropTypes
+C.propTypes = {
+  offBrush : func, // 取消画刷
+}
+
+const dm = (d) => {
+  return {
+    offBrush : ()=>{
+      d({ type: 'brush_clear'})
+    },
+  }
+}
+
+const C_ = connect(null, dm)(C)
+
+class App extends Component {
+  render() {
     return <Provider store={store} >
-        <HotKeys className={S.main} handlers={
-        {'esc' : this.offBrush.bind(this)}
-      } >
-        {/* <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} /> */}
-        <ToolPanel />
-        <Main_ />
-      </HotKeys>
+      <C_ />
     </Provider>
   }
 }

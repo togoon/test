@@ -18,6 +18,13 @@ const S = css({
   todraw: {
     cursor: "crosshair",
   },
+
+  kit : {
+    '&:hover' : {
+      cursor : 'grabbing',
+    },
+  },
+
 })
 
 // 图元的映射
@@ -118,16 +125,12 @@ class Main extends Component {
     }
   }
 
-  test() {
-    console.log("haha")
-  }
-  
   render() {
     const s = this.state
 
     let Items = _.map(s.kits, (item, i) => {
       let Cls =  widgetMap[item.type] // 取到组件类
-      return <Cls key={i} x={item.x} y={item.y} />
+      return <Cls key={i} x={item.x} y={item.y} className={S.kit}/>
     })
 
     // 插口组
@@ -177,8 +180,6 @@ class Main extends Component {
           </g>
         })
       })()
-
-      console.log("slot coords", slot_coords)
 
       // 输出插口
       let Outs = (()=>{

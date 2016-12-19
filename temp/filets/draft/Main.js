@@ -31,15 +31,6 @@ const KIT_WIDTH = 100
 const KIT_HEIGHT = 100
 const SLOT_HEIGHT = 10
 
-function xgen(w, n) {
-  let step = 20
-  let i = 0
-  let start = (w - (step * (n-1))) / 2
-  return () => {
-    return start + ( step * i++ )
-  }
-}
-
 // 用于生成一排slot的位置
 function posGen(x, y, n, type) {
   // type: 0 in, 1 out
@@ -57,7 +48,7 @@ function posGen(x, y, n, type) {
   return () => {
     return {
       x : rx + (step * i++),
-      y : y0,
+      y : ry,
     }
   }
   
@@ -143,17 +134,15 @@ class Main extends Component {
       // 输入插口
       let Ins = (()=>{
 
-        let x = xgen(100, _.size(model.in))
+        const gen = posGen(item.x, item.y, _.size(model.in), 0)
 
         return _.map(model.in, ( type, key) => {
-          let pr = {
-            x : x(),
-            y : 90,
-          }
 
           let rid = `slot_${i}_${key}`
 
-          return <g transform={`translate(${item.x} ${item.y})`} {...gp}>
+          const pr = gen()
+
+          return <g {...gp}>
             <rect id={rid} width={10} height={10} fill='chocolate' {...pr} />
             <text {...pr} visibility="hidden">
               {key}
@@ -172,17 +161,13 @@ class Main extends Component {
           outs = { out : outs }
         }
 
-        let x = xgen(100, _.size(outs))
+        const gen = posGen(item.x, item.y, _.size(outs), 1)
 
         return _.map(outs, ( type, key) => {
-          let pr = {
-            x : x(),
-            y : -10,
-          }
-
           let rid = `slot_${i}_${key}`
+          const pr = gen()
 
-          return <g transform={`translate(${item.x} ${item.y})`} {...gp}>
+          return <g  {...gp}>
             <rect id={rid} width={10} height={10} fill='cornsilk' {...pr} />
             <text {...pr} visibility="hidden">
               {key}

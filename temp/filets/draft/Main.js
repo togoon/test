@@ -19,10 +19,12 @@ const S = css({
     cursor: "crosshair",
   },
 
-  kit : {
-    '&:hover' : {
-      cursor : 'grabbing',
-    },
+  grab : {
+    cursor : 'grab',
+  },
+
+  grabbing : {
+    cursor : 'grabbing',
   },
 
 })
@@ -72,7 +74,15 @@ function slot_top_left_to_center({x, y}) {
 
 class Main extends Component {
 
+  constructor(p) {
+    super(p)
+  
+    this.onClick = this.onClick.bind(this)
+    this.dragItem = this.dragItem.bind(this)
+  }
+
   state = {
+
     kits : { // 图元数据
       m1 : {
         type : 'mysql',
@@ -110,6 +120,8 @@ class Main extends Component {
       },
     },
 
+    mode : 'normal', // 当前的操作状态，可选值 'drag'
+
   }
 
   hasBrush() {
@@ -125,12 +137,16 @@ class Main extends Component {
     }
   }
 
+  dragItem(id) {
+    this.setState({ mode:'drag' })
+  }
+
   render() {
     const s = this.state
 
-    let Items = _.map(s.kits, (item, i) => {
-      let Cls =  widgetMap[item.type] // 取到组件类
-      return <Cls key={i} x={item.x} y={item.y} className={S.kit}/>
+    let Items = _.map(s.kits, (item, id) => {
+      const Kit =  widgetMap[item.type] // 取到组件类
+      return <Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={null} />
     })
 
     // 插口组
@@ -146,7 +162,7 @@ class Main extends Component {
       // }
     } // 插口坐标缓存
 
-    const Slots = _.map(s.kits, (item, i ) => {
+    const Slots = _.map(s.kits, (item, id ) => {
 
       let model = models[item.type] // 取到逻辑model
 
@@ -160,12 +176,12 @@ class Main extends Component {
 
         const gen = posGen(item.x, item.y, _.size(model.in), 0)
 
-        slot_coords[i] = slot_coords[i] || {}
-        let xys = slot_coords[i].in = {}
+        slot_coords[id] = slot_coords[id] || {}
+        let xys = slot_coords[id].in = {}
 
         return _.map(model.in, ( type, key) => {
 
-          let rid = `slot_${i}_${key}`
+          let rid = `slot_${id}_${key}`
 
           const xy = gen() // 取到当前插口坐标
 
@@ -184,8 +200,8 @@ class Main extends Component {
       // 输出插口
       let Outs = (()=>{
 
-        slot_coords[i] = slot_coords[i] || {}
-        let xys = slot_coords[i].out = {}
+        slot_coords[id] = slot_coords[id] || {}
+        let xys = slot_coords[id].out = {}
 
         let outs = model.out
 
@@ -196,7 +212,7 @@ class Main extends Component {
         const gen = posGen(item.x, item.y, _.size(outs), 1)
 
         return _.map(outs, ( type, key) => {
-          let rid = `slot_${i}_${key}`
+          let rid = `slot_${id}_${key}`
           const xy = gen()
 
           xys[key] = xy // 缓存
@@ -234,7 +250,7 @@ class Main extends Component {
     return <svg className={cx(S.main, {
       [S.todraw] : this.hasBrush()
     })} 
-      onClick={this.onClick.bind(this)}
+      onClick={this.onClick}
     >
       {Items}
       {Links}

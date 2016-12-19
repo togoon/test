@@ -3,6 +3,7 @@ import React, { Component, PropTypes} from 'react'
 import _ from 'lodash'
 import cx from 'classnames'
 import {Map as M} from 'immutable'
+import { connect } from 'react-redux'
 
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
@@ -335,4 +336,18 @@ Main.propTypes = {
   brush : string,
 }
 
-export default Main;
+const sm = (s) => {
+  return {
+    brush : s.brush,
+  }
+}
+
+const dm = (d) => {
+  return {
+    // onTodoClick: (id) => {
+    //   d(toggleTodo(id))
+    // }
+  }
+}
+
+export default connect(sm)(Main);

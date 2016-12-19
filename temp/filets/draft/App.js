@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-pascal-case */
+
 import React, { Component } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
@@ -6,7 +8,7 @@ import { Provider } from 'react-redux'
 
 import {css, border as bd, flex, } from './utils/cssobj.js'
 import ToolPanel from './ToolPanel.js'
-import Main from './Main.js'
+import Main_ from './Main.js' 
 
 const S = css({
   main: {
@@ -67,7 +69,7 @@ class App extends Component {
         {'esc' : this.offBrush.bind(this)}
       } >
         <ToolPanel onPick={this.onBrush.bind(this)} sel={s.brush} />
-        <Main brush={ss.brush}/>
+        <Main_ />
       </HotKeys>
     </Provider>
   }

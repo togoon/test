@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
-import models from './ObjType.js'
+import models from './kit_type.js'
 import uuid from 'uuid/v1' 
 
 const S = css({

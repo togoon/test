@@ -115,7 +115,7 @@ function pick_link(s, a) {
   return s
 }
 
-function del(s) {
+function del(s) { // 删除元素
   const type = s.get('selected_type')
   const id = s.get('selected')
   let links = s.get('links')

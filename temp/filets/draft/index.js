@@ -118,11 +118,21 @@ function pick_link(s, a) {
 function del(s) {
   const type = s.get('selected_type')
   const id = s.get('selected')
+  let links = s.get('links')
   if ( type === 'link' ) { // 删除link
-    let links = s.get('links')
     links = _.omit(links, id)
     s = s.set('links', links)
   } else if ( type === 'kit' ) {
+    // 删除跟它相关的边
+    links = _.pickBy(links, (v) => {
+      if ( v.from === id || v.to === id ) {
+        return false
+      } 
+      return true
+    })
+    s = s.set('links', links)
+
+    // 删除图元
     let kits = s.get('kits')
     kits = kits.delete(id)
     s = s.set('kits', kits)

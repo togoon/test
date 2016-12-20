@@ -115,15 +115,12 @@ class Main extends PureComponent {
   onItemClick(id, e){
     e.stopPropagation()
     const p = this.props 
-
-    console.log("item click", id)
     p.pick_kit(id)
   }
 
   onLinkClick(id, e) {
     e.stopPropagation()
     const p = this.props 
-    console.log("link click", id)
     p.pick_link(id)
   }
 

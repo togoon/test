@@ -51,7 +51,7 @@ let s0 = IMap({
     },
   },
 
-  mode : 'normal', // 当前的操作状态，可选值 'grab'
+  mode : 'normal', // 当前的操作状态，可选值 grab, draw
 
   grabbed_kit: null, // 当前抓住的图元，为其id
 
@@ -91,11 +91,17 @@ function release(s) {
   return s.set('grabbed_kit', null)
 }
 
+function brush_set(s, a) {
+  s = s.set('brush', a.val)
+  s = s.set('mode', 'draw')
+  return s
+}
+
 function reducer(s = s0, a) {
   switch(a.type) {
 
     case 'brush_set':
-      return s.set('brush', a.val)
+      return brush_set(s, a)
 
     case 'brush_clear':
       console.log("clear!")

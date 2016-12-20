@@ -87,20 +87,13 @@ class Main extends PureComponent {
     dy : null,
   }
 
-  hasBrush() {
-    let p = this.props
-    return !_.isNull(p.brush) 
-  }
-
   // 点下一个新的图元
   newItem(e) {
     const p = this.props
 
-    if ( !this.hasBrush() ) {
+    if ( p.mode !== 'draw' ) {
       return
     }
-
-    console.log("draw:" + p.brush)
 
     const {top, left} = this.refs.svg.getBoundingClientRect()
     const x = e.clientX - left
@@ -111,7 +104,7 @@ class Main extends PureComponent {
 
   release() {
     const p = this.props 
-    if( p.brush )
+    if( p.mode === 'draw' )
       return
 
     p.release()
@@ -254,7 +247,7 @@ class Main extends PureComponent {
     })
 
     return <svg className={cx(S.main, {
-      [S.todraw] : this.hasBrush()
+      [S.todraw] : p.mode === 'draw'
     })} 
       ref='svg'
       onClick={this.newItem} onMouseUp={this.release.bind(this)} onMouseMove={this.ifdrag.bind(this)}
@@ -269,7 +262,6 @@ class Main extends PureComponent {
 const { string, func, any } = PropTypes
 Main.propTypes = {
 
-  brush : string,
   kits : any,
   links : any,
   mode : string, 
@@ -284,7 +276,6 @@ Main.propTypes = {
 
 const sm = (s) => {
   return {
-    brush : s.get('brush'),
     kits : s.get('kits'),
     links : s.get('links'),
     mode : s.get('mode'),

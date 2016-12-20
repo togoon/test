@@ -341,7 +341,7 @@ Main.propTypes = {
 
 const sm = (s) => {
   return {
-    brush : s.brush,
+    brush : s.get('brush'),
   }
 }
 

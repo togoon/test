@@ -85,7 +85,7 @@ ToolPanel.propTypes = {
 
 const sm = (s) => {
   return {
-    sel : s.brush,
+    sel : s.get('brush'),
   }
 }
 

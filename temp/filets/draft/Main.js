@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes} from 'react'
+import React, { PureComponent } from 'react'
 
 import _ from 'lodash'
 import cx from 'classnames'
@@ -259,20 +259,7 @@ class Main extends PureComponent {
   }
 }
 
-const { string, func, any } = PropTypes
-Main.propTypes = {
-
-  kits : any,
-  links : any,
-  mode : string, 
-
-  newItem : func, // p.newItem(x, y)
-  grab : func, // p.grab(kid)
-  moveTo : func, // p.moveTo(x, y)
-  release : func,
-
-}
-
+// 由于是被redux connect的组件，可省去写PropTypes的环节
 const sm = (s) => {
   return {
     kits : s.get('kits'),
@@ -284,24 +271,24 @@ const sm = (s) => {
 const dm = (d) => {
   return {
 
-    newItem : (x, y)=>{
+    newItem(x, y){
       d({ 
         type: 'new_item',
         x, y,
       })
     },
 
-    grab : (kid)=>{
+    grab(kid){
       d({ type: 'grab', kid})
     },
 
-    moveTo : (x, y)=>{
+    moveTo(x, y){
       d({ type: 'move_to', x, y})
     },
 
-    release : () => {
+    release()  {
       d({ type: 'release' })
-    }
+    },
 
   }
 }

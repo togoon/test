@@ -3,8 +3,7 @@
 import React, { Component } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
-import { createStore, combineReducers} from 'redux'
-import { Provider, connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 import {css, border as bd, flex, } from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
@@ -18,26 +17,7 @@ const S = css({
   },
 })
 
-// brush的reducer
-function brush(s = null, a) {
-  switch(a.type) {
-    case 'brush_set':
-      return a.val
-    case 'brush_clear':
-      console.log("clear!")
-      return null
-    default:
-      return s
-  }
-}
-
-const app = combineReducers({
-  brush,
-})
-
-let store = createStore(app)
-
-class C extends Component {
+class App extends Component {
 
   render() {
     const p = this.props
@@ -54,7 +34,7 @@ class C extends Component {
 }
 
 const { func, } = React.PropTypes
-C.propTypes = {
+App.propTypes = {
   offBrush : func, // 取消画刷
 }
 
@@ -66,15 +46,5 @@ const dm = (d) => {
   }
 }
 
-const C_ = connect(null, dm)(C)
-
-class App extends Component {
-  render() {
-    return <Provider store={store} >
-      <C_ />
-    </Provider>
-  }
-}
-
-export default App;
+export default connect(null, dm)(App)
 

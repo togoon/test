@@ -265,7 +265,6 @@ Main.propTypes = {
   kits : any,
   links : any,
   mode : string, 
-  grabbed_kit : any, 
 
   newItem : func, // p.newItem(x, y)
   grab : func, // p.grab(kid)
@@ -279,7 +278,6 @@ const sm = (s) => {
     kits : s.get('kits'),
     links : s.get('links'),
     mode : s.get('mode'),
-    grabbed_kit : s.get('grabbed_kit'),
   }
 }
 

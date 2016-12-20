@@ -251,6 +251,7 @@ class Main extends PureComponent {
       {Slots}
     </svg>
   }
+
 }
 
 // 由于是被redux connect的组件，可省去写PropTypes的环节

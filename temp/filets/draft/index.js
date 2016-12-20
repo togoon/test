@@ -67,7 +67,7 @@ function newItem(s, x, y) {
   const kits = s.get('kits').set(uuid(), kit)
   s = s.set('kits', kits)
 
-  return release(s)
+  return reset(s)
 }
 
 function grab(s, kid) {
@@ -85,7 +85,7 @@ function moveTo(s, x, y) {
   return s
 }
 
-function release(s) {
+function reset(s) {
   s = s.set('brush', null)
   s = s.set('mode', 'normal')
   return s.set('grabbed_kit', null)
@@ -105,7 +105,7 @@ function reducer(s = s0, a) {
 
     case 'brush_clear':
       console.log("clear!")
-      return release(s)
+      return reset(s)
 
     case 'new_item' :
       console.log("new item!")
@@ -121,7 +121,7 @@ function reducer(s = s0, a) {
 
     case 'release' :
       console.log("release!")
-      return release(s)
+      return reset(s)
 
     default:
       return s

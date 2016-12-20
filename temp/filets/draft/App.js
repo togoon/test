@@ -42,9 +42,10 @@ class C extends Component {
   render() {
     const p = this.props
 
-    return <HotKeys className={S.main} handlers={
-      {'esc' : p.offBrush}
-    } >
+    return <HotKeys className={S.main} handlers={{
+      'esc' : p.offBrush
+    }} 
+    >
       <ToolPanel_ />
       <Main_ />
     </HotKeys>

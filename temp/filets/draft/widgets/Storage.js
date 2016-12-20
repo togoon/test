@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 import _ from 'lodash'
 
-class Storage extends Component {
+class Storage extends PureComponent {
 
   render() {
     let p = this.props

@@ -1,4 +1,4 @@
-import React, { PureComponent as Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { css, border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 import cx from 'classnames'
 import { connect } from 'react-redux'
@@ -28,7 +28,7 @@ const S = css({
 
 })
 
-class ToolPanel extends Component {
+class ToolPanel extends PureComponent {
 
   // 初步体验了一下PS模式
   constructor(p) {

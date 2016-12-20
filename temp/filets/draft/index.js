@@ -7,6 +7,7 @@ import { createStore,
 import { Provider } from 'react-redux'
 import {Map as IMap} from 'immutable'
 import uuid from 'uuid/v1' 
+import _ from 'lodash'
 
 import App_ from './App.js'
 
@@ -53,7 +54,11 @@ let s0 = IMap({
 
   mode : 'normal', // 当前的操作状态，可选值 grab, draw
 
-  grabbed_kit: null, // 当前抓住的图元，为其id
+  grabbed_kit: null, // 当前抓住的图元id, 用于拖动
+
+  selected: null, // 当前选中的id，用于删除等操作
+
+  selected_type: null, // 表示当前选中是kit还是link
 
 })
 
@@ -98,10 +103,40 @@ function brush_set(s, a) {
   return s
 }
 
+function pick_kit(s, a) {
+  s = s.set('selected_type', 'kit')
+  s = s.set('selected', a.id)
+  return s
+}
+
+function pick_link(s, a) {
+  s = s.set('selected_type', 'link')
+  s = s.set('selected', a.id)
+  return s
+}
+
+function del(s) {
+  const type = s.get('selected_type')
+  const id = s.get('selected')
+  if ( type === 'link' ) { // 删除link
+    let links = s.get('links')
+    links = _.omit(links, id)
+    s = s.set('links', links)
+  } else if ( type === 'kit' ) {
+    let kits = s.get('kits')
+    kits = kits.delete(id)
+    s = s.set('kits', kits)
+  }
+    
+  return s
+}
+
+// ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
+  pick_kit, pick_link, del,
 }
 
 function reducer(s = s0, a) {

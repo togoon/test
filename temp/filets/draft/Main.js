@@ -4,7 +4,7 @@ import _ from 'lodash'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 
-import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
+import {css, border as bd, hsl, bg, flex, ptr} from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
@@ -19,6 +19,8 @@ const S = css({
   todraw: {
     cursor: "crosshair",
   },
+
+  ptr,
 
   grab : {
     cursor : 'grab',
@@ -95,16 +97,10 @@ class Main extends PureComponent {
     p.newItem(x, y)
   }
 
-  onMouseUp() {
-    // 注：本事件先于onClick发生
-    const p = this.props 
-    if( p.mode === 'draw' )
-      return
+  onItemMouseDown(kid, e) {
 
-    p.release()
-  }
+    e.stopPropagation()
 
-  itemOnMouseDown(kid, e) {
     const p = this.props
     const kit = p.kits.get(kid)
     
@@ -114,6 +110,30 @@ class Main extends PureComponent {
     }
 
     p.grab(kid)
+  }
+
+  onItemClick(id, e){
+    e.stopPropagation()
+    const p = this.props 
+
+    console.log("item click", id)
+    p.pick_kit(id)
+  }
+
+  onLinkClick(id, e) {
+    e.stopPropagation()
+    const p = this.props 
+    console.log("link click", id)
+    p.pick_link(id)
+  }
+
+  onMouseUp() {
+    // 注：本事件先于onClick发生
+    const p = this.props 
+    if( p.mode === 'draw' )
+      return
+
+    p.release()
   }
 
   onMouseMove(e) {
@@ -138,7 +158,9 @@ class Main extends PureComponent {
     let Items = []
     p.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.itemOnMouseDown.bind(this, id)} />)
+      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.onItemMouseDown.bind(this, id)} 
+        onClick={this.onItemClick.bind(this, id)} 
+        />)
     })
 
     // 插口组
@@ -225,7 +247,7 @@ class Main extends PureComponent {
 
     })
 
-    let Links = _.map(p.links, (item, i ) => {
+    let Links = _.map(p.links, (item, id ) => {
       const from = slot_top_left_to_center(slot_coords[item.from].out[item.from_port || 'out'])
       const to = slot_top_left_to_center(slot_coords[item.to].in[item.to_port])
       
@@ -234,10 +256,12 @@ class Main extends PureComponent {
         y1 : from.y,
         x2 : to.x,
         y2 : to.y,
-        key : i,
+        key : id,
       }
 
-      return <line {...l} stroke="black" />
+      return <line {...l} stroke="black" strokeWidth='5' className={S.ptr}
+        onClick={this.onLinkClick.bind(this, id)} 
+      />
     })
 
     return <svg className={cx(S.main, {
@@ -281,10 +305,17 @@ const dm = (d) => {
       d({ type: 'move_to', x, y})
     },
 
-    release()  {
+    release(){
       d({ type: 'release' })
     },
 
+    pick_kit(id){
+      d({ type: 'pick_kit', id})
+    },
+
+    pick_link(id){
+      d({ type: 'pick_link', id})
+    },
   }
 }
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
 import { connect } from 'react-redux'
@@ -17,14 +17,14 @@ const S = css({
   },
 })
 
-class App extends Component {
+class App extends PureComponent {
 
   render() {
     const p = this.props
 
     return <HotKeys className={S.main} handlers={{
-      esc : p.offBrush,
-      del : () => {console.log("heihei")}, 
+      esc : p.brush_clear,
+      del : p.del,
     }} 
     >
       <ToolPanel_ />
@@ -33,15 +33,14 @@ class App extends Component {
   }
 }
 
-const { func, } = React.PropTypes
-App.propTypes = {
-  offBrush : func, // 取消画刷
-}
-
 const dm = (d) => {
   return {
-    offBrush : ()=>{
+    brush_clear(){
       d({ type: 'brush_clear'})
+    },
+
+    del(){
+      d({ type: 'del', })
     },
   }
 }

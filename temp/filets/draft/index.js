@@ -57,11 +57,12 @@ let s0 = IMap({
 
 })
 
-function newItem(s, x, y) {
+function new_item(s, a) {
 
   const kit = {
     type :  s.get('brush'),
-    x, y,
+    x : a.x,
+    y : a.y,
   }
 
   const kits = s.get('kits').set(uuid(), kit)
@@ -70,17 +71,17 @@ function newItem(s, x, y) {
   return reset(s)
 }
 
-function grab(s, kid) {
+function grab(s, a) {
   s = s.set('mode', 'grab')
-  s = s.set('grabbed_kit', kid)
+  s = s.set('grabbed_kit', a.kid)
   return s
 }
 
-function moveTo(s, x, y) {
+function move_to(s, a) {
   const kid = s.get('grabbed_kit')
   let kits = s.get('kits')
   const kit = kits.get(kid)
-  kits = kits.set(kid, {...kit, x, y})
+  kits = kits.set(kid, {...kit, x: a.x, y : a.y})
   s = s.set('kits', kits)
   return s
 }
@@ -97,38 +98,21 @@ function brush_set(s, a) {
   return s
 }
 
-function reducer(s = s0, a) {
-  switch(a.type) {
-
-    case 'brush_set':
-      return brush_set(s, a)
-
-    case 'brush_clear':
-      console.log("clear!")
-      return reset(s)
-
-    case 'new_item' :
-      console.log("new item!")
-      return newItem(s, a.x, a.y)
-
-    case 'grab' :
-      console.log("grab!")
-      return grab(s, a.kid)
-
-    case 'move_to' :
-      console.log("move to!")
-      return moveTo(s, a.x, a.y)
-
-    case 'release' :
-      console.log("release!")
-      return reset(s)
-
-    default:
-      return s
-  }
+const reducer_table = {
+  new_item, grab, move_to, brush_set,
+  brush_clear : reset,
+  release : reset, 
 }
 
-let store = createStore(reducer)
+function reducer(s = s0, a) {
+  const f = reducer_table[a.type]
+  if ( !f ) {
+    return s
+  }
+  return f(s, a)
+}
+
+const store = createStore(reducer)
 
 render(<Provider store={store} >
     <App_ />

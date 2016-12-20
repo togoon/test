@@ -6,6 +6,7 @@ import { createStore,
 } from 'redux'
 import { Provider } from 'react-redux'
 import {Map as IMap} from 'immutable'
+import uuid from 'uuid/v1' 
 
 import App_ from './App.js'
 
@@ -56,6 +57,44 @@ let s0 = IMap({
 
 })
 
+
+function newItem(s, x, y) {
+
+  const kit = {
+    type :  s.get('brush'),
+    x, y,
+  }
+
+  const kits = s.get('kits').set(uuid(), kit)
+  s = s.set('kits', kits)
+
+  return release(s)
+}
+
+function grab(s, kid) {
+  s = s.set('mode', 'grab')
+  s = s.set('grabbed_kit', kid)
+  return s
+}
+
+function moveTo(s, x, y) {
+  const kid = s.get('grabbed_kit')
+  let kits = s.get('kits')
+  const kit = kits.get(kid)
+  kits = kits.set(kid, {...kit, x, y})
+  s = s.set('kits', kits)
+  return s
+}
+
+function brushClear(s) {
+}
+
+function release(s) {
+  s = s.set('brush', null)
+  s = s.set('mode', 'normal')
+  return s.set('grabbed_kit', null)
+}
+
 function reducer(s = s0, a) {
   switch(a.type) {
 
@@ -64,8 +103,23 @@ function reducer(s = s0, a) {
 
     case 'brush_clear':
       console.log("clear!")
-      return s.set('brush', null)
+      return release(s)
 
+    case 'new_item' :
+      console.log("new item!")
+      return newItem(s, a.x, a.y)
+
+    case 'grab' :
+      console.log("grab!")
+      return grab(s, a.kid)
+
+    case 'move_to' :
+      console.log("move to!")
+      return moveTo(s, a.x, a.y)
+
+    case 'release' :
+      console.log("release!")
+      return release(s)
 
     default:
       return s

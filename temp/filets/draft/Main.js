@@ -81,7 +81,6 @@ class Main extends PureComponent {
     super(p)
   
     this.newItem = this.newItem.bind(this)
-    this.release = this.release.bind(this)
   }
 
   state = {
@@ -142,7 +141,6 @@ class Main extends PureComponent {
   // 点下一个新的图元
   newItem(e) {
     const p = this.props
-    const s = this.state
 
     if ( !this.hasBrush() ) {
       return
@@ -151,72 +149,57 @@ class Main extends PureComponent {
     console.log("draw:" + p.brush)
 
     const {top, left} = this.refs.svg.getBoundingClientRect()
-    const kit = {
-      type :  p.brush,
-      x : e.clientX - left,
-      y : e.clientY - top, 
-    }
+    const x = e.clientX - left
+    const y = e.clientY - top
 
-    const kits = s.kits.set(uuid(), kit)
-    this.setState({ 
-      kits
-    })
+    p.newItem(x, y)
+  }
 
-    p.onRelease()
+  release() {
+    const p = this.props 
+    if( p.brush )
+      return
+
+    p.release()
   }
 
   grab(kid, e) {
-    const s = this.state
-    const kit = s.kits.get(kid)
+    const p = this.props
+    const kit = p.kits.get(kid)
     
     this.drag_delta = {
       dx : kit.x - e.clientX,
       dy : kit.y - e.clientY,
     }
 
-    this.setState({ 
-      mode : 'grab',
-      grabbed_kit : kid,
-    })
-  }
-
-  release() {
-    this.setState({ 
-      mode : 'normal' ,
-      grabbed_kit : null,
-    })
+    p.grab(kid)
   }
 
   ifdrag(e) {
-    const s = this.state
+    const p = this.props
     
     // 只有grab状态才进行拖动
-    if ( s.mode !== 'grab' ) {
+    if ( p.mode !== 'grab' ) {
       return
     }
 
     // 取到对应图元的坐标
-    const kid = s.grabbed_kit
-    const kit = s.kits.get(kid)
+    const kid = p.grabbed_kit
+    const kit = p.kits.get(kid)
 
     // 更新坐标
-    const kits = s.kits.set(kid, {
-      ...kit,
-      x : e.clientX + this.drag_delta.dx,
-      y : e.clientY + this.drag_delta.dy,
-    })
+    const x = e.clientX + this.drag_delta.dx
+    const y = e.clientY + this.drag_delta.dy
 
-    // 更新state
-    this.setState({ 
-      kits,
-    })
+    p.moveTo(x, y)
+
   }
 
   render() {
-    const s = this.state
+    const p = this.props
 
     let Items = []
-    s.kits.forEach((item, id) => {
+    p.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
       Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.grab.bind(this, id)} />)
     })
@@ -235,7 +218,7 @@ class Main extends PureComponent {
     } // 插口坐标缓存
 
     let Slots = []
-    s.kits.forEach((item, id ) => {
+    p.kits.forEach((item, id ) => {
 
       let model = models[item.type] // 取到逻辑model
 
@@ -305,7 +288,7 @@ class Main extends PureComponent {
 
     })
 
-    let Links = _.map(s.links, (item, i ) => {
+    let Links = _.map(p.links, (item, i ) => {
       const from = slot_top_left_to_center(slot_coords[item.from].out[item.from_port || 'out'])
       const to = slot_top_left_to_center(slot_coords[item.to].in[item.to_port])
       
@@ -324,7 +307,7 @@ class Main extends PureComponent {
       [S.todraw] : this.hasBrush()
     })} 
       ref='svg'
-      onClick={this.newItem} onMouseUp={this.release} onMouseMove={this.ifdrag.bind(this)}
+      onClick={this.newItem} onMouseUp={this.release.bind(this)} onMouseMove={this.ifdrag.bind(this)}
     >
       {Items}
       {Links}
@@ -333,23 +316,54 @@ class Main extends PureComponent {
   }
 }
 
-const { string, func } = PropTypes
+const { string, func, any } = PropTypes
 Main.propTypes = {
+
   brush : string,
-  onRelease : func,
+  kits : any,
+  links : any,
+  mode : string, 
+  grabbed_kit : any, 
+
+  newItem : func, // p.newItem(x, y)
+  grab : func, // p.grab(kid)
+  moveTo : func, // p.moveTo(x, y)
+  release : func,
+
 }
 
 const sm = (s) => {
   return {
     brush : s.get('brush'),
+    kits : s.get('kits'),
+    links : s.get('links'),
+    mode : s.get('mode'),
+    grabbed_kit : s.get('grabbed_kit'),
   }
 }
 
 const dm = (d) => {
   return {
-    onRelease : ()=>{
-      d({ type: 'brush_clear'})
+
+    newItem : (x, y)=>{
+      d({ 
+        type: 'new_item',
+        x, y,
+      })
     },
+
+    grab : (kid)=>{
+      d({ type: 'grab', kid})
+    },
+
+    moveTo : (x, y)=>{
+      d({ type: 'move_to', x, y})
+    },
+
+    release : () => {
+      d({ type: 'release' })
+    }
+
   }
 }
 

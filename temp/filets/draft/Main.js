@@ -75,20 +75,13 @@ function slot_top_left_to_center({x, y}) {
 
 class Main extends PureComponent {
 
-  constructor(p) {
-    super(p)
-  
-    this.newItem = this.newItem.bind(this)
-  }
-
   // 用于在拖动时正确计算图元的坐标
   drag_delta = {
     dx : null,
     dy : null,
   }
 
-  // 点下一个新的图元
-  newItem(e) {
+  onClick(e) {
     const p = this.props
 
     if ( p.mode !== 'draw' ) {
@@ -102,7 +95,8 @@ class Main extends PureComponent {
     p.newItem(x, y)
   }
 
-  release() {
+  onMouseUp() {
+    // 注：本事件先于onClick发生
     const p = this.props 
     if( p.mode === 'draw' )
       return
@@ -110,7 +104,7 @@ class Main extends PureComponent {
     p.release()
   }
 
-  grab(kid, e) {
+  itemOnMouseDown(kid, e) {
     const p = this.props
     const kit = p.kits.get(kid)
     
@@ -122,7 +116,7 @@ class Main extends PureComponent {
     p.grab(kid)
   }
 
-  ifdrag(e) {
+  onMouseMove(e) {
     const p = this.props
     
     // 只有grab状态才进行拖动
@@ -144,7 +138,7 @@ class Main extends PureComponent {
     let Items = []
     p.kits.forEach((item, id) => {
       const Kit =  widgetMap[item.type] // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.grab.bind(this, id)} />)
+      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.itemOnMouseDown.bind(this, id)} />)
     })
 
     // 插口组
@@ -250,7 +244,7 @@ class Main extends PureComponent {
       [S.todraw] : p.mode === 'draw'
     })} 
       ref='svg'
-      onClick={this.newItem} onMouseUp={this.release.bind(this)} onMouseMove={this.ifdrag.bind(this)}
+      onClick={this.onClick.bind(this)} onMouseUp={this.onMouseUp.bind(this)} onMouseMove={this.onMouseMove.bind(this)}
     >
       {Items}
       {Links}

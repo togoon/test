@@ -43,7 +43,8 @@ class C extends Component {
     const p = this.props
 
     return <HotKeys className={S.main} handlers={{
-      'esc' : p.offBrush
+      esc : p.offBrush,
+      del : () => {console.log("heihei")}, 
     }} 
     >
       <ToolPanel_ />

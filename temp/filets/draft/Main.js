@@ -2,14 +2,12 @@ import React, { PureComponent, PropTypes} from 'react'
 
 import _ from 'lodash'
 import cx from 'classnames'
-import {Map as M} from 'immutable'
 import { connect } from 'react-redux'
 
 import {css, border as bd, hsl, bg, flex, } from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
-import uuid from 'uuid/v1' 
 
 const S = css({
   main: {
@@ -83,50 +81,6 @@ class Main extends PureComponent {
     this.newItem = this.newItem.bind(this)
   }
 
-  state = {
-
-    kits : M({ // 图元数据, immutable
-      m1 : {
-        type : 'mysql',
-        x : 150,
-        y : 100,
-      },
-      m2 : {
-        type : 'mysql',
-        x : 300,
-        y : 100,
-      },
-      s1 : {
-        type : 'storage',
-        x : 100,
-        y : 240,
-      },
-      s2 : {
-        type : 'storage',
-        x : 400,
-        y : 240,
-      },
-    }),
-
-    links : {
-      l1 : {
-        from : 's1',
-        // from_port: // 如果缺省，则为唯一的"out"
-        to : 'm1',
-        to_port: 'volumn',
-      },
-      l2 : {
-        from : 's2',
-        to : 'm2',
-        to_port: 'volumn',
-      },
-    },
-
-    mode : 'normal', // 当前的操作状态，可选值 'grab'
-
-    grabbed_kit: null, // 当前抓住的图元，为其id
-  }
-
   // 用于在拖动时正确计算图元的坐标
   drag_delta = {
     dx : null,
@@ -182,10 +136,6 @@ class Main extends PureComponent {
     if ( p.mode !== 'grab' ) {
       return
     }
-
-    // 取到对应图元的坐标
-    const kid = p.grabbed_kit
-    const kit = p.kits.get(kid)
 
     // 更新坐标
     const x = e.clientX + this.drag_delta.dx

@@ -57,7 +57,6 @@ let s0 = IMap({
 
 })
 
-
 function newItem(s, x, y) {
 
   const kit = {
@@ -84,9 +83,6 @@ function moveTo(s, x, y) {
   kits = kits.set(kid, {...kit, x, y})
   s = s.set('kits', kits)
   return s
-}
-
-function brushClear(s) {
 }
 
 function release(s) {

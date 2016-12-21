@@ -188,6 +188,73 @@ class Main extends PureComponent {
     })
   }
 
+  makeSlots(x, y, model){
+
+    let gp = {
+      stroke : 'black',
+      strokeWidth : 0.5,
+    }
+
+    // 输入插口
+    let Ins = (()=>{
+
+      const gen = posGen(x, y, _.size(model.in), 0)
+
+      slot_coords[id] = slot_coords[id] || {}
+      let xys = slot_coords[id].in = {}
+
+      return _.map(model.in, ( type, key) => {
+
+        let rid = `slot_${id}_${key}`
+
+        const xy = gen() // 取到当前插口坐标
+
+        xys[key] = xy // 缓存
+
+        return <g key={rid} {...gp}>
+          <rect id={rid} width={10} height={10} fill='chocolate' {...xy} onClick={this.onInClick.bind(this, id, key)} />
+          <text {...xy} visibility="hidden">
+            {key}
+            <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
+          </text>
+        </g>
+      })
+    })()
+
+    // 输出插口
+    let Outs = (()=>{
+
+      slot_coords[id] = slot_coords[id] || {}
+      let xys = slot_coords[id].out = {}
+
+      let outs = model.out
+
+      if ( !_.isObject(outs) ) {
+        outs = { out : outs }
+      }
+
+      const gen = posGen(x, y, _.size(outs), 1)
+
+      return _.map(outs, ( type, key) => {
+        let rid = `slot_${id}_${key}`
+        const xy = gen()
+
+        xys[key] = xy // 缓存
+
+        return <g key={rid} {...gp}>
+          <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} onClick={this.onOutClick.bind(this, id, key)} />
+          <text {...xy} visibility="hidden">
+            {key}
+            <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
+          </text>
+        </g>
+      })
+
+    })()
+
+    return [...Ins, ...Outs]
+  }
+
   render() {
     const p = this.props
 

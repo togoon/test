@@ -38,6 +38,19 @@ let s0 = IMap({
     },
   }),
 
+  // 大蓝图的输入输出设定
+  io : {
+    in : {
+      o1 : null, 
+      o2 : null, 
+    },
+    out : {
+      x1 : null, 
+      x2 : null, 
+      x3 : null, 
+    }, 
+  },
+
   links : { // 这里又没有使用immutable，纯粹只是尝试
     l1 : {
       from : 'a',
@@ -66,6 +79,12 @@ let s0 = IMap({
       to : 'c',
       to_port: 'x2',
     },
+
+    // l5 : {
+    //   from_port: 'x1',
+    //   to : 'a',
+    //   to_port: 'x1',
+    // },
 
   },
 

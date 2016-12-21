@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { css, border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 import cx from 'classnames'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
 const S = css({
 
@@ -44,10 +45,7 @@ class ToolPanel extends PureComponent {
           name: "Storage",
           type: 'storage',
         },
-        {
-          name: "Tomcat",
-          type: 'tomcat',
-        },
+        'tomcat', 'bp_A', 'bp_B', 'bp_C', 'My'
       ],
       sel : p.sel, // 当前选中的，缺省为null
     }
@@ -68,11 +66,15 @@ class ToolPanel extends PureComponent {
     let s = this.state
     return <div className={S.main}>
       <div className={S.title}>组件库</div>
-      {s.data.map( (v,i) => 
-        <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
+      {s.data.map( (v,i) => {
+        if ( !_.isObject(v) ) {
+          v = { name: v, type: v }
+        }
+
+        return <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
           {v.name}
         </div> 
-      )}
+      })}
     </div>
   }
 }

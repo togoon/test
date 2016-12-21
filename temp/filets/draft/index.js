@@ -16,40 +16,40 @@ let s0 = IMap({
   brush : null,
 
   kits : IMap({ // 图元数据, immutable
-    m1 : {
-      type : 'mysql',
+    a : {
+      type : 'bp_A',
       x : 150,
       y : 100,
     },
-    m2 : {
-      type : 'mysql',
+    b : {
+      type : 'bp_B',
       x : 300,
       y : 100,
     },
-    s1 : {
-      type : 'storage',
+    c : {
+      type : 'bp_C',
       x : 100,
       y : 240,
     },
-    s2 : {
-      type : 'storage',
+    my : {
+      type : 'My',
       x : 400,
       y : 240,
     },
   }),
 
-  links : {
-    l1 : {
-      from : 's1',
-      // from_port: // 如果缺省，则为唯一的"out"
-      to : 'm1',
-      to_port: 'volumn',
-    },
-    l2 : {
-      from : 's2',
-      to : 'm2',
-      to_port: 'volumn',
-    },
+  links : { // 这里又没有使用immutable，纯粹只是尝试
+    // l1 : {
+    //   from : 's1',
+    //   // from_port: // 如果缺省，则为唯一的"out"
+    //   to : 'm1',
+    //   to_port: 'volumn',
+    // },
+    // l2 : {
+    //   from : 's2',
+    //   to : 'm2',
+    //   to_port: 'volumn',
+    // },
   },
 
   mode : 'normal', // 当前的操作状态，可选值 grab, draw

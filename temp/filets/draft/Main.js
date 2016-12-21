@@ -8,6 +8,7 @@ import {css, border as bd, hsl, bg, flex, ptr} from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
+import DefKit from './Kit.js'
 
 const S = css({
   main: {
@@ -190,8 +191,8 @@ class Main extends PureComponent {
 
     let Items = []
     p.kits.forEach((item, id) => {
-      const Kit =  widgetMap[item.type] // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} className={S.grab} onMouseDown={this.onItemMouseDown.bind(this, id)} 
+      const Kit =  widgetMap[item.type] || DefKit // 取到组件类
+      Items.push(<Kit key={id} x={item.x} y={item.y} name={item.type} className={S.grab} onMouseDown={this.onItemMouseDown.bind(this, id)} 
         onClick={this.onItemClick.bind(this, id)} 
         />)
     })
@@ -213,6 +214,10 @@ class Main extends PureComponent {
     p.kits.forEach((item, id ) => {
 
       let model = models[item.type] // 取到逻辑model
+
+      if ( !model ) {
+        return
+      } 
 
       let gp = {
         stroke : 'black',

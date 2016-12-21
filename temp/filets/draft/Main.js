@@ -80,6 +80,10 @@ class Main extends PureComponent {
 
   state = {
     draw_link: 'off',
+
+    // 画面的尺寸
+    width: 0,
+    height: 0,
   }
 
   // 插口组
@@ -201,7 +205,7 @@ class Main extends PureComponent {
     })
   }
 
-  makeSlots(id, x, y, model){
+  makeSlots(id, x, y, w, h, model){
 
     let gp = {
       stroke : 'black',
@@ -211,7 +215,7 @@ class Main extends PureComponent {
     // 输入插口
     let Ins = (()=>{
 
-      const gen = posGen(x, y, KIT_WIDTH, KIT_HEIGHT, _.size(model.in), 0)
+      const gen = posGen(x, y, w, h, _.size(model.in), 0)
 
       this.slot_coords[id] = this.slot_coords[id] || {}
       let xys = this.slot_coords[id].in = {}
@@ -246,7 +250,7 @@ class Main extends PureComponent {
         outs = { out : outs }
       }
 
-      const gen = posGen(x, y, KIT_WIDTH, KIT_HEIGHT, _.size(outs), 1)
+      const gen = posGen(x, y, w, h, _.size(outs), 1)
 
       return _.map(outs, ( type, key) => {
         let rid = `slot_${id}_${key}`
@@ -268,8 +272,15 @@ class Main extends PureComponent {
     return [...Ins, ...Outs]
   }
 
+  componentDidMount(){
+    // 由于涉及到尺寸，因此确实必须要did mount之后才能更新，因此需要重复render. 很多类似的组件都无法避免这种情况
+    const { width, height } = this.refs.svg.getBoundingClientRect()
+    this.setState({ width, height })
+  }
+
   render() {
     const p = this.props
+    const s = this.state 
 
     let Items = []
     p.kits.forEach((item, id) => {
@@ -286,11 +297,16 @@ class Main extends PureComponent {
       if ( !model ) {
         return
       } 
-      Slots =  [...Slots, ...this.makeSlots(id, item.x, item.y, model)]
+      Slots =  [...Slots, ...this.makeSlots(id, item.x, item.y, KIT_WIDTH, KIT_HEIGHT, model)]
     })
 
-    // Slots =  [...Slots, ...this.makeSlots('_', 0, 0, {
-    // })]
+    // 生成大蓝图的插口
+    if ( s.width ) {
+      // 注：这里使用了一些晦涩的逻辑，目的仅仅是为了复用makeSlots来生成大蓝图的插口
+      const slots0 = this.makeSlots('_', 0, s.height, s.width, 0, { out: p.io.out })
+      const slots1 = this.makeSlots('_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
+      Slots =  [...Slots, ...slots0, ...slots1]
+    }
 
     let Links = _.map(p.links, (item, id ) => {
       const from = slot_top_left_to_center(this.slot_coords[item.from].out[item.from_port || 'out'])
@@ -329,6 +345,7 @@ const sm = (s) => {
     kits : s.get('kits'),
     links : s.get('links'),
     mode : s.get('mode'),
+    io : s.get('io'),
   }
 }
 

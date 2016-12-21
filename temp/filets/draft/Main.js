@@ -139,6 +139,8 @@ class Main extends PureComponent {
     if( p.mode === 'draw' )
       return
 
+    console.log("items", p.kits.toJS())
+
     p.release()
   }
 

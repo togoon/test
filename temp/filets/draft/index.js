@@ -18,38 +18,55 @@ let s0 = IMap({
   kits : IMap({ // 图元数据, immutable
     a : {
       type : 'bp_A',
-      x : 150,
-      y : 100,
+      x : 296,
+      y : 363,
     },
     b : {
       type : 'bp_B',
-      x : 300,
-      y : 100,
+      x : 196,
+      y : 197,
     },
     c : {
       type : 'bp_C',
-      x : 100,
-      y : 240,
+      x : 298,
+      y : 33,
     },
     my : {
       type : 'My',
-      x : 400,
-      y : 240,
+      x : 394,
+      y : 194,
     },
   }),
 
   links : { // 这里又没有使用immutable，纯粹只是尝试
-    // l1 : {
-    //   from : 's1',
-    //   // from_port: // 如果缺省，则为唯一的"out"
-    //   to : 'm1',
-    //   to_port: 'volumn',
-    // },
-    // l2 : {
-    //   from : 's2',
-    //   to : 'm2',
-    //   to_port: 'volumn',
-    // },
+    l1 : {
+      from : 'a',
+      from_port: 'o1',
+      to : 'b',
+      to_port: 'x1',
+    },
+
+    l2 : {
+      from : 'a',
+      from_port: 'o2',
+      to : 'my',
+      to_port: 'x2',
+    },
+
+    l3 : {
+      from : 'b',
+      from_port: 'o2',
+      to : 'c',
+      to_port: 'x1',
+    },
+
+    l4 : {
+      from : 'my',
+      from_port: 'o1',
+      to : 'c',
+      to_port: 'x2',
+    },
+
   },
 
   mode : 'normal', // 当前的操作状态，可选值 grab, draw

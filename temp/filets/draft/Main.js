@@ -77,6 +77,14 @@ function slot_top_left_to_center({x, y}) {
 
 class Main extends PureComponent {
 
+  state = {
+    draw_link: 'off',
+  }
+
+  // 缓存画link的信息
+  draw_link = {
+  }
+
   // 用于在拖动时正确计算图元的坐标
   drag_delta = {
     dx : null,
@@ -149,6 +157,34 @@ class Main extends PureComponent {
 
   }
 
+  onInClick(kit, name) {
+    const s = this.state 
+    const p = this.props 
+    if ( s.draw_link !== 'on' ) {
+      return
+    } 
+
+    // 生成新的link信息
+    p.new_link({
+      ...this.draw_link,
+      to: kit,
+      to_port: name,
+    })
+
+    this.setState({ draw_link: 'off' })
+  }
+  
+  onOutClick(kit, name) {
+    this.draw_link = {
+      from: kit,
+      from_port: name,
+    }
+
+    this.setState({ 
+      draw_link : 'on' ,
+    })
+  }
+
   render() {
     const p = this.props
 
@@ -200,7 +236,7 @@ class Main extends PureComponent {
           xys[key] = xy // 缓存
 
           return <g key={rid} {...gp}>
-            <rect id={rid} width={10} height={10} fill='chocolate' {...xy} />
+            <rect id={rid} width={10} height={10} fill='chocolate' {...xy} onClick={this.onInClick.bind(this, id, key)} />
             <text {...xy} visibility="hidden">
               {key}
               <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
@@ -230,7 +266,7 @@ class Main extends PureComponent {
           xys[key] = xy // 缓存
 
           return <g key={rid} {...gp}>
-            <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} />
+            <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} onClick={this.onOutClick.bind(this, id, key)} />
             <text {...xy} visibility="hidden">
               {key}
               <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
@@ -312,6 +348,10 @@ const dm = (d) => {
 
     pick_link(id){
       d({ type: 'pick_link', id})
+    },
+
+    new_link(payload){
+      d({ type: 'new_link', ...payload})
     },
   }
 }

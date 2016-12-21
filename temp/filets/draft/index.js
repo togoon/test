@@ -62,6 +62,16 @@ let s0 = IMap({
 
 })
 
+function new_link(s, a) {
+  let links = s.get('links')
+  // eslint-disable-next-line
+  const {type, ...link} = a
+
+  links = {...links, [uuid()]:link}
+  s = s.set('links', links)
+  return s
+}
+
 function new_item(s, a) {
 
   const kit = {
@@ -146,7 +156,7 @@ const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
-  pick_kit, pick_link, del,
+  pick_kit, pick_link, del, new_link,
 }
 
 function reducer(s = s0, a) {

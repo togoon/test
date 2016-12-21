@@ -52,6 +52,7 @@ let s0 = IMap({
   },
 
   links : { // 这里并没有使用immutable，纯粹只是尝试
+
     l1 : {
       from : 'a',
       from_port: 'o1',

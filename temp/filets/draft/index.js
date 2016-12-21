@@ -18,23 +18,23 @@ let s0 = IMap({
   kits : IMap({ // 图元数据, immutable
     a : {
       type : 'bp_A',
-      x : 296,
-      y : 363,
+      x : 197,
+      y : 357,
     },
     b : {
       type : 'bp_B',
-      x : 196,
-      y : 197,
+      x : 162,
+      y : 181,
     },
     c : {
       type : 'bp_C',
-      x : 298,
-      y : 33,
+      x : 377,
+      y : 64,
     },
     my : {
       type : 'My',
-      x : 394,
-      y : 194,
+      x : 475,
+      y : 208,
     },
   }),
 
@@ -51,7 +51,7 @@ let s0 = IMap({
     }, 
   },
 
-  links : { // 这里又没有使用immutable，纯粹只是尝试
+  links : { // 这里并没有使用immutable，纯粹只是尝试
     l1 : {
       from : 'a',
       from_port: 'o1',
@@ -81,21 +81,21 @@ let s0 = IMap({
     },
 
     l5 : {
-      from : '_out_',
+      from : '_in_',
       from_port: 'x1',
       to : 'a',
       to_port: 'x1',
     },
 
     l6 : {
-      from : '_out_',
+      from : '_in_',
       from_port: 'x2',
       to : 'my',
       to_port: 'x2',
     },
 
     l7 : {
-      from : '_out_',
+      from : '_in_',
       from_port: 'x3',
       to : 'b',
       to_port: 'x2',
@@ -104,14 +104,14 @@ let s0 = IMap({
     l8 : {
       from : 'b',
       from_port: 'o1',
-      to : '_in_',
+      to : '_out_',
       to_port: 'o1',
     },
 
     l9 : {
       from : 'c',
       from_port: 'o1',
-      to : '_in_',
+      to : '_out_',
       to_port: 'o2',
     },
 

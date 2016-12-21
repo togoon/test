@@ -304,8 +304,8 @@ class Main extends PureComponent {
     if ( s.width ) {
       // 生成大蓝图的插口
       // 注：这里使用了一些晦涩的逻辑，目的仅仅是为了复用makeSlots来生成大蓝图的插口
-      const slots0 = this.makeSlots('_out_', 0, s.height, s.width, 0, { out: p.io.out })
-      const slots1 = this.makeSlots('_in_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
+      const slots0 = this.makeSlots('_in_', 0, s.height, s.width, 0, { out: p.io.out })
+      const slots1 = this.makeSlots('_out_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
       Slots =  [...Slots, ...slots0, ...slots1]
 
       // 生成links

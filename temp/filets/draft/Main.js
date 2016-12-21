@@ -82,6 +82,19 @@ class Main extends PureComponent {
     draw_link: 'off',
   }
 
+  // 插口组
+  slot_coords = {
+    // 形如：
+    // m1 : {
+    //  in : {
+    //    xx {
+    //      x : 100,
+    //      y : 20,
+    //    }
+    //  }
+    // }
+  } // 插口坐标缓存
+
   // 缓存画link的信息
   draw_link = {
   }
@@ -188,7 +201,7 @@ class Main extends PureComponent {
     })
   }
 
-  makeSlots(x, y, model){
+  makeSlots(id, x, y, model){
 
     let gp = {
       stroke : 'black',
@@ -200,8 +213,8 @@ class Main extends PureComponent {
 
       const gen = posGen(x, y, _.size(model.in), 0)
 
-      slot_coords[id] = slot_coords[id] || {}
-      let xys = slot_coords[id].in = {}
+      this.slot_coords[id] = this.slot_coords[id] || {}
+      let xys = this.slot_coords[id].in = {}
 
       return _.map(model.in, ( type, key) => {
 
@@ -224,8 +237,8 @@ class Main extends PureComponent {
     // 输出插口
     let Outs = (()=>{
 
-      slot_coords[id] = slot_coords[id] || {}
-      let xys = slot_coords[id].out = {}
+      this.slot_coords[id] = this.slot_coords[id] || {}
+      let xys = this.slot_coords[id].out = {}
 
       let outs = model.out
 
@@ -266,97 +279,22 @@ class Main extends PureComponent {
         />)
     })
 
-    // 插口组
-    let slot_coords = {
-      // 形如：
-      // m1 : {
-      //  in : {
-      //    xx {
-      //      x : 100,
-      //      y : 20,
-      //    }
-      //  }
-      // }
-    } // 插口坐标缓存
-
     let Slots = []
     p.kits.forEach((item, id ) => {
 
       let model = models[item.type] // 取到逻辑model
-
       if ( !model ) {
         return
       } 
-
-      let gp = {
-        stroke : 'black',
-        strokeWidth : 0.5,
-      }
-
-      // 输入插口
-      let Ins = (()=>{
-
-        const gen = posGen(item.x, item.y, _.size(model.in), 0)
-
-        slot_coords[id] = slot_coords[id] || {}
-        let xys = slot_coords[id].in = {}
-
-        return _.map(model.in, ( type, key) => {
-
-          let rid = `slot_${id}_${key}`
-
-          const xy = gen() // 取到当前插口坐标
-
-          xys[key] = xy // 缓存
-
-          return <g key={rid} {...gp}>
-            <rect id={rid} width={10} height={10} fill='chocolate' {...xy} onClick={this.onInClick.bind(this, id, key)} />
-            <text {...xy} visibility="hidden">
-              {key}
-              <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
-            </text>
-          </g>
-        })
-      })()
-
-      // 输出插口
-      let Outs = (()=>{
-
-        slot_coords[id] = slot_coords[id] || {}
-        let xys = slot_coords[id].out = {}
-
-        let outs = model.out
-
-        if ( !_.isObject(outs) ) {
-          outs = { out : outs }
-        }
-
-        const gen = posGen(item.x, item.y, _.size(outs), 1)
-
-        return _.map(outs, ( type, key) => {
-          let rid = `slot_${id}_${key}`
-          const xy = gen()
-
-          xys[key] = xy // 缓存
-
-          return <g key={rid} {...gp}>
-            <rect id={rid} width={10} height={10} fill='cornsilk' {...xy} onClick={this.onOutClick.bind(this, id, key)} />
-            <text {...xy} visibility="hidden">
-              {key}
-              <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
-            </text>
-          </g>
-        })
-
-      })()
-
-      Slots =  [...Slots, ...Ins, ...Outs]
-
+      Slots =  [...Slots, ...this.makeSlots(id, item.x, item.y, model)]
     })
 
+    // Slots =  [...Slots, ...this.makeSlots('_', 0, 0, {
+    // })]
+
     let Links = _.map(p.links, (item, id ) => {
-      const from = slot_top_left_to_center(slot_coords[item.from].out[item.from_port || 'out'])
-      const to = slot_top_left_to_center(slot_coords[item.to].in[item.to_port])
+      const from = slot_top_left_to_center(this.slot_coords[item.from].out[item.from_port || 'out'])
+      const to = slot_top_left_to_center(this.slot_coords[item.to].in[item.to_port])
       
       let l =  {
         x1 : from.x,

@@ -246,7 +246,7 @@ class Main extends PureComponent {
 
       let outs = model.out
 
-      if ( !_.isObject(outs) ) {
+      if ( !_.isObject(outs) && _.isString(outs) ) {
         outs = { out : outs }
       }
 
@@ -300,30 +300,34 @@ class Main extends PureComponent {
       Slots =  [...Slots, ...this.makeSlots(id, item.x, item.y, KIT_WIDTH, KIT_HEIGHT, model)]
     })
 
-    // 生成大蓝图的插口
+    let Links = null
     if ( s.width ) {
+      // 生成大蓝图的插口
       // 注：这里使用了一些晦涩的逻辑，目的仅仅是为了复用makeSlots来生成大蓝图的插口
-      const slots0 = this.makeSlots('_', 0, s.height, s.width, 0, { out: p.io.out })
-      const slots1 = this.makeSlots('_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
+      const slots0 = this.makeSlots('_out_', 0, s.height, s.width, 0, { out: p.io.out })
+      const slots1 = this.makeSlots('_in_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
       Slots =  [...Slots, ...slots0, ...slots1]
+
+      // 生成links
+      Links = _.map(p.links, (item, id ) => {
+        const from = slot_top_left_to_center(this.slot_coords[item.from].out[item.from_port || 'out'])
+        const to = slot_top_left_to_center(this.slot_coords[item.to].in[item.to_port])
+
+        let l =  {
+          x1 : from.x,
+          y1 : from.y,
+          x2 : to.x,
+          y2 : to.y,
+          key : id,
+        }
+
+        return <line {...l} stroke="black" strokeWidth='5' className={S.ptr}
+          onClick={this.onLinkClick.bind(this, id)} 
+        />
+      })
+
     }
-
-    let Links = _.map(p.links, (item, id ) => {
-      const from = slot_top_left_to_center(this.slot_coords[item.from].out[item.from_port || 'out'])
-      const to = slot_top_left_to_center(this.slot_coords[item.to].in[item.to_port])
-      
-      let l =  {
-        x1 : from.x,
-        y1 : from.y,
-        x2 : to.x,
-        y2 : to.y,
-        key : id,
-      }
-
-      return <line {...l} stroke="black" strokeWidth='5' className={S.ptr}
-        onClick={this.onLinkClick.bind(this, id)} 
-      />
-    })
+    console.log("slot coords:", this.slot_coords)
 
     return <svg className={cx(S.main, {
       [S.todraw] : p.mode === 'draw'

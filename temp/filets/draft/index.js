@@ -63,7 +63,7 @@ let s0 = IMap({
       from : 'a',
       from_port: 'o2',
       to : 'my',
-      to_port: 'x2',
+      to_port: 'x1',
     },
 
     l3 : {
@@ -80,11 +80,40 @@ let s0 = IMap({
       to_port: 'x2',
     },
 
-    // l5 : {
-    //   from_port: 'x1',
-    //   to : 'a',
-    //   to_port: 'x1',
-    // },
+    l5 : {
+      from : '_out_',
+      from_port: 'x1',
+      to : 'a',
+      to_port: 'x1',
+    },
+
+    l6 : {
+      from : '_out_',
+      from_port: 'x2',
+      to : 'my',
+      to_port: 'x2',
+    },
+
+    l7 : {
+      from : '_out_',
+      from_port: 'x3',
+      to : 'b',
+      to_port: 'x2',
+    },
+
+    l8 : {
+      from : 'b',
+      from_port: 'o1',
+      to : '_in_',
+      to_port: 'o1',
+    },
+
+    l9 : {
+      from : 'c',
+      from_port: 'o1',
+      to : '_in_',
+      to_port: 'o2',
+    },
 
   },
 

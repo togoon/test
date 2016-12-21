@@ -46,15 +46,15 @@ const SLOT_HEIGHT = 10
 const SLOT_WIDTH = 10
 
 // 用于生成一排slot的位置
-function posGen(x, y, n, type) {
+function posGen(x, y, w, h, n, type) {
   // TODO: 后面可以考虑让其分担更多render里的细节
   // type: 0 in, 1 out
 
   const step = 20
   let i = 0
   // 起始相对位置
-  const x0 = (KIT_WIDTH - (step * (n-1))) / 2
-  const y0 = type ? -SLOT_HEIGHT : KIT_HEIGHT-SLOT_HEIGHT
+  const x0 = (w - (step * (n-1))) / 2
+  const y0 = type ? -SLOT_HEIGHT : h-SLOT_HEIGHT
 
   // 起始绝对位置
   const rx = x + x0
@@ -211,7 +211,7 @@ class Main extends PureComponent {
     // 输入插口
     let Ins = (()=>{
 
-      const gen = posGen(x, y, _.size(model.in), 0)
+      const gen = posGen(x, y, KIT_WIDTH, KIT_HEIGHT, _.size(model.in), 0)
 
       this.slot_coords[id] = this.slot_coords[id] || {}
       let xys = this.slot_coords[id].in = {}
@@ -246,7 +246,7 @@ class Main extends PureComponent {
         outs = { out : outs }
       }
 
-      const gen = posGen(x, y, _.size(outs), 1)
+      const gen = posGen(x, y, KIT_WIDTH, KIT_HEIGHT, _.size(outs), 1)
 
       return _.map(outs, ( type, key) => {
         let rid = `slot_${id}_${key}`

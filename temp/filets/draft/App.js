@@ -31,6 +31,7 @@ class App extends PureComponent {
       <Main_ />
       <div id="bp_edit" contentEditable={true} style={{
         width: 600,
+        whiteSpace: 'pre-wrap',
       }} />
     </HotKeys>
   }

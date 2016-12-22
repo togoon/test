@@ -217,11 +217,20 @@ function del(s) { // 删除元素
   return s
 }
 
+// 生成蓝图
 function make_bp(s) {
-  let el = document.getElementById('bp_edit')
-  el.innerText = `asdfsafsaf
-asdfasfsafsaf
-`
+  const el = document.getElementById('bp_edit')
+
+  const bp = {
+    version : 20161209, 
+  }
+
+  // 输入输出可直接得到
+
+  // 先定义好蓝图之间的关系
+
+  el.innerText = JSON.stringify(bp, null, '  ')
+
   return s
 }
 

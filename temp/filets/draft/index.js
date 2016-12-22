@@ -217,6 +217,65 @@ function del(s) { // 删除元素
   return s
 }
 
+function _check_partial(seq, rules) { // 判断一个序列是否符合偏序规则
+    // rules的格式为 [ [a, b], ... ]
+  return _.every(rules, (rule, i ) => {
+    const [ a, b ] = rule
+    const ia = seq.indexOf(a)
+    if ( ia === -1 ) {
+      return false
+    } 
+    const ib = seq.indexOf(b)
+    if ( ib === -1 ) {
+      return false
+    } 
+
+    // console.log("ia", ia, 'ib', ib)
+    if ( ia >= ib ) {
+      return false
+    } 
+    return true
+  })
+
+}
+
+// console.log('fuck', _check_partial( [ 'a', 'b', 'c', 'd', 'e' ], [ ['a', 'b'], ['b', 'e'] ] ))
+
+function _partial_order_add(seq, a, b, rules) {
+  // 设计一个算法，但尚未证明该算法一定可行，先试用
+
+  const seq1 = _.without(seq, a, b)
+
+  // 构造一个 seq len + 2 的二重循环
+  const l = seq1.length + 2
+
+  for( let i = 0; i < l-1; i++ ){
+    for( let j = i+1; j<l; j++ ){
+      const before = seq1.slice(0, i)
+      const middle = seq1.slice(i, j-1)
+      const after = seq1.slice(j-1, l)
+      // 拼成一个新的序列
+      const new_seq = [...before, a, ...middle, b, ...after]
+
+      // 如果符合规则，则立即返回
+      if ( _check_partial(new_seq, rules) ) {
+        return new_seq
+      } 
+    }
+  }
+  return null
+}
+
+console.log('partial add', _partial_order_add(["b", "my", "c", "a"], 'a', 'my', [['my','c'], ['b','c'],  ] ))
+
+function _make_kit_order(links) { // 根据links来计算出各个组件的依赖关系
+  let order = []
+
+  _.each(links, (item, i ) => {
+    
+  })
+}
+
 function make_bp(s) { // 生成蓝图
   const el = document.getElementById('bp_edit')
 

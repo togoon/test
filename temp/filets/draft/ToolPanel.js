@@ -3,15 +3,9 @@ import { css, border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import Radium from 'radium'
 
 const S = css({
-
-  main: {
-    ...border, ...flex,
-    width: 150,
-    flexWrap: "wrap",
-    alignContent: "flex-start",
-  },
 
   item: {
     ...flex('><'), ...border, ...ptr, ...sz(70),
@@ -64,17 +58,31 @@ class ToolPanel extends PureComponent {
 
   render() {
     let s = this.state
-    return <div className={S.main}>
-      <div className={S.title}>组件库</div>
-      {s.data.map( (v,i) => {
-        if ( !_.isObject(v) ) {
-          v = { name: v, type: v }
-        }
-
-        return <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
-          {v.name}
-        </div> 
-      })}
+    return <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: 150,
+    }}>
+      <div style={{
+        display: 'flex',
+        flexWrap: "wrap",
+        alignContent: "flex-start",
+        flex: 1,
+      }} >
+        <div className={S.title}>组件库</div>
+        {s.data.map( (v,i) => {
+          if ( !_.isObject(v) ) {
+            v = { name: v, type: v }
+          }
+        
+          return <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
+            {v.name}
+          </div> 
+        })}
+      </div>
+      <div>
+        haha
+      </div>
     </div>
   }
 }
@@ -99,5 +107,5 @@ const dm = (d) => {
   }
 }
 
-export default connect(sm, dm)(ToolPanel)
+export default connect(sm, dm)(Radium(ToolPanel))
 

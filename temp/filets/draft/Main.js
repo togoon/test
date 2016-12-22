@@ -156,8 +156,6 @@ class Main extends PureComponent {
     if( p.mode === 'draw' )
       return
 
-    console.log("items", p.kits.toJS())
-
     p.release()
   }
 
@@ -327,7 +325,7 @@ class Main extends PureComponent {
       })
 
     }
-    console.log("slot coords:", this.slot_coords)
+    // console.log("slot coords:", this.slot_coords)
 
     return <svg className={cx(S.main, {
       [S.todraw] : p.mode === 'draw'

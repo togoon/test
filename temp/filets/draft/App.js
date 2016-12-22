@@ -12,7 +12,7 @@ import Main_ from './Main.js'
 const S = css({
   main: {
     ...bd, ...flex,
-    width: 1024,
+    width: 1600,
     height: 500,
   },
 })
@@ -29,6 +29,9 @@ class App extends PureComponent {
     >
       <ToolPanel_ />
       <Main_ />
+      <div id="bp_edit" contentEditable={true} style={{
+        width: 600,
+      }} />
     </HotKeys>
   }
 }

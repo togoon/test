@@ -3,7 +3,6 @@ import { css, border, ptr, bg, hsl, flex, sz } from './utils/cssobj.js'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import Radium from 'radium'
 
 const S = css({
 
@@ -58,6 +57,8 @@ class ToolPanel extends PureComponent {
 
   render() {
     let s = this.state
+    const p = this.props 
+
     return <div style={{
       display: 'flex',
       flexDirection: 'column',
@@ -81,7 +82,7 @@ class ToolPanel extends PureComponent {
         })}
       </div>
       <div>
-        haha
+        <button onClick={p.make_bp}>生成蓝图</button>
       </div>
     </div>
   }
@@ -104,8 +105,12 @@ const dm = (d) => {
     onPick : (key)=>{
       d({ type: 'brush_set', val: key})
     },
+
+    make_bp(){
+      d({ type: 'make_bp', })
+    },
   }
 }
 
-export default connect(sm, dm)(Radium(ToolPanel))
+export default connect(sm, dm)(ToolPanel)
 

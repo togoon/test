@@ -217,12 +217,20 @@ function del(s) { // 删除元素
   return s
 }
 
+function make_bp(s) {
+  let el = document.getElementById('bp_edit')
+  el.innerText = `asdfsafsaf
+asdfasfsafsaf
+`
+  return s
+}
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
-  pick_kit, pick_link, del, new_link,
+  pick_kit, pick_link, del, new_link, make_bp,
 }
 
 function reducer(s = s0, a) {

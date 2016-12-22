@@ -40,15 +40,15 @@ let s0 = IMap({
 
   // 大蓝图的输入输出设定
   io : {
-    in : {
-      o1 : null, 
-      o2 : null, 
-    },
-    out : {
-      x1 : null, 
-      x2 : null, 
-      x3 : null, 
-    }, 
+    in : [
+      {name : 'o1'}, 
+      {name : 'o2'}, 
+    ],
+    out : [
+      { name : 'x1', },
+      { name : 'x2', },
+      { name : 'x3', },
+    ], 
   },
 
   links : { // 这里并没有使用immutable，纯粹只是尝试
@@ -217,18 +217,22 @@ function del(s) { // 删除元素
   return s
 }
 
-// 生成蓝图
-function make_bp(s) {
+function make_bp(s) { // 生成蓝图
   const el = document.getElementById('bp_edit')
 
-  const bp = {
-    version : 20161209, 
-  }
-
   // 输入输出可直接得到
+  const io = s.get('io')
 
-  // 先定义好蓝图之间的关系
+  // 先定义好蓝图之间的顺序关系
 
+  const bp = { 
+    version : 20161209, 
+    input: io.in,
+    output : io.out, 
+    body : {
+      
+    }
+  }
   el.innerText = JSON.stringify(bp, null, '  ')
 
   return s

@@ -13,6 +13,7 @@ import qs from 'query-string'
 import yaml from 'js-yaml'
 
 import App_ from './App.js'
+import models from './kit_type.js'
 
 // ------------------------------------------------
 console.log("qs", qs.parse(location.search))
@@ -99,6 +100,31 @@ function make_kit_order(links) { // 根据links来得出一个kit的顺序，以
 
   return order
 }
+
+function make_bp_body(order, kits, links, models) {
+  const body = []
+  const body_map = {}
+
+  // 先根据order构建数据骨架
+  _.each(order, (kid, i ) => {
+    const kit = kits.get(kid) // 原始js数据
+    const ykit = { // yaml对象
+      extern: kit.type,
+      name: kid,
+      input : {...models[kit.type].in}, 
+    }
+    body_map[kid] = ykit
+    body.push(ykit)
+  })
+
+  // 根据links填充剩下数据
+  _.each(links, (link, i ) => {
+    // 填对应input的值
+  })
+
+  return body
+}
+
 // 用immutable来表示整个状态
 let s0 = IMap({
   brush : null,
@@ -216,8 +242,6 @@ let s0 = IMap({
 
 })
 
-console.log("order", make_kit_order(s0.get('links')))
-
 // ----------------------------- reducers ---------------------------------
 function new_link(s, a) {
   let links = s.get('links')
@@ -318,14 +342,19 @@ function make_bp(s) { // 生成蓝图
   const io = s.get('io')
 
   // 先定义好蓝图之间的顺序关系
+  const order = make_kit_order(s0.get('links'))
+  console.log("order", order)
+  const kits = s.get('kits')
+  const links = s.get('links')
+  const body = make_bp_body(order, kits, links, models)
+
+  // console.log("body", body)
 
   const bp = { 
     version : 20161209, 
     input : io.out, 
     output: io.in,
-    body : {
-      
-    }
+    body,
   }
   // let text = JSON.stringify(bp, null, '  ')
   let text = yaml.dump(bp)
@@ -333,6 +362,7 @@ function make_bp(s) { // 生成蓝图
 
   return s
 }
+
 
 // ------------ reducer ----------------
 const reducer_table = {

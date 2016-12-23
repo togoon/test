@@ -120,6 +120,12 @@ function make_bp_body(order, kits, links, models) {
   // 根据links填充剩下数据
   _.each(links, (link, i ) => {
     // 填对应input的值
+    if ( link.from === '_in_' || link.to === '_out_'  ) { // 输入输出特殊处理
+      return
+    } 
+
+    body_map[link.to].input[link.to_port] = `<% .${link.from}.${link.from_port} %>`
+
   })
 
   return body

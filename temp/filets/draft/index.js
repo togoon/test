@@ -348,7 +348,7 @@ function make_bp(s) { // 生成蓝图
   const io = s.get('io')
 
   // 先定义好蓝图之间的顺序关系
-  const order = make_kit_order(s0.get('links'))
+  const order = make_kit_order(s.get('links'))
   console.log("order", order)
   const kits = s.get('kits')
   const links = s.get('links')
@@ -362,6 +362,9 @@ function make_bp(s) { // 生成蓝图
     output: io.in,
     body,
   }
+
+  console.log("bp", bp)
+
   // let text = JSON.stringify(bp, null, '  ')
   let text = yaml.dump(bp)
   el.innerText = text

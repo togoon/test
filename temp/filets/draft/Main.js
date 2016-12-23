@@ -156,8 +156,6 @@ class Main extends PureComponent {
     if( p.mode === 'draw' )
       return
 
-    console.log("items", p.kits.toJS())
-
     p.release()
   }
 
@@ -327,7 +325,7 @@ class Main extends PureComponent {
       })
 
     }
-    console.log("slot coords:", this.slot_coords)
+    // console.log("slot coords:", this.slot_coords)
 
     return <svg className={cx(S.main, {
       [S.todraw] : p.mode === 'draw'
@@ -345,11 +343,24 @@ class Main extends PureComponent {
 
 // 由于是被redux connect的组件，可省去写PropTypes的环节
 const sm = (s) => {
+
+  const io0 = s.get('io')
+  const input = {}
+  _.each(io0.in, (v, i ) => {
+    input[v.name] = null
+  })
+
+  const out = {}
+  _.each(io0.out, (v, i ) => {
+    out[v.name] = null
+  })
+
+  const io = {in:input, out}
   return {
     kits : s.get('kits'),
     links : s.get('links'),
     mode : s.get('mode'),
-    io : s.get('io'),
+    io,
   }
 }
 

@@ -11,6 +11,64 @@ import _ from 'lodash'
 
 import App_ from './App.js'
 
+function check_partial(seq, rules) { // 判断一个序列是否符合偏序规则
+    // rules的格式为 [ [a, b], ... ]
+  return _.every(rules, (rule, i ) => {
+    const [ a, b ] = rule
+    const ia = seq.indexOf(a)
+    if ( ia === -1 ) {
+      return false
+    } 
+    const ib = seq.indexOf(b)
+    if ( ib === -1 ) {
+      return false
+    } 
+
+    // console.log("ia", ia, 'ib', ib)
+    if ( ia >= ib ) {
+      return false
+    } 
+    return true
+  })
+
+}
+
+function partial_order_add(seq, a, b, rules) {
+  // 设计一个算法，但尚未证明该算法一定可行，先试用
+
+  const seq1 = _.without(seq, a, b)
+
+  // 构造一个 seq len + 2 的二重循环
+  const l = seq1.length + 2
+
+  for( let i = 0; i < l-1; i++ ){
+    for( let j = i+1; j<l; j++ ){
+      const before = seq1.slice(0, i)
+      const middle = seq1.slice(i, j-1)
+      const after = seq1.slice(j-1, l)
+      // 拼成一个新的序列
+      const new_seq = [...before, a, ...middle, b, ...after]
+
+      // 如果符合规则，则立即返回
+      if ( check_partial(new_seq, rules) ) {
+        return new_seq
+      } 
+    }
+  }
+  return null
+}
+
+function make_rules(links) {
+  const r = []
+  _.each(links, (link, i) => {
+    if ( link.from === '_in_' || link.to === '_to_'  ) {
+      return
+    } 
+    r.push([link.from, link.to])
+  })
+  return r
+}
+
 // 用immutable来表示整个状态
 let s0 = IMap({
   brush : null,
@@ -40,15 +98,15 @@ let s0 = IMap({
 
   // 大蓝图的输入输出设定
   io : {
-    in : {
-      o1 : null, 
-      o2 : null, 
-    },
-    out : {
-      x1 : null, 
-      x2 : null, 
-      x3 : null, 
-    }, 
+    in : [
+      {name : 'o1'}, 
+      {name : 'o2'}, 
+    ],
+    out : [
+      { name : 'x1', },
+      { name : 'x2', },
+      { name : 'x3', },
+    ], 
   },
 
   links : { // 这里并没有使用immutable，纯粹只是尝试
@@ -128,6 +186,9 @@ let s0 = IMap({
 
 })
 
+console.log("rules", make_rules(s0.get('links')))
+
+// ----------------------------- reducers ---------------------------------
 function new_link(s, a) {
   let links = s.get('links')
   // eslint-disable-next-line
@@ -217,12 +278,44 @@ function del(s) { // 删除元素
   return s
 }
 
+// console.log('fuck', check_partial( [ 'a', 'b', 'c', 'd', 'e' ], [ ['a', 'b'], ['b', 'e'] ] ))
+// console.log('partial add', partial_order_add(["b", "my", "c", "a"], 'a', 'my', [['my','c'], ['b','c'],  ] ))
+
+function _make_kit_order(links) { // 根据links来计算出各个组件的依赖关系
+  let order = []
+
+  _.each(links, (item, i ) => {
+    
+  })
+}
+
+function make_bp(s) { // 生成蓝图
+  const el = document.getElementById('bp_edit')
+
+  // 输入输出可直接得到
+  const io = s.get('io')
+
+  // 先定义好蓝图之间的顺序关系
+
+  const bp = { 
+    version : 20161209, 
+    input: io.in,
+    output : io.out, 
+    body : {
+      
+    }
+  }
+  el.innerText = JSON.stringify(bp, null, '  ')
+
+  return s
+}
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
-  pick_kit, pick_link, del, new_link,
+  pick_kit, pick_link, del, new_link, make_bp,
 }
 
 function reducer(s = s0, a) {

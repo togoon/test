@@ -6,13 +6,6 @@ import _ from 'lodash'
 
 const S = css({
 
-  main: {
-    ...border, ...flex,
-    width: 150,
-    flexWrap: "wrap",
-    alignContent: "flex-start",
-  },
-
   item: {
     ...flex('><'), ...border, ...ptr, ...sz(70),
     marginLeft: 2,
@@ -64,17 +57,33 @@ class ToolPanel extends PureComponent {
 
   render() {
     let s = this.state
-    return <div className={S.main}>
-      <div className={S.title}>组件库</div>
-      {s.data.map( (v,i) => {
-        if ( !_.isObject(v) ) {
-          v = { name: v, type: v }
-        }
+    const p = this.props 
 
-        return <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
-          {v.name}
-        </div> 
-      })}
+    return <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: 150,
+    }}>
+      <div style={{
+        display: 'flex',
+        flexWrap: "wrap",
+        alignContent: "flex-start",
+        flex: 1,
+      }} >
+        <div className={S.title}>组件库</div>
+        {s.data.map( (v,i) => {
+          if ( !_.isObject(v) ) {
+            v = { name: v, type: v }
+          }
+        
+          return <div key={i} className={cx(S.item, { [S.picked] : s.sel === v.type })}  onClick={this.onClick.bind(this, v.type)}>
+            {v.name}
+          </div> 
+        })}
+      </div>
+      <div>
+        <button onClick={p.make_bp}>生成蓝图</button>
+      </div>
     </div>
   }
 }
@@ -95,6 +104,10 @@ const dm = (d) => {
   return {
     onPick : (key)=>{
       d({ type: 'brush_set', val: key})
+    },
+
+    make_bp(){
+      d({ type: 'make_bp', })
     },
   }
 }

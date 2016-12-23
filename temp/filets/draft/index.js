@@ -56,6 +56,7 @@ function partial_order_add(seq, a, b, rules) {
       // 拼成一个新的序列
       const new_seq = [...before, a, ...middle, b, ...after]
 
+
       // 如果符合规则，则立即返回
       if ( check_partial(new_seq, rules) ) {
         return new_seq
@@ -82,9 +83,6 @@ function make_kit_order(links) { // 根据links来得出一个kit的顺序，以
   const rules = []
 
   _.each(links, (link, i ) => {
-    if ( link.from === '_in_' || link.to === '_out_'  ) {
-      return
-    } 
     const a = link.from
     const b = link.to
 
@@ -98,6 +96,7 @@ function make_kit_order(links) { // 根据links来得出一个kit的顺序，以
     rules.push([a, b])
   })
 
+  order = _.without(order, '_in_', '_out_')
   return order
 }
 
@@ -251,6 +250,15 @@ let s0 = IMap({
 
   },
 
+  vals : { // 一些手动填的输入的值
+    c : {
+      x2 : 'ccc', 
+    },
+    my : {
+      x1 : 123, 
+    },
+  },
+
   mode : 'normal', // 当前的操作状态，可选值 grab, draw
 
   grabbed_kit: null, // 当前抓住的图元id, 用于拖动
@@ -362,7 +370,6 @@ function make_bp(s) { // 生成蓝图
 
   // 先定义好蓝图之间的顺序关系
   const order = make_kit_order(s.get('links'))
-  console.log("order", order)
   const kits = s.get('kits')
   const links = s.get('links')
   const [body, output] = make_bp_body_and_output(order, kits, links, models)
@@ -375,8 +382,6 @@ function make_bp(s) { // 生成蓝图
     output,
     body,
   }
-
-  console.log("bp", bp)
 
   // let text = JSON.stringify(bp, null, '  ')
   let text = yaml.dump(bp)

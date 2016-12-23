@@ -101,9 +101,11 @@ function make_kit_order(links) { // 根据links来得出一个kit的顺序，以
   return order
 }
 
-function make_bp_body(order, kits, links, models) {
+function make_bp_body_and_output(order, kits, links, models) {
   const body = []
-  const body_map = {}
+  const body_map = {} // 定义一个map用来赋值
+
+  const outputs = []
 
   // 先根据order构建数据骨架
   _.each(order, (kid, i ) => {
@@ -120,15 +122,26 @@ function make_bp_body(order, kits, links, models) {
   // 根据links填充剩下数据
   _.each(links, (link, i ) => {
     // 填对应input的值
-    if ( link.from === '_in_' || link.to === '_out_'  ) { // 输入输出特殊处理
-      return
+    if ( link.from === '_in_' ){ // 输入关联
+      body_map[link.to].input[link.to_port] = `<% .${link.from_port} %>`
+    }
+    else if ( link.to === '_out_'  ) { // 输出
+      const output = {
+        name : link.to_port, 
+        from : {
+          bp : link.from, 
+          name : link.from_port, 
+        }
+      }
+      outputs.push(output)
     } 
-
-    body_map[link.to].input[link.to_port] = `<% .${link.from}.${link.from_port} %>`
+    else {
+      body_map[link.to].input[link.to_port] = `<% .${link.from}.${link.from_port} %>`
+    }
 
   })
 
-  return body
+  return [body, outputs]
 }
 
 // 用immutable来表示整个状态
@@ -352,14 +365,14 @@ function make_bp(s) { // 生成蓝图
   console.log("order", order)
   const kits = s.get('kits')
   const links = s.get('links')
-  const body = make_bp_body(order, kits, links, models)
+  const [body, output] = make_bp_body_and_output(order, kits, links, models)
 
   // console.log("body", body)
 
   const bp = { 
     version : 20161209, 
     input : io.out, 
-    output: io.in,
+    output,
     body,
   }
 

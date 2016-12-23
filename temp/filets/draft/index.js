@@ -8,8 +8,14 @@ import { Provider } from 'react-redux'
 import {Map as IMap} from 'immutable'
 import uuid from 'uuid/v1' 
 import _ from 'lodash'
+import qs from 'query-string'
+// import yaml from 'yamljs'
+import yaml from 'js-yaml'
 
 import App_ from './App.js'
+
+// ------------------------------------------------
+console.log("qs", qs.parse(location.search))
 
 function check_partial(seq, rules) { // 判断一个序列是否符合偏序规则
     // rules的格式为 [ [a, b], ... ]
@@ -58,17 +64,41 @@ function partial_order_add(seq, a, b, rules) {
   return null
 }
 
-function make_rules(links) {
-  const r = []
-  _.each(links, (link, i) => {
-    if ( link.from === '_in_' || link.to === '_to_'  ) {
+// function make_rules(links) {
+//   const r = []
+//   _.each(links, (link, i) => {
+//     if ( link.from === '_in_' || link.to === '_out_'  ) {
+//       return
+//     } 
+//     r.push([link.from, link.to])
+//   })
+//   return r
+// }
+// console.log("rules", make_rules(s0.get('links')))
+
+function make_kit_order(links) { // 根据links来得出一个kit的顺序，以符合links的依赖关系
+  let order = []
+  const rules = []
+
+  _.each(links, (link, i ) => {
+    if ( link.from === '_in_' || link.to === '_out_'  ) {
       return
     } 
-    r.push([link.from, link.to])
-  })
-  return r
-}
+    const a = link.from
+    const b = link.to
 
+    // 先添加到order
+    order = partial_order_add(order, a, b, rules)
+    if ( _.isNull(order) ) {
+      console.error('make order error')
+    }
+
+    // 再添加到rules
+    rules.push([a, b])
+  })
+
+  return order
+}
 // 用immutable来表示整个状态
 let s0 = IMap({
   brush : null,
@@ -186,7 +216,7 @@ let s0 = IMap({
 
 })
 
-console.log("rules", make_rules(s0.get('links')))
+console.log("order", make_kit_order(s0.get('links')))
 
 // ----------------------------- reducers ---------------------------------
 function new_link(s, a) {
@@ -281,14 +311,6 @@ function del(s) { // 删除元素
 // console.log('fuck', check_partial( [ 'a', 'b', 'c', 'd', 'e' ], [ ['a', 'b'], ['b', 'e'] ] ))
 // console.log('partial add', partial_order_add(["b", "my", "c", "a"], 'a', 'my', [['my','c'], ['b','c'],  ] ))
 
-function _make_kit_order(links) { // 根据links来计算出各个组件的依赖关系
-  let order = []
-
-  _.each(links, (item, i ) => {
-    
-  })
-}
-
 function make_bp(s) { // 生成蓝图
   const el = document.getElementById('bp_edit')
 
@@ -299,13 +321,15 @@ function make_bp(s) { // 生成蓝图
 
   const bp = { 
     version : 20161209, 
-    input: io.in,
-    output : io.out, 
+    input : io.out, 
+    output: io.in,
     body : {
       
     }
   }
-  el.innerText = JSON.stringify(bp, null, '  ')
+  // let text = JSON.stringify(bp, null, '  ')
+  let text = yaml.dump(bp)
+  el.innerText = text
 
   return s
 }

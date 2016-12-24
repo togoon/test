@@ -18,9 +18,13 @@ const S = css({
     ...sz("100%", 30),
     ...bg(hsl(225, 27, 83)),
   },
-  
 
 })
+
+const s_btn = {
+  marginLeft : 10,
+  marginBottom : 5, 
+}
 
 class ToolPanel extends PureComponent {
 
@@ -69,7 +73,7 @@ class ToolPanel extends PureComponent {
         alignContent: "flex-start",
         flex: 1,
       }} >
-        <div className={S.title}>组件库</div>
+      <div className={S.title}>Components</div>
         {s.data.map( (v,i) => {
           if ( !_.isObject(v) ) {
             v = { name: v, type: v }
@@ -79,6 +83,10 @@ class ToolPanel extends PureComponent {
             {v.name}
           </div> 
         })}
+      </div>
+      <div>
+        <button style={s_btn} >+ Input</button>
+        <button style={s_btn} >+ Output</button>
       </div>
     </div>
   }

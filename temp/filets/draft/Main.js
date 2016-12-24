@@ -204,6 +204,7 @@ class Main extends PureComponent {
   }
 
   makeSlots(id, x, y, w, h, model){
+    const p = this.props 
 
     let gp = {
       stroke : 'black',
@@ -226,8 +227,10 @@ class Main extends PureComponent {
 
         xys[key] = xy // 缓存
 
+        const slot_color = _.isObject(p.vals) && ( id in p.vals ) && ( key in p.vals[id] ) ? 'gray' : 'chocolate'
+
         return <g key={rid} {...gp}>
-          <rect id={rid} width={10} height={10} fill='chocolate' {...xy} onClick={this.onInClick.bind(this, id, key)} />
+          <rect id={rid} width={10} height={10} fill={slot_color} {...xy} onClick={this.onInClick.bind(this, id, key)} />
           <text {...xy} visibility="hidden">
             {key}
             <set attributeName="visibility" from="hidden" to="visible" begin={`${rid}.mouseover`} end={`${rid}.mouseout`} />
@@ -361,6 +364,7 @@ const sm = (s) => {
     links : s.get('links'),
     mode : s.get('mode'),
     io,
+    vals : s.get('vals'),
   }
 }
 

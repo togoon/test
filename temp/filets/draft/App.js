@@ -9,6 +9,7 @@ import {css, border as bd, flex, w,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
+import Div from './utils/components/Div.js'
 
 const S = css({
   main: {
@@ -28,7 +29,7 @@ class App extends PureComponent {
       del : p.del,
     }} 
     >
-      <div style={{...flex, ...w('100%')}} >
+      <Div style={{...w('100%')}} >
         <ToolPanel_ />
         <Main_ />
         <Property_ />
@@ -37,7 +38,7 @@ class App extends PureComponent {
           whiteSpace: 'pre-wrap',
           overflow: "auto",
         }} />
-      </div>
+      </Div>
     </HotKeys>
   }
 }

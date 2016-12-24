@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import {css, border as bd, flex, } from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
+import Property_ from './Property.js'
 
 const S = css({
   main: {
@@ -29,8 +30,9 @@ class App extends PureComponent {
     >
       <ToolPanel_ />
       <Main_ />
+      <Property_ />
       <div id="bp_edit" contentEditable={true} style={{
-        width: 600,
+        width: 450,
         whiteSpace: 'pre-wrap',
         overflow: "auto",
       }} />

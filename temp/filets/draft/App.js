@@ -9,13 +9,14 @@ import {css, border as bd, flex, w,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
-import Div from './utils/components/Div.js'
+import H from './utils/components/H.js'
 
 const S = css({
   main: {
     ...bd, ...flex,
     width: 1600,
     height: 500,
+    flexDirection: 'column',
   },
 })
 
@@ -29,7 +30,10 @@ class App extends PureComponent {
       del : p.del,
     }} 
     >
-      <Div style={{...w('100%')}} >
+      <div>
+        <button>哈哈</button>
+      </div>
+      <H style={{...w('100%'), flex: 1}} >
         <ToolPanel_ />
         <Main_ />
         <Property_ />
@@ -38,7 +42,7 @@ class App extends PureComponent {
           whiteSpace: 'pre-wrap',
           overflow: "auto",
         }} />
-      </Div>
+      </H>
     </HotKeys>
   }
 }

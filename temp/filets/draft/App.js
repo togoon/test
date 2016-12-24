@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react'
 import {HotKeys} from 'react-hotkeys'
 import { connect } from 'react-redux'
 
-import {css, border as bd, flex, } from './utils/cssobj.js'
+import {css, border as bd, flex, w,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
@@ -28,14 +28,16 @@ class App extends PureComponent {
       del : p.del,
     }} 
     >
-      <ToolPanel_ />
-      <Main_ />
-      <Property_ />
-      <div id="bp_edit" contentEditable={true} style={{
-        width: 450,
-        whiteSpace: 'pre-wrap',
-        overflow: "auto",
-      }} />
+      <div style={{...flex, ...w('100%')}} >
+        <ToolPanel_ />
+        <Main_ />
+        <Property_ />
+        <div id="bp_edit" contentEditable={true} style={{
+          width: 450,
+          whiteSpace: 'pre-wrap',
+          overflow: "auto",
+        }} />
+      </div>
     </HotKeys>
   }
 }

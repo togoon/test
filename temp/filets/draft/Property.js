@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-import {w, border} from './utils/cssobj.js'
+import {w, border, bg} from './utils/cssobj.js'
 import models from './kit_type.js'
 import _ from 'lodash'
+import Div from './components/Div.js'
 
 class Property extends PureComponent {
 
@@ -10,9 +11,9 @@ class Property extends PureComponent {
     const p = this.props
     console.log("property render")
     return <div style={{ ...w(150), ...border}} >
-      <div>
+      <Div style={{...bg('orange')}} >
         {p.model}
-      </div>
+      </Div>
       {_.map(p.inputs, (type, name ) => {
         return <div key={name}>
           <div>

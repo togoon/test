@@ -5,33 +5,39 @@ import React, { PureComponent } from 'react'
 import {HotKeys} from 'react-hotkeys'
 import { connect } from 'react-redux'
 
-import {css, border as bd, flex, w,} from './utils/cssobj.js'
+import { border as bd, flex, w,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
 import H from './utils/components/H.js'
 
-const S = css({
+const S ={
   main: {
     ...bd, ...flex,
     width: 1600,
     height: 500,
     flexDirection: 'column',
   },
-})
+
+  btn: {
+    marginLeft: 10,
+  },
+}
 
 class App extends PureComponent {
 
   render() {
     const p = this.props
 
-    return <HotKeys className={S.main} handlers={{
+    return <HotKeys style={S.main} handlers={{
       esc : p.brush_clear,
       del : p.del,
     }} 
     >
-      <div>
-        <button>哈哈</button>
+      <div style={{padding:'5px 0'}} >
+        <button style={S.btn} onClick={p.make_bp} >Make Blueprint</button>
+        <button style={S.btn} >Save</button>
+        <button style={S.btn} >Save As</button>
       </div>
       <H style={{...w('100%'), flex: 1}} >
         <ToolPanel_ />
@@ -55,6 +61,10 @@ const dm = (d) => {
 
     del(){
       d({ type: 'del', })
+    },
+
+    make_bp(){
+      d({ type: 'make_bp', })
     },
   }
 }

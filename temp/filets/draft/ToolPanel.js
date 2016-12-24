@@ -57,7 +57,6 @@ class ToolPanel extends PureComponent {
 
   render() {
     let s = this.state
-    const p = this.props 
 
     return <div style={{
       display: 'flex',
@@ -81,9 +80,6 @@ class ToolPanel extends PureComponent {
           </div> 
         })}
       </div>
-      <div>
-        <button onClick={p.make_bp}>生成蓝图</button>
-      </div>
     </div>
   }
 }
@@ -106,9 +102,6 @@ const dm = (d) => {
       d({ type: 'brush_set', val: key})
     },
 
-    make_bp(){
-      d({ type: 'make_bp', })
-    },
   }
 }
 

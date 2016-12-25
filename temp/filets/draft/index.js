@@ -66,18 +66,6 @@ function partial_order_add(seq, a, b, rules) {
   return null
 }
 
-// function make_rules(links) {
-//   const r = []
-//   _.each(links, (link, i) => {
-//     if ( link.from === '_in_' || link.to === '_out_'  ) {
-//       return
-//     } 
-//     r.push([link.from, link.to])
-//   })
-//   return r
-// }
-// console.log("rules", make_rules(s0.get('links')))
-
 function make_kit_order(links) { // 根据links来得出一个kit的顺序，以符合links的依赖关系
   let order = []
   const rules = []
@@ -144,7 +132,7 @@ function make_bp_body_and_output(order, kits, links, models) {
 }
 
 // 用immutable来表示整个状态
-let s0 = IMap({
+const s0_1 = IMap({
 
   level: 1,
 
@@ -278,6 +266,14 @@ let s0 = IMap({
 
 })
 
+const s0_0 = IMap({
+  level: 0,
+
+  // ----------------- lvl 0 ---------------------
+  yaml: '', // 目前lvl0只支持一个yaml框
+
+})
+
 // ----------------------------- reducers ---------------------------------
 function new_link(s, a) {
   let links = s.get('links')
@@ -399,16 +395,24 @@ function make_bp(s) { // 生成蓝图
   return s
 }
 
+function switch_level(s) { // 切换蓝图，在lvl0和lvl1之间
+  const lvl = s.get('level')
+  if ( lvl === 1 ) {
+    return s0_0
+  } else {
+    return s0_1
+  }
+}
 
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
-  pick_kit, pick_link, del, new_link, make_bp,
+  pick_kit, pick_link, del, new_link, make_bp, switch_level,
 }
 
-function reducer(s = s0, a) {
+function reducer(s = s0_1, a) {
   const f = reducer_table[a.type]
   if ( !f ) {
     return s

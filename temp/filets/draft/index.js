@@ -13,6 +13,7 @@ import qs from 'query-string'
 // import yaml from 'yamljs'
 import yaml from 'js-yaml'
 import thunk from 'redux-thunk'
+import form_encode from 'form-urlencoded'
 
 import App_ from './App.js'
 import models from './kit_type.js'
@@ -407,6 +408,50 @@ function set_bp_id(s, a) { // 在蓝图被保存后更新其id
   return s
 }
 
+// ------------------- 中间件 ----------------------
+
+const apiMiddle = store => next => action => { // 注：这个中间件与业务逻辑强相关，无通用性
+
+  // 放过其他普通action
+  if (action.type === 'save_bp2') {
+
+    store.dispatch({ type: 'make_bp' })
+
+    const s = store.getState()
+
+    const bp = {
+      kits : s.get('kits').toJS(),
+      io: s.get('io'),
+      links : s.get('links'), 
+      vals: s.get('vals'),
+    }
+
+    const body = {
+      id : s.get('bp_id'),
+      topo : JSON.stringify(bp, null, '  '),
+      yaml : s.get('yaml'),
+    }
+
+    fetch('/save_bp', { method: 'POST', 
+      headers: {
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      body: form_encode(body),
+    }).then(res => res.json())
+      .then(res => {
+        next({
+          type : 'set_bp_id', 
+          bp_id : res.data.bp_id, 
+        })
+      })
+  } else {
+    return next(action)
+  }
+
+}
+
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
@@ -425,6 +470,7 @@ function reducer(s = s0_1, a) {
 
 const createStoreWithMiddleware = applyMiddleware(
   thunk,
+  apiMiddle,
 )(createStore)
 
 const store = createStoreWithMiddleware(reducer)

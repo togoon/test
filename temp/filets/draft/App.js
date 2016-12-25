@@ -39,7 +39,8 @@ class App extends PureComponent {
     //   return
     // } 
 
-    p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
+    // p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
+    p.save_bp2()
   }
 
   render() {
@@ -164,6 +165,11 @@ const dm = (d) => {
           })
       })
     },
+
+    save_bp2(){
+      d({ type: 'save_bp2', })
+    },
+
   }
 }
 

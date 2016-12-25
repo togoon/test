@@ -136,6 +136,8 @@ const s0_1 = IMap({
 
   level: 1,
 
+  bp_id: null, // id也就是bp的名字
+
   // ----------------- lvl 0 ---------------------
 
   yaml: '', // 目前lvl0只支持一个yaml框
@@ -269,6 +271,8 @@ const s0_1 = IMap({
 const s0_0 = IMap({
   level: 0,
 
+  bp_id: null,
+
   // ----------------- lvl 0 ---------------------
   yaml: '', // 目前lvl0只支持一个yaml框
 
@@ -364,9 +368,6 @@ function del(s) { // 删除元素
   return s
 }
 
-// console.log('fuck', check_partial( [ 'a', 'b', 'c', 'd', 'e' ], [ ['a', 'b'], ['b', 'e'] ] ))
-// console.log('partial add', partial_order_add(["b", "my", "c", "a"], 'a', 'my', [['my','c'], ['b','c'],  ] ))
-
 function make_bp(s) { // 生成蓝图
   const el = document.getElementById('bp_edit')
 
@@ -404,12 +405,17 @@ function switch_level(s) { // 切换蓝图，在lvl0和lvl1之间
   }
 }
 
+function set_bp_id(s, a) { // 在蓝图被保存后更新其id
+  s = s.set('bp_id', a.bp_id)
+  return s
+}
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release : reset, 
-  pick_kit, pick_link, del, new_link, make_bp, switch_level,
+  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id,
 }
 
 function reducer(s = s0_1, a) {

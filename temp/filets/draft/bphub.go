@@ -13,7 +13,7 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// 传入参数
 	var q struct {
 		Id   int    `valid:"-"`
-		Topo string `valid:"json"`
+		// Topo string `valid:"json"`
 		Yaml string `valid:"-"`
 	}
 
@@ -24,7 +24,9 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	}
 
 	H.JsonDo(w, r, &q, &ret, func() {
-		ret.Data = "haha"
+		ret.Data = map[string]interface{}{
+			"bp_id" : 888,
+		}
 	})
 }
 

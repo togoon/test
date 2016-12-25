@@ -28,6 +28,7 @@ const S ={
 }
 
 class App extends PureComponent {
+
   onClick() {
 
     fetch('/save_bp', {
@@ -117,6 +118,10 @@ const dm = (d) => {
 
     switch_level(){
       d({ type: 'switch_level'})
+    },
+
+    save_bp(){
+      d({ type: 'save_bp', })
     },
   }
 }

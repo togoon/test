@@ -142,7 +142,7 @@ const some_middleware = store => next => action => {
   // . redux最终取的是本函数中 action => {...}的部分作为dispatch的替代
   // . next指的是没有当前中间件之前的dispatch的样子。即它是一个接收action作为参数的函数
   //
-  return next(action)
+  return next(action) // 此处return的含义是返回dispatch的返回值而已，貌似这个return不是很关键。自己写的一些中间件直接一个空的return语句好像也能工作
 
   // 所以，如果中间件要做点什么，大概是这样：
   // store => next => action => {

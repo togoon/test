@@ -34,10 +34,10 @@ class App extends PureComponent {
   onClickSave() {
     const p = this.props 
 
-    if ( p.yaml === '' ) {
-      alert('please make bluprint first!')
-      return
-    } 
+    // if ( p.yaml === '' ) {
+    //   alert('please make bluprint first!')
+    //   return
+    // } 
 
     p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
   }
@@ -145,6 +145,10 @@ const dm = (d) => {
       }
 
       d((d) => {
+
+        const xx = d({ type: 'make_bp' })
+        console.log("xx", xx)
+
         fetch('/save_bp', { method: 'POST', 
           headers: {
             'Accept': 'application/json, application/xml, text/plain, text/html, *.*',

@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react'
 import {HotKeys} from 'react-hotkeys'
 import { connect } from 'react-redux'
 
-import { border as bd, flex, w,} from './utils/cssobj.js'
+import { border as bd, flex, w, h,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
@@ -28,6 +28,16 @@ const S ={
 }
 
 class App extends PureComponent {
+  onClick() {
+    console.log("click!")
+    fetch('/hello').then((res) => {
+      if ( res.ok ) {
+        res.text().then((text) => {
+          console.log(text)
+        })
+      } 
+    })
+  }
 
   render() {
     const p = this.props
@@ -39,10 +49,10 @@ class App extends PureComponent {
     let View
 
     if ( p.level === 1 ) {
-      View = <V>
+      View = <V style={{...h('100%')}}>
         <div style={{padding:'5px 0'}} >
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
-          <Btn>Save</Btn>
+          <Btn onClick={this.onClick} >Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl0</Btn>
         </div>
@@ -51,21 +61,22 @@ class App extends PureComponent {
           <Main_ />
           <Property_ />
           <div id="bp_edit" contentEditable={true} style={{
-            width: 450,
+            width: 450, ...bd,
             whiteSpace: 'pre-wrap',
             overflow: "auto",
           }} />
         </H>
       </V>
     } else {
-      View = <V>
+      View = <V style={{...h('100%')}} >
         <Div style={{padding:'5px 0'}} >
           <Btn>Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>
         </Div>
-        <Div id="bp_edit" contentEditable={true} style={{
-          ...bd,
+        <div>Input the YAML text of the Blueprint</div>
+        <div id="bp_edit" contentEditable={true} style={{
+          ...bd, flex: 1,
           whiteSpace: 'pre-wrap',
           overflow: "auto",
         }} />

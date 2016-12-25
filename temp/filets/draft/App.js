@@ -32,15 +32,20 @@ class App extends PureComponent {
   render() {
     const p = this.props
 
+    function Btn(p){
+      return <button {...p} style={{...p.style, ...S.btn}}  />
+    } 
+
     return <HotKeys style={S.main} handlers={{
       esc : p.brush_clear,
       del : p.del,
     }} 
     >
       <div style={{padding:'5px 0'}} >
-        <button style={S.btn} onClick={p.make_bp} >Make Blueprint</button>
-        <button style={S.btn} >Save</button>
-        <button style={S.btn} >Save As</button>
+        <Btn onClick={p.make_bp}>Make Blueprint</Btn>
+        <Btn>Save</Btn>
+        <Btn>Save As</Btn>
+        <Btn>Switch to lvl0</Btn>
       </div>
       <H style={{...w('100%'), flex: 1}} >
         <ToolPanel_ />

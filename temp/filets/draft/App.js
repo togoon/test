@@ -5,6 +5,8 @@ import React, { PureComponent } from 'react'
 import {HotKeys} from 'react-hotkeys'
 import { connect } from 'react-redux'
 
+import form_encode from 'form-urlencoded'
+
 import { border as bd, flex, w, h,} from './utils/cssobj.js'
 import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
@@ -29,17 +31,15 @@ const S ={
 
 class App extends PureComponent {
 
-  onClick() {
+  onClickSave() {
+    const p = this.props 
 
-    fetch('/save_bp', {
-      method: 'POST',
-    }).then((res) => {
-      if ( res.ok ) {
-        res.text().then((text) => {
-          console.log(text)
-        })
-      } 
-    })
+    if ( p.yaml === '' ) {
+      alert('please make bluprint first!')
+      return
+    } 
+
+    p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
   }
 
   render() {
@@ -58,7 +58,7 @@ class App extends PureComponent {
         <div style={{padding:'5px 0'}} >
           {Name}
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
-          <Btn onClick={p.save_bp} >Save</Btn>
+          <Btn onClick={this.onClickSave.bind(this)} >Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl0</Btn>
         </div>
@@ -103,10 +103,18 @@ class App extends PureComponent {
 }
 
 const sm = (s) => {
+  const bp = {
+    kits : s.get('kits').toJS(),
+    io: s.get('io'),
+    links : s.get('links'), 
+    vals: s.get('vals'),
+  }
+
   return {
     level : s.get('level'), 
     name : s.get('bp_id'),
-    yaml : s.get('yaml')
+    yaml : s.get('yaml'),
+    bp,
   }
 }
 
@@ -128,10 +136,23 @@ const dm = (d) => {
       d({ type: 'switch_level'})
     },
 
-    save_bp(){
+    save_bp(id, json, yaml){
+
+      const body = {
+        id,
+        topo : json,
+        yaml,
+      }
+
       d({
         type: 'fetch',
-        fetch : fetch('/save_bp', { method: 'POST', }),
+        fetch : fetch('/save_bp', { method: 'POST', 
+          headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+          },
+          body: form_encode(body),
+        }),
         api : 'save_bp',
       })
     },

@@ -54,8 +54,9 @@ class App extends PureComponent {
     if ( p.level === 1 ) {
       View = <V style={{...h('100%')}}>
         <div style={{padding:'5px 0'}} >
+          { p.name ? p.name : '*Unnamed*' }
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
-          <Btn onClick={this.onClick} >Save</Btn>
+          <Btn onClick={p.save_bp} >Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl0</Btn>
         </div>
@@ -73,6 +74,7 @@ class App extends PureComponent {
     } else {
       View = <V style={{...h('100%')}} >
         <Div style={{padding:'5px 0'}} >
+          { p.name ? p.name : '*Unnamed*' }
           <Btn>Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>
@@ -99,6 +101,7 @@ class App extends PureComponent {
 const sm = (s) => {
   return {
     level : s.get('level'), 
+    name : s.get('bp_id'),
   }
 }
 
@@ -121,7 +124,11 @@ const dm = (d) => {
     },
 
     save_bp(){
-      d({ type: 'save_bp', })
+      d({
+        type: 'fetch',
+        fetch : fetch('/save_bp', { method: 'POST', }),
+        api : 'save_bp',
+      })
     },
   }
 }

@@ -51,10 +51,12 @@ class App extends PureComponent {
 
     let View
 
+    const Name = p.name ? 'Id: ' + p.name : '*Unnamed*'
+
     if ( p.level === 1 ) {
       View = <V style={{...h('100%')}}>
         <div style={{padding:'5px 0'}} >
-          { p.name ? p.name : '*Unnamed*' }
+          {Name}
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
           <Btn onClick={p.save_bp} >Save</Btn>
           <Btn>Save As</Btn>
@@ -74,7 +76,7 @@ class App extends PureComponent {
     } else {
       View = <V style={{...h('100%')}} >
         <Div style={{padding:'5px 0'}} >
-          { p.name ? p.name : '*Unnamed*' }
+          {Name}
           <Btn>Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>

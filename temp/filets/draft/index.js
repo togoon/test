@@ -145,6 +145,15 @@ function make_bp_body_and_output(order, kits, links, models) {
 
 // 用immutable来表示整个状态
 let s0 = IMap({
+
+  level: 1,
+
+  // ----------------- lvl 0 ---------------------
+
+  yaml: '', // 目前lvl0只支持一个yaml框
+
+  // ----------------- lvl 1 ----------------------
+
   brush : null,
 
   kits : IMap({ // 图元数据, immutable

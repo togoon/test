@@ -10,6 +10,9 @@ import ToolPanel_ from './ToolPanel.js'
 import Main_ from './Main.js' 
 import Property_ from './Property.js'
 import H from './utils/components/H.js'
+// import V from './utils/components/V.js'
+// import Div from './utils/components/Div.js'
+
 
 const S ={
   main: {
@@ -53,6 +56,12 @@ class App extends PureComponent {
   }
 }
 
+const sm = (s) => {
+  return {
+    level : s.get('level'), 
+  }
+}
+
 const dm = (d) => {
   return {
     brush_clear(){
@@ -69,5 +78,5 @@ const dm = (d) => {
   }
 }
 
-export default connect(null, dm)(App)
+export default connect(sm, dm)(App)
 

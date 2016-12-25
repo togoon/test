@@ -29,8 +29,10 @@ const S ={
 
 class App extends PureComponent {
   onClick() {
-    console.log("click!")
-    fetch('/hello').then((res) => {
+
+    fetch('/save_bp', {
+      method: 'POST',
+    }).then((res) => {
       if ( res.ok ) {
         res.text().then((text) => {
           console.log(text)

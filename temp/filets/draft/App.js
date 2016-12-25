@@ -66,11 +66,13 @@ class App extends PureComponent {
           <ToolPanel_ />
           <Main_ />
           <Property_ />
-          <div id="bp_edit" contentEditable={true} style={{
+          <div id="bp_edit" style={{
             width: 450, ...bd,
             whiteSpace: 'pre-wrap',
             overflow: "auto",
-          }} />
+          }}>
+            {p.yaml}
+          </div>
         </H>
       </V>
     } else {
@@ -104,6 +106,7 @@ const sm = (s) => {
   return {
     level : s.get('level'), 
     name : s.get('bp_id'),
+    yaml : s.get('yaml')
   }
 }
 

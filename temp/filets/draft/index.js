@@ -139,11 +139,7 @@ const s0_1 = IMap({
 
   bp_id: null, // id也就是bp的名字
 
-  // ----------------- lvl 0 ---------------------
-
-  yaml: '', // 目前lvl0只支持一个yaml框
-
-  // ----------------- lvl 1 ----------------------
+  yaml: '', 
 
   brush : null,
 
@@ -274,8 +270,7 @@ const s0_0 = IMap({
 
   bp_id: null,
 
-  // ----------------- lvl 0 ---------------------
-  yaml: '', // 目前lvl0只支持一个yaml框
+  // yaml: '', 
 
 })
 
@@ -370,8 +365,6 @@ function del(s) { // 删除元素
 }
 
 function make_bp(s) { // 生成蓝图
-  const el = document.getElementById('bp_edit')
-
   // 输入输出可直接得到
   const io = s.get('io')
 
@@ -391,8 +384,10 @@ function make_bp(s) { // 生成蓝图
   }
 
   // let text = JSON.stringify(bp, null, '  ')
-  let text = yaml.dump(bp)
-  el.innerText = text
+  // let text = yaml.dump(bp)
+  // const el = document.getElementById('bp_edit')
+  // el.innerText = text
+  s = s.set('yaml', yaml.dump(bp))
 
   return s
 }

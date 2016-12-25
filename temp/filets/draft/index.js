@@ -407,7 +407,6 @@ function switch_level(s) { // 切换蓝图，在lvl0和lvl1之间
 }
 
 function set_bp_id(s, a) { // 在蓝图被保存后更新其id
-  console.log("set_bp_xx", a)
   s = s.set('bp_id', a.bp_id)
   return s
 }
@@ -436,20 +435,19 @@ const fetchMiddle = store => next => action => {
     return next(action)
   }
 
-  return action.fetch.then((res) => {
+  action.fetch.then((res) => {
 
     if( !res.ok ) {
       return
     }
 
     res.json().then((ret) => {
-      console.log("fetch:", ret)
+      const api = action.api
+      console.log("fetch:" + api , ret)
       if ( ret.code !== 0 ) {
-        console.log("error")
         return
       } 
-      if ( action.api === 'save_bp' ) {
-        console.log("test")
+      if ( api === 'save_bp' ) {
         return next({
           type : 'set_bp_id', 
           bp_id : ret.data.bp_id, 

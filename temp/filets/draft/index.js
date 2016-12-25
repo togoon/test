@@ -12,6 +12,7 @@ import _ from 'lodash'
 import qs from 'query-string'
 // import yaml from 'yamljs'
 import yaml from 'js-yaml'
+import thunk from 'redux-thunk'
 
 import App_ from './App.js'
 import models from './kit_type.js'
@@ -422,39 +423,8 @@ function reducer(s = s0_1, a) {
   return f(s, a)
 }
 
-// ------------------- 中间件 ----------------------
-const fetchMiddle = store => next => action => {
-
-  // 普通的action，直接放过
-  if (action.type !== 'fetch') {
-    return next(action)
-  }
-
-  action.fetch.then((res) => {
-
-    if( !res.ok ) {
-      return
-    }
-
-    res.json().then((ret) => {
-      const api = action.api
-      console.log("fetch:" + api , ret)
-      if ( ret.code !== 0 ) {
-        return
-      } 
-      if ( api === 'save_bp' ) {
-        return next({
-          type : 'set_bp_id', 
-          bp_id : ret.data.bp_id, 
-        })
-      } 
-    })
-    
-  })
-}
-
 const createStoreWithMiddleware = applyMiddleware(
-  fetchMiddle,
+  thunk,
 )(createStore)
 
 const store = createStoreWithMiddleware(reducer)

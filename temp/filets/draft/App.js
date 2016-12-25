@@ -144,16 +144,20 @@ const dm = (d) => {
         yaml,
       }
 
-      d({
-        type: 'fetch',
-        fetch : fetch('/save_bp', { method: 'POST', 
+      d((d) => {
+        fetch('/save_bp', { method: 'POST', 
           headers: {
-          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
           },
           body: form_encode(body),
-        }),
-        api : 'save_bp',
+        }).then(res => res.json())
+          .then(res => {
+            d({
+              type : 'set_bp_id', 
+              bp_id : res.data.bp_id, 
+            })
+          })
       })
     },
   }

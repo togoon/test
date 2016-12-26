@@ -4,10 +4,11 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"encoding/json"
 )
 
 // 根据id获取蓝图id
-func GetBluePrint(host string, bpr_id string) (res string, err error) {
+func GetBluePrint(host string, bpr_id string) (yaml string, level int, err error) {
 
 	resp, err := http.PostForm("http://" + host + "/get_blueprint", url.Values{
 		"bpr_id" : []string{  bpr_id },
@@ -23,7 +24,16 @@ func GetBluePrint(host string, bpr_id string) (res string, err error) {
 		return
 	}
 
-	res = string(body)
+	var res map[string]interface{}
+	err = json.Unmarshal(body, &res)
+	if err != nil {
+		return
+	}
+
+	data := res["data"].(map[string]interface{})
+	yaml = data["yaml"].(string)
+	level = int(data["level"].(float64))
+
 	return
 }
 

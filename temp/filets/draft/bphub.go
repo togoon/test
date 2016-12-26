@@ -44,7 +44,7 @@ func input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	// 传入参数
 	var q struct {
-		CId int `valid:"-"`
+		CId Bp `valid:"-"`
 	}
 
 	// 返回
@@ -66,6 +66,24 @@ func input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 		ret.Data = input
 
+	})
+}
+
+// 检查输入参数
+func check_input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
+	// 传入参数
+	var q struct {
+		CId Bp `valid:"-"`
+		Values string `valid:"json"`
+	}
+
+	// 返回
+	var ret struct {
+		Err
+	}
+
+	H.JsonDo(w, r, &q, &ret, func() {
 	})
 
 }
@@ -116,6 +134,7 @@ func main() {
 	router.POST("/save_bp", save_bp)
 	router.GET("/templates", templates)
 	router.GET("/input", input)
+	router.GET("/check_input", check_input)
 	router.NotFound = http.FileServer(http.Dir("build"))
 
 	log.Fatal(http.ListenAndServe(*addr, router))

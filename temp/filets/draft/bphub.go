@@ -5,6 +5,7 @@ import (
 	"net/http"
 	H "utils/http"
 	Mysql "utils/mysql"
+	J "utils/json"
 
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
@@ -85,9 +86,14 @@ func check_input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	H.JsonDo(w, r, &q, &ret, func() {
 		// 获取到参数
 		paras := q.CId.get_paras()
+		// log.Printf("paras: %+v", paras)
+
+		// 取到values
+		var vals map[string]interface{}
+		J.StrTo(q.Values, &vals)
 
 		// 检验参数
-		log.Printf("paras: %+v", paras)
+		paras.CheckVals_(vals)
 	})
 
 }

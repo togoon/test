@@ -33,18 +33,6 @@ const S ={
 
 class App extends PureComponent {
 
-  onClickSave() {
-    const p = this.props 
-
-    // if ( p.yaml === '' ) {
-    //   alert('please make bluprint first!')
-    //   return
-    // } 
-
-    // p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
-    p.save_bp()
-  }
-
   render() {
     const p = this.props
 
@@ -61,7 +49,7 @@ class App extends PureComponent {
         <div style={{padding:'5px 0'}} >
           {Name}
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
-          <Btn onClick={this.onClickSave.bind(this)} >Save</Btn>
+          <Btn onClick={p.save_bp1} >Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl0</Btn>
         </div>
@@ -114,6 +102,25 @@ const sm = (s) => {
   }
 }
 
+const api = {
+  save_bp(body, d) {
+    fetch('/save_bp', { method: 'POST', 
+      headers: {
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      body: form_encode(body),
+    }).then(res => res.json())
+      .then(res => {
+        alert("save success!")
+        d({
+          type : 'set_bp_id', 
+          bp_id : res.data.bp_id, 
+        })
+      })
+  },
+}
+
 const dm = (d) => {
   return {
     brush_clear(){
@@ -134,7 +141,7 @@ const dm = (d) => {
       } 
     },
 
-    save_bp(){
+    save_bp1(){ // 保存lvl1的蓝图
 
       d((d, getState) => {
 
@@ -156,20 +163,12 @@ const dm = (d) => {
           user: s.get('user_id')
         }
 
-        fetch('/save_bp', { method: 'POST', 
-          headers: {
-            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-          },
-          body: form_encode(body),
-        }).then(res => res.json())
-          .then(res => {
-            alert("save success!")
-            d({
-              type : 'set_bp_id', 
-              bp_id : res.data.bp_id, 
-            })
-          })
+        api.save_bp(body, d)
+      })
+    },
+
+    save_bp0(){
+      d((d, getState) => {
       })
     },
   }

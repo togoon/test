@@ -370,6 +370,12 @@ function del(s) { // 删除元素
 }
 
 function make_bp(s) { // 生成蓝图
+  // lvl0 无此操作
+  const lvl = s.get('level')
+  if ( lvl === 0 ) {
+    return s
+  } 
+
   // 输入输出可直接得到
   const io = s.get('io')
 

@@ -98,6 +98,26 @@ func check_input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 }
 
+// 获取buildpack
+func buildpack(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
+	// 传入参数
+	var q struct {
+		CId    Bp     `valid:"-"`
+	}
+
+	// 返回
+	var ret struct {
+		Err
+		Data interface{} `json:"data"`
+	}
+
+	H.JsonDo(w, r, &q, &ret, func() {
+		ret.Data = q.CId.get_bpks()
+	})
+
+}
+
 // 保存蓝图
 func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// 传入参数

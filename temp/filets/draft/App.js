@@ -15,6 +15,8 @@ import H from './utils/components/H.js'
 import V from './utils/components/V.js'
 import Div from './utils/components/Div.js'
 
+import {switch_level_confirm} from './strings.js'
+
 
 const S ={
   main: {
@@ -104,19 +106,11 @@ class App extends PureComponent {
 }
 
 const sm = (s) => {
-  const bp = {
-    kits : s.get('kits').toJS(),
-    io: s.get('io'),
-    links : s.get('links'), 
-    vals: s.get('vals'),
-  }
-
   return {
     level : s.get('level'), 
     name : s.get('bp_id'),
     yaml : s.get('yaml'),
     user : s.get('user_id'),
-    bp,
   }
 }
 
@@ -135,7 +129,9 @@ const dm = (d) => {
     },
 
     switch_level(){
-      d({ type: 'switch_level'})
+      if ( confirm(switch_level_confirm) ) {
+        d({ type: 'switch_level'})
+      } 
     },
 
     save_bp(){
@@ -168,6 +164,7 @@ const dm = (d) => {
           body: form_encode(body),
         }).then(res => res.json())
           .then(res => {
+            alert("save success!")
             d({
               type : 'set_bp_id', 
               bp_id : res.data.bp_id, 

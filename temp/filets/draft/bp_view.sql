@@ -6,7 +6,7 @@ use blueprint;
 -- 蓝图
 drop view if exists v_bp4biz;
 create view v_bp4biz as
-select id c_id, name c_name, user
+select id c_id, name c_name, user, topo, yaml
 from blueprint
 ;
 

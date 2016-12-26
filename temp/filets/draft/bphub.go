@@ -5,6 +5,8 @@ import (
 	"net/http"
 	H "utils/http"
 	Mysql "utils/mysql"
+
+	"github.com/ghodss/yaml"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
 	"github.com/julienschmidt/httprouter"
@@ -37,6 +39,37 @@ func templates(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	})
 }
 
+// 获取输入参数
+func input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
+	// 传入参数
+	var q struct {
+		CId int `valid:"-"`
+	}
+
+	// 返回
+	var ret struct {
+		Err
+		Data interface{} `json:"data"`
+	}
+
+	H.JsonDo(w, r, &q, &ret, func() {
+		// 只取yaml
+		bp := db.QryValue("select yaml from v_bp4biz where c_id = ? ", q.CId)
+
+		var obj map[string]interface{}
+
+		// 解析yaml
+		yaml.Unmarshal([]byte(bp.(string)), &obj)
+
+		input := obj["input"]
+
+		ret.Data = input
+
+	})
+
+}
+
 // 保存蓝图
 func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	// 传入参数
@@ -66,15 +99,15 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		}
 
 		ret.Data = map[string]interface{}{
-			"bp_id" : id,
+			"bp_id": id,
 		}
 
 	})
 }
 
-func init()  {
+func init() {
 	kingpin.Parse()
-	db = Mysql.Open_("mysql", "blueprint:ctg123@tcp(" + (*mysql).String() + ")/blueprint?charset=utf8")
+	db = Mysql.Open_("mysql", "blueprint:ctg123@tcp("+(*mysql).String()+")/blueprint?charset=utf8")
 }
 
 func main() {
@@ -82,6 +115,7 @@ func main() {
 	router := httprouter.New()
 	router.POST("/save_bp", save_bp)
 	router.GET("/templates", templates)
+	router.GET("/input", input)
 	router.NotFound = http.FileServer(http.Dir("build"))
 
 	log.Fatal(http.ListenAndServe(*addr, router))

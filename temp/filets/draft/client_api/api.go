@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"encoding/json"
+	"fmt"
 )
 
 // 根据id获取蓝图id
@@ -30,9 +31,26 @@ func GetBluePrint(host string, bpr_id string) (yaml string, level int, err error
 		return
 	}
 
-	data := res["data"].(map[string]interface{})
-	yaml = data["yaml"].(string)
-	level = int(data["level"].(float64))
+	if data, ok := res["data"].(map[string]interface{}); ok {
+		if iyaml, ok := data["yaml"].(string); ok {
+			yaml = iyaml
+		} else {
+			err = fmt.Errorf("get yaml error")
+			return
+		}
+
+		if flevel, ok := data["level"].(float64); ok {
+			level = int(flevel)
+		} else {
+			err = fmt.Errorf("get level error")
+			return
+		}
+
+	} else {
+		err = fmt.Errorf("get data error")
+		return
+	}
+
 
 	return
 }

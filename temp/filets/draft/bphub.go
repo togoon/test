@@ -42,9 +42,9 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 		var id int64 = int64(q.Id)
 		if id == 0 {
-			id = db.Insert("template", q)
+			id = db.Insert("blueprint", q)
 		} else { // 如果没有id，则插入，生成一个新的id
-			db.Update("template", q, "id")
+			db.Update("blueprint", q, "Id")
 		}
 
 		ret.Data = map[string]interface{}{

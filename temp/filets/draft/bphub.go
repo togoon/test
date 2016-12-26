@@ -154,6 +154,27 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 }
 
+// 获取蓝图
+func get_blueprint(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
+	// 传入参数
+	var q struct {
+		BprId    Bp     `valid:"-"`
+	}
+
+	// 返回
+	var ret struct {
+		Err
+		Data interface{} `json:"data"`
+	}
+
+	H.JsonDo(w, r, &q, &ret, func() {
+		res := db.QueryRow("select yaml, level from v_bp4biz where c_id = ?", q.BprId)
+		ret.Data = res
+	})
+
+}
+
 func init() {
 	kingpin.Parse()
 	db = Mysql.Open_("mysql", "blueprint:ctg123@tcp("+(*mysql).String()+")/blueprint?charset=utf8")
@@ -167,6 +188,14 @@ func main() {
 	router.GET("/input", input)
 	router.GET("/check_input", check_input)
 	router.GET("/buildpack", buildpack)
+	router.GET("/get_blueprint", get_blueprint)
+
+	router.POST("/templates", templates)
+	router.POST("/input", input)
+	router.POST("/check_input", check_input)
+	router.POST("/get_blueprint", get_blueprint)
+
+
 	router.NotFound = http.FileServer(http.Dir("build"))
 
 	log.Fatal(http.ListenAndServe(*addr, router))

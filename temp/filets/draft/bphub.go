@@ -40,7 +40,6 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		// 保存蓝图
 		// 如果有id，则更新，每一项都更新
 
-		/*
 		var id int64 = int64(q.Id)
 		if id == 0 {
 			id = db.Insert("template", q)
@@ -51,12 +50,7 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		ret.Data = map[string]interface{}{
 			"bp_id" : id,
 		}
-		*/
 
-		i := db.Exec("show tables")
-		ret.Data = map[string]interface{}{
-			"bp_id" : i,
-		}
 	})
 }
 

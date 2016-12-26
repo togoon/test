@@ -52,7 +52,7 @@ class App extends PureComponent {
 
     let View
 
-    const Name = p.name ? 'Id: ' + p.name : '*Unnamed*'
+    const Name = 'User: ' + p.user + ( p.name ? ' Bp: ' + p.name : ' *Unnamed*' )
 
     if ( p.level === 1 ) {
       View = <V style={{...h('100%')}}>
@@ -115,6 +115,7 @@ const sm = (s) => {
     level : s.get('level'), 
     name : s.get('bp_id'),
     yaml : s.get('yaml'),
+    user : s.get('user_id'),
     bp,
   }
 }

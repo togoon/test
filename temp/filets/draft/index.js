@@ -13,7 +13,6 @@ import qs from 'query-string'
 // import yaml from 'yamljs'
 import yaml from 'js-yaml'
 import thunk from 'redux-thunk'
-import form_encode from 'form-urlencoded'
 
 import App_ from './App.js'
 import models from './kit_type.js'
@@ -136,6 +135,8 @@ function make_bp_body_and_output(order, kits, links, models) {
 
 // 用immutable来表示整个状态
 const s0_1 = IMap({
+
+  user_id: 'guanghui',
 
   level: 1,
 
@@ -269,6 +270,8 @@ const s0_1 = IMap({
 
 const s0_0 = IMap({
   level: 0,
+
+  user_id: 'guanghui',
 
   bp_id: null,
 

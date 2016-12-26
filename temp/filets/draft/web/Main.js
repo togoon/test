@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { PureComponent } from 'react'
 
 import _ from 'lodash'
@@ -9,6 +10,7 @@ import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
 import DefKit from './Kit.js'
+import Kits_ from './Kits.js'
 
 const S = css({
   main: {
@@ -161,6 +163,7 @@ class Main extends PureComponent {
 
   onMouseMove(e) {
     const p = this.props
+    const r = this.refs
     
     // 只有grab状态才进行拖动
     if ( p.mode !== 'grab' ) {
@@ -168,9 +171,11 @@ class Main extends PureComponent {
     }
 
     // 更新坐标
-    const x = e.clientX + this.drag_delta.dx
-    const y = e.clientY + this.drag_delta.dy
+    // const x = e.clientX + this.drag_delta.dx
+    // const y = e.clientY + this.drag_delta.dy
 
+    const x = e.clientX + r.kits.drag_delta.dx
+    const y = e.clientY + r.kits.drag_delta.dy
     p.moveTo(x, y)
 
   }
@@ -336,7 +341,8 @@ class Main extends PureComponent {
       ref='svg'
       onClick={this.onClick.bind(this)} onMouseUp={this.onMouseUp.bind(this)} onMouseMove={this.onMouseMove.bind(this)}
     >
-      {Items}
+      {/*Items*/}
+      <Kits_ ref='kits' />
       {Links}
       {Slots}
     </svg>

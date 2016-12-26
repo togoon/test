@@ -18,6 +18,24 @@ var (
 
 var db *Mysql.DB
 
+// 获取蓝图模板
+func templates(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+
+	// 传入参数
+	var q struct {
+	}
+
+	// 返回
+	var ret struct {
+		Err
+		Data interface{} `json:"data"`
+	}
+
+	H.JsonDo(w, r, &q, &ret, func() {
+		res := db.Query("select c_id, c_name from v_bp4biz where user is null")
+		ret.Data = res
+	})
+}
 
 // 保存蓝图
 func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
@@ -63,6 +81,7 @@ func main() {
 
 	router := httprouter.New()
 	router.POST("/save_bp", save_bp)
+	router.GET("/templates", templates)
 	router.NotFound = http.FileServer(http.Dir("build"))
 
 	log.Fatal(http.ListenAndServe(*addr, router))

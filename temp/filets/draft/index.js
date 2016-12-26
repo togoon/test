@@ -322,6 +322,8 @@ function move_to(s, a) {
 function reset(s) {
   s = s.set('brush', null)
   s = s.set('mode', 'normal')
+  s = s.set('selected', null)
+  s = s.set('selected_type', null)
   return s.set('grabbed_kit', null)
 }
 
@@ -344,9 +346,11 @@ function pick_link(s, a) {
 }
 
 function del(s) { // 删除元素
+
   const type = s.get('selected_type')
   const id = s.get('selected')
   let links = s.get('links')
+
   if ( type === 'link' ) { // 删除link
     links = _.omit(links, id)
     s = s.set('links', links)
@@ -365,6 +369,8 @@ function del(s) { // 删除元素
     kits = kits.delete(id)
     s = s.set('kits', kits)
   }
+
+  s = reset(s)
     
   return s
 }

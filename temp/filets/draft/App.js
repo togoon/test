@@ -15,7 +15,10 @@ import H from './utils/components/H.js'
 import V from './utils/components/V.js'
 import Div from './utils/components/Div.js'
 
-import {switch_level_confirm} from './strings.js'
+import {
+  switch_level_confirm, 
+  cannot_save_empty,
+} from './strings.js'
 
 
 const S ={
@@ -70,7 +73,7 @@ class App extends PureComponent {
       View = <V style={{...h('100%')}} >
         <Div style={{padding:'5px 0'}} >
           {Name}
-          <Btn>Save</Btn>
+          <Btn onClick={p.save_bp0} >Save</Btn>
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>
         </Div>
@@ -169,6 +172,23 @@ const dm = (d) => {
 
     save_bp0(){
       d((d, getState) => {
+        const s = getState()
+        // 获取到yaml
+        const edit = document.getElementById('bp_edit')
+        const yaml = edit.innerText
+
+        if ( yaml === '' ) {
+          alert(cannot_save_empty)
+          return
+        } 
+
+        const body = {
+          id : s.get('bp_id') || 0,
+          yaml,
+          user: s.get('user_id')
+        }
+
+        api.save_bp(body, d)
       })
     },
   }

@@ -154,9 +154,10 @@ const dm = (d) => {
         }
 
         const body = {
-          id : s.get('bp_id'),
+          id : s.get('bp_id') || 0,
           topo : JSON.stringify(bp, null, '  '),
           yaml : s.get('yaml'),
+          user: s.get('user_id')
         }
 
         fetch('/save_bp', { method: 'POST', 

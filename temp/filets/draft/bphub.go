@@ -6,7 +6,6 @@ import (
 	H "utils/http"
 	Mysql "utils/mysql"
 
-	"github.com/ghodss/yaml"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
 	"github.com/julienschmidt/httprouter"
@@ -55,16 +54,16 @@ func input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	H.JsonDo(w, r, &q, &ret, func() {
 		// 只取yaml
-		bp := db.QryValue("select yaml from v_bp4biz where c_id = ? ", q.CId)
+		// bp := db.QryValue("select yaml from v_bp4biz where c_id = ? ", q.CId)
 
-		var obj map[string]interface{}
+		// var obj map[string]interface{}
 
-		// 解析yaml
-		yaml.Unmarshal([]byte(bp.(string)), &obj)
+		// // 解析yaml
+		// yaml.Unmarshal([]byte(bp.(string)), &obj)
 
-		input := obj["input"]
+		// input := obj["input"]
 
-		ret.Data = input
+		ret.Data = q.CId.get_paras()
 
 	})
 }
@@ -74,7 +73,7 @@ func check_input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 	// 传入参数
 	var q struct {
-		CId Bp `valid:"-"`
+		CId    Bp     `valid:"-"`
 		Values string `valid:"json"`
 	}
 
@@ -121,6 +120,7 @@ func save_bp(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		}
 
 	})
+
 }
 
 func init() {

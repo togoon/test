@@ -40,7 +40,7 @@ class App extends PureComponent {
     // } 
 
     // p.save_bp(p.name, JSON.stringify(p.bp, null, '  '), p.yaml)
-    p.save_bp2()
+    p.save_bp()
   }
 
   render() {
@@ -137,18 +137,26 @@ const dm = (d) => {
       d({ type: 'switch_level'})
     },
 
-    save_bp(id, json, yaml){
+    save_bp(){
 
-      const body = {
-        id,
-        topo : json,
-        yaml,
-      }
+      d((d, getState) => {
 
-      d((d) => {
+        d({ type: 'make_bp' })
 
-        const xx = d({ type: 'make_bp' })
-        console.log("xx", xx)
+        const s = getState()
+
+        const bp = {
+          kits : s.get('kits').toJS(),
+          io: s.get('io'),
+          links : s.get('links'), 
+          vals: s.get('vals'),
+        }
+
+        const body = {
+          id : s.get('bp_id'),
+          topo : JSON.stringify(bp, null, '  '),
+          yaml : s.get('yaml'),
+        }
 
         fetch('/save_bp', { method: 'POST', 
           headers: {
@@ -165,11 +173,6 @@ const dm = (d) => {
           })
       })
     },
-
-    save_bp2(){
-      d({ type: 'save_bp2', })
-    },
-
   }
 }
 

@@ -83,6 +83,11 @@ func check_input(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	}
 
 	H.JsonDo(w, r, &q, &ret, func() {
+		// 获取到参数
+		paras := q.CId.get_paras()
+
+		// 检验参数
+		log.Printf("paras: %+v", paras)
 	})
 
 }

@@ -1,4 +1,4 @@
-package main
+package paras
 
 // 一个模板参数的规则结构
 type Para struct {

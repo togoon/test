@@ -166,6 +166,7 @@ func main() {
 	router.GET("/templates", templates)
 	router.GET("/input", input)
 	router.GET("/check_input", check_input)
+	router.GET("/buildpack", buildpack)
 	router.NotFound = http.FileServer(http.Dir("build"))
 
 	log.Fatal(http.ListenAndServe(*addr, router))

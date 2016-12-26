@@ -5,11 +5,11 @@ import (
 	U "utils"
 	P "./paras"
 	bpk "./buildpack"
+	"log"
 )
 
 type Bp int
 
-type Bpk bpk.BuildPack
 type Bpks bpk.BuildPacks
 
 type Yaml map[string]interface{}
@@ -28,9 +28,9 @@ func (me Bp) get_yaml_obj() Yaml {
 
 func (me Bp) get_paras() P.Paras {
 
-	obj := me.get_yaml_obj()
+	yaml := me.get_yaml_obj()
 
-	input := obj["input"]
+	input := yaml["input"]
 
 	var paras P.Paras
 	U.Conv(input, &paras)
@@ -39,6 +39,14 @@ func (me Bp) get_paras() P.Paras {
 }
 
 func (me Bp) get_bpks() Bpks {
-	return nil
+	yaml := me.get_yaml_obj()
+
+	bpks_obj := yaml["buildpack"]
+
+	log.Printf("bpks_obj: %+v", bpks_obj)
+
+	var bpks Bpks
+	U.Conv(bpks_obj, &bpks)
+	return bpks
 }
 

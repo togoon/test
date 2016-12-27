@@ -14,10 +14,12 @@ import Property_ from './Property.js'
 import H from './utils/components/H.js'
 import V from './utils/components/V.js'
 import Div from './utils/components/Div.js'
+import _ from 'lodash'
 
 import {
   switch_level_confirm, 
   cannot_save_empty,
+  make_yaml_first,
 } from './strings.js'
 
 
@@ -83,7 +85,7 @@ class App extends PureComponent {
           <ToolPanel_ />
           <Main_ />
           <Property_ />
-          <div id="bp_edit" style={{
+          <div id="bp_edit" contentEditable={true} style={{
             width: 300, ...bd,
             whiteSpace: 'pre-wrap',
             overflow: "auto",
@@ -166,9 +168,16 @@ const dm = (d) => {
 
       d((d, getState) => {
 
-        d({ type: 'make_bp' })
-
+        // d({ type: 'make_bp' }) 先不生成
         const s = getState()
+
+        const edit = document.getElementById('bp_edit')
+        const yaml = edit.innerText
+
+        if ( _.trim(yaml) === '' ) {
+          alert(make_yaml_first)
+          return
+        } 
 
         const bp = {
           kits : s.get('kits').toJS(),
@@ -180,7 +189,8 @@ const dm = (d) => {
         const body = {
           id : s.get('bp_id') || 0,
           topo : JSON.stringify(bp, null, '  '),
-          yaml : s.get('yaml'),
+          // yaml : s.get('yaml'),
+          yaml,
           user: s.get('user_id')
         }
 

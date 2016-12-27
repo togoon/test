@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-pascal-case */
-
 import React, { PureComponent } from 'react'
 
 import {HotKeys} from 'react-hotkeys'
@@ -19,7 +18,6 @@ import _ from 'lodash'
 import {
   switch_level_confirm, 
   cannot_save_empty,
-  make_yaml_first,
 } from './strings.js'
 
 
@@ -33,19 +31,6 @@ const S ={
 
   btn: {
     marginLeft: 10,
-  },
-}
-
-const api = { // 不作为框架的结构，仅仅提取一些公共的逻辑
-  save_bp(body, d) {
-    post('/save_bp', body)
-      .then(res => {
-        alert("save success!")
-        d({
-          type : 'set_bp_id', 
-          bp_id : res.data.bp_id, 
-        })
-      })
   },
 }
 
@@ -77,12 +62,14 @@ class App extends PureComponent {
 
     const Name = 'User: ' + p.user + ( p.name ? ' Bp: ' + p.name : ' *Unnamed*' )
 
+    const Save = <Btn onClick={p.save_bp} >Save</Btn>
+
     if ( p.level === 1 ) {
       View = <V style={{...h('100%')}}>
         <div style={{padding:'5px 0'}} >
           {Name}
           <Btn onClick={p.make_bp}>Make Blueprint</Btn>
-          <Btn onClick={p.save_bp1} >Save</Btn>
+          {Save}
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl0</Btn>
         </div>
@@ -100,7 +87,7 @@ class App extends PureComponent {
       View = <V style={{...h('100%')}} >
         <Div style={{padding:'5px 0'}} >
           {Name}
-          <Btn onClick={p.save_bp0} >Save</Btn>
+          {Save}
           <Btn>Save As</Btn>
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>
         </Div>
@@ -167,55 +154,51 @@ const dm = (d) => {
       } 
     },
 
-    save_bp1(){ // 保存lvl1的蓝图
-
-      d((d, getState) => {
-
-        // d({ type: 'make_bp' }) 先不生成
-        const s = getState()
-        const yaml = s.get('yaml')
-
-        if ( _.trim(yaml) === '' ) {
-          alert(make_yaml_first)
-          return
-        } 
-
-        const bp = {
-          kits : s.get('kits').toJS(),
-          io: s.get('io'),
-          links : s.get('links'), 
-          vals: s.get('vals'),
-        }
-
-        const body = {
-          id : s.get('bp_id') || 0,
-          topo : JSON.stringify(bp, null, '  '),
-          yaml,
-          user: s.get('user_id')
-        }
-
-        api.save_bp(body, d)
-      })
-    },
-
-    save_bp0(){
+    save_bp(){ // 统一保存bp
       d((d, getState) => {
         const s = getState()
         // 获取到yaml
         const yaml = s.get('yaml')
 
-        if ( yaml === '' ) {
+        if ( !yaml ) {
           alert(cannot_save_empty)
           return
         } 
 
-        const body = {
-          id : s.get('bp_id') || 0,
-          yaml,
-          user: s.get('user_id')
-        }
+        const level = s.get('level')
 
-        api.save_bp(body, d)
+        let body 
+        if ( level === 1 ) {
+          const bp = {
+            kits : s.get('kits').toJS(),
+            io: s.get('io'),
+            links : s.get('links'), 
+            vals: s.get('vals'),
+          }
+
+          body = {
+            id : s.get('bp_id') || 0,
+            topo : JSON.stringify(bp, null, '  '),
+            yaml,
+            user: s.get('user_id')
+          }
+        } else if ( level === 0 ) {
+          body = {
+            id : s.get('bp_id') || 0,
+            yaml,
+            user: s.get('user_id')
+          }
+        } 
+
+        post('/save_bp', body)
+          .then(res => {
+            alert("save success!")
+            d({
+              type : 'set_bp_id', 
+              bp_id : res.data.bp_id, 
+            })
+            // TODO : 这里回调业务前端的接口
+          })
       })
     },
 
@@ -228,6 +211,7 @@ const dm = (d) => {
             const topo_str = res.data.topo
             let data = {
                 bp_id : id,
+                yaml : res.data.yaml, 
             }
 
             if( topo_str ) {
@@ -240,7 +224,6 @@ const dm = (d) => {
               data = {
                 ...data,
                 level : 0,
-                yaml : res.data.yaml, 
               }
             }
             d({ type: 'load', data})

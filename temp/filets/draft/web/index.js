@@ -439,8 +439,19 @@ function reducer(s = s0_1, a) {
   return f(s, a)
 }
 
+// --------------- 中间件 -------------------
+const logger = store => next => action => {
+  console.group(action.type) // 跟上面例子相比，增加了日志分组，用于折叠
+  console.info('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd(action.type)
+  return result
+}
+
 const createStoreWithMiddleware = applyMiddleware(
   thunk,
+  logger,
 )(createStore)
 
 const store = createStoreWithMiddleware(reducer)

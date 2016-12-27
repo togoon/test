@@ -9,7 +9,6 @@ import {css, border as bd, hsl, bg, flex, ptr} from './utils/cssobj.js'
 import Mysql from './widgets/Mysql.js'
 import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
-import DefKit from './Kit.js'
 import Kits_ from './Kits.js'
 
 const S = css({
@@ -34,12 +33,6 @@ const S = css({
   },
 
 })
-
-// 图元的映射
-const widgetMap = {
-  mysql : Mysql,
-  storage : Storage,
-}
 
 // 图元的宽度，后续考虑弄到某个配置里去
 const KIT_WIDTH = 100
@@ -105,12 +98,6 @@ class Main extends PureComponent {
   draw_link = {
   }
 
-  // 用于在拖动时正确计算图元的坐标
-  drag_delta = {
-    dx : null,
-    dy : null,
-  }
-
   onClick(e) {
     const p = this.props
 
@@ -125,60 +112,11 @@ class Main extends PureComponent {
     p.newItem(x, y)
   }
 
-  onItemMouseDown(kid, e) {
-
-    e.stopPropagation()
-
-    const p = this.props
-    const kit = p.kits.get(kid)
-    
-    this.drag_delta = {
-      dx : kit.x - e.clientX,
-      dy : kit.y - e.clientY,
-    }
-
-    p.grab(kid)
-  }
-
-  onItemClick(id, e){
-    e.stopPropagation()
-    const p = this.props 
-    p.pick_kit(id)
-  }
-
   onLinkClick(id, e) {
     e.stopPropagation()
     const p = this.props 
     p.pick_link(id)
   }
-
-  onMouseUp() {
-    // 注：本事件先于onClick发生
-    const p = this.props 
-    if( p.mode === 'draw' )
-      return
-
-    p.release()
-  }
-
-  // onMouseMove(e) {
-  //   const p = this.props
-  //   const r = this.refs
-    
-  //   // 只有grab状态才进行拖动
-  //   if ( p.mode !== 'grab' ) {
-  //     return
-  //   }
-
-  //   // 更新坐标
-  //   // const x = e.clientX + this.drag_delta.dx
-  //   // const y = e.clientY + this.drag_delta.dy
-
-  //   const x = e.clientX + r.kits.drag_delta.dx
-  //   const y = e.clientY + r.kits.drag_delta.dy
-  //   p.moveTo(x, y)
-
-  // }
 
   onInClick(kit, name) {
     const s = this.state 
@@ -288,14 +226,6 @@ class Main extends PureComponent {
     const p = this.props
     const s = this.state 
 
-    let Items = []
-    p.kits.forEach((item, id) => {
-      const Kit =  widgetMap[item.type] || DefKit // 取到组件类
-      Items.push(<Kit key={id} x={item.x} y={item.y} name={item.type} className={S.grab} onMouseDown={this.onItemMouseDown.bind(this, id)} 
-        onClick={this.onItemClick.bind(this, id)} 
-        />)
-    })
-
     let Slots = []
     p.kits.forEach((item, id ) => {
 
@@ -339,9 +269,8 @@ class Main extends PureComponent {
       [S.todraw] : p.mode === 'draw'
     })} 
       ref='svg'
-      onClick={this.onClick.bind(this)} onMouseUp={this.onMouseUp.bind(this)} 
+      onClick={this.onClick.bind(this)}
     >
-      {/*Items*/}
       <Kits_ />
       {Links}
       {Slots}
@@ -382,22 +311,6 @@ const dm = (d) => {
         type: 'new_item',
         x, y,
       })
-    },
-
-    grab(kid){
-      d({ type: 'grab', kid})
-    },
-
-    moveTo(x, y){
-      d({ type: 'move_to', x, y})
-    },
-
-    release(){
-      d({ type: 'release' })
-    },
-
-    pick_kit(id){
-      d({ type: 'pick_kit', id})
     },
 
     pick_link(id){

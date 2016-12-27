@@ -12,7 +12,6 @@ const C = css({
   },
 })
 
-
 // 图元的映射
 const widgetMap = {
   mysql : Mysql,
@@ -50,7 +49,6 @@ class Kits extends PureComponent {
 
   onMouseMove(e) {
     const p = this.props
-    const r = this.refs
     
     // 只有grab状态才进行拖动
     if ( p.mode !== 'grab' ) {
@@ -64,7 +62,6 @@ class Kits extends PureComponent {
     p.moveTo(x, y)
   }
 
-
   render() {
     const p = this.props 
 
@@ -76,7 +73,7 @@ class Kits extends PureComponent {
         />)
     })
 
-    return <g onMouseMove={this.onMouseMove.bind(this)} className={C.grab} >
+    return <g onMouseMove={this.onMouseMove.bind(this)} className={C.grab} onMouseUp={p.release} >
       {Items}
     </g>
   }
@@ -101,6 +98,10 @@ const dm = (d) => {
 
     moveTo(x, y){
       d({ type: 'move_to', x, y})
+    },
+
+    release(){
+      d({ type: 'release' })
     },
 
   }

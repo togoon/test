@@ -161,24 +161,24 @@ class Main extends PureComponent {
     p.release()
   }
 
-  onMouseMove(e) {
-    const p = this.props
-    const r = this.refs
+  // onMouseMove(e) {
+  //   const p = this.props
+  //   const r = this.refs
     
-    // 只有grab状态才进行拖动
-    if ( p.mode !== 'grab' ) {
-      return
-    }
+  //   // 只有grab状态才进行拖动
+  //   if ( p.mode !== 'grab' ) {
+  //     return
+  //   }
 
-    // 更新坐标
-    // const x = e.clientX + this.drag_delta.dx
-    // const y = e.clientY + this.drag_delta.dy
+  //   // 更新坐标
+  //   // const x = e.clientX + this.drag_delta.dx
+  //   // const y = e.clientY + this.drag_delta.dy
 
-    const x = e.clientX + r.kits.drag_delta.dx
-    const y = e.clientY + r.kits.drag_delta.dy
-    p.moveTo(x, y)
+  //   const x = e.clientX + r.kits.drag_delta.dx
+  //   const y = e.clientY + r.kits.drag_delta.dy
+  //   p.moveTo(x, y)
 
-  }
+  // }
 
   onInClick(kit, name) {
     const s = this.state 
@@ -339,10 +339,10 @@ class Main extends PureComponent {
       [S.todraw] : p.mode === 'draw'
     })} 
       ref='svg'
-      onClick={this.onClick.bind(this)} onMouseUp={this.onMouseUp.bind(this)} onMouseMove={this.onMouseMove.bind(this)}
+      onClick={this.onClick.bind(this)} onMouseUp={this.onMouseUp.bind(this)} 
     >
       {/*Items*/}
-      <Kits_ ref='kits' />
+      <Kits_ />
       {Links}
       {Slots}
     </svg>

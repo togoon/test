@@ -169,7 +169,7 @@ func get_blueprint(w http.ResponseWriter, r *http.Request, ps httprouter.Params)
 	}
 
 	H.JsonDo(w, r, &q, &ret, func() {
-		res := db.QueryRow("select yaml, level from v_bp4biz where c_id = ?", q.BprId)
+		res := db.QueryRow("select topo, yaml, level from v_bp4biz where c_id = ?", q.BprId)
 		ret.Data = res
 	})
 

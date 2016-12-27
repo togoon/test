@@ -119,21 +119,25 @@ class Main extends PureComponent {
   onInClick(kit, name) {
     const s = this.state 
     const p = this.props 
-    if ( s.draw_link !== 'on' ) {
-      return
-    } 
+    if ( s.draw_link === 'on' ) {
 
-    // 生成新的link信息
-    p.new_link({
-      ...this.draw_link,
-      to: kit,
-      to_port: name,
-    })
+      // 新建一条link
+      p.new_link({
+        ...this.draw_link,
+        to: kit,
+        to_port: name,
+      })
 
-    this.setState({ draw_link: 'off' })
+      this.setState({ draw_link: 'off' })
+    } else {
+      if ( kit === '_out_' ) { // 则可以被选中
+        p.pick_slot('in', name)
+      }
+    }
   }
   
   onOutClick(kit, name) {
+    const p = this.props 
     this.draw_link = {
       from: kit,
       from_port: name,
@@ -142,6 +146,10 @@ class Main extends PureComponent {
     this.setState({ 
       draw_link : 'on' ,
     })
+
+    if ( kit === '_in_' ) { // 则可以被选中
+      p.pick_slot('out', name)
+    }
   }
 
   makeSlots(id, x, y, w, h, model){
@@ -238,6 +246,7 @@ class Main extends PureComponent {
     if ( s.width ) {
       // 生成大蓝图的插口
       // 注：这里使用了一些晦涩的逻辑，目的仅仅是为了复用makeSlots来生成大蓝图的插口
+      // 另：总蓝图输入输出对调的关系，仅在本组件中感知，对外仍然沿用习惯叫法
       const slots0 = this.makeSlots('_in_', 0, s.height, s.width, 0, { out: p.io.out })
       const slots1 = this.makeSlots('_out_', 0, 0, s.width, SLOT_HEIGHT, { in: p.io.in })
       Slots =  [...Slots, ...slots0, ...slots1]
@@ -322,6 +331,10 @@ const dm = (d) => {
 
     new_link(payload){
       d({ type: 'new_link', ...payload})
+    },
+
+    pick_slot(type, name){ // type: in/out
+      d({ type: 'pick_slot', kind: type, name, })
     },
   }
 }

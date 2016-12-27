@@ -263,9 +263,9 @@ const s0_1 = IMap({
 
   grabbed_kit: null, // 当前抓住的图元id, 用于拖动
 
-  selected: null, // 当前选中的id，用于删除等操作
+  selected: null, // 当前选中的id，用于删除等操作，如果是slot，则形如：{type:in, name: x1}
 
-  selected_type: null, // 表示当前选中是kit还是link
+  selected_type: null, // 表示当前选中是kit还是link, slot
 
 })
 
@@ -288,7 +288,7 @@ function new_link(s, a) {
 
   links = {...links, [uuid()]:link}
   s = s.set('links', links)
-  return s
+  return reset(s)
 }
 
 function new_item(s, a) {
@@ -442,12 +442,22 @@ function load(s, a) { // 加载蓝图
   return s
 }
 
+function pick_slot(s, a) { // 选中输入、输出接口
+  s = s.set('selected_type', 'slot')
+  const selected = {
+    type: a.kind,
+    name : a.name, 
+  }
+  s = s.set('selected', selected)
+  return s
+}
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release, 
-  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id, load,
+  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id, load, pick_slot,
 }
 
 function reducer(s = s0_1, a) {

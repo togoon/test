@@ -204,10 +204,12 @@ const dm = (d) => {
 
     load_bp(){
       d((d, getState) => {
-        post('/get_blueprint', {bpr_id:window.para.c_id})
+        const id = window.para.c_id
+        post('/get_blueprint', {bpr_id:id})
           .then(res => JSON.parse(res.data.topo))
           .then(topo => {
             console.log("topo", topo)
+            topo.bp_id = id
             d({ type: 'load', data:topo })
           })
       })

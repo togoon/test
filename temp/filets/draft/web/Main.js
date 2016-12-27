@@ -131,7 +131,7 @@ class Main extends PureComponent {
       this.setState({ draw_link: 'off' })
     } else {
       if ( kit === '_out_' ) { // 则可以被选中
-        p.pick_slot('in', name)
+        p.pick_slot('out', name)
       }
     }
   }
@@ -148,7 +148,7 @@ class Main extends PureComponent {
     })
 
     if ( kit === '_in_' ) { // 则可以被选中
-      p.pick_slot('out', name)
+      p.pick_slot('in', name)
     }
   }
 

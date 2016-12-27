@@ -61,6 +61,11 @@ class App extends PureComponent {
     p.load_bp()
   }
 
+  onTextChange(e) {
+    const p = this.props 
+    p.set_yaml(e.target.value)
+  }
+
   render() {
     const p = this.props
 
@@ -85,13 +90,10 @@ class App extends PureComponent {
           <ToolPanel_ />
           <Main_ />
           <Property_ />
-          <div id="bp_edit" contentEditable={true} style={{
+          <textarea style={{
             width: 300, ...bd,
-            whiteSpace: 'pre-wrap',
-            overflow: "auto",
-          }}>
-            {p.yaml}
-          </div>
+            resize: "none",
+          }} value={p.yaml} onChange={this.onTextChange.bind(this)} />
         </H>
       </V>
     } else {
@@ -103,13 +105,10 @@ class App extends PureComponent {
           <Btn onClick={p.switch_level} >Switch to lvl1</Btn>
         </Div>
         <div>Input the YAML text of the Blueprint</div>
-        <div id="bp_edit" contentEditable={true} style={{
+        <textarea style={{
           ...bd, flex: 1,
-          whiteSpace: 'pre-wrap',
-          overflow: "auto",
-        }}>
-          {p.yaml}
-        </div>
+          resize: "none",
+        }} value={p.yaml} onChange={this.onTextChange.bind(this)} />
       </V>
     } 
 
@@ -158,6 +157,10 @@ const dm = (d) => {
       d({ type: 'make_bp', })
     },
 
+    set_yaml(yaml){
+      d({ type: 'set_yaml', yaml})
+    },
+
     switch_level(){
       if ( confirm(switch_level_confirm) ) {
         d({ type: 'switch_level'})
@@ -170,9 +173,7 @@ const dm = (d) => {
 
         // d({ type: 'make_bp' }) 先不生成
         const s = getState()
-
-        const edit = document.getElementById('bp_edit')
-        const yaml = edit.innerText
+        const yaml = s.get('yaml')
 
         if ( _.trim(yaml) === '' ) {
           alert(make_yaml_first)
@@ -189,7 +190,6 @@ const dm = (d) => {
         const body = {
           id : s.get('bp_id') || 0,
           topo : JSON.stringify(bp, null, '  '),
-          // yaml : s.get('yaml'),
           yaml,
           user: s.get('user_id')
         }
@@ -202,8 +202,7 @@ const dm = (d) => {
       d((d, getState) => {
         const s = getState()
         // 获取到yaml
-        const edit = document.getElementById('bp_edit')
-        const yaml = edit.innerText
+        const yaml = s.get('yaml')
 
         if ( yaml === '' ) {
           alert(cannot_save_empty)

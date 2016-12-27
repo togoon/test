@@ -433,6 +433,11 @@ function make_bp(s) { // 生成蓝图
   return s
 }
 
+function set_yaml(s, a) { // 仅更新yaml
+  s = s.set('yaml', a.yaml)
+  return s
+}
+
 function switch_level(s) { // 切换蓝图，在lvl0和lvl1之间
   const lvl = s.get('level')
   if ( lvl === 1 ) {
@@ -474,7 +479,7 @@ const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release, 
-  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id, load, pick_slot,
+  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id, load, pick_slot, set_yaml,
 }
 
 function reducer(s = s0_1, a) {

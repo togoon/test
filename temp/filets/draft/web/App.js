@@ -34,9 +34,32 @@ const S ={
   },
 }
 
+const api = {
+  save_bp(body, d) {
+
+    post('/save_bp', body)
+      .then(res => {
+        alert("save success!")
+        d({
+          type : 'set_bp_id', 
+          bp_id : res.data.bp_id, 
+        })
+      })
+  },
+
+  load_bp(id){ // 根据id加载蓝图
+    post('/get_blueprint', {bpr_id:id})
+      .then(res => {
+        const obj = JSON.parse(res.data.topo)
+        console.log("obj", obj)
+      })
+  },
+}
+
 class App extends PureComponent {
   componentDidMount(){
     console.log("para", window.para)
+    api.load_bp(window.para.c_id)
   }
 
   render() {
@@ -117,25 +140,7 @@ function post(url, para) {
 
   return fetch(url, {
     method : 'POST', headers, body : form_encode(para),
-  })
-}
-
-const api = {
-  save_bp(body, d) {
-
-    post('/save_bp', body)
-      .then(res => res.json())
-      .then(res => {
-        alert("save success!")
-        d({
-          type : 'set_bp_id', 
-          bp_id : res.data.bp_id, 
-        })
-      })
-  },
-
-  load_bp(id){ // 根据id加载蓝图
-  },
+  }).then(res => res.json())
 }
 
 const dm = (d) => {

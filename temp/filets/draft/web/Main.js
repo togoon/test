@@ -6,8 +6,6 @@ import cx from 'classnames'
 import { connect } from 'react-redux'
 
 import {css, border as bd, hsl, bg, flex, ptr} from './utils/cssobj.js'
-import Mysql from './widgets/Mysql.js'
-import Storage from './widgets/Storage.js'
 import models from './kit_type.js'
 import Kits_ from './Kits.js'
 

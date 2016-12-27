@@ -327,6 +327,12 @@ function reset(s) {
   return s.set('grabbed_kit', null)
 }
 
+function release(s) {
+  s = s.set('mode', 'normal')
+  return s
+}
+
+
 function brush_set(s, a) {
   s = s.set('brush', a.val)
   s = s.set('mode', 'draw')
@@ -427,7 +433,7 @@ function set_bp_id(s, a) { // 在蓝图被保存后更新其id
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
-  release : reset, 
+  release, 
   pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id,
 }
 
@@ -441,7 +447,7 @@ function reducer(s = s0_1, a) {
 
 // --------------- 中间件 -------------------
 const logger = store => next => action => {
-  console.group(action.type) // 跟上面例子相比，增加了日志分组，用于折叠
+  console.groupCollapsed(action.type) // 跟上面例子相比，增加了日志分组，用于折叠
   console.info('dispatching', action)
   let result = next(action)
   console.log('next state', store.getState())

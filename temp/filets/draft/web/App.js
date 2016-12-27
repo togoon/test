@@ -24,7 +24,7 @@ import {
 const S ={
   main: {
     ...bd, ...flex,
-    width: 1600,
+    width: 1200,
     height: 500,
     flexDirection: 'column',
   },
@@ -48,6 +48,7 @@ const api = { // 不作为框架的结构，仅仅提取一些公共的逻辑
 }
 
 class App extends PureComponent {
+
   componentDidMount(){
     const p = this.props 
 
@@ -83,7 +84,7 @@ class App extends PureComponent {
           <Main_ />
           <Property_ />
           <div id="bp_edit" style={{
-            width: 450, ...bd,
+            width: 300, ...bd,
             whiteSpace: 'pre-wrap',
             overflow: "auto",
           }}>
@@ -104,7 +105,7 @@ class App extends PureComponent {
           ...bd, flex: 1,
           whiteSpace: 'pre-wrap',
           overflow: "auto",
-        }} onChange={this.onChange.bind(this)} >
+        }}>
           {p.yaml}
         </div>
       </V>

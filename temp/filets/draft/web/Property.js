@@ -9,7 +9,7 @@ class Property extends PureComponent {
   render() {
     const p = this.props
     console.log("property render")
-    return <div style={{ ...w(150), ...border}} >
+    return <div style={{ ...w(130), ...border}} >
       <div style={{...bg('orange')}} >
         {p.model}
       </div>

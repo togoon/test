@@ -35,6 +35,9 @@ const S ={
 }
 
 class App extends PureComponent {
+  componentDidMount(){
+    console.log("para", window.para)
+  }
 
   render() {
     const p = this.props
@@ -105,15 +108,23 @@ const sm = (s) => {
   }
 }
 
+function post(url, para) {
+
+  const headers = {
+    'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+  }
+
+  return fetch(url, {
+    method : 'POST', headers, body : form_encode(para),
+  })
+}
+
 const api = {
   save_bp(body, d) {
-    fetch('/save_bp', { method: 'POST', 
-      headers: {
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-      },
-      body: form_encode(body),
-    }).then(res => res.json())
+
+    post('/save_bp', body)
+      .then(res => res.json())
       .then(res => {
         alert("save success!")
         d({
@@ -121,6 +132,9 @@ const api = {
           bp_id : res.data.bp_id, 
         })
       })
+  },
+
+  load_bp(id){ // 根据id加载蓝图
   },
 }
 
@@ -171,6 +185,28 @@ const dm = (d) => {
     },
 
     save_bp0(){
+      d((d, getState) => {
+        const s = getState()
+        // 获取到yaml
+        const edit = document.getElementById('bp_edit')
+        const yaml = edit.innerText
+
+        if ( yaml === '' ) {
+          alert(cannot_save_empty)
+          return
+        } 
+
+        const body = {
+          id : s.get('bp_id') || 0,
+          yaml,
+          user: s.get('user_id')
+        }
+
+        api.save_bp(body, d)
+      })
+    },
+
+    load_bp(){
       d((d, getState) => {
         const s = getState()
         // 获取到yaml

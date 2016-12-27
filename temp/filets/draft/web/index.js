@@ -18,7 +18,8 @@ import App_ from './App.js'
 import models from './kit_type.js'
 
 // ------------------------------------------------
-console.log("qs", qs.parse(location.search))
+// 注入输入参数
+window.para = qs.parse(location.search)
 
 function check_partial(seq, rules) { // 判断一个序列是否符合偏序规则
     // rules的格式为 [ [a, b], ... ]

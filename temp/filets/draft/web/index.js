@@ -430,12 +430,21 @@ function set_bp_id(s, a) { // 在蓝图被保存后更新其id
   return s
 }
 
+function load(s, a) { // 加载蓝图
+  const {io, kits, links, vals} = a.data
+  s = s.set('io', io)
+  s = s.set('links', links)
+  s = s.set('vals', vals)
+  s = s.set('kits', IMap(kits))
+  return s
+}
+
 // ------------ reducer ----------------
 const reducer_table = {
   new_item, grab, move_to, brush_set,
   brush_clear : reset,
   release, 
-  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id,
+  pick_kit, pick_link, del, new_link, make_bp, switch_level, set_bp_id, load,
 }
 
 function reducer(s = s0_1, a) {

@@ -34,9 +34,8 @@ const S ={
   },
 }
 
-const api = {
+const api = { // 不作为框架的结构，仅仅提取一些公共的逻辑
   save_bp(body, d) {
-
     post('/save_bp', body)
       .then(res => {
         alert("save success!")
@@ -46,20 +45,12 @@ const api = {
         })
       })
   },
-
-  load_bp(id){ // 根据id加载蓝图
-    post('/get_blueprint', {bpr_id:id})
-      .then(res => {
-        const obj = JSON.parse(res.data.topo)
-        console.log("obj", obj)
-      })
-  },
 }
 
 class App extends PureComponent {
   componentDidMount(){
-    console.log("para", window.para)
-    api.load_bp(window.para.c_id)
+    const p = this.props 
+    p.load_bp()
   }
 
   render() {
@@ -213,23 +204,12 @@ const dm = (d) => {
 
     load_bp(){
       d((d, getState) => {
-        const s = getState()
-        // 获取到yaml
-        const edit = document.getElementById('bp_edit')
-        const yaml = edit.innerText
-
-        if ( yaml === '' ) {
-          alert(cannot_save_empty)
-          return
-        } 
-
-        const body = {
-          id : s.get('bp_id') || 0,
-          yaml,
-          user: s.get('user_id')
-        }
-
-        api.save_bp(body, d)
+        post('/get_blueprint', {bpr_id:window.para.c_id})
+          .then(res => JSON.parse(res.data.topo))
+          .then(topo => {
+            console.log("topo", topo)
+            d({ type: 'load', data:topo })
+          })
       })
     },
   }

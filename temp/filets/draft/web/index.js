@@ -431,11 +431,13 @@ function set_bp_id(s, a) { // 在蓝图被保存后更新其id
 }
 
 function load(s, a) { // 加载蓝图
-  const {io, kits, links, vals, bp_id} = a.data
+  const {io, kits, links, vals, bp_id, yaml, level} = a.data
   s = s.set('io', io)
   s = s.set('links', links)
   s = s.set('vals', vals)
   s = s.set('bp_id', bp_id)
+  s = s.set('yaml', yaml)
+  s = s.set('level', level)
   s = s.set('kits', IMap(kits))
   return s
 }

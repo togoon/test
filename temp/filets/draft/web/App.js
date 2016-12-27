@@ -206,11 +206,24 @@ const dm = (d) => {
       d((d, getState) => {
         const id = window.para.c_id
         post('/get_blueprint', {bpr_id:id})
-          .then(res => JSON.parse(res.data.topo))
-          .then(topo => {
-            console.log("topo", topo)
-            topo.bp_id = id
-            d({ type: 'load', data:topo })
+          .then(res => {
+
+            const topo_str = res.data.topo
+            let data
+
+            if( topo_str ) {
+              data = {
+                bp_id : id,
+                level : 1,
+                ...JSON.parse(topo_str)
+              }
+            } else { // lvl 0
+              data = {
+                level : 0,
+                yaml : res.data.yaml, 
+              }
+            }
+            d({ type: 'load', data})
           })
       })
     },

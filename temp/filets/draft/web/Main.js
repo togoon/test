@@ -281,15 +281,20 @@ class Main extends PureComponent {
 const sm = (s) => {
 
   const io0 = s.get('io')
+
   const input = {}
-  _.each(io0.in, (v, i ) => {
-    input[v.name] = null
-  })
+  if( io0 && io0.in ){
+    _.each(io0.in, (v, i ) => {
+      input[v.name] = null
+    })
+  }
 
   const out = {}
-  _.each(io0.out, (v, i ) => {
-    out[v.name] = null
-  })
+  if ( io0 && io0.out ) {
+    _.each(io0.out, (v, i ) => {
+      out[v.name] = null
+    })
+  } 
 
   const io = {in:input, out}
   return {

@@ -50,6 +50,11 @@ const api = { // 不作为框架的结构，仅仅提取一些公共的逻辑
 class App extends PureComponent {
   componentDidMount(){
     const p = this.props 
+
+    if( location.host === 'localhost:3000' ) { // 纯前端测试用
+      return
+    }
+
     p.load_bp()
   }
 
@@ -99,7 +104,9 @@ class App extends PureComponent {
           ...bd, flex: 1,
           whiteSpace: 'pre-wrap',
           overflow: "auto",
-        }} />
+        }} onChange={this.onChange.bind(this)} >
+          {p.yaml}
+        </div>
       </V>
     } 
 
@@ -209,16 +216,19 @@ const dm = (d) => {
           .then(res => {
 
             const topo_str = res.data.topo
-            let data
+            let data = {
+                bp_id : id,
+            }
 
             if( topo_str ) {
               data = {
-                bp_id : id,
+                ...data,
                 level : 1,
                 ...JSON.parse(topo_str)
               }
             } else { // lvl 0
               data = {
+                ...data,
                 level : 0,
                 yaml : res.data.yaml, 
               }

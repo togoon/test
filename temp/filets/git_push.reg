@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\Directory\shell\GitPush]
+@="git push"
+[HKEY_CLASSES_ROOT\Directory\shell\GitPush\Command]
+@="cmd.exe /c cd %1 && git push && pause"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\GitPush]
+@="git push"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\GitPush\Command]
+@="cmd.exe /c cd %v. && git push && pause"

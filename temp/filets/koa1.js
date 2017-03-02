@@ -5,34 +5,32 @@
 const Koa = require('koa');
 const app = new Koa();
 
-const middles = {
+const middles = [ // 以下都是中间件
+
+  async function (ctx, next) { // 计算响应时间
+
+    console.log("进入路由")
+
+    const start = new Date();
+    await next();
+    const ms = new Date() - start;
+
+    ctx.set('time-cost', `${ms}ms`);
+  },
+
+  async function (ctx, next) { // 打请求日志
+    await next();
+    console.log(`${ctx.method} ${ctx.url}`);
+  },
+
+  ctx => { // 主响应逻辑
+    ctx.body = 'hey, man';
+  },
+
+]
+
+for (let m of middles) {
+  app.use(m)
 }
-
-const timer = async function (ctx, next) { 
-
-  console.log("进入路由")
-
-  const start = new Date();
-  await next();
-  const ms = new Date() - start;
-  ctx.set('time-cost', `${ms}ms`);
-}
-
-app.use(timer);
-
-// logger
-
-app.use(async function (ctx, next) {
-  const start = new Date();
-  await next();
-  const ms = new Date() - start;
-  console.log(`${ctx.method} ${ctx.url} - ${ms}`);
-});
-
-// response
-
-app.use(ctx => {
-  ctx.body = 'Hello World';
-});
 
 app.listen(3000);

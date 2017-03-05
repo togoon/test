@@ -20,10 +20,18 @@ function compose (middleware) { // 中间件数组
       let fn = middleware[i] // 取到当前的中间件
       if (i === middleware.length) { // 如果到尽头
         fn = next // 是时候接棒next
+        /*
+         * 疑问：next的接口与中间件的接口不一致，这里是如何处理的？
+         */
       }
-      if (!fn) return Promise.resolve()
+
+      if (!fn) {
+        return Promise.resolve()
+      }
+
       try {
-        return Promise.resolve(fn(context, function next () {
+
+        return Promise.resolve(fn(context, function() {
           return dispatch(i + 1)
         }))
       } catch (err) {
@@ -46,7 +54,6 @@ const middles = [
     }, 
     koaBody(), 
     async function(ctx, next){
-      console.log(`haha: ${ctx.method}`)
       console.log(ctx.params)
       if ( ctx.method === 'POST' ) {
         ctx.params = {...ctx.params, ...ctx.request.body}
@@ -71,3 +78,4 @@ for (let m of middles) {
 }
 
 app.listen(3000);
+console.log("begin...")

@@ -1,5 +1,7 @@
 /*
  * koa-compose源码解析
+ * 之所以能进行中间件拼装，是因为可以在next参数上作文章:
+ * 通过手动构造next参数，腾出拼装的空间，以将现有的中间件装填进去
  */
 import Koa from 'koa'
 import koaBody from 'koa-body'
@@ -22,6 +24,8 @@ function compose (middleware) { // 中间件数组
         fn = next // 是时候接棒next
         /*
          * 疑问：next的接口与中间件的接口不一致，这里是如何处理的？
+         * 事实上这里隐含了一个晦涩的逻辑：当fn为next的时候，传给fn的参数是多余的
+         * 所以在这个时候，将会终止递归
          */
       }
 

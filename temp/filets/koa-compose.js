@@ -23,7 +23,7 @@ function compose (middleware) { // 中间件数组
       if (i === middleware.length) { // 如果到尽头
         fn = next // 是时候接棒next
         /*
-         * 疑问：next的接口与中间件的接口不一致，这里是如何处理的？
+         * !: next的接口与中间件的接口不一致，这里是如何处理的？
          * 事实上这里隐含了一个晦涩的逻辑：当fn为next的时候，传给fn的参数是多余的
          * 所以在这个时候，将会终止递归
          */
@@ -34,7 +34,9 @@ function compose (middleware) { // 中间件数组
       }
 
       try {
-
+        /*
+         * 这里没有使用语法糖await，而是底层的promise形式的调用
+         */
         return Promise.resolve(fn(context, function() {
           return dispatch(i + 1)
         }))

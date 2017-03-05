@@ -11,8 +11,9 @@ var Router = require('koa-router');
 var app = new Koa();
 var router = new Router();
 
-// 路由方法
-router.get('/test', function (ctx, next) { // 这是koa标准的中间件接口
+// 路由方法，除了标准的get, post, （put...等现在已不常用），还有all
+router.all('/test', function (ctx, next) { // 这是koa标准的中间件接口
+  // all支持所有方法
   ctx.body = 'router!'
 })
 

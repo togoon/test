@@ -1,5 +1,5 @@
 /*
- * koa-bodyµÄÓÃ·¨
+ * koa-bodyçš„ç”¨æ³•
  */
 import Koa from 'koa'
 import koaBody from 'koa-body'
@@ -7,17 +7,18 @@ import koaBody from 'koa-body'
 const app = new Koa();
 
 /*
- * Ê¹ÓÃkoa-bodyÖĞ¼ä¼ş£¬Èç´Ë¼òµ¥
- * ÕâÀïµÄÈ±Ê¡ÅäÖÃÒÑ¾­ÄÜÓ¦¶Ô¶àÊıÇé¿ö
+ * ä½¿ç”¨koa-bodyä¸­é—´ä»¶ï¼Œå¦‚æ­¤ç®€å•
+ * è¿™é‡Œçš„ç¼ºçœé…ç½®å·²ç»èƒ½åº”å¯¹å¤šæ•°æƒ…å†µ
  */
 app.use(koaBody()) 
 app.use(ctx => {
 
   /* 
-   * ¾­¹ıkoa-bodyÖĞ¼ä¼şµÄ´¦Àí£¬½«¿ÉÒÔ»ñÈ¡µÃµ½postµÄ²ÎÊıbody¶ÔÏó£¬ÔÚctx.request.bodyµ±ÖĞ
-   * ÎÄµµËµctx.req.bodyËÆºõÊÇ²»¶ÔµÄ
+   * ç»è¿‡koa-bodyä¸­é—´ä»¶çš„å¤„ç†ï¼Œå°†å¯ä»¥è·å–å¾—åˆ°postçš„å‚æ•°bodyå¯¹è±¡ï¼Œåœ¨ctx.request.bodyå½“ä¸­
+   * æ–‡æ¡£è¯´ctx.req.bodyä¼¼ä¹æ˜¯ä¸å¯¹çš„
    */
   console.log(ctx.request.body) 
+  // console.log(ctx.query) // è¿™æ˜¯getè¯·æ±‚çš„å‚æ•°
   ctx.body = JSON.stringify(ctx.request.body, null, '  ')
 });
 

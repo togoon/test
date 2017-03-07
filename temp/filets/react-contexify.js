@@ -11,6 +11,7 @@ import { ContextMenu, Item, Separator } from 'react-contexify';
 import { ContextMenuProvider, menuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css'
 
+// 菜单项响应事件
 function onClick(item, target) {
   // item is the item component on which you clicked. You can access all the props
   // 好像是对应菜单项的react实例？而非静态react element

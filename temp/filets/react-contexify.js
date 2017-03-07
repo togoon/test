@@ -13,12 +13,14 @@ import 'react-contexify/dist/ReactContexify.min.css'
 
 function onClick(item, target) {
   // item is the item component on which you clicked. You can access all the props
+  // 好像是对应菜单项的react实例？而非静态react element
   console.log(item);
-  // target refer to the html node on which the menu is triggered
+
+  // targe是触发菜单的html dom元素
   console.log(target);
 }
 
-// 创建菜单，这个菜单是可以共享
+// 创建菜单组件。该组件是可以单个实例被多处共享的
 const MyAwesomeMenu = () => {
   return (
     <ContextMenu id='menu_id'>
@@ -35,6 +37,7 @@ const Hodor = () => <div>Hodor</div>;
 const Cersei = () => <div>Cersei</div>;
 const Aria = () => <div>Aria</div>;
 
+// 使用菜单方法一：包裹一层
 const CerseiWithContextMenu = () => {
     return (
         <ContextMenuProvider id="menu_id">
@@ -42,11 +45,12 @@ const CerseiWithContextMenu = () => {
         </ContextMenuProvider>
     )
 };
-// or you can use the curried function to add the same menu for many components
 
+// 使用菜单方法二：柯里化成高阶组件。但高阶化之后，不能传参数了？
 const addContextMenu = menuProvider('menu_id'); 
 const HodorWithContextMenu = addContextMenu(Hodor);
 const AriaWithContextMenu = addContextMenu(Aria);
+const Div = addContextMenu('div')
 
 const App = () => {
     return(
@@ -55,6 +59,8 @@ const App = () => {
             <HodorWithContextMenu />
             <AriaWithContextMenu />
             <MyAwesomeMenu/>
+            {/* 下面这个不能工作 */}
+            <Div style={{height: 100}} >haha</Div> 
         </div>
     )
 }

@@ -8,6 +8,7 @@ import _ from 'lodash'
 import './utils/css_preset.js'
 
 import { ContextMenu, Item, Separator } from 'react-contexify';
+import { ContextMenuProvider, menuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css'
 
 function onClick(item, target) {
@@ -29,7 +30,6 @@ const MyAwesomeMenu = () => {
   );
 };
 
-import { ContextMenuProvider, menuProvider } from 'react-contexify';
 
 const Hodor = () => <div>Hodor</div>;
 const Cersei = () => <div>Cersei</div>;

@@ -1,3 +1,7 @@
+/*
+ * 指定mock request模块
+ * 如果省略该句，将不mock该模块，而是执行真实的代码
+ */
 jest.mock('./request.js');
 
 import * as user from './user.js';

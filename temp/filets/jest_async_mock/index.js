@@ -4,6 +4,8 @@
  * > mock网络请求
  */
 
-import {getUserName} from './user.js'
+// import {getUserName} from './user.js'
 
-console.log("async test!!!")
+import {test} from './user.js'
+
+test()

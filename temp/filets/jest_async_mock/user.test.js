@@ -10,5 +10,11 @@ import request from './request.js'
 it('works with async/await', async () => {
   const userName = await user.getUserName(4);
   expect(userName).toEqual('Mark');
-  console.log(request.mock.calls)
+
+  /*
+   * 由于request借助了jest.fn工具来实现，因此可以使用工具集里的一些方法
+   * 比如下例，列出request函数的所有调用情况（参数列表）
+   */
+  console.log(request.mock.calls) 
 });
+

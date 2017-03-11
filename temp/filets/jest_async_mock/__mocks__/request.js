@@ -8,11 +8,17 @@ const users = {
   5: {name: 'Paul'},
 };
 
-export default function request(url) {
+/*
+ * 用jest.fn来包装一层是为了在测试的时候对函数的调用情况进行一些统计
+ * 详见文档
+ */
+export const request = jest.fn(function(url) { 
   return new Promise((resolve, reject) => {
     const userID = parseInt(url.substr('/users/'.length), 10);
     users[userID] ? resolve(users[userID]) : reject({
       error: 'User with ' + userID + ' not found.',
     })
   });
-}
+})
+
+export default request

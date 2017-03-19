@@ -15,7 +15,9 @@ var router = new Router();
 router.all('/test', function (ctx, next) { // 这是koa标准的中间件接口
   // all支持所有方法
   ctx.body = 'router!'
-})
+}/*
+, middleWare2, .... // 这里其实可以接多个（任意个）中间件
+*/)
 
 /*
  * router本身不作为中间件，其routes()方法才作为中间件接口

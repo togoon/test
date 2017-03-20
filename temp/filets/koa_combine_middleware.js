@@ -10,7 +10,9 @@ const koa_body = koaBody()
 const middles = [ 
 
   /*
-   * 这里实现了一个新的中间件，该中间件koa-body中间件进行包装（对接）
+   * 这里实现了一个新的中间件，该中间件的功能是：
+   * 将koa-body解析出来的结果与ctx.query对象，进行合并
+   * 从而实现统一处理post和get（query string）请求里的参数
    */
   async function (ctx, next) {
     ctx.params = ctx.query

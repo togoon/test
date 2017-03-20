@@ -5,6 +5,7 @@ var Koa = require('koa');
 var Router = require('koa-router')
 const convert = require('koa-convert')
 var proxy = require('koa-proxy')
+import koaBody from 'koa-body'
 
 const logger = async function (ctx, next) { 
   await next();
@@ -42,14 +43,15 @@ const logger = async function (ctx, next) {
   var router = new Router();
 
   app.use( logger)
-  router.all('/bar2', function (ctx, next) { // 这是koa标准的中间件接口
-    ctx.body = 'bar2'
+  router.all('/bar2', function (ctx) { // 这是koa标准的中间件接口
+    ctx.body = 'bar2' + JSON.stringify(ctx.request.body, null, '  ')
   })
 
-  router.all('/bar3', function (ctx, next) { // 这是koa标准的中间件接口
+  router.all('/bar3', function (ctx) { // 这是koa标准的中间件接口
     ctx.body = 'bar3'
   })
 
+  app.use(koaBody()) // 使用koaBody
   app.use(router.routes())
   app.listen(4000)
   console.log("bar...")

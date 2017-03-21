@@ -7,7 +7,7 @@ jest.mock('./request.js');
 import * as user from './user.js';
 import request from './request.js'
 
-it('works with async/await', async () => {
+it('works with async/await', async () => { // 测试异步代码，直接使用异步函数即可！完美的方案！
   const userName = await user.getUserName(4);
   expect(userName).toEqual('Mark');
 

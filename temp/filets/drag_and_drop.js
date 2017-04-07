@@ -2,11 +2,18 @@
 import React, {PureComponent} from 'react'
 import { render } from 'react-dom'
 
-function dragover(ev) { 
+/*
+ * 注：一定要响应dragover，否则无法drop
+ * 好像只需要preventDefault即可
+ */
+function dragover(ev) {
   ev.preventDefault();
 }
 
-function drag(ev) {
+/*
+ * 设置drag时传递的数据
+ */
+function dragstart(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
@@ -20,9 +27,6 @@ class Test extends PureComponent {
 
   render() {
     return <div>
-      {/*
-      onDragStart={drag} 
-      */}
       <p>Drag the W3Schools image into the rectangle:</p>
       <div id="div1" 
         style={{
@@ -36,7 +40,9 @@ class Test extends PureComponent {
       ></div>
       <br />
       <div id="drag1" draggable="true" 
-        width="336" height="69" >
+        width="336" height="69" 
+        onDragStart={dragstart} 
+      >
         hahaha
       </div>
     </div>

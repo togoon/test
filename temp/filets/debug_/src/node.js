@@ -1,17 +1,13 @@
 /**
- * Module dependencies.
+ * node环境模块入口
  */
 
 var tty = require('tty');
 var util = require('util');
 
-/**
- * This is the Node.js implementation of `debug()`.
- *
- * Expose `debug()` as the module.
- */
-
+// 导出debug
 exports = module.exports = require('./debug');
+
 exports.init = init;
 exports.log = log;
 exports.formatArgs = formatArgs;

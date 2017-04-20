@@ -53,6 +53,7 @@ function selectColor(namespace) {
 }
 
 /**
+ * 导出主函数
  * Create a debugger with the given `namespace`.
  *
  * @param {String} namespace

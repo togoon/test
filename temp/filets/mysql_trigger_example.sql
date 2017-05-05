@@ -20,7 +20,7 @@ delimiter ;
 --------------- 演示实现字段default为uuid -----------------------------
 DELIMITER ;;
 CREATE TRIGGER before_insert_tablename
-BEFORE INSERT ON tablename
+BEFORE INSERT ON tablename -- 对replace也适用，因为replace相当于先delete，再insert。而非update
 FOR EACH ROW
 BEGIN
   IF new.uuid IS NULL THEN

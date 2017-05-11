@@ -2,13 +2,22 @@
 var cx = require('classnames');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Tree = require('react-ui-tree');
 
-import 'react-ui-tree/dist/react-ui-tree.css'
-// import 'react-ui-tree/example/theme.less'
-// import 'react-ui-tree/example/app.less'
+/*
+ * 整个库就一个Tree组件对象
+ */
+import Tree from 'react-ui-tree'
 
-const tree = {
+/*
+ * 这个库太简陋了，不引用它自己的css将无法执行展开和关闭的操作
+ */
+import 'react-ui-tree/dist/react-ui-tree.css' 
+
+/*
+ * 这是Tree需要的所有状态数据，也就是state
+ * children, collapsed, leaf是关键字段（但个人感觉leaf字段是多余的吧）
+ */
+const tree = { 
   "module": "react-ui-tree",
   "children": [
     {
@@ -105,6 +114,7 @@ const tree = {
 }
 
 var App = React.createClass({
+
   getInitialState() {
     return {
       active: null,
@@ -112,6 +122,9 @@ var App = React.createClass({
     };
   },
 
+  /*
+   * renderNode函数，Tree需要一个对于node的render方法（很自然的需求）
+   */
   renderNode(node) {
     return (
       <span className={cx('node', {
@@ -122,6 +135,9 @@ var App = React.createClass({
     );
   },
 
+  /*
+   * 在renderNode中被调用
+   */
   onClickNode(node) {
     this.setState({
       active: node
@@ -150,12 +166,19 @@ var App = React.createClass({
     );
   },
 
+  /*
+   * 这相当于一个controlled component
+   * 但不知道这里是否有坑，如果使用freezer的对象的话，数据是否会被破坏？
+   */
   handleChange(tree) {
     this.setState({
       tree: tree
     });
   },
 
+  /*
+   * 演示更新Tree
+   */
   updateTree() {
     var tree = this.state.tree;
     tree.children.push({module: 'test'});

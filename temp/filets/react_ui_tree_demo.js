@@ -124,6 +124,7 @@ var App = React.createClass({
 
   /*
    * renderNode函数，Tree需要一个对于node的render方法（很自然的需求）
+   * 事实上完全可以（其实就是）传入一个静态组件
    */
   renderNode(node) {
     return (
@@ -169,6 +170,7 @@ var App = React.createClass({
   /*
    * 这相当于一个controlled component
    * 但不知道这里是否有坑，如果使用freezer的对象的话，数据是否会被破坏？
+   * 经试验（2017年5月11日）好像这个handleChange不起作用？似乎完全不需要设置这一项？
    */
   handleChange(tree) {
     this.setState({

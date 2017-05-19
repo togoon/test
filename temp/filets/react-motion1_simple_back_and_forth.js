@@ -1,6 +1,6 @@
 // React
 /*
- * 方块滑动的例子
+ * 通过一个按钮控制方块左右滑动的例子
  */
 import React, { PureComponent } from 'react'
 import { render } from 'react-dom'

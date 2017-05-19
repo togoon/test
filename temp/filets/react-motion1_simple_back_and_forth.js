@@ -6,44 +6,41 @@ import React, { PureComponent } from 'react'
 import { render } from 'react-dom'
 import {Motion, spring} from 'react-motion'
 
+const st_bar = {
+  backgroundColor: `rgb(240, 240, 232)`,
+  width: 450,
+  height: 50,
+}
+
+const st_block = {
+  width: 50,
+  height: 50,
+  backgroundColor: `rgb(130, 181, 198)`,
+}
+
+const Box = p => <div style={st_bar} >
+  <div style={{ transform: `translate3d(${p.x}px, 0, 0)`, ...st_block, }} />
+</div>
+
 class Demo extends PureComponent {
 
-  state = {open: false}
+  state = {flag: false} // 一个开关状态
 
-  onClick(){
-    this.setState({open: !this.state.open});
+  onClick(){ // 点击时切换开关状态
+    this.setState({flag: !this.state.flag})
   }
 
   render() {
-    const st_demo0 = {
-      borderRadius: 4,
-      backgroundColor: `rgb(240, 240, 232)`,
-      width: `450px`,
-      height: `50px`,
-    }
+    const s = this.state 
 
-    const st_block = {
-      width: 50,
-      height: 50,
-      borderRadius: 4,
-      backgroundColor: `rgb(130, 181, 198)`,
-    }
+    // 由flag来令x在400和0间切换，并装上spring
+    const motor = {x: spring(s.flag ? 400 : 0)}
 
     return (
       <div>
         <button onClick={this.onClick.bind(this)} > Toggle </button>
-
-        <Motion style={{x: spring(this.state.open ? 400 : 0)}}>
-          {({x}) =>
-            // children is a callback which should accept the current value of
-            // `style`
-            <div className="demo0" style={st_demo0} >
-              <div className="demo0-block" style={{
-                transform: `translate3d(${x}px, 0, 0)`,
-                ...st_block,
-              }} />
-            </div>
-          }
+        <Motion style={motor}>
+          {Box}
         </Motion>
       </div>
     );

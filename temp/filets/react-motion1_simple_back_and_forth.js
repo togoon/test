@@ -18,6 +18,7 @@ const st_block = {
   backgroundColor: `rgb(130, 181, 198)`,
 }
 
+// 用来移动的小方块，静态件
 const Box = p => <div style={st_bar} >
   <div style={{ transform: `translate3d(${p.x}px, 0, 0)`, ...st_block, }} />
 </div>

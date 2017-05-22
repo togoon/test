@@ -1,3 +1,6 @@
+/*
+ * 使用经典的todo mvc作为基础，在其上增加一些动画效果
+ */
 import React from 'react';
 import { render } from 'react-dom'
 import {TransitionMotion, spring, presets} from 'react-motion';
@@ -7,8 +10,7 @@ class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        // key is creation date
+      todos: [ // todo列表
         {key: 't1', data: {text: 'Board the plane', isDone: false}},
         {key: 't2', data: {text: 'Sleep', isDone: false}},
         {key: 't3', data: {text: 'Try to finish conference slides', isDone: false}},
@@ -21,8 +23,8 @@ class Demo extends React.Component {
         {key: 't10', data: {text: 'Show Secret Demo', isDone: false}},
         {key: 't11', data: {text: 'Go home', isDone: false}},
       ],
-      value: '',
-      selected: 'all',
+      value: '', // 当前输入框的文本
+      selected: 'all', // 当前查看的模式，有all, active, completed
     };
   };
 
@@ -37,7 +39,7 @@ class Demo extends React.Component {
       key: 't' + Date.now(),
       data: {text: this.state.value, isDone: false},
     };
-    // append at head
+
     this.setState({todos: [newItem].concat(this.state.todos)});
   };
 
@@ -113,7 +115,10 @@ class Demo extends React.Component {
 
   render() {
     const {todos, value, selected} = this.state;
+
+    // 解构赋值用得666啊
     const itemsLeft = todos.filter(({data: {isDone}}) => !isDone).length;
+
     return (
       <section className="todoapp">
         <header className="header">

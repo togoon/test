@@ -1,3 +1,6 @@
+/*
+ * spring参数的选择器，用到的都是前面例子已经涵盖的知识点，略
+ */
 import React from 'react';
 import { render } from 'react-dom'
 import {Motion, spring} from 'react-motion';

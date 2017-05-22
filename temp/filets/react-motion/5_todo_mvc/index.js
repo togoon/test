@@ -1,5 +1,6 @@
 /*
  * 使用经典的todo mvc作为基础，在其上增加一些动画效果
+ * 使用react motion里的TransitionMotion组件
  */
 import React from 'react';
 import { render } from 'react-dom'
@@ -28,7 +29,7 @@ class Demo extends React.Component {
     };
   };
 
-  // logic from todo, unrelated to animation
+  // ================== 以下逻辑与动画无关 ========================
   handleChange = ({target: {value}}) => {
     this.setState({value});
   };
@@ -75,12 +76,12 @@ class Demo extends React.Component {
     this.setState({todos: this.state.todos.filter(({key}) => key !== date)});
   };
 
-  // actual animation-related logic
-  getDefaultStyles = () => {
+  // ================== 以下是跟动画相关的逻辑（由原todo的逻辑改写） ========================
+  getDefaultStyles = () => { // 动画的缺省状态
     return this.state.todos.map(todo => ({...todo, style: {height: 0, opacity: 1}}));
   };
 
-  getStyles = () => {
+  getStyles = () => { // 动画的实时状态
     const {todos, value, selected} = this.state;
     return todos.filter(({data: {isDone, text}}) => {
       return text.toUpperCase().indexOf(value.toUpperCase()) >= 0 &&
@@ -99,6 +100,13 @@ class Demo extends React.Component {
     });
   };
 
+  /*
+   * willEnter和willLeave只应用于样式！（这次真正是html元素的style）
+   * 因此返回的对象是跟样式对应的
+   * 这里willEnter返回的是 plain style（没有spring）
+   * 而willLeave返回的是带spring的style，但似乎官方文档里的介绍是两者都可以带spring
+   * 后续再梳理一下此处细节
+   */
   willEnter() {
     return {
       height: 0,
@@ -134,6 +142,7 @@ class Demo extends React.Component {
           </form>
         </header>
         <section className="main">
+          {/* 使用原生的checkbox元素，通过纯CSS来实现自定义复选框样式 */}
           <input
             className="toggle-all"
             type="checkbox"
@@ -167,6 +176,7 @@ class Demo extends React.Component {
             }
           </TransitionMotion>
         </section>
+        {/* 直观的footer */}
         <footer className="footer">
           <span className="todo-count">
             <strong>

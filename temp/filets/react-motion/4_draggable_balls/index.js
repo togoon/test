@@ -19,12 +19,15 @@ function clamp(n, min, max) {
   return Math.max(Math.min(n, max), min);
 }
 
+// 各个球的颜色
 const allColors = [
   '#EF767A', '#456990', '#49BEAA', '#49DCB1', '#EEB868', '#EF767A', '#456990',
   '#49BEAA', '#49DCB1', '#EEB868', '#EF767A',
 ];
 
+// 球的数量
 const [count, width, height] = [11, 70, 90];
+
 // indexed by visual position
 const layout = range(count).map(n => {
   const row = Math.floor(n / 3);
@@ -40,6 +43,8 @@ class Demo extends React.Component {
       mouseCircleDelta: [0, 0], // difference between mouse and circle pos for x + y coords, for dragging
       lastPress: null, // key of the last pressed component
       isPressed: false,
+
+      // 当前球的排列顺序，初始为 [0, ..., 10]
       order: range(count), // index: visual position. value: component key/id
     };
   };
@@ -94,6 +99,7 @@ class Demo extends React.Component {
           let x;
           let y;
           const visualPosition = order.indexOf(key);
+
           if (key === lastPress && isPressed) {
             [x, y] = mouseXY;
             style = {
@@ -102,7 +108,8 @@ class Demo extends React.Component {
               scale: spring(1.2, springSetting1),
               boxShadow: spring((x - (3 * width - 50) / 2) / 15, springSetting1),
             };
-          } else {
+          } 
+          else {
             [x, y] = layout[visualPosition];
             style = {
               translateX: spring(x, springSetting2),
@@ -111,6 +118,7 @@ class Demo extends React.Component {
               boxShadow: spring((x - (3 * width - 50) / 2) / 15, springSetting1),
             };
           }
+
           return (
             <Motion key={key} style={style}>
               {({translateX, translateY, scale, boxShadow}) =>

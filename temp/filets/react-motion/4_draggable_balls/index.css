@@ -7,7 +7,9 @@
 #root {
     height: 100%;
     width: 100%;
-    position: absolute;
+
+    /* 如果改成relative的话，将不能铺满窗口 */
+    position: absolute; 
     background-color: #EEE;
     display: flex;
     justify-content: center;

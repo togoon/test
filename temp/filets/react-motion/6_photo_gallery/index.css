@@ -1,6 +1,5 @@
 .demo4 {
     display: flex;
-    display: -webkit-flex;
     align-items: center;
     height: 700px;
     position: relative;

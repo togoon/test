@@ -82,8 +82,8 @@ class Demo extends React.Component {
     const {todos, value, selected} = this.state;
     return todos.filter(({data: {isDone, text}}) => {
       return text.toUpperCase().indexOf(value.toUpperCase()) >= 0 &&
-        (selected === 'completed' && isDone ||
-        selected === 'active' && !isDone ||
+        ((selected === 'completed' && isDone ) ||
+        (selected === 'active' && !isDone ) ||
         selected === 'all');
     })
     .map((todo, i) => {

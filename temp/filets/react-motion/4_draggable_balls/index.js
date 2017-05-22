@@ -5,8 +5,10 @@ import range from 'lodash.range';
 
 import './index.css'
 
-const springSetting1 = {stiffness: 180, damping: 10};
-const springSetting2 = {stiffness: 120, damping: 17};
+// 弹簧的一些参数，相当于动画要用到的时间函数
+const springSetting1 = {stiffness: 180, damping: 10}; // 球放大
+const springSetting2 = {stiffness: 120, damping: 17}; // 球移动
+
 function reinsert(arr, from, to) {
   const _arr = arr.slice(0);
   const val = _arr[from];
@@ -28,8 +30,10 @@ const allColors = [
 // 球的数量
 const [count, width, height] = [11, 70, 90];
 
-// indexed by visual position
-const layout = range(count).map(n => {
+const seq = range(count)
+
+// 初始化每个球的位置的坐标
+const layout = seq.map(n => {
   const row = Math.floor(n / 3);
   const col = n % 3;
   return [width * col, height * row];
@@ -39,13 +43,15 @@ class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       mouseXY: [0, 0],
       mouseCircleDelta: [0, 0], // difference between mouse and circle pos for x + y coords, for dragging
-      lastPress: null, // key of the last pressed component
-      isPressed: false,
+
+      lastPress: null, // 虽然取名为lastPress，但实际是正在拖动着的球的编号
+      isPressed: false, // 表示是否正在拖动着球
 
       // 当前球的排列顺序，初始为 [0, ..., 10]
-      order: range(count), // index: visual position. value: component key/id
+      order: seq, // index: visual position. value: component key/id
     };
   };
 
@@ -77,40 +83,50 @@ class Demo extends React.Component {
     }
   };
 
+  /*
+   * 按下某个键之后才会触发
+   */
   handleMouseDown = (key, [pressX, pressY], {pageX, pageY}) => {
     this.setState({
       lastPress: key,
       isPressed: true,
+
       mouseCircleDelta: [pageX - pressX, pageY - pressY],
       mouseXY: [pressX, pressY],
     });
   };
 
-  handleMouseUp = () => {
+  handleMouseUp = () => { // 松开拖动，相当于一个reset操作
     this.setState({isPressed: false, mouseCircleDelta: [0, 0]});
   };
 
   render() {
     const {order, lastPress, isPressed, mouseXY} = this.state;
+    /*
+     * 各个球在DOM中的顺序始终保持不变，由变换的参数来控制其显示中的位置
+     */
     return (
       <div className="demo2">
-        {order.map((_, key) => {
+        {seq.map(key => {  // 按序号遍历各个球
+
           let style;
           let x;
           let y;
-          const visualPosition = order.indexOf(key);
+          const visualPosition = order.indexOf(key); // 显示的位置
 
-          if (key === lastPress && isPressed) {
+          if (key === lastPress && isPressed) { // 如果是正在拖着的球
             [x, y] = mouseXY;
             style = {
-              translateX: x,
+              translateX: x, // 取鼠标的位置为其位置
               translateY: y,
+
+              // 设置scale和阴影
               scale: spring(1.2, springSetting1),
               boxShadow: spring((x - (3 * width - 50) / 2) / 15, springSetting1),
             };
           } 
           else {
-            [x, y] = layout[visualPosition];
+            [x, y] = layout[visualPosition]; // 取得其在棋盘中的位置
             style = {
               translateX: spring(x, springSetting2),
               translateY: spring(y, springSetting2),
@@ -119,6 +135,10 @@ class Demo extends React.Component {
             };
           }
 
+          /*
+           * render基本上是声明式的代码，非常直观，基本上无计算逻辑
+           * 这便是react的魅力！
+           */
           return (
             <Motion key={key} style={style}>
               {({translateX, translateY, scale, boxShadow}) =>

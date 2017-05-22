@@ -5,10 +5,16 @@ import range from 'lodash.range';
 
 import './index.css'
 
-// 弹簧的一些参数，相当于动画要用到的时间函数
+/*
+ * 弹簧的一些参数，相当于动画要用到的时间函数
+ * stiffness越大，速度越快
+ * damping好像是用来控制晃动效果的？
+ */
 const springSetting1 = {stiffness: 180, damping: 10}; // 球放大
+// const springSetting2 = {stiffness: 5, damping: 17}; // 球移动
 const springSetting2 = {stiffness: 120, damping: 17}; // 球移动
 
+// 重新调整排位的函数
 function reinsert(arr, from, to) {
   const _arr = arr.slice(0);
   const val = _arr[from];
@@ -17,6 +23,7 @@ function reinsert(arr, from, to) {
   return _arr;
 }
 
+// clamp一个值
 function clamp(n, min, max) {
   return Math.max(Math.min(n, max), min);
 }
@@ -44,7 +51,8 @@ class Demo extends React.Component {
     super(props);
     this.state = {
 
-      mouseXY: [0, 0],
+      mouseXY: [0, 0], // 鼠标所在的坐标，经修正过为球心的位置
+
       mouseCircleDelta: [0, 0], // difference between mouse and circle pos for x + y coords, for dragging
 
       lastPress: null, // 虽然取名为lastPress，但实际是正在拖动着的球的编号
@@ -74,10 +82,14 @@ class Demo extends React.Component {
   handleMouseMove = ({pageX, pageY}) => {
     const {order, lastPress, isPressed, mouseCircleDelta: [dx, dy]} = this.state;
     if (isPressed) {
+
       const mouseXY = [pageX - dx, pageY - dy];
+
+      // 计算当前的坐标最接近于几排几列，最终得到其新位置
       const col = clamp(Math.floor(mouseXY[0] / width), 0, 2);
       const row = clamp(Math.floor(mouseXY[1] / height), 0, Math.floor(count / 3));
       const index = row * 3 + col;
+
       const newOrder = reinsert(order, order.indexOf(lastPress), index);
       this.setState({mouseXY, order: newOrder});
     }
@@ -87,6 +99,11 @@ class Demo extends React.Component {
    * 按下某个键之后才会触发
    */
   handleMouseDown = (key, [pressX, pressY], {pageX, pageY}) => {
+    /*
+     * pressX, pressY是球中心的坐标
+     * pageX, pageY是鼠标的精确坐标
+     * 程序需要这两个值来算一个delta（凡是draggable的ui都需要这个东西）
+     */
     this.setState({
       lastPress: key,
       isPressed: true,

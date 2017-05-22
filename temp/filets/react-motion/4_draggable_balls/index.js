@@ -23,6 +23,7 @@ const allColors = [
   '#EF767A', '#456990', '#49BEAA', '#49DCB1', '#EEB868', '#EF767A', '#456990',
   '#49BEAA', '#49DCB1', '#EEB868', '#EF767A',
 ];
+
 const [count, width, height] = [11, 70, 90];
 // indexed by visual position
 const layout = range(count).map(n => {
@@ -119,7 +120,6 @@ class Demo extends React.Component {
                   className="demo2-ball"
                   style={{
                     backgroundColor: allColors[key],
-                    WebkitTransform: `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`,
                     transform: `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`,
                     zIndex: key === lastPress ? 99 : visualPosition,
                     boxShadow: `${boxShadow}px 5px 5px rgba(0,0,0,0.5)`,

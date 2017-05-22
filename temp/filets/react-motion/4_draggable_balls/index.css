@@ -1,8 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
 }
 
@@ -14,9 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    display: -webkit-flex;
-    -webkit-justify-content: center;
-    -webkit-align-items: center;
 }
 
 .demo2 {

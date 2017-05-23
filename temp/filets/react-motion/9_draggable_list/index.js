@@ -2,6 +2,10 @@
  * 又一个很优雅的sortable的实现!!! 类似于前面的draggable ball
  * 之前也研究过另一个sortable，可以说已经是写得非常好了。
  * 但react motion全新的思路，大大简化了编码过程，太震撼！
+ * 
+ * 但仍然有一些值得思考的点：
+ * > 元素的排列是通过坐标设置得到，而非DOM上的排列的顺序
+ * > 元素的坐标需要手动计算并赋值
  */
 import React from 'react';
 import { render } from 'react-dom'
@@ -111,7 +115,10 @@ class Demo extends React.Component {
                     WebkitTransform: `translate3d(0, ${y}px, 0) scale(${scale})`,
                     zIndex: i === originalPosOfLastPressed ? 99 : i,
                   }}>
+                  {/*
                   {order.indexOf(i) + 1}
+                  */}
+                  {i+1}
                 </div>
               }
             </Motion>

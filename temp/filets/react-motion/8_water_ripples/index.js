@@ -1,5 +1,10 @@
 /*
  * 根据鼠标移动产生类似水波的效果
+ * 使用的是 TransitionMotion
+ * react motion用来实现这样的效果非常非常强大！
+ * 水波特效的设计思路是：
+ * 在稳定状态时
+ * 重点演示willleave的使用。因为水波泛起后最终会消失，很符合willleave的场景
  */
 import React from 'react';
 import { render } from 'react-dom'
@@ -30,9 +35,9 @@ class Demo extends React.Component {
     this.handleMouseMove(e.touches[0]);
   };
 
-  willLeave = (styleCell) => {
+  willLeave = (styleCell) => { 
     return {
-      ...styleCell.style,
+      ...styleCell.style, // 一边放大一边淡出fadeout
       opacity: spring(0, leavingSpringConfig),
       scale: spring(2, leavingSpringConfig),
     };
@@ -40,7 +45,12 @@ class Demo extends React.Component {
 
   render() {
     const {mouse: [mouseX, mouseY], now} = this.state;
-    const styles = mouseX == null ? [] : [{
+
+    /*
+     * 水波特效的稳定状态，只需要一个鼠标当前的位置
+     * 而鼠标之前的位置，就让它们自觉leave
+     */
+    const styles = mouseX == null ? [] : [{ // 注：除了初始状态，之后都不会为null
       key: now,
       style: {
         opacity: spring(1),
@@ -49,6 +59,7 @@ class Demo extends React.Component {
         y: spring(mouseY),
       }
     }];
+
     return (
       <TransitionMotion willLeave={this.willLeave} styles={styles}>
         {circles =>
@@ -64,7 +75,6 @@ class Demo extends React.Component {
                   opacity: opacity,
                   scale: scale,
                   transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                  WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
                 }} />
             )}
           </div>

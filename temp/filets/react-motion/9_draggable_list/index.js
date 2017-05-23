@@ -1,3 +1,8 @@
+/*
+ * 又一个很优雅的sortable的实现!!! 类似于前面的draggable ball
+ * 之前也研究过另一个sortable，可以说已经是写得非常好了。
+ * 但react motion全新的思路，大大简化了编码过程，太震撼！
+ */
 import React from 'react';
 import { render } from 'react-dom'
 import {Motion, spring} from 'react-motion';

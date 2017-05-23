@@ -2,8 +2,6 @@
  * 根据鼠标移动产生类似水波的效果
  * 使用的是 TransitionMotion
  * react motion用来实现这样的效果非常非常强大！
- * 水波特效的设计思路是：
- * 在稳定状态时
  * 重点演示willleave的使用。因为水波泛起后最终会消失，很符合willleave的场景
  */
 import React from 'react';

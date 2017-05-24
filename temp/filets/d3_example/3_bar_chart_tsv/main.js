@@ -20,7 +20,7 @@ var chart = d3.select(".chart")
 d3.tsv("data.tsv", type, function(error, data) {
 
   /*
-   * 结构为 [ {name, value} ]
+   * 结构为 [ {...每一行的数据} ]
    */
   console.log("tsv data", data)
 

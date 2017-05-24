@@ -1,9 +1,10 @@
 /*
  * 通过字母的变化来演示d3数据绑定的设计模式
  * 演示数据增加、减少、变化的情况
+ * 演示merge的使用
  */
 // var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-var alphabet = "abcdef".split("");
+var alphabet = "abcdef".split(""); // 将集合缩小一点，方便观察 enter 跟 update 的区别
 
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
@@ -12,13 +13,13 @@ var svg = d3.select("svg"),
 
 function render(data) {
 
-  // DATA JOIN
-  // Join new data with old elements, if any.
+  // 固定的d3套路代码
   var text = g.selectAll("text")
     .data(data);
 
-  // UPDATE
-  // Update old elements as needed.
+  /*
+   * update即刷新。直接操作对象即可
+   */
   text.attr("class", "update");
 
   // ENTER
@@ -31,11 +32,10 @@ function render(data) {
     .attr("class", "enter")
     .attr("x", function(d, i) { return i * 32; })
     .attr("dy", ".35em")
-    .merge(text)
+    .merge(text) // 如果没有merge，会怎样？
     .text(function(d) { return d; });
 
-  // EXIT
-  // Remove old elements as needed.
+  // exit即将其删除
   text.exit().remove();
 }
 
@@ -44,8 +44,12 @@ render(alphabet);
 
 // 每隔1秒钟刷新一把，数据随机生成。
 d3.interval(function() {
-  render(d3.shuffle(alphabet)
+  const data = d3.shuffle(alphabet)
     .slice(0, Math.floor(Math.random() * alphabet.length))
-    .sort());
-}, 2000);
+    .sort()
+
+  console.log("data", data.join(''))
+
+  render(data);
+}, 3000);
 

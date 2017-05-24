@@ -31,9 +31,9 @@ var x = d3.scaleLinear()
     .domain([0, d3.max(data)]) // "定义域"
     .range([0, 420]); // "值域"
 
-d3.select(".chart")
-  .selectAll("div")
-    .data(data)
+d3.select(".chart") // 选到chart
+  .selectAll("div") // 选到chart里面所有的div
+    .data(data) // 绑定data
   .enter().append("div")
     .style("width", function(d) { return x(d) + "px"; })
     .text(function(d) { return d; });

@@ -19,6 +19,11 @@ var chart = d3.select(".chart")
  */
 d3.tsv("data.tsv", type, function(error, data) {
 
+  /*
+   * 结构为 [ {name, value} ]
+   */
+  console.log("tsv data", data)
+
   // 设置定义域
   x.domain([0, d3.max(data, function(d) { return d.value; })]);
 

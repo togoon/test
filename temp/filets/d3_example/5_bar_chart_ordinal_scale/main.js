@@ -7,7 +7,7 @@
  */
 
 var width = 960,
-    height = 500;
+  height = 500;
 
 /*
  * x轴用的是band scale
@@ -16,34 +16,43 @@ var width = 960,
  * padding 设置的值为相对于step（间隔）的比例，而不是相对于柱子宽度的比例，因此其范围只能0 ~ 1
  */
 var x = d3.scaleBand().range([0, width]).round(true).padding(0.1)
+// var x = d3.scaleBand().range([0, width])
 
 var y = d3.scaleLinear()
-    .range([height, 0]);
+  .range([height, 0]);
 
 var chart = d3.select(".chart")
-    .attr("width", width)
-    .attr("height", height);
+  .attr("width", width)
+  .attr("height", height);
 
 d3.tsv("data.tsv", type, function(error, data) {
 
+  /*
+   * x轴的定义域就是一个数组, 如[ 'A', 'B', ... 'Z' ]
+   * 注：x('A')得到的是band起点的坐标
+   */
   x.domain(data.map(function(d) { return d.name; }));
+
   y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
   var bar = chart.selectAll("g")
-      .data(data)
+    .data(data)
     .enter().append("g")
-      .attr("transform", function(d) { return "translate(" + x(d.name) + ",0)"; });
+    .attr("transform", function(d) { return "translate(" + x(d.name) + ",0)"; });
 
   bar.append("rect")
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); })
-      .attr("width", x.bandwidth());
+    .attr("y", function(d) { return y(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    /*
+     * band scale起作用的地方，直接取到bandwidth
+     */
+    .attr("width", x.bandwidth()); 
 
   bar.append("text")
-      .attr("x", x.bandwidth() / 2)
-      .attr("y", function(d) { return y(d.value) + 3; })
-      .attr("dy", ".75em")
-      .text(function(d) { return d.value; });
+    .attr("x", x.bandwidth() / 2)
+    .attr("y", function(d) { return y(d.value) + 3; })
+    .attr("dy", ".75em")
+    .text(function(d) { return d.value; });
 });
 
 function type(d) {

@@ -22,19 +22,20 @@ function render(data) {
    */
   text.attr("class", "update");
 
-  // ENTER
-  // Create new elements as needed.
-  //
-  // ENTER + UPDATE
-  // After merging the entered elements with the update selection,
-  // apply operations to both.
   text.enter().append("text")
     .attr("class", "enter")
     .attr("x", function(d, i) { return i * 32; })
     .attr("dy", ".35em")
     /*
-     * 如果没有merge的话，不能正常工作. 比如上一个状态是
-     * abcde，下一个状态是abce，UI上只会显示为abcd
+     * 以上的逻辑只应用于enter
+     */
+
+    /*
+     * merge在这里扮演很晦涩但是也很关键的角色
+     * 以下逻辑既应用的enter，也应用于update
+     * 
+     * 从这里的逻辑，能看到一些react的思想的原型
+     * react将这些过程体现在componentDidMount，componentDidUpdate等事件中
      */
     .merge(text) 
     .text(function(d) { return d; });

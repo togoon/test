@@ -32,7 +32,11 @@ function render(data) {
     .attr("class", "enter")
     .attr("x", function(d, i) { return i * 32; })
     .attr("dy", ".35em")
-    .merge(text) // 如果没有merge，会怎样？
+    /*
+     * 如果没有merge的话，不能正常工作. 比如上一个状态是
+     * abcde，下一个状态是abce，UI上只会显示为abcd
+     */
+    .merge(text) 
     .text(function(d) { return d; });
 
   // exit即将其删除

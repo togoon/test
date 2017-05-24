@@ -30,7 +30,7 @@ d3.tsv("data.tsv", function(d) {
 
   g.append("g")
     .attr("class", "axis axis--y")
-    .call(d3.axisLeft(y).ticks(10, "%"))
+    .call(d3.axisLeft(y).ticks(10, "%")) // 10表示坐标轴上有10个刻度（但好像显示出来是12个，暂不深究）
     
     /*
      * 这里是增加一个坐标轴的描述

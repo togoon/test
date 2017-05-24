@@ -1,8 +1,12 @@
+/*
+ * 将bar chart改成竖状图
+ * 注意改成竖状之后的方向性: 由于svg坐标系方向与数学坐标系不一致，所以竖状图需要"逆向生长"
+ */
 var width = 960,
     height = 500;
 
 var y = d3.scaleLinear()
-    .range([height, 0]);
+  .range([height, 0]); // !!注意这里的顺序
 
 var chart = d3.select(".chart")
     .attr("width", width)

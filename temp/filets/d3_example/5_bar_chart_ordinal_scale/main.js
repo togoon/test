@@ -13,6 +13,7 @@ var width = 960,
  * x轴用的是band scale
  * range（值域）与linear scale一致
  * round(true) 好像是用来设置两边留空？
+ * padding 设置的值为相对于step（间隔）的比例，而不是相对于柱子宽度的比例，因此其范围只能0 ~ 1
  */
 var x = d3.scaleBand().range([0, width]).round(true).padding(0.1)
 

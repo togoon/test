@@ -1,5 +1,6 @@
 /*
  * 通过字母的变化来演示d3数据绑定的设计模式
+ * 演示数据增加、减少、变化的情况
  */
 // var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = "abcdef".split("");
@@ -46,5 +47,5 @@ d3.interval(function() {
   render(d3.shuffle(alphabet)
     .slice(0, Math.floor(Math.random() * alphabet.length))
     .sort());
-}, 1000);
+}, 2000);
 

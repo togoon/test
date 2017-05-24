@@ -32,12 +32,10 @@ d3.tsv("data.tsv", type, function(error, data) {
   y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
   chart.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height + ")") // 由x坐标轴默认在最上方，因此需要translate到底下去
     .call(xAxis);
 
-  chart.append("g")
-    .attr("class", "y axis")
+  chart.append("g") // y轴初始位置在最左边，因此正好符合需要
     .call(yAxis);
 
   chart.selectAll(".bar")

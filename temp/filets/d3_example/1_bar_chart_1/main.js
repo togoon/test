@@ -22,8 +22,15 @@ d3.select(".chart") // 选到chart
     .data(data) // 绑定data，这时据说返回一个"用来update的对象"
   /*
    * enter方法似乎是用来指定新的数据如何来渲染
+   * 似乎还有exit和update动作，后面再深究
    */
   .enter().append("div") 
-    .style("width", function(d) { return x(d) + "px"; })
+  /*
+   * 以下有点类似jquery里的dom操作方法
+   */
+  .style("width", function(d) { return x(d) + "px"; }) // 这里的d会对应data里的每一个元素
     .text(function(d) { return d; });
 
+/*
+ * 根据上面一系列的操作，d3将一个数组，对应到一组div
+ */

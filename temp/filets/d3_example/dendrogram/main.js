@@ -1,3 +1,7 @@
+/*
+ * 一个树状图的demo
+ * 非常经典！也就是常见的思维导图采用的ui形式
+ */
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"),

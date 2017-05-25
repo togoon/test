@@ -21,6 +21,7 @@ var tree = d3.cluster()
 /*
  * stratify是一个非常重要的函数: 
  * 将一个二维关系表格拼装成树状结构
+ * 注：stratify返回的对象已经hierarchy过
  */
 var stratify = d3.stratify()
   .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); }); // 需要指定一个获取父节点id的方法

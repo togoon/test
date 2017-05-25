@@ -42,6 +42,8 @@ d3.csv("flare.csv", function(error, data) {
    * 接下来就可以拿root里的数据来渲染出酷炫的树状图了
    */
 
+  console.log("descendants", root.descendants())
+
   var link = g.selectAll(".link")
       .data(root.descendants().slice(1))
     .enter().append("path")

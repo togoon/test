@@ -1,3 +1,7 @@
+/*
+ * 随机字母，加入动画效果
+ * d3的transition设计得令动画技能就是一个插件一样，装上就立马见效。其设计思想还是很先进的
+ */
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 var svg = d3.select("svg"),
@@ -5,30 +9,39 @@ var svg = d3.select("svg"),
     height = +svg.attr("height"),
     g = svg.append("g").attr("transform", "translate(32," + (height / 2) + ")");
 
-function update(data) {
+function render(data) {
+
+  /*
+   * 定义一个transition
+   */
   var t = d3.transition()
       .duration(750);
 
-  // JOIN new data with old elements.
   var text = g.selectAll("text")
     .data(data, function(d) { return d; });
 
-  // EXIT old elements not present in new data.
+  /*
+   * 指定退出动画
+   */
   text.exit()
       .attr("class", "exit")
-    .transition(t)
+    .transition(t) /// 
       .attr("y", 60)
-      .style("fill-opacity", 1e-6)
+      .style("fill-opacity", 0)
       .remove();
 
-  // UPDATE old elements present in new data.
+  /*
+   * update的动画
+   */
   text.attr("class", "update")
       .attr("y", 0)
       .style("fill-opacity", 1)
-    .transition(t)
+    .transition(t) ///
       .attr("x", function(d, i) { return i * 32; });
 
-  // ENTER new elements present in new data.
+  /*
+   * enter动画
+   */
   text.enter().append("text")
       .attr("class", "enter")
       .attr("dy", ".35em")
@@ -41,12 +54,10 @@ function update(data) {
       .style("fill-opacity", 1);
 }
 
-// The initial display.
-update(alphabet);
+render(alphabet);
 
-// Grab a random sample of letters from the alphabet, in alphabetical order.
 d3.interval(function() {
-  update(d3.shuffle(alphabet)
+  render(d3.shuffle(alphabet)
       .slice(0, Math.floor(Math.random() * 26))
       .sort());
 }, 1500);

@@ -45,7 +45,16 @@ d3.json("flare.json", function(error, root) {
     /*
      * 响应点击事件
      */
-    .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+    .on("click", function(d) { 
+      /*
+       * 太酷了！
+       * 巧妙地通过focus和stopPropagation来实现zoom in之后再点一次可以zoom out
+       */
+      if (focus !== d) { 
+        zoom(d)
+        d3.event.stopPropagation() 
+      }
+    });
 
   var text = g.selectAll("text")
     .data(nodes)

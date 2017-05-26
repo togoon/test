@@ -1,6 +1,5 @@
 /*
- * 这里的tween似乎跟react-motion里的spring有点像
- * 但似乎可以自定义更多的细节
+ * 这里的tween似乎跟react-motion有一些相似的思想
  */
 d3.transition()
     .delay(1500)

@@ -93,7 +93,6 @@ d3.json("flare.json", function(error, root) {
    * 如果不需要动画效果，直接将其"卸掉"换回zoomTo即可。插件化的思想体现得非常精妙！
    */
   function zoom(d) {
-    console.log("zoom!!")
 
     var focus0 = focus; focus = d; // 记录原来的focus，更新当前的focus
 
@@ -107,6 +106,7 @@ d3.json("flare.json", function(error, root) {
           return function(t) { zoomTo(i(t)); };
         });
 
+    // 控制文字的渐变，注释掉不影响圆圈的渐变
     transition.selectAll("text")
       .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
         .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })

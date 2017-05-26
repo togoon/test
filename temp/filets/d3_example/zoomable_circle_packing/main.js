@@ -31,7 +31,8 @@ d3.json("flare.json", function(error, root) {
 
   var focus = root, // 指当前选中哪个节点，初始是root
     nodes = pack(root).descendants(), // 所有节点平铺
-    view;
+
+    view; // 保存当前的"视窗"，也就是zoomTo的参数（目标）
 
   var circle = g.selectAll("circle")
     .data(nodes)
@@ -67,6 +68,7 @@ d3.json("flare.json", function(error, root) {
 
   /*
    * 这个zoomTo只是一些数据的初始化，并没有调用zoom函数
+   * 三个参数分别是 坐标x, y, 直径
    */
   zoomTo([root.x, root.y, root.r * 2 + margin]);
 
@@ -97,7 +99,8 @@ d3.json("flare.json", function(error, root) {
   }
 
   function zoomTo(v) {
-    var k = diameter / v[2]; view = v;
+    view = v // 更新view
+    var k = diameter / v[2]; // k是一个比例？
     node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
     circle.attr("r", function(d) { return d.r * k; });
   }

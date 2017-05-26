@@ -4,9 +4,12 @@
  * > 演示如何在d3上响应事件
  */
 var svg = d3.select("svg"),
-    margin = 20,
-    diameter = +svg.attr("width"),
-    g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+  margin = 20,
+  diameter = +svg.attr("width"),
+  /*
+   * 这里很关键，将原点移到画布中央
+   */
+  g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
 /*
  * 指定一个颜色的插值scale. 通过颜色的渐变来反映层次的深度
@@ -78,7 +81,7 @@ d3.json("flare.json", function(error, root) {
 
 
   /*
-   * 这个zoomTo只是一些数据的初始化，并没有调用zoom函数
+   * zoomTo里才为每个元素设置坐标以及大小
    * 三个参数分别是 坐标x, y, 直径
    */
   zoomTo([root.x, root.y, root.r * 2 + margin]);
@@ -111,10 +114,26 @@ d3.json("flare.json", function(error, root) {
         .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
   }
 
+  // 计算zoom到一个地方时，各个元素的坐标以及大小
   function zoomTo(v) {
-    view = v // 更新view
-    var k = diameter / v[2]; // k是一个比例？
+    view = v // 更新view，本函数中并没有用到view变量，是作动画的时候用的
+
+    var k = diameter / v[2]; // 先算出拉伸的比例系数
+
+    /*
+     * 所有元素进行变换
+     * 此处的作法隐含着一些数学知识
+     * 注：这里变换并不是相对于上一个zoom的变换，而是相对于原始大小的变换！
+     * 因此计算比例也是相对于原始尺寸的比例
+     *
+     * 这里的zoom定位算法很值得回味，它并没有采用将整张图进行放大缩小的方式
+     * 而是通过传入的view参数，逐个刷新每个元素的坐标和大小。这应该不是唯一的实现方法
+     * 但为今后写算法开辟了一种新的思路
+     */
+
+    // 求得距离，再乘k倍
     node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+    // 所有圆放大k倍
     circle.attr("r", function(d) { return d.r * k; });
   }
 });

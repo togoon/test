@@ -84,6 +84,8 @@ d3.json("flare.json", function(error, root) {
 
   /*
    * 传入一个节点（数据节点），zoom到以其为中心的视角
+   * 它其实是对zoomTo的一个动画状态的包装。
+   * 如果不需要动画效果，直接将其"卸掉"换回zoomTo即可。插件化的思想体现得非常精妙！
    */
   function zoom(d) {
     console.log("zoom!!")

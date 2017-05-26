@@ -13,9 +13,10 @@ var svg = d3.select("svg"),
  * 前面基础的circle packing demo里没有使用这个技术，是用了一个简便的trick：通过设置一个颜色的透明度叠加而成
  */ 
 var color = d3.scaleLinear()
-    .domain([-1, 5])
-    .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
-    .interpolate(d3.interpolateHcl);
+  .domain([-1, 5])
+  .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"]) // 这里使用的颜色格式与下面的插值体系(hcl)没有任何关系，只要能表示颜色就行
+  .interpolate(d3.interpolateHcl);
+  // .interpolate(d3.interpolateHsl); // 可以试试用hsl，rgb等维度来插值，会发现hcl比hsl要美观
 
 // 定义一个circle packing
 var pack = d3.pack()
@@ -52,6 +53,7 @@ d3.json("flare.json", function(error, root) {
        */
       if (focus !== d) { 
         zoom(d)
+        // zoomTo([d.x, d.y, d.r*2 + margin])
         d3.event.stopPropagation() 
       }
     });

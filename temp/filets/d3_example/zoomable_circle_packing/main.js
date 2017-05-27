@@ -101,6 +101,7 @@ d3.json("flare.json", function(error, root) {
      * 亮点！还可以根据altkey来放慢速度！！
      */
       .duration(d3.event.altKey ? 7500 : 750)
+        // 给tween取个名字似乎还可用于transition的打断和重置
         .tween("zoom", function(d) {
           var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
           return function(t) { zoomTo(i(t)); };

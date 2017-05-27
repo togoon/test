@@ -35,15 +35,19 @@ d3.json("miserables.json", function(error, graph) {
 
   // 点
   var node = svg.append("g")
-      .attr("class", "nodes")
+    .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes) // nodes
     .enter().append("circle")
-      .attr("r", 2.5)
-      .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
+    .attr("r", 2.5)
+    /*
+     * 对node指定drag事件
+     * 重点分析如何将力场模拟应用到拖动事件中
+     */
+    .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended));
 
   node.append("title")
       .text(function(d) { return d.id; });
@@ -66,29 +70,35 @@ d3.json("miserables.json", function(error, graph) {
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("y2", function(d) { return d.target.y; })
 
     node
         .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+        .attr("cy", function(d) { return d.y; })
   }
 
 });
 
 function dragstarted(d) {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d.fx = d.x;
-  d.fy = d.y;
+  if (!d3.event.active) { // 好像这个if永远成立
+    simulation.alphaTarget(0.3).restart()
+  }
+
+  d.fx = d.x
+  d.fy = d.y
 }
 
 function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
+  d.fx = d3.event.x
+  d.fy = d3.event.y
 }
 
 function dragended(d) {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d.fx = null;
-  d.fy = null;
+  if (!d3.event.active) { 
+    simulation.alphaTarget(0)
+  }
+
+  d.fx = null
+  d.fy = null
 }
 

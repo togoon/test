@@ -13,9 +13,11 @@ var simulation = d3.forceSimulation()
    * 给虚拟世界添加力
    * 第一个参数作为名字可以任意取，仅用于后续移除
    */
-  .force("link", d3.forceLink().id(function(d) { return d.id; }))
-  .force("charge", d3.forceManyBody())
-  .force("center", d3.forceCenter(width / 2, height / 2));
+  .force("link", d3.forceLink().id( function(d) { 
+    return d.id;  // 指定如何取id
+  }))
+  .force("charge", d3.forceManyBody()) // 这指的是万有引力场？
+  .force("center", d3.forceCenter(width / 2, height / 2)); // 中心引力？
 
 d3.json("miserables.json", function(error, graph) {
   if (error) throw error;
@@ -46,13 +48,19 @@ d3.json("miserables.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return d.id; });
 
+  /*
+   * 以下是将力学模拟与数据关联
+   */
   simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
+    .nodes(graph.nodes) // 关联nodes，同时也进化数据
+    .on("tick", ticked);  // 
 
   simulation.force("link")
-      .links(graph.links);
+    .links(graph.links); // 关联links，会将links里面的数据进化成更高级的形态
 
+  /*
+   * 在tick事件里，真正绘制每一个点和每一条边的坐标
+   */
   function ticked() {
     link
         .attr("x1", function(d) { return d.source.x; })
@@ -64,6 +72,7 @@ d3.json("miserables.json", function(error, graph) {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
   }
+
 });
 
 function dragstarted(d) {

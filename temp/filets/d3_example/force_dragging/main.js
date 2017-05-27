@@ -1,28 +1,41 @@
 /*
  * 力学模拟初探
+ *
+ * 这里面的数据结构跟composer有点类似（分开links和nodes存储），值得参考其思路
+ *
  */
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
 var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+  /*
+   * 给虚拟世界添加力
+   * 第一个参数作为名字可以任意取，仅用于后续移除
+   */
+  .force("link", d3.forceLink().id(function(d) { return d.id; }))
+  .force("charge", d3.forceManyBody())
+  .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("miserables.json", function(error, graph) {
   if (error) throw error;
 
+  /*
+   * 以下边和点的初始代码都是常规的d3套路
+   */
+
+  // 边
   var link = svg.append("g")
       .attr("class", "links")
     .selectAll("line")
-    .data(graph.links)
+    .data(graph.links) // 绑定link数据
     .enter().append("line");
 
+  // 点
   var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
-    .data(graph.nodes)
+    .data(graph.nodes) // nodes
     .enter().append("circle")
       .attr("r", 2.5)
       .call(d3.drag()

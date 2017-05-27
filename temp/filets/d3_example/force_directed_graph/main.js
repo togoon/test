@@ -1,9 +1,12 @@
-
+/*
+ * 节点能被拖动但又有一定回弹张力的树状图
+ * > 演示force simulation的使用
+ */
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+var color = d3.scaleOrdinal(d3.schemeCategory20); // 调色板
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))

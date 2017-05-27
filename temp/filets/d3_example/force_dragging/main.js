@@ -81,6 +81,7 @@ d3.json("miserables.json", function(error, graph) {
 
 function dragstarted(d) {
   if (!d3.event.active) { // 好像这个if永远成立
+    // 这个alphaTarget好像据说是个冷却系数？再得好好研究一下
     simulation.alphaTarget(0.3).restart()
   }
 

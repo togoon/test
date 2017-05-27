@@ -1,3 +1,7 @@
+/*
+ * force directed graph最简单版，无拖动功能
+ * 使用canvas而非svg
+ */
 var canvas = document.querySelector("canvas"),
     context = canvas.getContext("2d"),
     width = canvas.width,

@@ -150,12 +150,14 @@ class Demo extends React.Component {
             onChange={this.handleToggleAll} />
           {/*
             * defaultStyles 和 styles 的格式都要求为 [ { ..., style } ... ]
+            * 必须提供willEnter和willLeave，否则对应的行为发生时，动画不能体现
             */}
           <TransitionMotion
             defaultStyles={this.getDefaultStyles()}
             styles={this.getStyles()}
+            willEnter={this.willEnter}
             willLeave={this.willLeave}
-            willEnter={this.willEnter}>
+          >
             {styles =>
               <ul className="todo-list">
                 {styles.map(({key, style, data: {isDone, text}}) =>

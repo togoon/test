@@ -148,6 +148,9 @@ class Demo extends React.Component {
             type="checkbox"
             checked={itemsLeft === 0} style={{display: todos.length === 0 ? 'none' : 'inline'}}
             onChange={this.handleToggleAll} />
+          {/*
+            * defaultStyles 和 styles 的格式都要求为 [ { ..., style } ... ]
+            */}
           <TransitionMotion
             defaultStyles={this.getDefaultStyles()}
             styles={this.getStyles()}

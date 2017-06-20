@@ -134,7 +134,7 @@ class Demo extends React.Component {
           if (key === lastPress && isPressed) { // 如果是正在拖着的球
             [x, y] = mouseXY;
             style = {
-              translateX: x, // 取鼠标的位置为其位置
+              translateX: x, // 取鼠标的位置为其位置，由于设置的是静态值，则不会有动画效果
               translateY: y,
 
               // 设置scale和阴影

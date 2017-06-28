@@ -22,6 +22,7 @@ function onClick(item, target) {
 }
 
 // 创建菜单组件。该组件是可以单个实例被多处共享的
+// icon这里用的是font awesome，需要单独引入font awesome的css才能生效
 const MyAwesomeMenu = () => {
   return (
     <ContextMenu id='menu_id'>

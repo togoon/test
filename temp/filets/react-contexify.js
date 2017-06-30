@@ -12,12 +12,15 @@ import { ContextMenuProvider, menuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css'
 
 // 菜单项响应事件
-function onClick(item, target) {
+function onClick(item, refs, target) {
+  // 这里发生了改动，详见文档
+
   // item is the item component on which you clicked. You can access all the props
   // 好像是对应菜单项的react实例？而非静态react element
+  // targe是触发菜单的html dom元素
+
   console.log(item);
 
-  // targe是触发菜单的html dom元素
   console.log(target);
 }
 
@@ -26,10 +29,16 @@ function onClick(item, target) {
 const MyAwesomeMenu = () => {
   return (
     <ContextMenu id='menu_id'>
-      <Item label="Add" icon="fa fa-plus" onClick={onClick} />
-      <Item label="Remove" icon="fa fa-trash" onClick={onClick} />
+      <Item icon="fa fa-plus" onClick={onClick} >
+        Add
+      </Item>
+      <Item icon="fa fa-trash" onClick={onClick} >
+        Remove
+      </Item>
       <Separator/>
-      <Item label="Paste" icon="fa fa-clipboard" disabled />
+      <Item icon="fa fa-clipboard" disabled >
+        paste
+      </Item>
     </ContextMenu>
   );
 };

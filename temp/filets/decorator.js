@@ -1,3 +1,4 @@
+// React
 /*
  * 演示一个decorator的使用
  */

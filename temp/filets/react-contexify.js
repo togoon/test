@@ -12,16 +12,13 @@ import { ContextMenuProvider, menuProvider } from 'react-contexify';
 import 'react-contexify/dist/ReactContexify.min.css'
 
 // 菜单项响应事件
-function onClick(item, refs, target) {
-  // 这里发生了改动，详见文档
-
-  // item is the item component on which you clicked. You can access all the props
-  // 好像是对应菜单项的react实例？而非静态react element
-  // targe是触发菜单的html dom元素
-
-  console.log(item);
-
-  console.log(target);
+function onClick(target, ref, data) {
+  /*
+   * target是触发事件那个最小粒度的dom元素
+   * ref是被 context menu provider包裹的react元素的实例，如果有多个，则是多个实例数组。但在本例中，好像无效，原因不明
+   * data还不知道有什么用
+   */
+  console.log(target, ref, data);
 }
 
 // 创建菜单组件。该组件是可以单个实例被多处共享的
@@ -52,7 +49,7 @@ const Aria = () => <div>Aria</div>;
 const CerseiWithContextMenu = () => {
     return (
         <ContextMenuProvider id="menu_id">
-            <Cersei />
+            <Cersei x={1}/>
         </ContextMenuProvider>
     )
 };

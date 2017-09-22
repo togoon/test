@@ -1,15 +1,28 @@
-var refreshButton = document.querySelector('.refresh');
+/*
+ * 没有使用任何ui框架，使用纯原生api来操作dom
+ */
+
+var refreshButton = document.querySelector('.refresh'); // 刷新
+// 3个按钮
 var closeButton1 = document.querySelector('.close1');
 var closeButton2 = document.querySelector('.close2');
 var closeButton3 = document.querySelector('.close3');
 
+/*
+ * "一切都是流"的思想
+ */
+
+// 声明click事件流
 var refreshClickStream = Rx.Observable.fromEvent(refreshButton, 'click');
 var close1ClickStream = Rx.Observable.fromEvent(closeButton1, 'click');
 var close2ClickStream = Rx.Observable.fromEvent(closeButton2, 'click');
 var close3ClickStream = Rx.Observable.fromEvent(closeButton3, 'click');
 
-var requestStream = refreshClickStream.startWith('startup click')
+var requestStream = refreshClickStream
+  .startWith('hello') 
+// .startWith('startup click') // startup随便传一个什么值都可以？
   .map(function() {
+    // 根据一个随机的序号，拼成得请求链接
     var randomOffset = Math.floor(Math.random() * 500);
     return 'https://api.github.com/users?since=' + randomOffset;
   });
@@ -17,7 +30,6 @@ var requestStream = refreshClickStream.startWith('startup click')
 var responseStream = requestStream
   .flatMap(function(requestUrl) {
     return Rx.Observable.fromPromise($.getJSON(requestUrl));
-    // return Rx.Observable.fromPromise(fetch(requestUrl));
   });
 
 function createSuggestionStream(closeClickStream) {

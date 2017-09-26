@@ -6,7 +6,12 @@ import Rx from 'rxjs/Rx'
  * 它是一个可被观察（订阅）到数据的容器
  */
 
+/*
+ * 在本例中，使用create来创建一个observable，主要是为了演示observable的本质
+ * 实际中有很多创建observable的方法函数
+ */
 var observable = Rx.Observable.create(function (observer) {
+
   /*
    * 构造一个观察器，将部署好其可被观察到的数值
    * 先同步地指定1, 2, 3

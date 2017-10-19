@@ -2,6 +2,24 @@
  * 演示node里Buffer的使用
  */
 
+// 写入一个字符串
+// buf.write(string[, offset[, length]][, encoding])  // 返回写入字节的长度
+
+// 写入整型
+// buf.writeUInt8(value, offset[, noAssert]) 等等一系列
+
+// 空buffer
+;(()=>{
+  const buf = Buffer.from('')
+  console.log('buf.length', buf.length)
+})()
+
+// 如何判断一个对象是buffer
+;(()=>{
+  const buf = Buffer.from('')
+  console.log(buf instanceof Buffer)
+})()
+
 // buffer的长度与字符串的长度的区别
 ;(()=>{
   /*

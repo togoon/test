@@ -68,8 +68,8 @@ function dealDirectory() {
 dealDirectory $dir
 # dealDirectory "./AcrossRoleMapper.java"
 
-# delete empty line
 # sed -i '/^$/d' $mergeFile
+# 删除空白行
 sed -i '/^\s*$/d' $mergeFile
 
 echo -e "\nFinished"

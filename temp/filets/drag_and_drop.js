@@ -5,6 +5,7 @@ import { render } from 'react-dom'
 /*
  * 注：一定要响应dragover，否则无法drop
  * 好像只需要preventDefault即可
+ * 对于冒泡的事件，在冒泡的源头（即内层元素）prevent default之后，冒泡的上层元素就不需要再进行同样的处理了
  */
 function dragover(ev) {
   ev.preventDefault();

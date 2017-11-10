@@ -6,6 +6,10 @@ import Todo from "./Todo";
 
 @observer
 class TodoList extends Component {
+
+  /*
+   * 使用上mobx之后，组件不再需要state了！直接定义observable类型的成员即可
+   */
   @observable newTodoTitle = "";
 
   render() {

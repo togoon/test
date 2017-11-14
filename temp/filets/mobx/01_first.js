@@ -10,9 +10,18 @@ import {observer} from 'mobx-react';
 /*
  * 建一个observable的数据源
  */
-var appState = observable({ 
-    timer: 0
-})
+
+/*
+ * 这是原来示例的写法
+ */
+// var appState = observable({ 
+//     timer: 0
+// })
+
+// 似乎也可以写成这样
+const appState = { 
+  @observable timer : 0
+}
 
 /*
  * 对observable的操作，用action包起来

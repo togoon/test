@@ -232,14 +232,17 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
       }
     };
 
-    cancel = () => {
+    cancel = () => { // 主要工作之一是取消press timer
       if (!this.state.sorting) {
         clearTimeout(this.pressTimer);
         this.manager.active = null;
       }
     };
 
-    handlePress = e => {
+    handlePress = e => { // 被handleStart调用
+      /*
+       * 之所以又单独分离一个handlePress，似乎本意是用来
+       */
       const active = this.manager.getActive();
 
       if (active) {
@@ -574,9 +577,11 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
       ] = `translate3d(${translate.x}px,${translate.y}px, 0)`;
     }
 
-    animateNodes() { // 调整其他item的位置，并实现动画效果
+    animateNodes() { // 调整其他item的位置，并实现动画效果. 在handleMove的时候被调用
       const {transitionDuration, hideSortableGhost} = this.props;
+      // nodes代表了用来排序的item
       const nodes = this.manager.getOrderedRefs();
+
       const deltaScroll = {
         left: this.scrollContainer.scrollLeft - this.initialScroll.left,
         top: this.scrollContainer.scrollTop - this.initialScroll.top,
@@ -637,13 +642,13 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
           continue;
         }
 
-        if (transitionDuration) {
+        if (transitionDuration) { // 设置transition
           node.style[
             `${vendorPrefix}TransitionDuration`
           ] = `${transitionDuration}ms`;
         }
 
-        if (this.axis.x) {
+        if (this.axis.x) { // 指的是水平方向的sortable
           if (this.axis.y) {
             // Calculations for a grid setup
             if (
@@ -710,7 +715,8 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
               }
             }
           }
-        } else if (this.axis.y) {
+        } 
+        else if (this.axis.y) { // 竖直方向的sortable，默认（以及大多数场景）是这种情况
           if (
             index > this.index &&
             (sortingOffset.top + scrollDifference.top) + offset.height >= edgeOffset.top
@@ -727,7 +733,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
             }
           }
         }
-        node.style[`${vendorPrefix}Transform`] = `translate3d(${translate.x}px,${translate.y}px,0)`;
+        node.style[`${vendorPrefix}Transform`] = `translate3d(${translate.x}px,${translate.y}px,0)`; // 设置transform
       }
 
       if (this.newIndex == null) {

@@ -5,7 +5,7 @@ import _ from 'lodash'
 import injectSheet from 'react-jss'
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
-import { observable, computed, action } from "mobx";
+import { observable, computed, action, useStrict } from "mobx";
 import { observer } from "mobx-react";
 import MobxDev from 'mobx-react-devtools'
 
@@ -14,11 +14,14 @@ import {H} from './utils/components/Flex.js'
 
 import {TopInsertable} from './utils/components/Insertable.js'
 
+useStrict(true) // 指定mobx的strict模式
+
 class Store {
   @observable list = [1, 2, 3, 'x']
 
   @observable value = 4
 
+  // 在strict模式下，这里的action装饰器不能省略，否则会在执行中报错
   @action onSortEnd = ({oldIndex, newIndex}) => {
     this.list = arrayMove(this.list, oldIndex, newIndex)
   }

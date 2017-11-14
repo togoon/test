@@ -1,6 +1,7 @@
 // React
 
 import { observable, computed, autorun } from "mobx";
+import _ from 'lodash'
 
 /////////////////////////////////////////////////////////////
 /*
@@ -76,6 +77,16 @@ class ObservableTodoStore {
       const {report} = this
       console.log(report)
     });
+
+    autorun(()=>{
+      /*
+       * 问：autorun到底是根据什么来判断res有没有被改变以决定这内部的函数是否要被调用的
+       * 有时间一定要好好看看其源码
+       */
+      const {todos} = this
+      const res = _.reduce(todos, (sum, a)=>sum + '|' + a.task, '')
+      console.log(res)
+    })
   }
 
   /*
@@ -119,7 +130,7 @@ observableTodoStore.todos[0].completed = true; // 完成一条todo，自动repor
 observableTodoStore.todos[1].task = "try MobX in own project"; 
 observableTodoStore.todos[0].task = "grok MobX tutorial"; // 自动report
 
-const store = observableTodoStore
+const store = window.store = observableTodoStore
 /*
  * 注：这里的completedTodosCount不会被重复计算
  */

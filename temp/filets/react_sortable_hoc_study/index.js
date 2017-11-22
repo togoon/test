@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {render} from 'react-dom';
+import {render, 
+  // findDOMNode
+} from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from './src/index.js';
 
-const SortableItem = SortableElement(({value}) =>
-  <div style={{border:`1px solid gray`}} >{value}</div>
-);
+@SortableElement
+class SortableItem extends Component {
+  render() {
+    const {value} = this.props
+    return <div style={{border:`1px solid gray`}}>{value}</div>
+  }
+}
 
 const SortableList = SortableContainer(({items}) => {
   return (

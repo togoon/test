@@ -16,7 +16,5 @@ let message = observable({
 })
 
 var title = message.title; // 引用放到了外面，无法autorun
-autorun(() => 
-  console.log(title)
-})
+autorun(() => console.log(title))
 message.title = "Bar"

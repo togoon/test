@@ -23,7 +23,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const style = {
+    const props = {
       /*
        * 最外层有一个wrapper，通常设置整体的样式的话，应优先考虑该属性
        */
@@ -53,11 +53,13 @@ class App extends PureComponent {
       // },
 
       name : 'xxx', // 表单项的名字
+
+      clearable : false, // 是否有"清除"操作，缺省为true
     }
 
     return (
       <Select
-        {...style}
+        {...props}
         value={_.get(this, 'state.selectedOption.value')}
         onChange={this.handleChange}
         options={[

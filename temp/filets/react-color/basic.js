@@ -11,7 +11,8 @@ class App extends PureComponent {
   };
 
   handleChange = (color) => {
-    this.setState({ background: color.hex });
+    // color.hex值可以直接给react元素使用
+    this.setState({ background: color.hex })
   };
 
   render() {

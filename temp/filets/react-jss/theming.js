@@ -37,7 +37,7 @@ const theme = {
 }
 
 /*
- * 通过一个ThemeProvider注入theme的配置
+ * 通过一个ThemeProvider注入theme的配置, 不增加dom层次
  */
 const App = () => (
   <ThemeProvider theme={theme}>

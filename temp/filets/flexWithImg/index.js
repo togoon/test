@@ -21,13 +21,18 @@ import img5 from './img5.jpg'
   },
   item : {
     padding : '0 10px',
-    flex : 1,
+    /*
+     * 这里包含了flexBasis:0，如果是用其默认值的话，则大的图片的初始份额会更大，这将达不到平均分配空间的目的
+     * 因此仅仅指定 flexShrink : 1, 是不行的
+     */
+    flex : 1, 
   },
   img : {
-    // width : '100%', // 如果加了这一项，将得不到期望的flex行为
-    // display : 'block',
+    /*
+     * 如果不指定width的限制，则图片将会放飞自我，导致flex布局不生效
+     */
+    width : '100%', // 或者是maxWidth : '100%', 
     height: 120,
-    maxWidth : '100%',
   },
 })
 class Test extends PureComponent {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom'
 import {Motion, spring} from 'react-motion';
-import range from 'lodash.range';
+import {range} from 'lodash';
 
 import './index.css'
 

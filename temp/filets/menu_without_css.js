@@ -8,60 +8,67 @@ import {css} from './utils/cssobj.js'
 
 css({
   '@global' :   {  
-    ".menu": {
-      "display": "block",
-      "zIndex": "999999"
-    },
-    ".menu li": {
+
+    ".menu .item": {
       "display": "inline-block",
       "position": "relative"
     },
-    ".menu li.dropdown:hover > .submenu": {
-      "display": "block"
+
+    // 子菜单初始不显示
+    ".menu .submenu":  {
+      display : "none"
     },
-    ".menu li a": {
+
+    // 只有hover状态的子菜单才显示
+    ".menu .item.dropdown:hover > .submenu": {
+      display : "block"
+    },
+
+    // 指定一下菜单项的样式
+    ".menu .item a": {
       "display": "block",
       "padding": "12px 8px",
       "background": "#ccc"
     },
-    ".menu li.dropdown > a::after": {
+
+    ".menu .item.dropdown > a::after": {
       "fontStyle": "normal",
       "fontWeight": "400",
       "marginLeft": "8px",
       "fontSize": "10px"
     },
-    ".menu li a::before": {
+
+    ".menu .item a::before": {
       "fontStyle": "normal",
       "fontWeight": "400",
       "marginRight": "8px"
     },
-    ".menu li a:hover": {
+    ".menu .item a:hover": {
       "background": "grey"
     },
-    ".menu .submenu": {
-      "display": "none"
-    },
+
+    // 子菜单的样式
     ".submenu": {
       "margin": "0px",
       "padding": "0px",
       "position": "absolute",
-      "left": "0px",
-      "listStyleType": "none",
+      "left": 0,
       "display": "block",
       "width": "200px",
       "zIndex": "9"
     },
-    ".submenu li": {
+
+    ".submenu .item": {
       "display": "block"
     },
-    ".submenu li a": {
+    ".submenu .item a": {
       "display": "block",
       "background": "#999",
       "color": "#fff",
       "padding": "8px 6px",
       "marginBottom": "1px"
     },
-    ".menu .submenu > li.dropdown:hover > .submenu": {
+    ".menu .submenu > .item.dropdown:hover > .submenu": {
       "display": "block"
     },
     ".menu .submenu .submenu": {
@@ -69,12 +76,6 @@ css({
       "left": "200px",
       "top": "0px"
     },
-    ".submenu li.dropdown > a:after": {
-      "fontStyle": "normal",
-      "fontWeight": "400",
-      "marginLeft": "8px",
-      "fontSize": "10px"
-    }
   }
 })
 
@@ -126,5 +127,25 @@ const Test = () => (
 </ul>
 )
 
-render(<Test />, document.getElementById('root'))
+const Test2 = () => (
+  <div className="menu">
+    <div className='item'>
+      <a> 主页 </a>
+    </div>
+    <div className='item dropdown'>
+      <a>这是啥</a>
+      <div className="submenu">
+        <div className='item dropdown'>
+          <a> 子菜单1 </a>
+          <div className='submenu'>
+            <div className='item'> <a> 其他 </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className='item'> <a> 其他 </a> </div>
+  </div>
+)
+
+render(<Test2 />, document.getElementById('root'))
 

@@ -1,6 +1,7 @@
 // React 
 /*
  * 用纯css实现的一个下拉菜单
+ * 重点在于dropdown和submenu角色的区分!
  */
 import React, { PureComponent } from 'react'
 import {render,} from 'react-dom'
@@ -9,8 +10,7 @@ import {css} from './utils/cssobj.js'
 css({
   '@global' :   {  
 
-    ".menu .item": {
-      "display": "inline-block",
+    ".menu > *, .submenu > *": {
       "position": "relative"
     },
 
@@ -20,31 +20,8 @@ css({
     },
 
     // 只有hover状态的子菜单才显示
-    ".menu .item.dropdown:hover > .submenu": {
+    ".menu .dropdown:hover > .submenu": {
       display : "block"
-    },
-
-    // 指定一下菜单项的样式
-    ".menu .item a": {
-      "display": "block",
-      "padding": "12px 8px",
-      "background": "#ccc"
-    },
-
-    ".menu .item.dropdown > a::after": {
-      "fontStyle": "normal",
-      "fontWeight": "400",
-      "marginLeft": "8px",
-      "fontSize": "10px"
-    },
-
-    ".menu .item a::before": {
-      "fontStyle": "normal",
-      "fontWeight": "400",
-      "marginRight": "8px"
-    },
-    ".menu .item a:hover": {
-      "background": "grey"
     },
 
     // 子菜单的样式
@@ -58,16 +35,6 @@ css({
       "zIndex": "9"
     },
 
-    ".submenu .item": {
-      "display": "block"
-    },
-    ".submenu .item a": {
-      "display": "block",
-      "background": "#999",
-      "color": "#fff",
-      "padding": "8px 6px",
-      "marginBottom": "1px"
-    },
     ".menu .submenu > .item.dropdown:hover > .submenu": {
       "display": "block"
     },
@@ -127,23 +94,37 @@ const Test = () => (
 </ul>
 )
 
+const Item = p=>{
+  const div = {
+    ...p,
+    style : {
+      "padding": "12px 8px",
+      "background": "#ccc",
+      ...p.style,
+    }
+  }
+
+  return <div {...div}/>
+}
+
 const Test2 = () => (
-  <div className="menu">
-    <div className='item'>
-      <a> 主页 </a>
-    </div>
-    <div className='item dropdown'>
-      <a>这是啥</a>
+  <div className="menu" style={{
+    display : 'flex',
+  }} >
+    <Item>主页</Item>
+    <div className='dropdown'>
+      <Item>这是啥</Item>
       <div className="submenu">
-        <div className='item dropdown'>
-          <a> 子菜单1 </a>
+        <div className='dropdown'>
+          <Item>子菜单1</Item>
           <div className='submenu'>
-            <div className='item'> <a> 其他 </a> </div>
+            <Item>其他</Item>
           </div>
         </div>
+        <Item>1111</Item>
       </div>
     </div>
-    <div className='item'> <a> 其他 </a> </div>
+    <Item>哈哈</Item>
   </div>
 )
 

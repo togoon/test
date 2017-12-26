@@ -1,4 +1,9 @@
 // React 
+/*
+ * 使用react sortable hoc来排序，这样需要多包一层容器
+ * 形成了一种间接递归
+ * 支持depth的控制
+ */
 import React, { PureComponent } from 'react'
 import {render,} from 'react-dom'
 import _ from 'lodash'
@@ -56,8 +61,10 @@ class EditorInner extends PureComponent {
   }
 
   render() {
-    const {value} = this.props
+    const {value, depth} = this.props
     const {add, submenu, subedit, del} = this
+
+    const allowSub = depth > 1
 
     return <div style={{paddingLeft:20}} >
       {_.map(value, ({name, link}, i ) => {
@@ -70,14 +77,14 @@ class EditorInner extends PureComponent {
         if ( _.isString(link) ) {
           return <Item {...item}>
             {name} | {link}
-            <button onClick={submenu.bind(null, i)}>子菜单</button>
+            { allowSub && <button onClick={submenu.bind(null, i)}>子菜单</button>}
             <button onClick={e=>del(i)}>删除</button>
           </Item>
         } 
         // 如果是一个数组，递归渲染一个Editor
         return <Item {...item}>
           {name}
-          <Editor value={link} onChange={v=>subedit(i, v)} />
+          {allowSub && <Editor value={link} onChange={v=>subedit(i, v)} depth={depth - 1}/>}
         </Item>
       })}
       <button onClick={add}>添加</button>
@@ -90,9 +97,12 @@ class EditorInner extends PureComponent {
  */
 class Editor extends PureComponent {
   render() {
-    const {onChange, value} = this.props
+    const {onChange, value, 
+      depth = 999, // 允许支持的层级深度，缺省设为一个较大的值
+    } = this.props
     const props = {
       ...this.props,
+      depth,
       onSortEnd : ({oldIndex, newIndex}) => {
         onChange(arrayMove(value, oldIndex, newIndex))
       },
@@ -110,7 +120,7 @@ class Container extends PureComponent {
   render() {
     const {items} = this.state 
     return <div>
-      <Editor value={items} onChange={v=>this.setState({ items : v })} />
+      <Editor value={items} onChange={v=>this.setState({ items : v })} depth={3}/>
     </div>
   }
 }

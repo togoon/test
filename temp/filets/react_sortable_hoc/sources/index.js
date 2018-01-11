@@ -8,7 +8,9 @@ import {SortableContainer, SortableElement, arrayMove} from './src/index.js';
 class SortableItem extends Component {
   render() {
     const {value} = this.props
-    return <div style={{border:`1px solid gray`}}>{value}</div>
+    return <div style={{border:`1px solid gray`}}>{value}
+      <button>按钮拖不动</button>
+    </div>
   }
 }
 

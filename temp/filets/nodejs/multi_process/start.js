@@ -14,8 +14,11 @@ const exec = promisify((ok, err, ...para)=>_exec(...para, ok))
    * 整个主进程就退出，这样有利于容器的管理
    */
   await Promise.race([
-    exec('babel-node _count.js a 5'), // 这里的脚本可以放到npm scripts里去
-    exec('babel-node _count.js b 10'),
+    /*
+     * 用shelljs的exec，相对于native的exec，可以做到实时吐出子进程里的输出，并且保留ascii颜色
+     */
+    exec('babel-node count.js a 5'), // 这里的脚本可以放到npm scripts里去
+    exec('babel-node count.js b 10'),
   ])
 
   process.exit(1)

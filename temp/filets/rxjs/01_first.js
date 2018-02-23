@@ -1,6 +1,6 @@
 // React
 /*
- * rxjs的最基础的例子. 为了方便测试，与react结合使用
+ * rxjs的最基础的例子
  */
 import React, { PureComponent } from 'react'
 import { render } from 'react-dom'

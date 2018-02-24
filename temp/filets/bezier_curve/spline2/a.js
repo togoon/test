@@ -34,9 +34,8 @@ var pathIdPrefix = "pathNr_"
 var knotIdPrefix = "knotNr_"
 var pathWidth = 4
 var minWeight = 1 // the calculation of a curve becomes impossible if a distance is 0
-/*saves elements as global variables*/
-function init()
-{
+
+function init() {
 	/*create control points*/
 	V[0] = createKnot(60,60,0);
 	V[1] = createKnot(220,300,1);
@@ -50,8 +49,6 @@ function init()
 	createAllPaths()
 
 	updateSplines();
-
-	//createText(200,100,"testje","tekst voor test")
 }
 
 function removeAllPaths()
@@ -110,71 +107,17 @@ function remove(id)
 {
 	var parent = event.target.parentNode
 	parent.removeChild(id)
-
 }
 
-/*from http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html*/
-function knotClicked_old(evt)
-/* wordt thans niet gebruikt (niet af)
-doel: bij linker-muisknop: verwijder knoop
-bij rechter-muisknop: verplaats knoop
-*/
-{
-	/*SVG positions are relative to the element but mouse 
-	  positions are relative to the window, get offset*/
-	x0 = getOffset(svg).left; 
-	y0 = getOffset(svg).top; 
-	
-	var id = parseInt(evt.target.getAttribute("id").slice(knotIdPrefix.length))
-	evt.target.setAttributeNS(null, "fill","cyan")
-	evt.target.setAttributeNS(null, "stroke-opacity","0.2")
-	evt.target.setAttributeNS(null, "debugInfo","id is "+id)
-	svg.setAttribute("onmousemove","moveKnot(evt,"+id+")")
-	// svg.setAttribute("onmouseup","drop(evt)")	
-	
-	/* removeKnot werkt niet na moveKnot!*/
-	/* blijkbaar wordt niet het juiste 'evt' toegekend bij "onmouseup" nadat "onmousemove" plaatsgevonden heeft
-	*/
-	// svg.setAttribute("onmouseup","removeKnot(evt);drop(evt)")	
-
-	// removeKnot(evt)
-}
-function knotClicked(evt)
-/* change colour of the knot
-set onmouseup("removeKnot(evt,"+id+")")
-set onmouseout("drop()")
-doel: bij linker-muisknop: verwijder knoop
-bij rechter-muisknop: verplaats knoop
-*/
-{
+function knotClicked(evt) {
 	var id = parseInt(evt.target.getAttribute("id").slice(knotIdPrefix.length))
 	evt.target.setAttributeNS(null, "fill","red")
-	// evt.target.setAttributeNS(null, "stroke-opacity","0.2")
-	// evt.target.setAttributeNS(null, "debugInfo","id is "+id)
 	svg.setAttribute("onmouseup","removeKnot(evt,"+id+")")
 	svg.setAttribute("onmouseout","drop(evt,"+id+")")
 }
 
-/*creates and adds an empty text element - not used*/
-function createText(x,y, id, text)
-{
-	var newObj=document.createElementNS("http://www.w3.org/2000/svg","text")
-	// newObj.setAttributeNS(null,"text",text)
-	newObj.setAttributeNS(null,"id",id)
-	newObj.setAttributeNS(null,"x",x)
-	newObj.setAttributeNS(null,"y",y)
-	newObj.setAttributeNS(null,"color","black")
-	svg.appendChild(newObj)	
-	document.getElementById(id).innerHTML =text
-	// newObj.innerHTML =text
-	
-	// window.alert("textbox voor x="+x+" y="+y)
-	return newObj
-}
-
-/*called on mouse move, updates dragged circle and recomputes splines*/
-function moveKnot(evenement,id)
-{
+// 移动节点
+function moveKnot(evenement,id) {
 	x = evenement.clientX-x0;
 	y = evenement.clientY-y0;
 	
@@ -187,18 +130,12 @@ function moveKnot(evenement,id)
 	updateSplines();
 }
 
-/*called on mouse up, removes circle and updates splines*/
-function removeKnot(evenement)
-/* applies to circles */
-{
+// 删除一个节点
+function removeKnot(evenement) {
 	var condemnedKnot=evenement.target
 	var id = parseInt(condemnedKnot.getAttribute("id").slice(knotIdPrefix.length))
-	// window.alert("id van de knoop is "+ id)
-	// document.getElementById("testje").innerHTML =("id van de knoop is "+ id)
 	condemnedKnot.remove()
-	// evt.target.remove() // fout! evt is null als deze functie aangeroepen wordt door knotClicked
-	for (i=id; i<nPaths ; i++)
-	{
+	for (i=id; i<nPaths ; i++) {
 		V[i] = V[i+1]
 		V[i].setAttributeNS(null,"id",knotIdPrefix+(i))
 	}
@@ -206,9 +143,7 @@ function removeKnot(evenement)
 	nPaths--
 	S[nPaths].remove()
 	updateSplines();
-	// drop() // maakt "onmousemove" inactief
 }
-
 
 /*called on mouse move, updates dragged circle and recomputes splines*/
 function pathClicked(evt)

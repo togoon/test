@@ -216,40 +216,39 @@ function distances(x,y) {
 
 /*computes spline control points*/
 function updateSplines() {	
-	var x, y /* (x,y) coordinates of the knots*/
-	var weights // equal to the distances between knots. If knots are nearer, the 3rd derivative can be higher
-	var px, py // coordinates of the intermediate control points
+  var x, y /* (x,y) coordinates of the knots*/
+  var weights // equal to the distances between knots. If knots are nearer, the 3rd derivative can be higher
+  var px, py // coordinates of the intermediate control points
 
-	// tijdelijk, voor foutopsporing
-	var d1,d2
-	
-	/*grab (x,y) coordinates of the knots */
-	x=new Array();
-	y=new Array();
-	for (i=0;i<=nPaths;i++) {
-		/*use parseInt to convert string to int*/
-		x[i]=parseInt(V[i].getAttributeNS(null,"cx"))
-		y[i]=parseInt(V[i].getAttributeNS(null,"cy"))
-	}
-	//weights = distances (x,y)	
-	weights = new Array(nPaths)
-	for (i=0;i<nPaths;i++) {
-		/* calculate Euclidean distance */
-		weights[i]=Math.sqrt(Math.pow((x[i+1]-x[i]),2) +Math.pow((y[i+1]-y[i]),2))
-		// if the weight is too small, the calculation becomes instable	
-		weights[i] = minWeight<weights[i]?weights[i]:minWeight
-	}
-	weights[nPaths]=weights[nPaths-1]
-		
-	/* berekenen van de curve */
-	px = computeControlPointsBigWThomas(x,weights);
-	py = computeControlPointsBigWThomas(y,weights);
-	
-	/*updates path settings, the browser will draw the new spline*/
-	for (i=0;i<nPaths;i++)
-		S[i].setAttributeNS(null,"d",
-			pathDescription(x[i],y[i],px.p1[i],py.p1[i],px.p2[i],py.p2[i],x[i+1],y[i+1]));
-	
+  // tijdelijk, voor foutopsporing
+  var d1,d2
+
+  /*grab (x,y) coordinates of the knots */
+  x=new Array();
+  y=new Array();
+  for (i=0;i<=nPaths;i++) {
+    /*use parseInt to convert string to int*/
+    x[i]=parseInt(V[i].getAttributeNS(null,"cx"))
+    y[i]=parseInt(V[i].getAttributeNS(null,"cy"))
+  }
+  //weights = distances (x,y)	
+  weights = new Array(nPaths)
+
+  for (i=0;i<nPaths;i++) {
+    /* calculate Euclidean distance */
+    weights[i]= Math.max(Math.sqrt(Math.pow((x[i+1]-x[i]),2) +Math.pow((y[i+1]-y[i]),2)), minWeight)
+  }
+  weights[nPaths]=weights[nPaths-1]
+
+  /* berekenen van de curve */
+  px = computeControlPointsBigWThomas(x,weights);
+  py = computeControlPointsBigWThomas(y,weights);
+
+  /*updates path settings, the browser will draw the new spline*/
+  for (i=0;i<nPaths;i++)
+    S[i].setAttributeNS(null,"d",
+      pathDescription(x[i],y[i],px.p1[i],py.p1[i],px.p2[i],py.p2[i],x[i+1],y[i+1]));
+
 }
 
 function verschilArrayNorm(arr1,arr2) {

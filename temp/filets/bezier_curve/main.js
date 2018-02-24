@@ -24,6 +24,7 @@ function init() {
 	S[2] = createPath("green")
 	S[3] = createPath("brown")
 
+  // knots, not control points. cool!
 	V[0] = createKnot(60,60)
 	V[1] = createKnot(220,300)
 	V[2] = createKnot(420,300)
@@ -56,6 +57,28 @@ function createKnot(x,y) {
 	return C
 }
 
+// computes spline control points
+function updateSplines() {	
+	/*grab (x,y) coordinates of the control points*/
+	x=new Array()
+	y=new Array()
+	for (i=0;i<4;i++) {
+		/*use parseInt to convert string to int*/
+		x[i]=parseInt(V[i].getAttributeNS(null,"cx"))
+		y[i]=parseInt(V[i].getAttributeNS(null,"cy"))
+	}
+	
+	/*computes control points p1 and p2 for x and y direction*/
+	px = computeControlPoints(x)
+	py = computeControlPoints(y)
+	
+	/*updates path settings, the browser will draw the new spline*/
+	for (i=0;i<3;i++) {
+		S[i].setAttributeNS(null,"d",
+			path(x[i],y[i],px.p1[i],py.p1[i],px.p2[i],py.p2[i],x[i+1],y[i+1]))
+  }
+}
+
 /*from http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html*/
 function startMove(evt) {
 	/*SVG positions are relative to the element but mouse 
@@ -69,56 +92,27 @@ function startMove(evt) {
 }
 
 /*called on mouse move, updates dragged circle and recomputes splines*/
-function move(evt)
-{
+function move(evt) {
 	x = evt.clientX-x0
 	y = evt.clientY-y0
 	
-	/*move the current handle*/
 	C.setAttributeNS(null,"cx",x)
 	C.setAttributeNS(null,"cy",y)
 	updateSplines()
 }
 
-/*called on mouse up event*/
-function drop()
-{
+function drop() {
 	svg  = document.getElementsByTagName('svg')[0]
 	svg.setAttributeNS(null, "onmousemove",null)
 }
 	
-/*computes spline control points*/
-function updateSplines()
-{	
-	/*grab (x,y) coordinates of the control points*/
-	x=new Array()
-	y=new Array()
-	for (i=0;i<4;i++)
-	{
-		/*use parseInt to convert string to int*/
-		x[i]=parseInt(V[i].getAttributeNS(null,"cx"))
-		y[i]=parseInt(V[i].getAttributeNS(null,"cy"))
-	}
-	
-	/*computes control points p1 and p2 for x and y direction*/
-	px = computeControlPoints(x)
-	py = computeControlPoints(y)
-	
-	/*updates path settings, the browser will draw the new spline*/
-	for (i=0;i<3;i++)
-		S[i].setAttributeNS(null,"d",
-			path(x[i],y[i],px.p1[i],py.p1[i],px.p2[i],py.p2[i],x[i+1],y[i+1]))
-}
-
-/*creates formated path string for SVG cubic path element*/
-function path(x1,y1,px1,py1,px2,py2,x2,y2)
-{
+// build d attribute
+function path(x1,y1,px1,py1,px2,py2,x2,y2) {
 	return "M "+x1+" "+y1+" C "+px1+" "+py1+" "+px2+" "+py2+" "+x2+" "+y2
 }
 
 /*computes control points given knots K, this is the brain of the operation*/
-function computeControlPoints(K)
-{
+function computeControlPoints(K) {
 	p1=new Array()
 	p2=new Array()
 	n = K.length-1
@@ -136,8 +130,7 @@ function computeControlPoints(K)
 	r[0] = K[0]+2*K[1]
 	
 	/*internal segments*/
-	for (i = 1; i < n - 1; i++)
-	{
+	for (i = 1; i < n - 1; i++) {
 		a[i]=1
 		b[i]=4
 		c[i]=1
@@ -151,8 +144,7 @@ function computeControlPoints(K)
 	r[n-1] = 8*K[n-1]+K[n]
 	
 	/*solves Ax=b with the Thomas algorithm (from Wikipedia)*/
-	for (i = 1; i < n; i++)
-	{
+	for (i = 1; i < n; i++) {
 		m = a[i]/b[i-1]
 		b[i] = b[i] - m * c[i - 1]
 		r[i] = r[i] - m*r[i-1]
@@ -172,16 +164,15 @@ function computeControlPoints(K)
 }
 
 /*code from http://stackoverflow.com/questions/442404/dynamically-retrieve-html-element-x-y-position-with-javascript*/
-function getOffset( el ) 
-{
-    var _x = 0
-    var _y = 0
-    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-        _x += el.offsetLeft - el.scrollLeft
-        _y += el.offsetTop - el.scrollTop
-        el = el.offsetParent
-    }
-    return { top: _y, left: _x }
+function getOffset( el ) {
+  var _x = 0
+  var _y = 0
+  while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+    _x += el.offsetLeft - el.scrollLeft
+    _y += el.offsetTop - el.scrollTop
+    el = el.offsetParent
+  }
+  return { top: _y, left: _x }
 }
 
 init()

@@ -51,24 +51,21 @@ function init() {
 	updateSplines();
 }
 
-function removeAllPaths()
-{
+function removeAllPaths() {
 	var i
 	for (i=nPaths-1;0<=i ; i--)
 	{	 S[i].remove()
 	}
 }
 
-function createAllPaths()
-{
+function createAllPaths() {
 	var i
-	for (i=0; i<nPaths ; i++)
-	{	S[i] = createPath(colours[i%colours.length], pathWidth,i);	
+  for (i=0; i<nPaths ; i++) {	
+    S[i] = createPath(colours[i%colours.length], pathWidth,i);	
 	}
 }
-/*creates and adds an SVG circle to represent knots*/
-function createKnot(x,y,knotNumber)
-{ 
+
+function createKnot(x,y,knotNumber) { 
 	var Circ=document.createElementNS("http://www.w3.org/2000/svg","circle")
 	Circ.setAttributeNS(null,"id",knotIdPrefix+knotNumber)
 	Circ.setAttributeNS(null,"r",22)
@@ -88,9 +85,7 @@ function createKnot(x,y,knotNumber)
 	return Circ
 }
 
-/*creates and adds an SVG path without defining the nodes*/
-function createPath(color,width,id)
-{		
+function createPath(color,width,id) {		
 	width = (typeof width == 'undefined' ? "4" : width);
 	var P=document.createElementNS("http://www.w3.org/2000/svg","path")
 	P.setAttributeNS(null,"id",pathIdPrefix+id)
@@ -102,9 +97,7 @@ function createPath(color,width,id)
 	return P
 }
 
-/* remove an object */
-function remove(id)
-{
+function remove(id) {
 	var parent = event.target.parentNode
 	parent.removeChild(id)
 }
@@ -145,15 +138,11 @@ function removeKnot(evenement) {
 	updateSplines();
 }
 
-/*called on mouse move, updates dragged circle and recomputes splines*/
-function pathClicked(evt)
-{
-	/*SVG positions are relative to the element but mouse 
-	  positions are relative to the window, get offset*/
+// 曲线上被点击之后，新增一个节点
+function pathClicked(evt) {
+
 	x0 = getOffset(svg).left; 
 	y0 = getOffset(svg).top; 
-
-	// CurrO=evt.target
 	
 	x = evt.clientX-x0;
 	y = evt.clientY-y0;
@@ -162,56 +151,27 @@ function pathClicked(evt)
 
 	insertKnot(id,x,y)
 
-	// insertPath(id)
-	// insertPath(nPaths-1)
-	// create all paths again, so they will be on top of the Knots
 	removeAllPaths()
-	nPaths++ // we have added a knot, so we must add a path
+	nPaths++ 
 	createAllPaths()
 	updateSplines()
 
-	/* onmousemove events must perform an action on this object */
-	// movingKnot = V[id+1] // global variable used in moveKnot
-	
-	/* set onmousemove */ 
 	svg.setAttribute("onmousemove","moveKnot(evt,"+(id+1)+")")
-
-	/* after onmouseup, the knot should not move*/
 	svg.setAttribute("onmouseup","drop(evt,"+(id+1)+")")	
 }
 
-function insertKnot(id,x,y)
-{
-	/* distance to the previous and to the next Knot */
-	
-	/* inserts a knot between V[id] and V[id+1]
-	 * (if the distance from (x,y) to those knots is sufficient)*/
-	/* pre-condition: 
-	V[0] to V[nPaths-1] exist
-	id < nPaths
-	*/
-	
-	/* shift array of knots */
+// 新增节点
+function insertKnot(id,x,y) {
 	for (i=nPaths+1 ; id+1 < i ; i--)
 	{	V[i]=V[i-1];
 		V[i].setAttributeNS(null,"id",knotIdPrefix+i);
 	}
-	/* add knot */
 	V[id+1] = createKnot(x,y,id+1);
 }
 
-function insertPath(id)
-{
-	/* inserts a path between S[id] and S[id+1] if both exist, otherwise after S[id]*/
-	/* pre-condition: 
-	S[0] to S[nPaths-1] exist
-	id < nPaths
-	*/
-	/* shift array of knots */
-	/* note: The highest Id for a path is pathIdPrefix+(nPaths-1) */
-	
-	for (i=nPaths; id+1 < i ; i--)
-	{	S[i]=S[i-1];
+function insertPath(id) {
+  for (i=nPaths; id+1 < i ; i--) {	
+    S[i]=S[i-1];
 		S[i].setAttributeNS(null,"id",pathIdPrefix+i);
 	}
 	/* add path */
@@ -219,10 +179,7 @@ function insertPath(id)
 	nPaths ++
 }
 
-/*called on mouse up event*/
-function drop(evenement, id)
-{
-	// svg  = document.getElementsByTagName('svg')[0];
+function drop(evenement, id) {
 	svg.setAttributeNS(null, "onmousemove",null)
 	svg.setAttributeNS(null, "onmouseup",null)
 	svg.setAttributeNS(null, "onmouseout",null)
@@ -232,9 +189,7 @@ function drop(evenement, id)
 
 }
 
-/*code from http://stackoverflow.com/questions/442404/dynamically-retrieve-html-element-x-y-position-with-javascript*/
-function getOffset( el ) 
-{
+function getOffset( el ) {
     var _x = 0;
     var _y = 0;
     while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
@@ -245,9 +200,7 @@ function getOffset( el )
     return { top: _y, left: _x };
 }
 
-/* computes the distance (along a straight line) between the knots */
-function distances(x,y) // V is the array of knots
-{
+function distances(x,y) {
 	var i, nPaths, result
 	
 	nPaths = x.length-1
@@ -262,8 +215,7 @@ function distances(x,y) // V is the array of knots
 }	
 
 /*computes spline control points*/
-function updateSplines()
-{	
+function updateSplines() {	
 	var x, y /* (x,y) coordinates of the knots*/
 	var weights // equal to the distances between knots. If knots are nearer, the 3rd derivative can be higher
 	var px, py // coordinates of the intermediate control points
@@ -302,8 +254,7 @@ function updateSplines()
 	
 }
 
-function verschilArrayNorm(arr1,arr2)
-{
+function verschilArrayNorm(arr1,arr2) {
 	var i,n, result
 	n=arr1.length
 	
@@ -314,8 +265,8 @@ function verschilArrayNorm(arr1,arr2)
 	}
 	return result
 }
-function verschilArray(arr1,arr2)
-{
+
+function verschilArray(arr1,arr2) {
 	var i,n, result
 	n=arr1.length
 	
@@ -326,8 +277,8 @@ function verschilArray(arr1,arr2)
 	}
 	return result
 }
-function addDebugInfo(data, legend, label)
-{
+
+function addDebugInfo(data, legend, label) {
 	var debugInfo = "" 
 	var i, nPath
 	nPath = data.length
@@ -339,28 +290,13 @@ function addDebugInfo(data, legend, label)
 	
 	V[0].setAttributeNS(null,legend, debugInfo)//debugInfo)	
 }
+
 /*creates formated path string for SVG cubic path element*/
-function pathDescription(x1,y1,px1,py1,px2,py2,x2,y2)
-{
+function pathDescription(x1,y1,px1,py1,px2,py2,x2,y2) {
 	return "M "+x1+" "+y1+" C "+px1+" "+py1+" "+px2+" "+py2+" "+x2+" "+y2;
 }
 
-function computeControlPointsW(K,W)
-/*computes control points given knots K, this is the brain of the operation*/
-/* this version makes the distance of the control points proportional to the distance between the end points.
-I.e. if D(x1,x2) is the distance between x1 and x2,
- and P1[i] , P2[i] are the control points between knots K[i] and K[i+1]
-then 
- D(P2[i-1],K[i]) / D(K[i-1],K[i]) = D(K[i],P1[i]) / D(K[i],K[i+1])
-
-The calculation of the second derivative has been adapted in 2 ways:
-If W[i]=D(K[i-1],K[i])/D(K[i+1],K[i]) 
-1) 	P2[i-1] = P1[i-1]*W +K[i]*(W[i]+1)
-2)	S''[i](0)*W[i]*W[i]=S''[i-1](1)
-*/
-
-// required: W has the same length als K 
-{
+function computeControlPointsW(K,W) {
 	var p1, p2, n
 	var frac_i, frac_iplus1
 
@@ -426,8 +362,7 @@ If W[i]=D(K[i-1],K[i])/D(K[i+1],K[i])
 2)	S''[i](0)*W[i]*W[i]=S''[i-1](1)
 */
 
-function computeControlPointsBigWThomas(K,W)
-{
+function computeControlPointsBigWThomas(K,W) {
 	var p, p1, p2
 	p = new Array();
 
@@ -492,8 +427,7 @@ function computeControlPointsBigWThomas(K,W)
 /*solves Ax=b with the Thomas algorithm (from Wikipedia)*/
 /* essentially, a Gaussian elimination for a tri-diagonal matrix
 */
-function Thomas(r,a,b,c)
-{
+function Thomas(r,a,b,c) {
 	var x,i,n
 	n = r.length
 	for (i = 1; i < n; i++)
@@ -511,8 +445,7 @@ function Thomas(r,a,b,c)
 	return x;
 }
 
-function Thomas4(r,a,b,c,d)
-{
+function Thomas4(r,a,b,c,d) {
 	var p,i,n,m
 	n = r.length
 	p = new Array(n)

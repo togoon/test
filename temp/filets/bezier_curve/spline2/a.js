@@ -226,16 +226,14 @@ function updateSplines() {
 	/*grab (x,y) coordinates of the knots */
 	x=new Array();
 	y=new Array();
-	for (i=0;i<=nPaths;i++)
-	{
+	for (i=0;i<=nPaths;i++) {
 		/*use parseInt to convert string to int*/
 		x[i]=parseInt(V[i].getAttributeNS(null,"cx"))
 		y[i]=parseInt(V[i].getAttributeNS(null,"cy"))
 	}
 	//weights = distances (x,y)	
 	weights = new Array(nPaths)
-	for (i=0;i<nPaths;i++)
-	{
+	for (i=0;i<nPaths;i++) {
 		/* calculate Euclidean distance */
 		weights[i]=Math.sqrt(Math.pow((x[i+1]-x[i]),2) +Math.pow((y[i+1]-y[i]),2))
 		// if the weight is too small, the calculation becomes instable	

@@ -346,8 +346,8 @@ function computeControlPointsW(K,W) {
 	return {p1:p1, p2:p2};
 }
 
-/*computes control points given knots K, this is the brain of the operation*/
-/* this version makes the distance of the control points proportional to the distance between the end points.
+/* computes control points given knots K, this is the brain of the operation
+ * this version makes the distance of the control points proportional to the distance between the end points.
 I.e. if D(x1,x2) is the distance between x1 and x2,
  and P1[i] , P2[i] are the control points between knots K[i] and K[i+1]
 then 
@@ -358,7 +358,9 @@ If W[i]=D(K[i-1],K[i])/D(K[i+1],K[i])
 1) 	P2[i-1] = P1[i-1]*W +K[i]*(W[i]+1)
 2)	S''[i](0)*W[i]*W[i]=S''[i-1](1)
 */
-
+/*
+ * 计算控制点
+ */
 function computeControlPointsBigWThomas(K,W) {
 	var p, p1, p2
 	p = new Array();
@@ -382,8 +384,7 @@ function computeControlPointsBigWThomas(K,W) {
 	r[0] = K[0]+0;// add curvature at K0
 	
 	/*internal segments*/
-	for (i = 1; i < n ; i++)
-	{
+	for (i = 1; i < n ; i++) {
 		a[2*i-1]=1*W[i]*W[i];
 		b[2*i-1]=-2*W[i]*W[i];
 		c[2*i-1]=2*W[i-1]*W[i-1];
@@ -412,8 +413,7 @@ function computeControlPointsBigWThomas(K,W) {
 	p = Thomas4(r,a,b,c,d)
 
 	/*re-arrange the array*/
-	for (i=0;i<n;i++)
-	{
+	for (i=0;i<n;i++) {
 		p1[i]=p[2*i];
 		p2[i]=p[2*i+1];
 	}

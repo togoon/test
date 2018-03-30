@@ -1,3 +1,3 @@
 import _ from 'lodash'
 
-document.body.appendChild(_.camelCase('hello world'))
+document.body.append(_.camelCase('hello world'))

@@ -9,6 +9,6 @@ const path = require('path')
 const d = path.resolve.bind(null, __dirname)
 
 module.exports = {
-  entry : d('./src/main.js'),
+  entry : d('../src01/main.js'),
 }
 

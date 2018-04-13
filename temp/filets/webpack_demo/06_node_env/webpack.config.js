@@ -13,7 +13,8 @@ const js = {
   loader: require.resolve('babel-loader'),
   options: {
     /*
-     * 如果使用的是全局的webpack命令，则这些preset也要全局安装（-g）
+     * 有时这些模块需要全局安装，但也要本地安装. 原因暂不明
+     * 似乎跟当前项目有没有babel的配置有关？
      */
     presets : ['env', 'stage-1'],
   },

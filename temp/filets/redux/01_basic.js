@@ -1,6 +1,6 @@
 // React
 /*
- * 一个最小的redux模型
+ * redux初探
  */
 import { createStore } from 'redux'
 

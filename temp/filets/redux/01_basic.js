@@ -16,9 +16,11 @@ function reducer(s = 0, a) {
 }
 
 const store = createStore(reducer)
+// store所有方法都是自绑定
+const {dispatch, getState, subscribe} = store
 
-store.subscribe(()=>console.log('changed!', store.getState()))
+subscribe(()=>console.log('changed!', getState()))
 
-store.dispatch({type:'add'})
-store.dispatch({type:'sub'})
+dispatch({type:'add'})
+dispatch({type:'sub'})
 

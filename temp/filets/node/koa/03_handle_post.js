@@ -2,6 +2,8 @@ const Koa = require('koa')
 const app = new Koa()
 process.title = 'httpSvr'
 
+import readStream from './utils/node/read_stream.js'
+
 app.use( async ( ctx ) => {
 
   if ( ctx.url === '/' && ctx.method === 'GET' ) {
@@ -29,21 +31,9 @@ app.use( async ( ctx ) => {
   }
 })
 
-function parsePostData( ctx ) {
-  return new Promise((resolve, reject) => {
-    try {
-      let postdata = "";
-      ctx.req.on('data', (data) => {
-        postdata += data
-      })
-      ctx.req.on("end",function(){
-        let parseData = parseQueryStr( postdata )
-        resolve( parseData )
-      })
-    } catch ( err ) {
-      reject(err)
-    }
-  })
+async function parsePostData( ctx ) {
+  const data = await readStream(ctx.req)
+  return parseQueryStr(data.toString())
 }
 
 // 将POST请求参数字符串解析成JSON

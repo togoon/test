@@ -1,5 +1,7 @@
 const Koa = require('koa')
 const app = new Koa()
+const qs = require('querystring')
+
 process.title = 'httpSvr'
 
 import readStream from './utils/node/read_stream.js'
@@ -33,10 +35,11 @@ app.use( async ( ctx ) => {
 
 async function parsePostData( ctx ) {
   const data = await readStream(ctx.req)
-  return parseQueryStr(data.toString())
+  return qs.parse(data.toString())
 }
 
-// 将POST请求参数字符串解析成JSON
+/*
+ * 这是作者自己写的querystring parse，其实不需要
 function parseQueryStr( queryStr ) {
   let queryData = {}
   let queryStrList = queryStr.split('&')
@@ -46,6 +49,7 @@ function parseQueryStr( queryStr ) {
   }
   return queryData
 }
+*/
 
 app.listen(51312, () => {
   console.log('started')

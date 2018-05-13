@@ -10,7 +10,7 @@
 
 // 空buffer
 ;(()=>{
-  const buf = Buffer.from('')
+  const buf = Buffer.from('') // 如果这里传()的话，会抛异常
   console.log('buf.length', buf.length)
 })()
 

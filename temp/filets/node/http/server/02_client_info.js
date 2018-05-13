@@ -4,8 +4,8 @@
 const http = require('http')
 
 const svr = http.createServer( (req, res) => {
-  const {socket:{remoteAddress, remotePort, remoteFamily}, method} = req
-  console.log(`[${method}] from [${remoteAddress}:${remotePort} ${remoteFamily}]`)
+  const {socket:{remoteAddress, remotePort, remoteFamily}, method, headers} = req
+  console.log(`[${method}] from [${remoteAddress}:${remotePort} ${remoteFamily}]`, headers)
 
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`

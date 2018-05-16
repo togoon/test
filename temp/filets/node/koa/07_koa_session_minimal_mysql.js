@@ -1,5 +1,6 @@
 /*
- * 使用koa-session-minimal实现的session
+ * koa-session-minimal使用mysql store的例子
+ * 但有一个BUG: mysql store不会自动expire
  */
 const Koa = require('koa')
 const session = require('koa-session-minimal')
@@ -27,20 +28,16 @@ let cookie = {
   // signed: '',
 }
 
-/*
- * use了session之后，效果是：
- * session中间件会根据cookie数据，生成session信息
- * 在session模块看来，它没有用户是否登录的概念。即不管用户是否登录，程序都可以取到一个session
- * 但session id对程序屏蔽, 由程序为session绑定任意自定义数据（比如用户登录状态），并能同步到store中
- */
 app.use(session({
   key: 'SESSION_ID',
   store: store,
   cookie: cookie
 }))
 
+/*
+ * 以下代码与未使用store的版本完全相同
+ */
 app.use( async ( ctx ) => {
-
   // 设置session
   if ( ctx.url === '/set' ) {
     ctx.session = {
@@ -52,7 +49,7 @@ app.use( async ( ctx ) => {
 
     // 读取session信息
     console.log(ctx.session)
-    ctx.session.count = ctx.session.count + 1
+    ctx.session.count = (ctx.session.count||0) + 1
     ctx.body = ctx.session
   } 
   

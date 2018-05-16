@@ -39,7 +39,6 @@ app.use( async ( ctx ) => {
     ctx.session.count = (ctx.session.count||0) + 1
     ctx.body = ctx.session
   } 
-  
 })
 
 app.listen(51312, () => {

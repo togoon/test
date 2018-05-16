@@ -1,5 +1,5 @@
 /*
- * 通过mysql来实现session的例子。后面可以参考一下redis的？
+ * 使用koa-session-minimal实现的session
  */
 const Koa = require('koa')
 const session = require('koa-session-minimal')
@@ -16,7 +16,7 @@ let store = new MysqlSession({
 })
 
 let cookie = {
-  maxAge: 1000*60*10, 
+  maxAge: 1000* 15, 
   // expires: '',  
   // path: '', 
   // domain: '', 

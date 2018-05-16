@@ -16,7 +16,7 @@ let store = new MysqlSession({
 })
 
 let cookie = {
-  maxAge: 60*1000, 
+  maxAge: 1000*60*10, 
   // expires: '',  
   // path: '', 
   // domain: '', 

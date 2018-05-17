@@ -6,6 +6,7 @@
  *
  * 但本质上没有区别，都是两个核心概念：handler主入口定义，提供服务
  */
+process.title = 'httpSvr'
 const http = require('http')
 
 const svr = http.createServer( (req, res) => {

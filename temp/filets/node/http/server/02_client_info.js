@@ -1,6 +1,7 @@
 /*
  * http服务器获取请求端的信息
  */
+process.title = 'httpSvr'
 const http = require('http')
 
 const svr = http.createServer( (req, res) => {

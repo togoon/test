@@ -1,7 +1,6 @@
 // React 
 import React, { PureComponent } from 'react'
-import {render, findDOMNode} from 'react-dom'
-import _ from 'lodash'
+import {render} from 'react-dom'
 import injectSheet from 'react-jss'
 
 @injectSheet({
@@ -23,12 +22,13 @@ class Test extends PureComponent {
   }
 
   render() {
-    const {onSubmit, manualCheck} = this
+    const {onSubmit} = this
     const {classes:{cnumber}} = this.props
 
     return <form onSubmit={onSubmit}>
       <input className={cnumber} type="number" step="1" min="12" max="120" name="age" required ref={el=>this.number=el}/>
-
+      {/* pattern是不能用于textarea的，那其他的校验能用于textarea吗？研究一下 */}
+      <textarea pattern='aaa' className={cnumber} />
       {/* 缺省只要是form里的button，点击都会触发submit动作 */}
       <button>默认按钮</button>
     </form>

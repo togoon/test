@@ -10,7 +10,10 @@ class Test extends PureComponent {
   check = e=>{
     const input = this.number
     console.log(input.validity.valid, 
-      input.checkValidity() // 其返回值与上者一样，但如果不符合校验，会触发一个invalid事件
+      input.checkValidity() // 其返回值与上者一样，但如果不符合校验，会触发一个onInvalid事件
+      /*
+       * 但如果不调用checkValidity方法，即使用户输入不合法，该事件不会被触发
+       */
     )
     /*
      * 还有很多其他属性, 还有通过方法来判断 详见文档 <url:https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation>

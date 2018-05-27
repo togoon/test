@@ -5,7 +5,7 @@ import injectSheet from 'react-jss'
 
 import './iconfont.css'
 
-const $ = (...p)=>_.merge({}, comm, ...p)
+const $ = (...p)=>_.merge({}, ...p)
 
 const lightGray = 'rgba(0,0,0,.25)'
 
@@ -25,7 +25,7 @@ const iconify = C => ({icon, ...props}) => {
       alignItems : 'center',
       color : 'lightGray',
     }}>
-      <i class={`iconfont icon-${icon}`} />
+      <i className={`iconfont icon-${icon}`} />
     </div>
   </span>
 }

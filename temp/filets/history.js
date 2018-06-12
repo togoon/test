@@ -3,8 +3,7 @@ import React, { PureComponent,} from 'react'
 import {render} from 'react-dom'
 
 /*
- * 当使用浏览器的前进、后退浏览到pushState对应的页面时，popstate事件会触发
- * 注：浏览器的前进、后退按钮等价于history的back, forward, go方法的调用
+ * 记：跳到谁的页面，就pop谁的state
  */
 window.addEventListener('popstate', e=>{
   console.log('popstate', e.state)
@@ -13,8 +12,8 @@ window.addEventListener('popstate', e=>{
 class Test extends PureComponent {
   render() {
     /*
-     * 通过pushState来实现页面不用刷新的跳转
-     * 这种情况下需要程序员自行维护url里的信息与页面的一致性
+     * 通过pushState来实现页面不用刷新的跳转, 需要程序员自行维护url里的信息与页面的一致性
+     * push的是新页面的state
      */
     return <div>
     <button onClick={e=>{

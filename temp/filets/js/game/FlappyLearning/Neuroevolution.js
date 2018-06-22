@@ -5,9 +5,9 @@
  * @param {options} An object of options for Neuroevolution.
  */
 var Neuroevolution = function (options) {
-  var self = this; // reference to the top scope of this module
+  var self = this; 
 
-  // Declaration of module parameters (options) and default values
+  // 将传入的options与缺省配置合并
   self.options = {
     /**
      * Logistic activation function.
@@ -22,7 +22,6 @@ var Neuroevolution = function (options) {
 
     /**
      * Returns a random value between -1 and 1.
-     *
      * @return Random value.
      */
     randomClamped: function () {
@@ -46,31 +45,18 @@ var Neuroevolution = function (options) {
     nbChild: 1 // Number of children by breeding.
 
   }
-
-  /**
-   * Override default options.
-   *
-   * @param {options} An object of Neuroevolution options.
-   * @return void
-   */
   self.set = function (options) {
     for (var i in options) {
-      if (this.options[i] != undefined) { // Only override if the passed in value
-        // is actually defined.
+      if (this.options[i] != undefined) {
         self.options[i] = options[i];
       }
     }
   }
-
-  // Overriding default options with the pass in options
   self.set(options);
-
 
   /*NEURON**********************************************************************/
   /**
-   * Artificial Neuron class
-   *
-   * @constructor
+   * 神经元类
    */
   var Neuron = function () {
     this.value = 0;
@@ -79,7 +65,6 @@ var Neuroevolution = function (options) {
 
   /**
    * Initialize number of neuron weights to random clamped values.
-   *
    * @param {nb} Number of neuron weights (number of inputs).
    * @return void
    */
@@ -93,10 +78,10 @@ var Neuroevolution = function (options) {
 
   /*LAYER***********************************************************************/
   /**
+   * 神经网络层类（层）
    * Neural Network Layer class.
-   *
-   * @constructor
    * @param {index} Index of this Layer in the Network.
+   * 一个层有n个神经元
    */
   var Layer = function (index) {
     this.id = index || 0;
@@ -125,10 +110,9 @@ var Neuroevolution = function (options) {
 
   /*NEURAL NETWORK**************************************************************/
   /**
+   * 神经网络: 一个神经网络有多个层
    * Neural Network class
-   *
    * Composed of Neuron Layers.
-   *
    * @constructor
    */
   var Network = function () {
@@ -266,8 +250,8 @@ var Neuroevolution = function (options) {
 
   /*GENOME**********************************************************************/
   /**
+   * 基因组: 由一个分数 + 神经网络组成
    * Genome class.
-   *
    * Composed of a score and a Neural Network.
    *
    * @constructor
@@ -283,10 +267,9 @@ var Neuroevolution = function (options) {
 
   /*GENERATION******************************************************************/
   /**
+   * 代: 一系列基因组
    * Generation class.
-   *
    * Composed of a set of Genomes.
-   *
    * @constructor
    */
   var Generation = function () {
@@ -409,15 +392,16 @@ var Neuroevolution = function (options) {
 
   /*GENERATIONS*****************************************************************/
   /**
+   * 历代集合
    * Generations class.
-   *
    * Hold's previous Generations and current Generation.
-   *
    * @constructor
    */
   var Generations = function () {
     this.generations = [];
-    var currentGeneration = new Generation();
+
+    // 这一行有什么用处？
+    var currentGeneration = new Generation(); 
   }
 
   /**
@@ -491,14 +475,13 @@ var Neuroevolution = function (options) {
 
   /**
    * Create the next generation.
-   *
    * @return Neural Network array for next Generation.
    */
   self.nextGeneration = function () {
     var networks = [];
 
     if (self.generations.generations.length == 0) {
-      // If no Generations, create first.
+      // 初始状态
       networks = self.generations.firstGeneration();
     } else {
       // Otherwise, create next one.

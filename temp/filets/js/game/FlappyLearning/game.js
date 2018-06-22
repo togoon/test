@@ -59,8 +59,11 @@ var Bird = function(json){
   this.height = 30;
 
   this.alive = true;
-  this.gravity = 0;
-  this.velocity = 0.3;
+
+  // =========== 常量 =============
+  this.gravity = 0.3;
+  this.velocity = 0;
+
   this.jump = -6;
 
   this.init(json);
@@ -73,12 +76,12 @@ Bird.prototype.init = function(json){
 }
 
 Bird.prototype.flap = function(){
-  this.gravity = this.jump;
+  this.velocity = this.jump;
 }
 
 Bird.prototype.update = function(){
-  this.gravity += this.velocity;
-  this.y += this.gravity;
+  this.velocity += this.gravity;
+  this.y += this.velocity;
 }
 
 Bird.prototype.isDead = function(height, pipes){
@@ -173,7 +176,7 @@ Game.prototype.update = function(){
   this.backgroundx += this.backgroundSpeed;
 
   /*
-   * 这个变量是什么意思？
+   * 前面下一个洞的位置
    */
   var nextHoll = 0;
 
@@ -194,6 +197,10 @@ Game.prototype.update = function(){
         nextHoll
       ];
 
+      /*
+       * 用ai来计算是否要flap 
+       * 有个疑惑就是：仅仅通过小鸟和管道的y坐标就能计算出玩的策略了吗？
+       */
       var res = this.gen[i].compute(inputs);
       if(res > 0.5){
         this.birds[i].flap();
@@ -204,6 +211,9 @@ Game.prototype.update = function(){
         this.birds[i].alive = false;
         this.alives--;
         //console.log(this.alives);
+        /*
+         * 将当前score反馈给机器学习模块，也是作为其学习的一个重要信息
+         */
         Neuvol.networkScore(this.gen[i], this.score);
         if(this.isItEnd()){
           this.start();
@@ -278,7 +288,7 @@ Game.prototype.display = function(){
     if(this.birds[i].alive){
       this.ctx.save(); 
       this.ctx.translate(this.birds[i].x + this.birds[i].width/2, this.birds[i].y + this.birds[i].height/2);
-      this.ctx.rotate(Math.PI/2 * this.birds[i].gravity/20);
+      this.ctx.rotate(Math.PI/2 * this.birds[i].velocity/20);
       this.ctx.drawImage(images.bird, -this.birds[i].width/2, -this.birds[i].height/2, this.birds[i].width, this.birds[i].height);
       this.ctx.restore();
     }

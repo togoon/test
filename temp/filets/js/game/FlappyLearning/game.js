@@ -1,3 +1,4 @@
+// 自己实现了一个立即执行的异步动作，用意暂时不明
 (function() {
 	var timeouts = [];
 	var messageName = "zero-timeout-message";
@@ -33,6 +34,7 @@ var speed = function(fps){
 	FPS = parseInt(fps);
 }
 
+// 加载图片资源
 var loadImages = function(sources, callback){
 	var nb = 0;
 	var loaded = 0;
@@ -139,6 +141,7 @@ var Game = function(){
 	this.maxScore = 0;
 }
 
+// 包括所有鸟死掉之后重来
 Game.prototype.start = function(){
 	this.interval = 0;
 	this.score = 0;

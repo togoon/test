@@ -488,7 +488,7 @@ var Neuroevolution = function (options) {
       networks = self.generations.nextGeneration();
     }
 
-    // Create Networks from the current Generation.
+    // 生成网络
     var nns = [];
     for (var i in networks) {
       var nn = new Network();
@@ -496,7 +496,7 @@ var Neuroevolution = function (options) {
       nns.push(nn);
     }
 
-    if (self.options.lowHistoric) {
+    if (self.options.lowHistoric) { // 缺省为false
       // Remove old Networks.
       if (self.generations.generations.length >= 2) {
         var genomes =
@@ -509,7 +509,7 @@ var Neuroevolution = function (options) {
       }
     }
 
-    if (self.options.historic != -1) {
+    if (self.options.historic != -1) { // 缺省为0
       // Remove older generations.
       if (self.generations.generations.length > self.options.historic + 1) {
         self.generations.generations.splice(0,

@@ -97,11 +97,16 @@ Bird.prototype.isDead = function(height, pipes){
   }
 }
 
+/*
+ * pipe是成对的，一上一下
+ */
 var Pipe = function(json){
-  this.x = 0;
-  this.y = 0;
+  this.x = 0; // left
+  this.y = 0; // top
+  // this.height = 40; // 这其实是bottom，而不是height
+
+  // ===== 常量 ======
   this.width = 50;
-  this.height = 40;
   this.speed = 3;
 
   this.init(json);
@@ -127,18 +132,25 @@ var Game = function(){
   this.pipes = [];
   this.birds = [];
   this.score = 0;
-  this.canvas = document.querySelector("#flappy");
-  this.ctx = this.canvas.getContext("2d");
-  this.width = this.canvas.width;
-  this.height = this.canvas.height;
-  this.spawnInterval = 90;
+
   this.interval = 0;
   this.gen = [];
+
   this.alives = 0;
   this.generation = 0;
-  this.backgroundSpeed = 0.5;
-  this.backgroundx = 0;
+
+  // 飞行的总路程，不参与算分，重新start不清0
+  this.backgroundx = 0; 
   this.maxScore = 0;
+
+  // ================= 常量 =================
+  this.backgroundSpeed = 0.5;
+  this.canvas = document.querySelector("#flappy");
+  this.width = this.canvas.width; 
+  this.height = this.canvas.height; 
+  this.spawnInterval = 90; // 90帧生成一条新的管
+  this.ctx = this.canvas.getContext("2d");
+
 }
 
 // 包括所有鸟死掉之后重来
@@ -159,7 +171,12 @@ Game.prototype.start = function(){
 
 Game.prototype.update = function(){
   this.backgroundx += this.backgroundSpeed;
+
+  /*
+   * 这个变量是什么意思？
+   */
   var nextHoll = 0;
+
   if(this.birds.length > 0){
     for(var i = 0; i < this.pipes.length; i+=2){
       if(this.pipes[i].x + this.pipes[i].width > this.birds[0].x){
@@ -195,7 +212,7 @@ Game.prototype.update = function(){
     }
   }
 
-  for(var i = 0; i < this.pipes.length; i++){
+  for(var i = 0; i < this.pipes.length; i++){ // 清掉已经out的管
     this.pipes[i].update();
     if(this.pipes[i].isOut()){
       this.pipes.splice(i, 1);
@@ -203,9 +220,9 @@ Game.prototype.update = function(){
     }
   }
 
-  if(this.interval == 0){
+  if(this.interval == 0){ // 新生成管子
     var deltaBord = 50;
-    var pipeHoll = 120;
+    var pipeHoll = 120; // 指洞的高度
     var hollPosition = Math.round(Math.random() * (this.height - deltaBord * 2 - pipeHoll)) +  deltaBord;
     this.pipes.push(new Pipe({x:this.width, y:0, height:hollPosition}));
     this.pipes.push(new Pipe({x:this.width, y:hollPosition+pipeHoll, height:this.height}));
@@ -295,6 +312,11 @@ window.onload = function(){
     });
     game = new Game();
     game.start();
+
+    /*
+     * 将数据与显示，完全分离
+     * update和display使用完全不同的定时器
+     */
     game.update();
     game.display();
   }

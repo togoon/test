@@ -53,18 +53,18 @@ var loadImages = function(sources, callback){
 }
 
 var Bird = function(json){
+  // 初始位置
   this.x = 80;
   this.y = 250;
-  this.width = 40;
-  this.height = 30;
 
   this.alive = true;
 
   // =========== 常量 =============
+  this.width = 40;
+  this.height = 30;
   this.gravity = 0.3;
   this.velocity = 0;
-
-  this.jump = -6;
+  this.jump = -6; // flap时的初速度
 
   this.init(json);
 }
@@ -212,7 +212,7 @@ Game.prototype.update = function(){
         this.alives--;
         //console.log(this.alives);
         /*
-         * 将当前score反馈给机器学习模块，也是作为其学习的一个重要信息
+         * 如果死掉，则将当前score反馈给机器学习模块，似乎是作为其学习的一个重要信息
          */
         Neuvol.networkScore(this.gen[i], this.score);
         if(this.isItEnd()){

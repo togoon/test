@@ -1,4 +1,4 @@
-import img from './img/background.png'
+import img from './background.png'
 
 let BG_WIDTH
 const background = new Image()

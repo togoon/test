@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, NavLink } from 'react-router-dom'
+import { Switch, Route, } from 'react-router-dom'
 import UserNav from '../ui/UserNav'
 
 // Sub Layouts

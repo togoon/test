@@ -27,6 +27,6 @@ function sort(arr, a = 0, b = arr.length) {
   sort(arr, i+1, b)
 }
 
-const arr = [2, 5, 3, 10, 6, 8, 7, 9, 1, 4,]
+const arr = [2, 12, 5, 3, 11, 10, 6, 8, 13, 7, 9, 1, 4,]
 sort(arr)
 console.log(arr)

@@ -8,7 +8,7 @@ function swap(arr, i, j) {
 function partition(arr, a, b) {
   let i = a
   let j = a+1
-  for(;j<=b;j++) {
+  for(;j<b;j++) {
     if ( arr[j] < arr[a]  ) {
       i++
       swap(arr, i, j)
@@ -19,11 +19,11 @@ function partition(arr, a, b) {
 }
 
 function sort(arr, a = 0, b = arr.length) {
-  if (a >= b) {
+  if (a+1 >= b) {
     return
   } 
   const i = partition(arr, a, b)
-  sort(arr, a, i-1)
+  sort(arr, a, i)
   sort(arr, i+1, b)
 }
 

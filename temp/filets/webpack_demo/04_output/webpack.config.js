@@ -6,14 +6,13 @@ const Html = require('html-webpack-plugin')
 const d = path.resolve.bind(null, __dirname)
 
 module.exports = {
-  entry : d('../src01/main.js'),
+  entry : d('./a.js'),
   /*
-   * filename缺省为[name].js, 指定filename时，不能是绝对路径（似乎也不能包含路径？）
+   * filename缺省为[name].js, 指定filename时，不能包含路径
    * path缺省为d(process.cwd(),'dist')，即'./dist'
-   * 
    */
   output : { // <url:https://webpack.js.org/configuration/output/>
-    filename : '[name].js', 
+    filename : '[name].js', // 对于只有一个文件的entry，[name]值为main
     path : d('./dist'), // 必须为绝对路径
   },
   plugins : [ new Html() ],

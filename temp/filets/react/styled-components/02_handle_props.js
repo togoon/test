@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled, { css } from 'styled-components'
 
+/*
+ * 好像不用css也可以，那这个css有什么用呢
+ */
 const Button = styled.button`
   border-radius: 3px;
   padding: 0.25em 1em;

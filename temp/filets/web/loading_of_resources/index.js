@@ -1,3 +1,9 @@
+/*
+ * 验证以下问题：
+ * > html中<script>的执行时机以及顺序
+ * > window.onload什么时候触发
+ * > 页面再次动态地加载其他资源，不会再触发onload
+ */
 const Koa = require('koa')
 const path = require('path')
 const serve = require('koa-static')

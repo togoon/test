@@ -1,5 +1,6 @@
 /**
- * Checkbox list examples
+ * Checkbox list examples.
+ * 支持validate（比如限制必填）
  */
 
 'use strict';

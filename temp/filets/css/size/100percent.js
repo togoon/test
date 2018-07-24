@@ -16,7 +16,7 @@ const Outer = (S.div`
 const Middle = (S.div`
     border : 10px solid red;
     padding : 10px;
-    background : lightred;
+    background : pink;
 `)
 
 const Inner = (S.div`

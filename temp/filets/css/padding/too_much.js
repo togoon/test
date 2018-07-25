@@ -12,7 +12,7 @@ class Test2 extends PureComponent {
       <div style={{
         width : 100,
         height : 100,
-        padding : 80, // padding很大，将无视原来的width, height设置
+        padding : 80, // padding很大，content的width将为160
         border : '1px solid gray',
         boxSizing : 'border-box',
       }} >

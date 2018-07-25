@@ -8,7 +8,7 @@ import React from 'react';
 import S from 'styled-components'
 import ReactDOM from 'react-dom';
 
-const Outer1 = (S.div`
+const H = (S.div`
     border : 10px solid blue;
     padding : 10px;
     background : lightblue;
@@ -17,14 +17,16 @@ const Outer1 = (S.div`
     margin : 50px;
     display : flex;
 `)
-const Outer2 = (Outer1.extend`
+const V = (H.extend`
     flex-direction:column;
 `)
-const Middle = (S.div`
+const Auto = (S.div`
+    margin : 10px;
     border : 10px solid red;
     padding : 10px;
     background : pink;
 `)
+
 const Inner1 = (S.div`
     width : 100%
     height : 50px;
@@ -43,19 +45,17 @@ const Inner2 = (S.div`
 class Test extends React.Component {
   render() {
     return <div>
-      <Outer1>
-        <Middle>
+      <H>
+        <Auto>
           <Inner1 />
-        </Middle>
-      </Outer1>
-      {/*
-      chrome对于下面的组件，竖直高度撑不开
-      */}
-      <Outer2>
-        <Middle>
+        </Auto>
+      </H>
+      <div> chrome对于下面的组件，竖直高度撑不开（bug）, 而在firefox里，下图和上图是对称的（正确的展示） </div>
+      <V>
+        <Auto>
           <Inner2 />
-        </Middle>
-      </Outer2>
+        </Auto>
+      </V>
     </div>
   }
 }

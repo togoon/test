@@ -12,8 +12,8 @@ const H = (S.div`
     border : 10px solid blue;
     padding : 10px;
     background : lightblue;
-    width : 100px;
-    height : 100px;
+    width : 200px;
+    height : 200px;
     margin : 50px;
     display : flex;
 `)
@@ -27,13 +27,21 @@ const Auto = (S.div`
     background : pink;
 `)
 
-const Inner1 = (S.div`
+const W100 = (S.div`
     width : 100%
     height : 50px;
     border : 10px solid green;
     background : lightgreen;
     margin : 10px;
 `)
+const W50 = (S.div`
+    width : 50%
+    height : 50px;
+    border : 10px solid green;
+    background : lightgreen;
+    margin : 10px;
+`)
+
 const Inner2 = (S.div`
     height : 100%
     width : 50px;
@@ -45,9 +53,16 @@ const Inner2 = (S.div`
 class Test extends React.Component {
   render() {
     return <div>
+      <div>width100%</div>
       <H>
         <Auto>
-          <Inner1 />
+          <W100 />
+        </Auto>
+      </H>
+      <div>width50%</div>
+      <H>
+        <Auto>
+          <W50 />
         </Auto>
       </H>
       <div> 

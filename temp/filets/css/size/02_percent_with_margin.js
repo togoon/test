@@ -31,6 +31,13 @@ const Width100Pct = (S.div`
     background : lightgreen;
     margin : 10px;
 `)
+const Width50Pct = (S.div`
+    width : 50%
+    height : 50px;
+    border : 10px solid green;
+    background : lightgreen;
+    margin : 10px;
+`)
 
 /*
  * 对于autoi size的容器, height 100%无效
@@ -46,6 +53,12 @@ class Test extends React.Component {
       <Outer>
         <Auto>
           <Width100Pct />
+        </Auto>
+      </Outer>
+      <div>width : 50%</div>
+      <Outer>
+        <Auto>
+          <Width50Pct />
         </Auto>
       </Outer>
       <div>height : 100%无效</div>

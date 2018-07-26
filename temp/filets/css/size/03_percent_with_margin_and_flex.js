@@ -50,7 +50,7 @@ class Test extends React.Component {
           <Inner1 />
         </Auto>
       </H>
-      <div> chrome对于下面的组件，竖直高度撑不开（bug）, 而在firefox里，下图和上图是对称的（正确的展示） </div>
+      <div> chrome对于下面的组件，竖直高度撑不开（bug）height:100%无效, 而在firefox里，下图和上图是对称的（正确的展示） </div>
       <V>
         <Auto>
           <Inner2 />

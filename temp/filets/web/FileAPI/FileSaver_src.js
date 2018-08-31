@@ -2,11 +2,6 @@
  * 解读FileSaver的源代码
  */
 const saveAs = (function(view) {
-	"use strict";
-	// IE <10 is explicitly unsupported
-	if (typeof view === "undefined" || typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
-		return;
-	}
 	var
 		  doc = view.document
 		  // only get URL when necessary in case Blob.js hasn't overridden it yet
@@ -145,8 +140,6 @@ const saveAs = (function(view) {
 		};
 	}
 
-	// todo: detect chrome extensions & packaged apps
-	//save_link.target = "_blank";
 
 	FS_proto.abort = function(){};
 	FS_proto.readyState = FS_proto.INIT = 0;

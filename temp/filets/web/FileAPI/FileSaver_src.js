@@ -72,7 +72,7 @@ const saveAs = (function(view) {
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
-					if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
+          if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
 						// Safari doesn't allow downloading of blob urls
 						var reader = new FileReader();
 						reader.onloadend = function() {
@@ -107,7 +107,7 @@ const saveAs = (function(view) {
 			;
 			filesaver.readyState = filesaver.INIT;
 
-			if (can_use_save_link) {
+    if (can_use_save_link) {
 				object_url = get_URL().createObjectURL(blob);
 				setImmediate(function() {
 					save_link.href = object_url;
@@ -158,5 +158,5 @@ const saveAs = (function(view) {
 	return saveAs;
 }(window));
 
-var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"}, true);
 saveAs(blob, "hello world.txt")

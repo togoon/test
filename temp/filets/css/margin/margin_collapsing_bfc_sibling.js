@@ -1,6 +1,3 @@
-/*
- * bfc不影响与兄弟的margin collapsing
- */
 import React from 'react'
 import S from 'styled-components'
 import { render } from 'react-dom'
@@ -23,6 +20,9 @@ class Test extends React.PureComponent {
       <BFC>
         BFC容器
       </BFC>
+      <div>
+        bfc不影响与兄弟的margin collapsing
+      </div>
     </div>
   }
 }

@@ -1,5 +1,5 @@
 /*
- * echarts的初探示例
+ * 演示echarts自动调整尺寸的api: resize
  */
 import React from 'react'
 import { render, } from 'react-dom'
@@ -25,6 +25,10 @@ class Test extends React.PureComponent {
       }]
     }
     myChart.setOption(opt)
+    
+    window.setInterval(()=>{
+      myChart.resize() // 调整尺寸适应容器
+    }, 1000)
   }
 
   render() {

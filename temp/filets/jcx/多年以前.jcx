@@ -6,6 +6,18 @@ Q: 1/4=120
 C: Í¯»°¼ªËû
 K: C
 
+V:1 style=tab clef=standardtab ins=24 vol=40 bracket=2
+[V:1]
+b1b1/2b3/2a0a0/2a1/2 | a3a5/2a3/2a0*2 |
+a3a1/2a0/2b3*2 | a1a0/2b3/2b1*2 |
+b1b1/2b3/2a0a0/2a1/2 | a3a5/2a3/2a0*2 |
+a3a1/2a0/2b3a0/2b3/2| b1*4 |
+
+a3a1/2a0/2b3c0/2c0/2 | a1a0/2b3/2b1*2 |
+a3a1/2a0/2b3c0/2c0/2 | a1a0/2b3/2b1*2 |
+b1b1/2b3/2a0a0/2a1/2 | a3a5/2a3/2a0*2 |
+a3a1/2a0/2b3a0/2b3/2| b1*4 |
+
 V:2 style=jianpu ins=1 vol=100
 [V:2]
 cc/2d/2ee/2f/2 | ga/2g/2e2 | 

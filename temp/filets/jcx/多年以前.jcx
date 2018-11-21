@@ -1,0 +1,18 @@
+%MUSE2
+T: 多年以前
+M: 4/4
+L: 1/4
+Q: 1/4=120
+C: 童话吉他
+K: C
+
+V:2 style=jianpu ins=1 vol=100
+[V:2]
+cc/2d/2ee/2f/2 | ga/2g/2e2 | 
+gf/2e/2d2 | fe/2d/2c2 |
+cc/2d/2ee/2f/2 | ga/2g/2e2 | 
+gf/2e/2de/2d/2| c4 |
+gf/2e/2dG/2G/2 | fe/2d/2c2 |
+gf/2e/2dG/2G/2 | fe/2d/2c2 |
+cc/2d/2ee/2f/2 | ga/2g/2e2 | 
+gf/2e/2de/2d/2| c4 |

@@ -10,13 +10,8 @@ V:1 style=tab clef=standardtab ins=24 vol=40 bracket=2
 V:2 style=jianpu ins=1 vol=100
 
 [V:1]
-e3e3c0c0 | c2c2c0*2 | d3d3d2d2 | d0d0e3*2 |
-c0c0d3d3 | d2d2d0*2 | c0c0d3d3 | d2d2d0*2 | 
-e3e3c0c0 | c2c2c0*2 | d3d3d2d2 | d0d0e3*2 |
+zzc0/2c0/2|c2c0b1|b0*2c0/2c0/2|c2c0b3|b1*2c0/2c0/2|a3a0b1|b0c2a1/2a1/2|a0b1b3|b1*3|
 [V:2]
-CCGG | AAG2 | FFEE | DDC2 |
-w: 一闪一闪亮晶晶满天都是小星星
-GGFF | EED2 | GGFF | EED2 |
-w: 挂在天上放光明好像许多小眼睛
-CCGG | AAG2 | FFEE | DDC2 |
-w: 一闪一闪亮晶晶满天都是小星星
+ZZG,/2G,/2|A,G,C|B,2G,/2G,/2|A,G,D|C2G,/2G,/2|GEC|B,A,F/2F/2|ECD|C3|
+w:祝你生日快乐祝你生日快乐祝你生日快乐*祝你生日快乐
+

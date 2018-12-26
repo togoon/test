@@ -9,3 +9,4 @@ const c = add(b.div(4), 0.2)
 console.log('c', c)
 
 console.log(fraction('1/8').div('1/4'))
+console.log(fraction(1))

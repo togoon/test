@@ -8,5 +8,5 @@ const b = fraction(4)
 const c = add(b.div(4), 0.2)
 console.log('c', c)
 
-console.log(fraction('1/8').div('1/4'))
+console.log(fraction('1/8').div('1/4')) // 好像这里的语法改了，要用math.div(...)这样子？
 console.log(fraction(1))

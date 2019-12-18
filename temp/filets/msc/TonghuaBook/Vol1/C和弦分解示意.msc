@@ -1,0 +1,6 @@
+beat: 1/8
+format: tab
+patterns:
+  C: '"C"53231323'
+========
+%C 

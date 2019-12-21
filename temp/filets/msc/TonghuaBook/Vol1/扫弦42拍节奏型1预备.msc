@@ -1,0 +1,6 @@
+beat: 1/8
+format: tab
+patterns:
+  C: '"C"[1234]^^^^'
+========
+%C 

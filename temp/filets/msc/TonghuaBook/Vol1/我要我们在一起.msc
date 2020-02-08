@@ -10,13 +10,25 @@ tracks :
 customChords :
   F : '1;X,X,3,2,1,0'
   Dm7 : 1;X,X,0,2(2),1(1),1(1)
+  'Am7' : 1;X,0,2,0,1,0
+  'Dm7/C' : 1;X,3,0,2,1,1
+  'Dm/B' : 1;X,2(1),3(3),2(2),3(4),X
+  'Gm/E' : 1;0,X,X,3,3,3
+  'Dm7(5)' : '5;1,1,3,1,2,1'
   'Asus4/#G' : '3;2,X,X,X,1,0'
   'Am/#G' : '1;4,X,X,2,1,0'
   'Am/#G(4)' : '4;1,X,X,2,0,0'
   'Am/G' : '1;3,X,X,2,1,0'
+  'Am/G(5)' : '5;X,X,1,1,1,1'
   'Am/#F' : '1;2,X,X,2,1,0'
+  'Am/#F(4)' : '4;X,X,1,X,X,2'
   'C/G' : 1;3,X,2,0,1,0
   'D7/#F' : 1;2,X,0,2,1,X
+  'Fadd11+/A' : 5;X,0,X,1,2,3
+  'F/A' : 1;X,0,3,2,1,X
+  'B9-' : 1;X,2,1,2,1,2
+  'B9-(2)' : 2;X,1,3,4,3,X
+  'E9-' : 1;0,X,0,1,0,1
   Fmaj7: 1;X,X,3,2,1,0
 patterns : 
   C : '"C"532123'
@@ -52,102 +64,102 @@ w: 我的发我的心我*的
 <melody> 6.-- 3.--
 w: 眼睛
 
-<guitar> %Am
+<guitar> "Am/G(5)"[4321] 7'@1 1''@1 "Am/#F(4)"[7'@1 4] p1 3'@1
 <melody> 0-- ---
 
-<guitar> %Am
+<guitar> "Am"5[123]- "Am/#G"6[123]-
 <melody> (17.6.17.6. 17.6.17.6.)
 w: 你远远地呆在那个城那个路
 
-<guitar> %Am
+<guitar> "Am/G"6[123]- "Am/#F"6[123]-
 <melody> (17.6.17.6. ) 1-6.
 w: 那个房那个灯那扇
 
-<guitar> %Am
+<guitar> "Dm7(5)"5 (4231) (213243)
 <melody> 3- 2- --
 w: 窗口
 
-<guitar> %Am
+<guitar> "Dm7(5)"[2 1''@15] p1 [23] [235] p3'@2 [34]
 <melody> 0-- ---
 
-<guitar> %Am
+<guitar> "Dm7" 4[123]- "Dm7/C" 5[123]-
 <melody> (432432 432432)
 w: 我静静地放着你给我的 C D
 
-<guitar> %Am
+<guitar> "Dm/B"5[432]- "Gm/E" 6[123]-
 <melody> 4-2 5-4
 w: 音乐当作
 
-<guitar> %Am
+<guitar> "Am7" 5 (- 2@4) (h43) (7@2 h 2'@2) (1 h 5'@1) (21)
 <melody> 3-- ---
 w: 背
 
-<guitar> %Am
+<guitar> "Fadd11+/A" [512] [23] [3'@1 7@2] "F/A" [523] p 7@2 [43]
 <melody> 6.-- 033
 w: 景 怎么
 
-<guitar> %Am
+<guitar> "B9-" 5(4231 213243)
 <melody> #2-- ---
 w: 唱 
 
-<guitar> %Am
+<guitar> "B9-" 543 123
 <melody> --(-#2.) 11-
 w: **都不再
 
-<guitar> %Am
+<guitar> "E9-" 6 [43][32][21] [23] [43]
 <melody> 6.7.- ---
 w: 煽情
 
-<guitar> %Am
+<guitar> "E" [6123]-- ---
 <melody> --- ---
 
-<guitar> %Am
+<guitar> "Am"5[123]- "Am/#G"6[123]-
 <melody> (17.6.17.6. 17.6.17.6.)
 w: 我记得你习惯闭着眼 抱着我
 
-<guitar> %Am
+<guitar> "Am/G"6[123]- "Am/#F"6[123]-
 <melody> (17.6.17.6. ) 017.
 w: 好像我是你的脸笑
 
-<guitar> %Am
+<guitar> "Asus2"5(-432) "Am/#G(4)"([63]1 6'@1s7'@1 1'@3 3'@2)
 <melody> 06.3. ---
 w: 嘻嘻
 
-<guitar> %Am
+<guitar> "Am/G(5)"[4321] 7'@1 1''@1 "Am/#F(4)"[7'@1 4] p1 3'@1
 <melody> 0-- ---
 
-<guitar> %Am
+<guitar> "Am"5[123]- "Am/#G"6[123]-
 <melody> (17.6.17.6. 17.6.17.6.)
 w: 我不知该如何对你笑对你哭
 
-<guitar> %Am
+<guitar> "Am/G"6[123]- "Am/#F"6[123]-
 <melody> (17.6.17.6. ) 1-6.
 w: 张着嘴不理你像个
 
-<guitar> %Am
+<guitar> "Dm7(5)"5 (4231) (213243)
 <melody> 32- ---
 w: 机器
 
-<guitar> %Am
+<guitar> "Dm7(5)"[2 1''@15] p1 [23] [235] p3'@2 [34]
 <melody> 0-- ---
 
-<guitar> %Am
+<guitar> "Dm7" 4[123]- "Dm7/C" 5[123]-
 <melody> (432432 432432)
 w: 你的世界我的日子 好像没有
 
-<guitar> %Am
+<guitar> "Dm/B"5[432]- "Gm/E" 6[123]-
 <melody> 432 5-4
 w: 谁对谁发过
 
-<guitar> %Am
+<guitar> "Am7" 5 (- 2@4) (h43) (7@2 h 2'@2) (1 h 5'@1) (21)
 <melody> 3-- ---
 w: 脾
 
-<guitar> %Am
+<guitar> "Fadd11+/A" [512] [23] [3'@1 7@2] "F/A" [523] p 7@2 [43]
 <melody> 6.-- -33
 w: 气 过的
 
-<guitar> %Am
+<guitar> "B9-" 5(4321) "B9-(2)" 5(4321)
 <melody> #2#2- ---
 w: 太快
 

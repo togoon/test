@@ -11,6 +11,7 @@ tracks :
     jcx: jianpu
 customChords: 
   F: 1;X,X,3,2,1,0
+  'Bbsus4' : 1;X,1,3,3,4,1
 patterns : 
   L1 : '"C"53231323'
 =================
@@ -26,5 +27,156 @@ patterns :
 <guitar> [#2'' #2@a] 5'@b -#2'' 4'@b #2'@g 2'@g #2'@g
 <melody> 0--- ----
 
+<guitar> [#2'#5.] 2' #2'1' -#2'b7-
+<melody> 0--- ----
 
+<guitar> [#2'#5.] #5 -#2' 5- #5-
+<melody> 0--- ----
+
+<guitar> "Fm"[456]$- -- -- --
+<melody> 0--- ----
+
+<guitar> "Bbsus4"[1 #2'@2 345]$- -- -- --
+<melody> 0--- --#2#2
+w: (~国~语~)~对我
+
+<guitar> %L1
+<melody> #2- #2#2 #2- #2#2
+w: 好 对我好 好到
+
+<guitar> %L1
+<melody> b7b7b7b7 -- 5#5
+w: 无路可退 可是
+
+<guitar> %L1
+<melody> 5-4- #2-5-
+w: 我也很想 
+
+<guitar> %L1
+<melody> -- -4 #2- 2#2
+w: *有个人陪
+
+<guitar> %L1
+<melody> -- -- -- #2#2
+w: *才不
+
+<guitar> %L1
+<melody> 2'- #2'b7 -- 5-
+w: 愿把你得
+
+<guitar> %L1
+<melody> 1'- -- -- #2#2
+w: 罪 于是
+
+<guitar> %L1
+<melody> b7b7 b75 -4 #2#2
+w: 那么迂回 一时
+
+<guitar> %L1
+<melody> #2- #2#2 #2- #2#2
+w: 进 一时退 保持
+
+<guitar> %L1
+<melody> b7b7b7b7 -- 5#5
+w: 安全范围 这个
+
+<guitar> %L1
+<melody> 5-4- #2-5-
+w: 阴谋让我
+
+<guitar> %L1
+<melody> 0- 5- b7- #2'-
+w: 好惭愧
+
+<guitar> %L1
+<melody> -- -- -- #2-
+w: 享
+
+<guitar> %L1
+<melody> 1'- 54 -#2 -b7
+w: 受被爱滋味 
+
+<guitar> %L1
+<melody> ---- -- 5#5
+w: 却不
+
+<guitar> %L1
+<melody> b7- 1'2' -#2' 4'-
+w: 让你想入非
+
+<guitar> %L1
+<melody> #2'- -- #2'- b7-
+w: 非 就让
+
+<guitar> %L1
+<melody> 0--- ----
+w: 我们虚伪
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
+
+<guitar> %L1
+<melody> 0--- ----
+w: 
 

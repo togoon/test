@@ -12,6 +12,8 @@ tracks :
 customChords: 
   F: 1;X,X,3,2,1,0
   'Bbsus4' : 1;X,1,3,3,4,1
+  'Eb' : 1;X,X,1(1),3(2),4(4),3(3)
+  'Eb/#G' : 3;2,4,3,1,X,X
 patterns : 
   L1 : '"C"53231323'
 =================
@@ -40,11 +42,11 @@ patterns :
 <melody> 0--- --#2#2
 w: (~国~语~)~对我
 
-<guitar> %L1
+<guitar> <Eb> #2- b7#2' #25' #2'b7
 <melody> #2- #2#2 #2- #2#2
 w: 好 对我好 好到
 
-<guitar> %L1
+<guitar> <Eb/#G> [#5.#25b7]-#2- 5- b7-
 <melody> b7b7b7b7 -- 5#5
 w: 无路可退 可是
 
@@ -70,7 +72,7 @@ w: 罪 于是
 
 <guitar> %L1
 <melody> b7b7 b75 -4 #2#2
-w: 那么迂回 一时
+w: 那么迂回 *一时
 
 <guitar> %L1
 <melody> #2- #2#2 #2- #2#2
@@ -90,7 +92,7 @@ w: 好惭愧
 
 <guitar> %L1
 <melody> -- -- -- #2-
-w: 享
+w: *享
 
 <guitar> %L1
 <melody> 1'- 54 -#2 -b7
@@ -98,7 +100,7 @@ w: 受被爱滋味
 
 <guitar> %L1
 <melody> ---- -- 5#5
-w: 却不
+w: *却不
 
 <guitar> %L1
 <melody> b7- 1'2' -#2' 4'-
@@ -109,10 +111,66 @@ w: 让你想入非
 w: 非 就让
 
 <guitar> %L1 | %L1
-<melody> 0--- ---- | 0-------
-w: 我们虚伪
+<melody> 1'-#5- 5- 4- | -- 5- #5- b7-
+w: 我们虚伪 有感情 
 
 <guitar> %L1 | %L1
-<melody> 0--- ---- | 0-------
-w: 
+<melody> -- 5- 4- 5- | -- -- 5- 5-
+w: 别浪费 不能
 
+<guitar> %L1 | %L1
+<melody> 1'- 54 -5 -#2 | -- -- -- b7b7
+w: 相爱的一对 亲爱
+
+<guitar> %L1 
+<melody> -#5 5#5 b7- -- 
+w: 像两兄妹
+
+<guitar> %L1
+<melody> 0--- #2'-b7-
+w: 爱让
+
+<guitar> %L1 | %L1
+<melody> 1'-#5- 5- 4- | -- 5- #5- b7-
+w: 我们虚伪 我得到 
+
+<guitar> %L1 | %L1
+<melody> -- #2- 5- b7- | 2'- #2'#2' -1' --
+w: 于事无补的安慰
+
+<guitar> %L1 | %L1
+<melody> 2'- #2'#2 -b7 -b7 | 1'- 2'#2' -1' -2'
+w: 你也得到 模仿爱上一个
+
+<guitar> %L1 | %L1
+<melody> -- #2'4' -5' -#2' | -- -- -- --
+w: 人的机会
+
+<guitar> %L1 | %L1
+<melody> -- b7- #5- 5- | #5- 5- #5- #2'-
+w: 残忍也不失慈悲
+
+<guitar> %L1 | %L1
+<melody> -- b7- #5- 5- | #5- 5- #5- 5'-
+w: 这样的关系你说 
+
+<guitar> %L1 
+<melody> -- #5'- 4'- #2'- 
+w: 多完美
+
+<guitar> ::C: 3
+<guitar> [#2#5.]b7 #2'b7' b7'#2' b7'#5'
+<melody> 0------- 
+
+<guitar> #25 4'- [5'b7]- --
+<melody> 0------- 
+
+<guitar> [#2#5.]b7 #2'b7' b7'#2' b7'#5'
+<melody> 0------- 
+
+<guitar> #25 4'- [5'b7]- --
+<melody> 0------- 
+
+<guitar> ::C: 5
+<guitar> b7b7 b7b7 b7b7 b7b7
+<melody> 0------- 

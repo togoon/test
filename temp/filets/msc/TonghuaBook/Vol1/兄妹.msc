@@ -14,6 +14,8 @@ customChords:
   'Bbsus4' : 1;X,1,3,3,4,1
   'Eb' : 1;X,X,1(1),3(2),4(4),3(3)
   'Eb/#G' : 3;2,4,3,1,X,X
+  'Eb/C' : 6;3,1,3,3,X,1
+  'Fm' : 1;1,3,3,1,1,1
 patterns : 
   L1 : '"C"53231323'
 =================
@@ -159,18 +161,385 @@ w: 这样的关系你说
 w: 多完美
 
 <guitar> ::C: 3
-<guitar> [#2#5.]b7 #2'b7' b7'#2' b7'#5'
+<guitar> [#2#5.]b7 #2'b7' b7'#2' b7#5
 <melody> 0------- 
 
-<guitar> #25 4'- [5'b7]- --
+<guitar> [#25]#2 4'#2 5- --
 <melody> 0------- 
 
-<guitar> [#2#5.]b7 #2'b7' b7'#2' b7'#5'
+<guitar> [#2#5.]b7 #2'b7' b7'#2' b7#5
 <melody> 0------- 
 
-<guitar> #25 4'- [5'b7]- --
+<guitar> [#25]#2 4'#2 5- --
 <melody> 0------- 
 
-<guitar> ::C: 5
-<guitar> b7b7 b7b7 b7b7 b7b7
+<guitar> ::c: 1
+<guitar> <Eb/C> [#21] b7 #2'b7' b7'#2' b7#5
 <melody> 0------- 
+
+<guitar> <Fm> [5'1'4.]#5 4'#5 [5'1']- --
+<melody> 0------- 
+
+<guitar> [5'1'#5#2b7.]- [#5'1'#5][5'5]  -[#2'#2] [1'1][b74b7.]
+<melody> 0------- 
+
+<guitar> --------
+<melody> 0--- --#2#2
+w: 眼看
+
+<guitar> 0-------
+<melody> #2- #2#2 #2- #2#2
+w: 你 看着我 看得
+
+<guitar> 0-------
+<melody> 0------- 
+w: 那么暧昧 被爱
+
+<guitar> 0-------
+<melody> b7b7b7b7 -- 5#5
+w: 爱人原来
+
+<guitar> 0-------
+<melody> -- -4 #2- 2#2
+w: *一样可悲
+
+<guitar> 0-------
+<melody> -- -- -- #2#2
+w: *为什
+
+<guitar> 0-------
+<melody> 2'- #2'b7 -- 5-
+w: 么竟然防
+
+<guitar> 0-------
+<melody> 1'- -- -- #2#2
+w: 备 别人
+
+<guitar> 0-------
+<melody> b7b7 b75 -4 #2#2
+w: 给我献媚 不能
+
+<guitar> 0-------
+<melody> #2- #2#2 #2- #2#2
+w: 推 不能要 要了
+
+<guitar> 0-------
+<melody> b7b7b7b7 -- 5#5
+w: 怕你误会 让我
+
+<guitar> 0-------
+<melody> 5-4- #2-5-
+w: 想起曾经
+
+<guitar> 0-------
+<melody> 0- 5- b7- #2'-
+w: 爱过谁
+
+<guitar> 0-------
+<melody> -- -- -- #2#2
+w: 我所
+
+<guitar> 0-------
+<melody> 1'- 54 -#2 -b7
+w: 要的她不给 
+
+<guitar> 0-------
+<melody> ---- -- 5#5
+w: *好像
+
+<guitar> 0-------
+<melody> b7- 1'2' -#2' 4'-
+w: 小偷一样卑
+
+<guitar> 0-------
+<melody> #2'- -- -- --
+w: 微
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+
+<guitar> 0-------
+<melody> 0------- 
+w: 
+

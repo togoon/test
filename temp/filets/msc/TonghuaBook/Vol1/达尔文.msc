@@ -1,6 +1,5 @@
 # 达尔文
 # 注意Em9和Em9/B指法一样，但叫法不同
-
 title : [达尔文, 蔡健雅]
 artist : 童话吉他编配
 beat : 1/8
@@ -12,17 +11,18 @@ tracks :
   - name: melody
     jcx: jianpu
 customChords: 
-  F: 1;X,X,3,2,1,0
-  Em9 : 1;0,2(1),4(3),0,3(2),0
-  Em9(1) : 1;0,0,2,0,3,2
-  Cm : 3;X,1,X,0,2,1
+  'F' : 1;X,X,3,2,1,0
+  'Cadd9' : 1;X,3,2,0,3,0
+  'Cm' : 3;X,1,X,0,2,1
   'C/D' : 1;X,X,0,0,1,0
-  'Em9/B' : 1;X,2(1),4(3),0,3(2),0
-  'Em9/C' : 1;X,3(1),4(3),0,3(2),0
-  'D/#F' : 1;2,0,0,2,3,2
-  'D11' : 3;X,3,2,0,1,0
   'C/G' : 1;3,X,2,0,1,0
-  G : 1,3,2,0,0,0,3
+  'Em9/B' : 1;X,2(1),4(3),0,3(2),0
+  'D/#F' : 1;2(1),0,0,2(2),3(4),2(3)
+  'Em9/C' : 1;X,3(1),4(3),0,3(2),0
+  'D11' : 3;X,3,2,0,1,0
+  'Em9' : 1;0,2(1),4(3),0,3(2),0
+  'Em9(1)' : 1;0,0,2,0,3,2
+  'G' : 1;3,2,0,0,0,3
 patterns : 
   L1 : '"C"53231323'
   s : (3s#452')
@@ -55,82 +55,412 @@ patterns :
 <melody> 0-------
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0 (-5.) 2(22) ---(-5.)
+w: 我的青春 也
 
 <guitar> %L1
-<melody> 0-------
+<melody> 2(22) -2 7.---
+w: 不是没伤痕
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0- 55 #43 21
+w: 是明白爱是信
 
 <guitar> %L1
-<melody> 0-------
+<melody> 7.1 7.2 -- --
+w: 仰的延伸
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0(-7.) 5(55) -- -(3#4)
+w: 什么特征 *人缘
 
 <guitar> %L1
-<melody> 0-------
+<melody> 56 3#4 -(23) (-#4)-
+w: 还是眼神 也不会
 
 <guitar> %L1
-<melody> 0-------
+<melody> #4(55) -#4 32 5.7
+w: 预知爱不爱的可能
 
 <guitar> %L1
-<melody> 0-------
+<melody> 6- -- -- --
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0 (-5.) 22 2--(-5.)
+w: 保持单身 *忍
 
 <guitar> %L1
-<melody> 0-------
+<melody> 2(22) -2 7.---
+w: 不住又沉沦
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0- 55 #43 21
+w: 兜着圈子来去
 
 <guitar> %L1
-<melody> 0-------
+<melody> 7.1 7.6. -- --
+w: 有时苦等
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0(-7.) 5(#45) -- -(3#4)
+w: 人的一生 *感情
 
 <guitar> %L1
-<melody> 0-------
+<melody> 56 3#4 -(23) (-#4)-
+w: 是旋转门 转到了
 
 <guitar> %L1
-<melody> 0-------
+<melody> #4(55) -#4 32 5.2
+w: 最后真心的就不分
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0- -- -- -(-5.)
+w: 有
 
 <guitar> %L1
-<melody> 0-------
+<melody> 2(22) -5. 2(22) -(-5.)
+w: 过竞争 有过牺牲 被
 
 <guitar> %L1
-<melody> 0-------
+<melody> 23#45 32-5.
+w: 爱筛选过程 *学
 
 <guitar> %L1
-<melody> 0-------
+<melody> 2(22) -5. 232(-6.)
+w: 会认真 学会忠诚 适
 
 <guitar> %L1
-<melody> 0-------
+<melody> 6.6.21 7.-37
+w: 者才能生存 懂得
 
 <guitar> %L1
-<melody> 0-------
+<melody> -- 36 -- 26
+w: *永恒 得要
 
 <guitar> %L1
-<melody> 0-------
+<melody> -- 25 -- --
+w: *我们
 
 <guitar> %L1
-<melody> 0-------
+<melody> -- (7.1-7.) 6.#4. -(#4.5.)
+w: *进化成更好的人
 
 <guitar> %L1
-<melody> 0-------
+<melody> -- -- -- --
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0- -- -- --
+w: 
 
 <guitar> %L1
-<melody> 0-------
+<melody> 0- -- -- --
+w: 
 
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
 
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %L1
+<melody> 0- -- -- --
+w: 
 

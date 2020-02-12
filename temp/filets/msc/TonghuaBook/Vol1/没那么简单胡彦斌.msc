@@ -1,0 +1,316 @@
+# 大调改小调的范例
+title : [没那么简单, 胡彦斌]
+artist : 童话吉他编配
+beat : 1/8
+timeSign : 6/8
+key : G
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords: 
+  'F' : 1;X,X,3,2,1,0
+patterns : 
+  L1 : '"C"532313'
+=================
+<guitar> E6@gs7@g7 E7@gs#1'@g7 E#1'@gs2'@g7 
+<melody> 0-----
+
+<guitar> E2'@gs3'@g7 E3'@gs#4'@g7 E#4'@gs5'@g7
+<melody> 0-----
+
+<guitar> E5'@gs#4'@g7 E#4'@gs3'@g7 E3'@gs2'@g7 
+<melody> 0-----
+
+<guitar> E2'@gs#1'@g7 E#1'@gs7@g7 E7@gsb7@g7
+<melody> 0-----
+
+<guitar> Eb7@gp5@g7 E5@ds#4@d7 E#4@ds3@d7 
+<melody> 0-----
+
+<guitar> 32#1 7.b7.5.
+<melody> 0-----
+
+<guitar> "F#"[123456]~-- ---
+<melody> 0-----
+
+<guitar> 0-----
+<melody> 0--7--
+w: 没
+
+<guitar> %L1
+<melody> 7#43 #4--
+w: 那么简单
+
+<guitar> %L1
+<melody> 7#43 #4-7
+w: 就能找到 聊
+
+<guitar> %L1
+<melody> b7-- #4-3
+w: 得来的
+
+<guitar> %L1
+<melody> #4-- ---
+w: 伴
+
+<guitar> %L1
+<melody> 6#43 #4--
+w: 尤其是在
+
+<guitar> %L1
+<melody> 6#4#4 #437.
+w: 看过了那么多
+
+<guitar> %L1
+<melody> 3-- --#4
+w: 的背
+
+<guitar> %L1
+<melody> 3-- --2
+w: 叛 总
+
+<guitar> %L1
+<melody> 2-- --7
+w: 是不
+
+<guitar> %L1
+<melody> b7-- --2
+w: 安 只
+
+<guitar> %L1
+<melody> #1-- --6.
+w: 好强
+
+<guitar> %L1
+<melody> #5-- --3
+w: 悍 谁
+
+<guitar> %L1
+<melody> 5-#4 2-7.
+w: 谋杀了我
+
+<guitar> %L1
+<melody> 2-- --3
+w: 的浪
+
+<guitar> %L1
+<melody> 3-- -23
+w: 漫
+
+<guitar> %L1
+<melody> #1-- ---
+w: * 没
+
+<guitar> %L1
+<melody> 7#43 #4--
+w: 那么简单
+
+<guitar> %L1
+<melody> 7#43 #4-7
+w: 就能去爱 别
+
+<guitar> %L1
+<melody> b7-- #4-3
+w: 的全不
+
+<guitar> %L1
+<melody> #4-- ---
+w: 看
+
+<guitar> %L1
+<melody> 6#43 #4--
+w: 变得实际
+
+<guitar> %L1
+<melody> 6#4#4 #437.
+w: 也许好也许坏
+
+<guitar> %L1
+<melody> 3-- --#4
+w: 各一
+
+<guitar> %L1
+<melody> 3-- --2
+w: 半 不
+
+<guitar> %L1
+<melody> 2-- --7
+w: 爱孤
+
+<guitar> %L1
+<melody> b7-- --2
+w: 单 一
+
+<guitar> %L1
+<melody> #1-- #1-6.
+w: 久也习
+
+<guitar> %L1
+<melody> #5-- --3
+w: 惯 不
+
+<guitar> %L1
+<melody> 5-#4 2-7.
+w: 用担心 谁
+
+<guitar> %L1
+<melody> 5#42 2-7.
+w: 也不用被谁
+
+<guitar> %L1
+<melody> 2-- ---
+w: 管
+
+<guitar> %L1
+<melody> 0-- 2'-#1'
+w: 感觉
+
+<guitar> %L1
+<melody> 766 65#4
+w: 快乐就忙东忙
+
+<guitar> %L1
+<melody> #1'-- -#4#4
+w: 西 感觉
+
+<guitar> %L1
+<melody> 2'7#1' 2'3'#4'
+w: 累了就放空自
+
+<guitar> %L1
+<melody> 7-- -#4#4
+w: 己 别人
+
+<guitar> %L1
+<melody> 655 -#45
+w: 说的话 随便
+
+<guitar> %L1
+<melody> 655 -#43
+w: 听一听 自己
+
+<guitar> %L1
+<melody> #4-- 7--
+w: 作决
+
+<guitar> %L1
+<melody> #1'-- 2'-#1'
+w: 定 不想
+
+<guitar> %L1
+<melody> 7-6 665
+w: 拥有太多情
+
+<guitar> %L1
+<melody> 6-- -66
+w: 绪 一杯
+
+<guitar> %L1
+<melody> 3'#4'3' 3'#4'3'
+w: 红*酒配*电
+
+<guitar> %L1
+<melody> 7-- -67
+w: 影 在周
+
+<guitar> %L1
+<melody> 2'67 -67
+w: 末晚上 关上
+
+<guitar> %L1
+<melody> 2'67 -66
+w: 了手机 舒服
+
+<guitar> %L1
+<melody> #4'-#4' #4'#4'5'
+w: 窝在沙发
+
+<guitar> %L1
+<melody> 3'-- ---
+w: 里
+
+<guitar> %L1
+<melody> 0-- #4'-#4'
+w: 相爱
+
+<guitar> %L1
+<melody> #4'-3' 3'3'2'
+w: 没有那么容
+
+<guitar> %L1
+<melody> #4'-- #1'-#1'
+w: 易 每个
+
+<guitar> %L1
+<melody> 2'-2' 3'3'4'
+w: 人有他的脾
+
+<guitar> %L1
+<melody> 7-- #4'-#4'
+w: 气 过了
+
+<guitar> %L1
+<melody> 5'-#4' 3'2'7
+w: 爱作梦的年
+
+<guitar> %L1
+<melody> 4'-- -2'2'
+w: 纪 轰轰
+
+<guitar> %L1
+<melody> 2'7#1' 2'3'#4'
+w: 烈烈都不如平
+
+<guitar> %L1
+<melody> #1'-- #4'-#4'
+w: 静 幸福
+
+<guitar> %L1
+<melody> #4'-3' 3'3'2'
+w: 没有那么容
+
+<guitar> %L1
+<melody> #4'-- #1'-#1'
+w: 易 才会
+
+<guitar> %L1
+<melody> 2'-2' 3'3'4'
+w: 特别让人着
+
+<guitar> %L1
+<melody> 7-- -#4'#4'
+w: 迷 什么
+
+<guitar> %L1
+<melody> 5'-#4' 3'2'2'
+w: 都不懂的年
+
+<guitar> %L1
+<melody> 3'-- -7#1'
+w: 纪 曾经
+
+<guitar> %L1
+<melody> 2'72' -2'3'
+w: 最掏心 所以
+
+<guitar> %L1
+<melody> #4'7#1- ---
+w: 最开心 
+
+<guitar> %L1
+<melody> 0-- #4--
+w: 曾
+
+<guitar> %L1
+<melody> 7-- ---
+w: 经
+
+<guitar> %L1
+<melody> 0-- ---
+
+<guitar> %L1
+<melody> 0-- 7--
+w: 没
+

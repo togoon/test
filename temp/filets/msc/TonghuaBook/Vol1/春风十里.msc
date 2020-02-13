@@ -17,6 +17,7 @@ customChords:
   'Asus2' : 1;X,0,2,2,0,0
   'B5' : 2;X,1,3,3,X,X
   'B' : 2;X,1,3,3,3,1
+  'Bsus2' : 2;X,1,3,3,1,1
   'C#m' : 4;X,1,3,3,2,1
 patterns : 
   A1 : "<E>[3.73']#5[73']#5[73']#5[73']#5"
@@ -167,7 +168,7 @@ w: 河
 
 <guitar> ([3.7']#5'#4'3'@g [3.7']#5'#4'3'@g [7.@E 6'@b]#5'#4'@b3'@g [7.@E 6'@b]#5'#4'@b3'@g )
 <melody> 0- -- -- --
-<guitar> ::c: 0
+<guitar> ::c: 1
 
 <guitar> %B4
 <melody> 0- -- -- (3#4)-
@@ -282,7 +283,7 @@ w: 河
 
 <guitar> ([3.7']#5'#4'3'@g [3.7']#5'#4'3'@g [7.@E 6'@b]#5'#4'@b3'@g [7.@E 6'@b]#5'#4'@b3'@g )
 <melody> 0- -- -- --
-<guitar> ::c: 0
+<guitar> ::c: 1
 
 <guitar> %B1
 <melody> 0- -- -(-#5) (#5(-7)-7)
@@ -317,102 +318,76 @@ w: 走呢 只好把
 w: 岁月化成歌 留在山
 
 <guitar> %B1
+<melody> 3- -- -- (3#4)-
+w: 河 我在
+
+<guitar> %B1
+<melody> (#4#5)- (#5#4#4#5) -- -(-3)
+w: 二环路的里边想
+
+<guitar> %B4
+<melody> (3#1)- -- -- -(3#4)
+w: 着你 *你在
+
+<guitar> %B1
+<melody> (#4#5)- (-#47#5) -- (7(-#5)-3)
+w: 远方的山上*春风十
+
+<guitar> %B4
+<melody> #1- -- -- (-77#5)
+w: 里 *今天的
+
+<guitar> %B1
+<melody> 7(-7) 7(#1'7) -- -(3#4)
+w: 风又吹向你*下了
+
+<guitar> %A4
+<melody> (-#1)- -- -- -(3#4)
+w: *雨 *我说
+
+<guitar> "E"[123456]$- [1234]$- "Bsus2"[12345]$- --
+<melody> (#5#4#57) -- -(-7) 7#4
+w: 所有的酒都不如
+
+<guitar> E3'@g3'7 E#2'@g3'7 E#1'@g3'7 E7@g3'7
 <melody> 3- -- -- --
-w: 河
+w: 你
 
-<guitar> %A1
+<guitar> E6@g3'7 #5- "E"[123456]$- --
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
+<guitar> [#5@d7@g3'@b]- [7@d#2'@g#4'@b]- E[3. 7@d 3'@g #5'@b] 3'@g 7@d  E#5'@b 3'@g 7@d E#5'@b 3'@g 7@d [#5'@b 3'@g] [6'@b#4'@g]
+<melody> 0- -- -- -- -- --
 
-<guitar> %A1
+<guitar> ::c: 8
+<guitar> [#5'@b7'@g]- 6.-((6@d7@d#1' #2'3'@g#4' #5'6'7' 6'#5'#4' #5'#4'3'@g #2'3'@g#4'))
 <melody> 0- -- -- --
-w: 
+<guitar> ::c: 1
 
-<guitar> %A1
+<guitar> E[3. 7@d 3'@g #5'@b] 3'@g 7@d  E#5'@b 3'@g 7@d E#5'@b 3'@g 7@d [#5'@b 3'@g] [6'@b#4'@g] [#5'@b7'@g]- 
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> [7.@E#4'@b]#2'@g7@d 3'@g7@d [7.@E#2'@g] 7@d 7.@E [7.@E#1'@d][7@d#2'@g][7@d 3'@g] [#2'@g #4'@b]
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> E[3. 7@d 3'@g #5'@b] 3'@g 7@d  E#5'@b 3'@g 7@d E#5'@b 3'@g 7@d E#5'@b 3'@g 7@d [#5'@b 3'@g] [6'@b#4'@g] [#5'@b7'@g]- 
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> (E[6.3'@g 6'@b 3''] 6'@b 3'' E#2'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g )
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> (E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g E#1'' 6'@b 3'@g) 6'@b
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> ((3. #5'@b#5'@b#5'@b 7@d#5'@b#5'@b#5'@b 3'@g#5'@b#5'@b#5'@b 7@d#5'@b#5'@b#5'@b 3'@g#5'@b#5'@b#5'@b 7@d#5'@b#5'@b#5'@b 3'@g#5'@b#5'@b#5'@b 7@d#5'@b#5'@b#5'@b ))
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> ((7.@E#4'@b#4'@b#4'@b#4'@b 7@d#4'@b#4'@b#4'@b#4'@b #2'@g#4'@b#4'@b#4'@b#4'@b 7@d#4'@b#4'@b#4'@b#4'@b #2'@g#4'@b#4'@b#4'@b#4'@b 7@d#4'@b#4'@b#4'@b#4'@b #2'@g#4'@b#4'@b#4'@b#4'@b 7@d#4'@b#4'@b#4'@b#4'@b ))
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> E6.3'7 E#2'@g3'7 E#1'@g3'7 E7@g3'7
 <melody> 0- -- -- --
-w: 
 
-<guitar> %A1
+<guitar> E6@g3'7 #5- "E"[123456]$- --
 <melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
-
-<guitar> %A1
-<melody> 0- -- -- --
-w: 
 

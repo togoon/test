@@ -32,11 +32,13 @@ patterns :
 <guitar> 3.- [3''7'@b]- -- --
 <melody> 0-------
 
-<guitar> E3'@g3'7 E#2'@g3'7 E#1'@g3'7 E7@g3'7
+=x: "@g3'7"
+<guitar> E3'x E#2'x E#1'x E7x
 <melody> 0-------
 
-<guitar> E6@g3'7 E#5@g3'7 E#5h6#5 #5-
+<guitar> E6x E#5x E#5h6#5 _#5-
 <melody> 0-------
+=x: 
 
 <guitar> %A1
 <melody> 0-------

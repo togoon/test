@@ -98,7 +98,7 @@ w: *隙 它依然真实
 <melody> -2 -- 1'(65) (-4-5)
 w: *地 吸引我轨迹
 
-<guitar> <Bbm6> [b7.b72'5']$---  <Bbm>[b7.#4b7#1']$---
+<guitar> <Bbm6> [b7.b72'5']$---  <Bbm7>[b7.#5#1'4']$---
 <melody> ---- ----
 
 <guitar> %A1
@@ -173,8 +173,8 @@ w: 却 无法靠近的那
 w: *个人 也等着
 
 <guitar> %C1
-<melody> - 1'- 1' - 6 54
-w: *和你相*遇
+<melody> - 1'- 1' - 6 -5
+w: *和你相遇
 
 <guitar> %C6
 <melody> -- -- 45 62
@@ -191,10 +191,10 @@ w: ** **拥有你
 <guitar> %A1
 <melody> 0- -- -- --
 
-<guitar> %A15S
+<guitar> %A1
 <melody> 0- -- -- --
 
-<guitar> %A1
+<guitar> %A15S
 <melody> 0- -- -- --
 
 <guitar> %A15S
@@ -272,8 +272,8 @@ w: 却 无法靠近的那
 w: *个人 也等着
 
 <guitar> %D1
-<melody> - 1'- 1' - 6 54
-w: *和你相*遇
+<melody> - 1'- 1' - 6 -5
+w: *和你相遇
 
 <guitar> %D6
 <melody> -- -- 45 62
@@ -322,7 +322,7 @@ w: 还要多远
 <melody> 2'1' 62' -1' 62'
 w: 才能进入你的心
 
-<guitar> -- --"Bb"[12345]$- -- 
+<guitar> "Bb"[12345]$- -- -- --
 <melody> -- -- 2'1' 4'6
 w: *还要多久
 
@@ -346,45 +346,35 @@ w: *个人 要怎么
 <melody> - 1'- 1' - 4'5'6'
 w: *探寻 要多么
 
-<guitar> %C6
+<guitar> %A17
 <melody> -4' -4' 4'3'2'1'
 w: *幸运 才敢让你
 
-<guitar> %D4
+<guitar> %A17
 <melody> 2'1' 62' -1' 62'
 w: 发觉你并不孤寂
 
-<guitar> %D4
+<guitar> %A17
 <melody> -- -- 2'1' 4'6
 w: *当我还可
 
-<guitar> %D1
+<guitar> %A17
 <melody> -5 1'6 -554
 w: *以再跟你飞行
 
-<guitar> %D6
+<guitar> %A17
 <melody> -- -- 45 62
 w: * 环游是无
 
-<guitar> %C2
-<melody> -4 -- 45 6b7
-w: *趣 至少可以
-
-<guitar> "C7sus4"[12345]$- -- -- --
-<melody> -(65) -- 6- (54)-
-w: ****陪着你
-
-<guitar> %A1
+<guitar> %A17
 <melody> 0- -- -- --
+w: 趣
 
-<guitar> %A15S
+<guitar> %A17
 <melody> 0- -- -- --
+w: 
 
-<guitar> %A16
+<guitar> %A17
 <melody> 0- -- -- --
+w: 
 
-<guitar> %A15S
-<melody> 0- -- -- --
-
-<guitar> "F"[23456]$- -- -- --
-<melody> 0- -- -- --

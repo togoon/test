@@ -1,0 +1,17 @@
+title : [她来听我的演唱会, 张学友]
+artist : 童话吉他编配
+beat : 1/8
+key : G
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords: 
+  'G' : 1;3,2,0,0,0,3
+patterns : 
+  A1 : "<F>([4.4']1'61' 4'1'61' 4'1'61' 4'1'61')"
+=================
+<guitar> <G> [5.7]51'p7 [7.2']55'5
+<melody> 0-------
+

@@ -1,0 +1,325 @@
+# 这是一个典型的1625走向，但是节奏处理的变化细节有很多
+# 唱的部分非常多的转音，这里已经作了简化
+title : [写一首歌, 顺子]
+info : 变调夹3品
+artist : 童话吉他编配
+beat : 1/8
+key : bE
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords: 
+  'Cadd9' : 1;X,3,2,0,3,0
+  'Am' : 1;X,0,2,2,1,0
+patterns : 
+  A1 : "<Cadd9>([12']35[12'] 352'3 [12']35[12'] 33'35 )"
+  A2 : "<Am > ([6.7]367 31'33' 361'3 5'p3'65)"
+=================
+<guitar> %A1
+<melody> 0- -- (2--7.) (-1)-
+w: ho wa ou
+
+<guitar> %A2
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> (1--6.) (4.--4.) (5.---) (---6.)
+w: ho wa ho wa ho *wa
+
+<guitar> %A1
+<melody> 5.- -- -- --
+w: ho
+
+<guitar> %A1
+<melody> (5-43) (-4-5) (-4-3) --
+w: 月亮在你的眼睛
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- --
+w: 太阳在我心
+
+<guitar> %A1
+<melody> (6-43) (-2-2) (-3-4) --
+w: 现在我唱这首歌
+
+<guitar> %A1
+<melody> (1-7.1) (-2-5) -- -(55)
+w: oh oh 只为你 *想把
+
+<guitar> %A1
+<melody> (5-43 -4-5 -4-3 ----)
+w: 所有烦恼都忘掉
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- -(-6.)
+w: 做不做的到 你
+
+<guitar> %A1
+<melody> (66-5) (-4-3) (-2-4) --
+w: 明白我心在燃烧
+
+<guitar> %A1
+<melody> (12-5) -- (12-5) (---4)
+w: 因为你 *因为你 
+
+<guitar> %A1
+<melody> 3- -- -- (-5-4)
+w: **oh
+
+<guitar> %A1
+<melody> 3- -- -- (-6.--)
+w: oh *为
+
+<guitar> %A1
+<melody> (3--4) -- -- --
+w: 你
+
+<guitar> %A1
+<melody> 0- -- -- (---5.)
+w: 你
+
+<guitar> %A1
+<melody> (2222 -1-2 -213 ----)
+w: 心中的话 我全都想听
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- --
+w: 能不能相信 
+
+<guitar> %A1
+<melody> (3323 -2-3 -323 -4--)
+w: 所有的梦里全都*是你
+
+<guitar> %A1
+<melody> (1-7.1) (-2-2) -- --
+w: 会不会停息
+
+<guitar> %A1
+<melody> (3333) (-2-1) (2212) (-3--)
+w: 和你一起 是否 不会再放弃
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) (-217.) (-1--)
+w: 你的心里有没有秘密
+
+<guitar> %A1
+<melody> (3-23) (-2-3) (-323) (-4--)
+w: 我分不清 不要*在意
+
+<guitar> %A1
+<melody> (7.1-1) (-2-2) (-2-1) (-2-1)
+w: 只想为想为你 写一首
+
+<guitar> %A1
+<melody> (-3--) -- -- -1
+w: *歌*写
+
+<guitar> %A1
+<melody> (2-33) -- -- -1
+w: 一首歌 **都
+
+<guitar> %A1
+<melody> (3-44) -- -- 6.1
+w: 是*你 *wu wu
+
+<guitar> %A1
+<melody> (32)- -- -- --
+w: hu wu
+
+<guitar> %A1
+<melody> (5-43) (-4-5) (-4-3) --
+w: 月亮在你的眼睛
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- --
+w: 太阳在我心
+
+<guitar> %A1
+<melody> (34-3) (-211) (-213) --
+w: 现在我唱*这首*歌
+
+<guitar> %A1
+<melody> (1-7.1) (-2-2) -- -(33)
+w: oh oh 只为你 *想把
+
+<guitar> %A1
+<melody> (3-33 -4-5 -4-3 ----)
+w: 所有烦恼都忘掉
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- -(-6.)
+w: 做不做的到 你
+
+<guitar> %A1
+<melody> (34-3) (-211) (-213) --
+w: 明白我心*在燃*烧
+
+<guitar> %A1
+<melody> (12-3) -- (12-5) (---4)
+w: 因为你 *因为你 
+
+<guitar> %A1
+<melody> 3- -- -- -1
+w: **为
+
+<guitar> %A1
+<melody> (2-33) -- -- -1
+w: 你**** 为
+
+<guitar> %A1
+<melody> (3-44) -- -- 6.1
+w: 你*** wo wu
+
+<guitar> %A1
+<melody> (32)- -- -- (-3-4)
+w: ho* oh
+
+<guitar> %A1
+<melody> 5- (-3-4) 5- -5
+w: love's *in the air   it's 
+
+<guitar> %A1
+<melody> b7- -6 3- --
+w: e-very-where
+
+<guitar> %A1
+<melody> (3333) (-2-3) -- --
+w: E-ve-ry-one can see 
+
+<guitar> %A1
+<melody> (3333) (-3-3) (-2--) (-3-4)
+w: E-ve-ry-one can fe-el Tha-t 
+
+<guitar> %A1
+<melody> 5- (-3-4) 5- (---3)
+w: love's *in the air  *it 
+
+<guitar> %A1
+<melody> 3(#1#1) (-2-3) -- --
+w: do-esn't mat-ter where
+
+<guitar> %A1
+<melody> (3-11) (-6.-1) -- --
+w: E-very-one a-grees 
+
+<guitar> %A1
+<melody> (3-11) (-2-2) -- --
+w: lo-ve~is all we need
+
+<guitar> %A1
+<melody> 5- -- (5-33) (-4--)
+w: hu wa yi ya ah
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> (2(-3)-4) 4- -- -(-3)
+w: da la la la *ho
+
+<guitar> %A1
+<melody> 2- -- -- --
+w: wu
+
+<guitar> %A1
+<melody> (5-43) (-4-5) (-4-3) -(-3.)
+w: When the moon falls in your eyes I 
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- -(-6.)
+w: know the sun has set The 
+
+<guitar> %A1
+<melody> (6-43) (-2-2) (-3-4) --
+w: fire* still burns with-in me 
+
+<guitar> %A1
+<melody> (1-7.1) (-2-2) -- (-333)
+w: since the day we met I know my
+
+<guitar> %A1
+<melody> (3-33 -4-5 -4-3 ----)
+w:  hea-ven would be so com-plete 
+
+<guitar> %A1
+<melody> (7.-6.7.) (-1-3) -- --
+w: you could make it real
+
+<guitar> %A1
+<melody> (34-3 -2-1 -213 ----)
+w: I won't let this chance go* by 
+
+<guitar> %A1
+<melody> (12-3) -- (12-2) --
+w: I can see *I can feel 
+
+<guitar> %A1
+<melody> (3-43) -- (-3-4) (3221)
+w: you ** When the mo-on fa-lls
+
+<guitar> %A1
+<melody> (1213) -(-3.) (3.3.-3.) (-5.-5.)
+w: in yo-ur eyes I know the sun has set
+
+<guitar> %A1
+<melody> (-6.--) (---6.) (6.--6.) (-1-2)
+w: ** The fire still burns with
+
+<guitar> %A1
+<melody> (-1-2) (---2) (-1-2) --
+w: *in me  with-in me
+
+<guitar> %A1
+<melody> (3--1) (1--5.) (33-1) --
+w: di* do ou di di do
+
+<guitar> %A1
+<melody> (3--1) (1--5.) (33-1) --
+w: di* do ou di di do
+
+<guitar> %A1
+<melody> (3--1) (1--5.) (33-1) --
+w: di* do ou di di do
+
+<guitar> %A1
+<melody> (1(-7.)-6.) (7.(-6.)-5.) (6.(-5.)-3.) 5.-
+w: na na na na na na na na na na
+
+<guitar> %A1
+<melody> (07.-1 -2-7. -1-2 -7.--)
+w: 月亮在你的眼睛
+
+<guitar> %A1
+<melody> -- (-1-2) (-3-2) (-1-4)
+w: **太阳在我的心
+
+<guitar> %A1
+<melody> -- -- (-6.-7. -1-2)
+w: **现在我唱
+
+<guitar> %A1
+<melody> (-7.-1 -2-7 -1-2 ---4)
+w: *这首歌 只为你  yi
+
+<guitar> %A1
+<melody> 3- -- -- (-3-7.)
+w: ** di do
+
+<guitar> %A1
+<melody> -- (-6.6.7.) -- (-3-7.)
+w: **di da do di do
+
+<guitar> %A1
+<melody> -- (-17.-) -- (-3-7.)
+w: **da do *di do
+
+<guitar> %A1
+<melody> -- (-5.5.7.) -- (-3-7.)
+w: **di da do di do
+
+<guitar> %A1
+<melody> -- -- -- --
+
+

@@ -73,6 +73,8 @@ patterns :
   L3M : "<F#>#4.#4b7#1'b7#4"
   L3M7 : "<F#7>#4.3b7#1'b73"
 =================
+<melody> ::translate: -2
+
 <guitar> E6@gs7@g7 E7@gs#1'@g7 E#1'@gs2'@g7 
 <melody> 0-----
 
@@ -362,14 +364,6 @@ w: 最开心
 <melody> 0-- #4--
 w: 曾
 
-<guitar> %L6
+<guitar> "Bm" [12345]$-- ---
 <melody> 7-- ---
 w: 经
-
-<guitar> %L1
-<melody> 0-- ---
-
-<guitar> %L1
-<melody> 0-- 7--
-w: 没
-

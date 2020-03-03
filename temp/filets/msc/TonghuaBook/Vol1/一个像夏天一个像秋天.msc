@@ -62,6 +62,8 @@ patterns :
   G4 : '"Bb"[123456]^(^v)iv -viv'
   G6 : '"Dm"[12345]^(^v)iv -viv'
 =================
+# <melody> ::translate: -4
+
 <guitar> <E> [3.3']3#57 33'#53
 <melody> 0- -- -#5 -3
 w: wu wu 

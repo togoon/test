@@ -1,0 +1,25 @@
+title : D调和弦
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+=================
+<guitar> "D"[1234]$---
+<melody> 0---
+
+<guitar> "Em"[123456]$---
+<melody> 0---
+
+<guitar> "#Fm"[123456]$---
+<melody> 0---
+
+<guitar> "G"[1234]$---
+<melody> 0---
+
+<guitar> "A"[12345]$---
+<melody> 0---
+
+<guitar> "Bm"[12345]$---
+<melody> 0---
+

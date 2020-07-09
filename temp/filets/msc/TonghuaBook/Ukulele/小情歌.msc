@@ -9,7 +9,7 @@ tracks :
       - type: jianpu
         translate : -2
 uChords:
-  'C7' : 1;0,0,0,1(1)
+  'Fm' : 1;1(1),0,1(2),3(4)
 patterns : 
   s : '[1234]^-^(^v)'
   S : '[1244]^-^(^v)^-^(^v)'

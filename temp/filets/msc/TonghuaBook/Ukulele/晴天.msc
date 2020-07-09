@@ -8,19 +8,21 @@ tracks :
     jcx: ukulele
   - name: melody
     jcx: jianpu
+uChords : 
+  'Bbmaj7' : 1;3(3),2(2),1(1),0
 patterns : 
   s: '^(^v)'
   S: '[1234]^-%s'
-  Em: '"Am"%S'
-  C : '"F"%S'
-  D : '"G"%S'
-  CC : '"F"%S%S'
-  GSs : '"C"%S%s'
-  Ds : '"G"%s'
-  DD : '"G"%S%S'
-  GG : '"C"%S%S'
-  BB : '"E7"%S%S'
-  Emm : '"Am"%S%S'
+  Em: '"Dm"%S'
+  C : '"Bbmaj7"%S'
+  D : '"C"%S'
+  CC : '"Bbmaj7"%S%S'
+  GSs : '"F"%S%s'
+  Ds : '"C"%s'
+  DD : '"C"%S%S'
+  GG : '"F"%S%S'
+  BB : '"A"%S%S'
+  Emm : '"Dm"%S%S'
 =================
 <guitar> 61'5'1' 4(5h6)5'1'
 <melody> 0-------
@@ -35,6 +37,15 @@ patterns :
 <melody> 0-------
 
 <guitar> %Em  %C
+<melody> 0-------
+
+<guitar> %GSs %Ds
+<melody> 0-------
+
+<guitar> %Em  %C
+<melody> 0-------
+
+<guitar> %GSs %Ds
 <melody> 0-------
 
 <guitar> %Em  %C

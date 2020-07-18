@@ -8,7 +8,7 @@ tracks :
   - name: melody
     jcx: 
       - type: jianpu
-        #translate: 2
+        translate: 2
 customChords:
   F: 1;X,X,3,2,1,0
 patterns: 

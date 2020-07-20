@@ -10,16 +10,13 @@ tracks :
     jcx: 
       - type: jianpu
         translate : -4
-customChords :
-  F: 1;X,X,3,2,1,0
-  Dm7 : 1;X,X,0,2(2),1(1),1(1)
 patterns:
   S: '[234]^([1234]^v^v)[234]^([1234]^v^v)'
   s: '[234]^([1234]^v^v)[234]^([1234]^v^v)'
   C: '"C"%S'
   G: '"G"%S'
   Am : '"Am"%S'
-  Dm7 : '"Dm7"%s'
+  Dm7 : '"F"%s'
 =================
 <guitar> 0-- ---
 <melody> 0-- 7.#13

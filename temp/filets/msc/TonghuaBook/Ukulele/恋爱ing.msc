@@ -3,7 +3,7 @@ artist : 童话吉他编配
 beat : 1/8
 tracks : 
   - name: guitar
-    jcx: tab
+    jcx: ukulele
   - name: melody
     jcx: 
       - type: jianpu
@@ -419,10 +419,10 @@ w: L* O V E
 <guitar> %G1
 <melody> 0--- ----
 
-<guitar> %Gs
+<guitar> %GS
 <melody> 0--- ----
 
-<guitar> %Gs
+<guitar> %GS
 <melody> 0--- ----
 
 <guitar> %Bb
@@ -507,6 +507,9 @@ w: 心跳到
 <melody> 2'--1' ----
 w: 不行
 
+<guitar> %C
+<melody> 0--- ----
+
 <guitar> %F
 <melody> 6--4 ----
 w: 黄昏 
@@ -534,4 +537,4 @@ w: N G
 <melody> 0--- ----
 
 <guitar> "C"[1234]^--- ----
-<melody> 0--- 3-4-
+<melody> 0--- ----

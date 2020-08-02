@@ -1,0 +1,352 @@
+title : [第一天, 孙燕姿]
+info : C转bE调
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+uChords : 
+  'G(5)' : 5;0,3(2),3(3),1(1)
+  'C(7)' : 7;0,1(1),2(2),1(2)
+  'G(7)' : 7;0,1(1),4(4),2(2)
+  'Bb' : 1;3(3),2(2),1(1),1(1)
+  'Am7' : 1;0,0,0,0
+  'Gm7' : 1;0,2(2),1(1),1(1)
+  'C7' : 1;0,0,0,1(1)
+  'Asus4' : 1;2(2),2(3),0,0
+  'F#m' : 1;2(2),1(1),2(3),0
+patterns : 
+  b : '[1234]^-^(^v)'
+  X : "C"43231323
+=================
+#<melody> ::translate: -4
+
+<guitar> 0- -#4'#1'#4'
+<melody> 0- -- --
+
+<guitar> 2'7@3 #4'2' 7@3#4'
+<melody> 0- -- --
+
+<guitar> 5'7 3'2' #1'7
+<melody> 0- -- --
+
+
+<guitar> #1'3'#1'3' 63'
+<melody> 0- -- --
+
+
+<guitar> 2'6 2'#1' 76
+<melody> 0- -- --
+
+
+<guitar> 7@32' 7@32' 52'
+<melody> 0- -- --
+
+
+<guitar> #1'#5#1'7 b7#5
+<melody> 0- -- --
+
+<guitar> b7#4' #1'#4' 3'@2#4'
+<melody> 0- -- --
+
+<guitar> 2'#4' #1'#4' 7@3#4'
+<melody> 0- -- --
+
+<guitar> b7#4' #5#4' b7#4'
+<melody> 0- -- --
+
+<guitar> 3'2' #1'- -7
+<melody> 0- -- --
+
+<guitar> 7--- ----
+<melody> 0--- ----
+
+<guitar> ---- ----
+<melody> 0--- ----
+
+#扫弦节奏
+
+<guitar> "G(5)"[1234]^-^ "C(7)"[1234]v -v "G(7)"[1234]^-
+<melody> 0--- ----
+
+<guitar> -"C(7)"[1234]v-- "G(5)"[1234]^"C(7)"[1234]v "G(5)"[1234]^-
+<melody> 0--- ----
+
+<guitar> "G(5)"[1234]^-^ "C(7)"[1234]v -v "G(7)"[1234]^-
+<melody> 0--- ----
+
+<guitar> -"C(7)"[1234]v-- "G(5)"[1234]^"C(7)"[1234]v "G(5)"[1234]^-
+<melody> 0--- ----
+
+<guitar> %X
+<melody> 1-11 -5--
+w: 下过雨的
+
+<guitar> %X
+<melody> 4-32 -3--
+w: 夏天傍晚
+
+<guitar> %X
+<melody> 1--1 13-3
+w: 我都会期待
+
+<guitar> %X
+<melody> ---5. 1-7.-
+w: *唱歌的
+
+<guitar> %X
+<melody> 1--- 1---
+w: 蝉 嘿
+
+<guitar> %X
+<melody> 5.3-3 32-1
+w: 把星星都吵醒
+
+<guitar> %X
+<melody> #4.-2- 2-3-
+w: 月光晒了
+
+<guitar> %X
+<melody> 4--3 2---
+w: 很凉快
+
+<guitar> %X
+<melody> 1-11 -5--
+w: 就是这样
+
+<guitar> %X
+<melody> 4-32 -3--
+w: 回忆起来
+
+<guitar> %X
+<melody> 1--1 13-3
+w: 第一次告白
+
+<guitar> %X
+<melody> ---5. 1-7.-
+w: *尴尬的
+
+<guitar> %X
+<melody> 1--- 1---
+w: 我 看
+
+<guitar> %X
+<melody> 5.3-3 32-1
+w: 爱装得很哲学
+
+<guitar> %X
+<melody> #4.-2- 2-3-
+w: 的你其实
+
+<guitar> %X
+<melody> 4--3 2-23
+w: 很可爱 你说
+
+<guitar> %X
+<melody> 0--- ----
+w: 活在明天活在期待
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+
+<guitar> %X
+<melody> 0--- ----
+w: 
+

@@ -6,7 +6,7 @@ beat : 1/8
 key : C
 tracks : 
   - name: guitar
-    jcx: tab
+    jcx: ukulele
   - name: melody
     jcx: jianpu
 uChords : 

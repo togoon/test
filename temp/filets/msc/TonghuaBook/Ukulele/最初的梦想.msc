@@ -6,13 +6,14 @@ beat : 1/8
 key : C
 tracks : 
   - name: guitar
-    jcx: tab
+    jcx: ukulele
   - name: melody
     jcx: jianpu
 uChords : 
   'F#m' : 1;2(2),1(1),2(3),0
   'C#m' : 4;3(3),1(1),1(1),1(1)
   'C#' : 1;1(1),1(1),1(1),4(4)
+  'E' : 2;3(2),3(3),3(4),1(1)
 patterns : 
   a : '[234]^^[123]^(^v)'
   A : '[234]^^[123]^(^v) (^v)^ ^(^v)'
@@ -40,7 +41,7 @@ patterns :
   BB6 : '"F#m"%A'
   A7 : '"B"%a'
 =================
-#<melody> ::translate: -4
+<melody> ::translate: 1
 
 <guitar> %AA6
 <melody> 0- -- -- --
@@ -77,7 +78,7 @@ w: 梦想不曾坠落悬崖
 
 <guitar> %A4 %A1
 <melody> 7.- #5.#4 #2- -(#17.)
-w: 千钧一发 *又怎
+w: 千钧一发 又怎
 
 <guitar> %A2 %A4
 <melody> #1#5. 3(-#1) 7.#5. 3(-#2)
@@ -119,13 +120,15 @@ w: 边走着边哼着歌 用
 <melody> b7.5. 3#2 #5.- -(#5.b7.)
 w: 轻快的步伐 沮丧
 
+<melody> ::translate: 4
+
 <guitar> %B1 %B5
 <melody> 1- 1(#2#2) -#2 (4(-5)-#5)
 w: 时总会明显感到 孤
 
 <guitar> %B6 %B3
 <melody> -5 4(#2#2) 1- -(b7.#5.)
-w: *独的重量* *多渴
+w: *独的重量* 多渴
 
 <guitar> %B4 %B1
 <melody> #1(-#2) -4 #2(-#5) -(#5.b7.)
@@ -160,7 +163,7 @@ w: 最初的梦*想紧
 w: 握在手上
 
 <guitar> %B3M %B6
-<melody> 3(-4) -5 (545#5) -(-#1)
+<melody> 3(-4) -5 (545#5) -(-1)
 w: 最想要去的地方 怎
 
 <guitar> %B4 %B5
@@ -176,7 +179,7 @@ w: 最初的梦*想 绝
 w: 对会到达
 
 <guitar> %B3M %B6
-<melody> 3(-4) -5 (545#5) -(-#1)
+<melody> 3(-4) -5 (545#5) -(-1)
 w: 实现了真的渴望 才
 
 <guitar> %B4 %B5
@@ -217,6 +220,8 @@ w: 堂
 <guitar> %AA6
 <melody> 0- -- -- --
 
+<melody> ::translate: 1
+
 <guitar> %AA3
 <melody> 0- -- -- -(#5b7)
 w: 如果
@@ -285,6 +290,8 @@ w: 边走着边哼着歌 用
 <melody> b7.5. 3#2 #5.- -(#5.b7.)
 w: 轻快的步伐 沮丧
 
+<melody> ::translate: 4
+
 <guitar> %B1 %B5
 <melody> 1- 1(#2#2) -#2 (4(-5)-#5)
 w: 时总会明显感到 孤
@@ -342,7 +349,7 @@ w: 最初的梦*想 绝
 w: 对会到达
 
 <guitar> %B3M %B6
-<melody> 3(-4) -5 (545#5) -(-#1)
+<melody> 3(-4) -5 (545#5) -(-1)
 w: 实现了真的渴望 才
 
 <guitar> %B4 %B5
@@ -358,7 +365,7 @@ w: 最初的梦*想 绝
 w: 对会到达
 
 <guitar> %B3M %B6
-<melody> 3(-4) -5 (545#5) -(-#1)
+<melody> 3(-4) -5 (545#5) -(-1)
 w: 实现了真的渴望 才
 
 <guitar> %B4 %B5

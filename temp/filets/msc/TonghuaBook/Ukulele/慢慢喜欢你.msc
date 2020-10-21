@@ -5,7 +5,7 @@ beat : 1/8
 key : G
 tracks : 
   - name: guitar
-    jcx: tab
+    jcx: ukulele
   - name: melody
     jcx: jianpu
 uChords : 
@@ -36,6 +36,8 @@ uChords :
   'Dm7' : 1;2(2),2(3),1(1),3(4)
   'Bbdim' : 1;0,1(1),3(3),1(1)
   'Ebdim' : 1;2(1),3(3),2(2),3(4)
+  'Dsus4' : 1;2(1),2(2),3(4),0
+  'G7' : 1;0,2(2),1(1),2(3)
 patterns : 
   a : '[1234]$321'
   p : '[1234]$---'
@@ -46,9 +48,10 @@ patterns :
   A2M : '"A7"%a'
   A3 : '"Bm7"%a'
   A3M : '"B7"%a'
+  Ap3M : '"B7"%p'
   A4 : '"C"%a'
   A4m : '"Cm"%a'
-  Ap4m : '"Cm"%a'
+  Ap4m : '"Cm"%p'
   A5 : '"D"%a'
   A57 : '"D7"%a'
   A51 : '"Dm7"[1234]$- "G7"[1234]$-'
@@ -57,7 +60,7 @@ patterns :
   Ap6M : '"E7"%p'
   A6 : '"Em"%a'
 =================
-#<melody> ::translate: -4
+<melody> ::translate: -2
 
 <guitar> 0- -- -- --
 <melody> 0- -- -6. 23
@@ -83,7 +86,7 @@ w: 对谈 女孩的
 <melody> #4#4 #4#4 5#4 57 
 w: 白色衣裳男孩爱看
 
-<guitar> %A3 %A3M
+<guitar> %A3 %Ap3M
 <melody> 6- -- b7- 7#1'
 w: 她穿 好多
 
@@ -123,7 +126,7 @@ w: 不放 你说你
 <melody> #4#4 #4#4 5#4 57 
 w: 好想带我回去你的
 
-<guitar> %A3 %A3M
+<guitar> %A3 %Ap3M
 <melody> 6- -- b7- 7#1'
 w: 家乡 绿瓦
 

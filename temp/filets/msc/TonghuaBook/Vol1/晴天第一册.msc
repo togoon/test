@@ -10,7 +10,7 @@ tracks :
   - name: melody
     jcx: jianpu
 customChords : 
-  'G1' : 1;3,X,0,0,3,X
+  'G.' : 1;3,X,0,0,3,X
 patterns : 
   A64 : '"Em"[4321]^-^(^)"Cmaj7"([4321]v)( _^v)(^v)^(^v)'
   A6 : '"Em7"[4321]^-^(^v)( _^v)(^v)^(^v)'
@@ -36,12 +36,12 @@ patterns :
 =================
 <guitar> "Cadd9"4323 5(2@4h3@4)23
 <melody> 0-------
-<guitar> "G1"64 23 62 #4.@62
+<guitar> "G."64 23 62 #4.@62
 <melody> 0-------
 
 <guitar> "Cadd9"4324 5(2@4 h3@4)23
 <melody> 0-------
-<guitar> "G1"64 23 (63)2 (#4.@63) 2
+<guitar> "G."64 23 (63)2 (#4.@63) 2
 <melody> 0-------
 
 <guitar> %Em  %C

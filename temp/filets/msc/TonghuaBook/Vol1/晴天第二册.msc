@@ -23,22 +23,15 @@ patterns :
   B5 : '"Dsus4"[4321]^-^(^v)( _^v)(^v)"D"[1234]^(^v)'
   B1 : '"G"[3456]^-[1234]^(^v)( _^v)(^v)^(^v)'
   B6 : '"Em7"[3456]^-[1234]^(^v)( _^v)(^v)^(^v)'
-  A4 : '"C"[4321]^-^(^v)( _^v)(^v)^(^v)'
-  A3 : '"B"[4321]^-^(^v)( _^v)(^v)^(^v)'
-  B4 : '"C"[4321]^-^(^v)'
+  B45 : '"Cadd9"[2345]^-[1234]^(^)"D7sus4"([1234]v)( _^v)(^v)^(^v)'
+  B3 : '"B"[5432]^-[1234]^(^v)( _^v)(^v)^(^v)'
+  B4 : '"Cadd9"[5432]^-[1234]^(^v)( _^v)(^v)^(^v)'
   C5 : '"D"[4321]^-^(^v)'
   s: '^(^v)'
   S: '[1234]^-%s'
-  Em: '"Em"%S'
-  C : '"C"%S'
-  D : '"D"%S'
-  CC : '"C"%S%S'
   GSs : '"G"%S%s'
   Ds : '"D"%s'
   DD : '"D"%S%S'
-  GG : '"G"%S%S'
-  BB : '"B7"%S%S'
-  Emm : '"Em"%S%S'
 =================
 <guitar> "Cadd9"4323 5(2@4h3@4)23
 <melody> 0-------
@@ -134,65 +127,65 @@ w: 刮风这天 *我试过
 <melody> 1'7 51 *1 66
 w: 握着你手 *但偏偏
 
-<guitar> %CC
+<guitar> %B45
 <melody> 06 55 *5 43
 w: 雨渐渐 *大到我
 
-<guitar> %GG
+<guitar> %B1
 <melody> 23 43 -- --
 w: 看你不见
 
 
-<guitar> %BB
+<guitar> %B3
 <melody> 3#4 #53 *#4 #57
 w: 还要多久 *我才能
 
-<guitar> %Emm
+<guitar> %B6
 <melody> 2'7 1'1' *- 01'
 w: 在你身边 等
 
-<guitar> %CC
+<guitar> %B4
 <melody> 1'5 56 54 23
 w: 到放晴的那天也许
 
-<guitar> %DD
+<guitar> %B5
 <melody> 45 61 6(-7) 7-
 w: 我会比较好一点
 
 
-<guitar> %GG
+<guitar> %B1
 <melody> 32 43 *1 57
 w: 从前从前 *有个人
 
-<guitar> %Emm
+<guitar> %B6
 <melody> 1'7 51 *1 66
 w: 爱你很久 *但偏偏
 
-<guitar> %CC
+<guitar> %B4
 <melody> 06 55 *5 43
 w: 风渐渐 *把距离
 
-<guitar> %GG
+<guitar> %B1
 <melody> 23 43 *- --
 w: 吹得好远
 
-<guitar> %BB
+<guitar> %B3
 <melody> 3#4 #53 *#4 #57
 w: 好不容易 *又能再
 
-<guitar> %Emm
+<guitar> %B6
 <melody> 2'7 1'1' *- 01'
 w: 多爱一天 *但
 
-<guitar> %CC
+<guitar> %B4
 <melody> 1'5 56 54 6.7.
 w: 故事的最后你好像
 
-<guitar> %DD
+<guitar> %B5
 <melody> 12 32 *- 31
 w: 还是说了*拜拜
 
-<guitar> %GG
+<guitar> %B1
 <melody> --------
 
 

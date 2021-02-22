@@ -22,16 +22,16 @@ patterns :
   GG : '"G"%SS'
 =================
 <guitar> %C
-<melody> 2(22) -3 21 5.1
-w: 细雨带风湿透黄昏
+<melody> 2(22) *3 21 5.1
+w: 细雨带*风湿透黄昏
 
 <guitar> %Am
 <melody> 7.- -6. 3.- --
 w: 的街道
 
 <guitar> %C
-<melody> 2(22) -3 21 5.1
-w: 抹去雨水双眼无辜
+<melody> 2(22) *3 21 5.1
+w: 抹去雨*水双眼无辜
 
 <guitar> %Am
 <melody> 7.- -1 6.- 6.1
@@ -40,7 +40,7 @@ w: 的仰望 望向
 
 <guitar> %F
 <melody> 32 2(12) -- 6.1
-w: 孤单的晚灯 是那
+w: 孤单的晚灯 *是那
 
 <guitar> %G
 <melody> 32 21 2- --
@@ -51,16 +51,16 @@ w: 伤感的记忆
 
 
 <guitar> %C
-<melody> 2(22) -3 21 5.1
-w: 再次泛起心里无数
+<melody> 2(22) *3 21 5.1
+w: 再次泛*起心里无数
 
 <guitar> %Am
 <melody> 7.- -6. 3.- --
 w: 的思念
 
 <guitar> %C
-<melody> 2(22) -3 21 5.1
-w: 以往片刻欢笑仍挂
+<melody> 2(22) *3 21 5.1
+w: 以往片*刻欢笑仍挂
 
 <guitar> %Am
 <melody> 7.- -1 6.- 6.1
@@ -68,23 +68,23 @@ w: 在脸上 愿你
 
 <guitar> %F
 <melody> 32 2(12) -- 6.1
-w: 此刻可会知 是我
+w: 此刻可会知 *是我
 
 <guitar> %G
 <melody> 32 21 2- --
 w: 衷心地说声
 
 <guitar> %G
-<melody> 0- -- 3- (32)1
+<melody> 0- -- 3- (3_2)_1
 w: 喜欢
 
 
 <guitar> %CC
-<melody> 1- -- 12 1(7.6.)
+<melody> 1- -- 12 1(7._6.)
 w: 你 那双眼动
 
 <guitar> %Amm
-<melody> 6.- -- 12 1(7.6.)
+<melody> 6.- -- 12 1(7._6.)
 w: 人 笑声更迷
 
 <guitar> %FF
@@ -92,15 +92,15 @@ w: 人 笑声更迷
 w: 人 愿再
 
 <guitar> %GG
-<melody> 2- -- 3- (32)1
+<melody> 2- -- 3- (3_2)_1
 w: 可 轻抚
 
 <guitar> %CC
-<melody> 1- -- 12 1(7.6.)
+<melody> 1- -- 12 1(7._6.)
 w: 你 那可爱面
 
 <guitar> %Amm
-<melody> 6.- -- 12 1(7.6.)
+<melody> 6.- -- 12 1(7._6.)
 w: 容 挽手说梦
 
 <guitar> %FF

@@ -39,9 +39,9 @@ patterns :
 <guitar> "G."64 23 62 #4.@62
 <melody> 0-------
 
-<guitar> "Cadd9"4324 5(2@4 h3@4)23
+<guitar> "Cadd9"4324 5(2@4h3@4)23
 <melody> 0-------
-<guitar> "G."64 23 (63)2 (#4.@63) 2
+<guitar> "G."64 23 (63)2 (#4.@63)2
 <melody> 0-------
 
 <guitar> %Em  %C

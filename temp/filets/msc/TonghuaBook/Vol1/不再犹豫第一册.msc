@@ -22,16 +22,16 @@ patterns :
 w: 无聊
 
 <guitar> %L1
-<melody> 3- 5- 53-2
-w: 望见了犹豫
+<melody> 3- 5- 53 *2
+w: 望见了犹*豫
 
 <guitar> %L5
 <melody> -- -- -- 35
 w: *达到
 
 <guitar> %L6
-<melody> 6- 7- 65-3
-w: 理想不太易
+<melody> 6- 7- 65 *3
+w: 理想不太 *易
 
 <guitar> %L3
 <melody> -- -- -- 32
@@ -39,33 +39,33 @@ w: *即使
 
 
 <guitar> %L2
-<melody> 1- 12 -- --
+<melody> 1- 12 *- --
 w: 有信心
 
 <guitar> %L4
-<melody> 1- 12 -- 3-
-w: 斗志却抑
+<melody> 1- 12 *- 3-
+w: 斗志却*抑
 
 <guitar> %L5
 <melody> 2- -- -- --
 w: 止
 
 <guitar> %L5
-<melody> -- -- -- 12
-w: *谁人
+<melody> 0- -- -- 12
+w: 谁人
 
 
 <guitar> %L1
-<melody> 3- 5- 53-2
-w: 定我去或留
+<melody> 3- 5- 53 *2
+w: 定我去或*留
 
 <guitar> %L5
 <melody> -- -- -- 35
 w: *定我
 
 <guitar> %L6
-<melody> 6- 7- 65-3
-w: 心中的宇宙
+<melody> 6- 7- 65 *3
+w: 心中的宇*宙
 
 <guitar> %L3
 <melody> -- -- -- 32
@@ -73,28 +73,28 @@ w: *只想
 
 
 <guitar> %L2
-<melody> 1- 12 -- --
+<melody> 1- 12 *- --
 w: 靠两手
 
 <guitar> %L4
-<melody> 1- 12 -- 3-
-w: 向理想挥
+<melody> 1- 12 *- 3-
+w: 向理想*挥
 
 <guitar> %L5
 <melody> 2- -- -- --
 w: 手
 
 <guitar> %L5
-<melody> -- -- -- 35
-w: *问句
+<melody> 0- -- -- 35
+w: 问句
 
 
 <guitar> %L6
-<melody> 6- 66 -- -7
-w: 天几高心
+<melody> 6- 66 *- 7-
+w: 天几高*心
 
 <guitar> %L6
-<melody> 6- 55 32 1-
+<melody> 6- 55 3_2 1-
 w: 中志比天*更
 
 <guitar> %L5
@@ -102,25 +102,24 @@ w: 中志比天*更
 w: 高
 
 <guitar> %L5
-<melody> -- -- -- 35
-w: *自信
+<melody> 0- -- -- 35
+w: 自信
 
 
 <guitar> %L6
-<melody> 6- 66 -- -7
-w: 打不死的
+<melody> 6- 66 *- -7
+w: 打不死*的
 
 <guitar> %L6
-<melody> 6- 5- 35 -5
-w: 心态活到
+<melody> 6- 5- 35 *5
+w: 心态活到*老
 
 <guitar> %L5
-<melody> 5- -- -- --
-w: 老
+<melody> -- -- -- --
 
 <guitar> %L5
-<melody> -- -- 6- 7-
-w: *wo oh
+<melody> 0- -- 6- 7-
+w: wo oh
 
 
 <guitar> %L1
@@ -132,24 +131,24 @@ w: oh
 w: oo 我有
 
 <guitar> %L6
-<melody> 6- 76 -- 5-
-w: 我心底故
+<melody> 6- 76 *- 5-
+w: 我心底*故
 
 <guitar> %L3
 <melody> 3- -- -- 55
 w: 事 亲手
 
 <guitar> %L2
-<melody> 5- 44 -- 3-
-w: 写上每段
+<melody> 5- 44 *- 3-
+w: 写上每*段
 
 <guitar> %L4
 <melody> 3- 2- 1- 2-
 w: 得失乐与
 
 <guitar> %L5
-<melody> 3- -- -4 32
-w: 悲*与梦儿
+<melody> 3- -- 04 32
+w: 悲与梦儿
 
 <guitar> %L5
 <melody> -- -- 6- 7-
@@ -165,27 +164,27 @@ w: oh
 w: oo 纵有
 
 <guitar> %L6
-<melody> 6- 76 -- 5-
-w: 创伤不退
+<melody> 6- 76 *- 5-
+w: 创伤不*退
 
 <guitar> %L3
 <melody> 3- -- -- 35
 w: 避 梦想
 
 <guitar> %L2
-<melody> 4- 32 -- 1-
-w: 有日达成
+<melody> 4- 32 *- 1-
+w: 有日达*成
 
 <guitar> %L4
-<melody> 4- 33 -2 12
-w: 找到心底梦想
+<melody> 4- 33 *2 12
+w: 找到心*底梦想
 
 <guitar> %L5
 <melody> 3- -2 2- --
 w: 的世界
 
 <guitar> %L5
-<melody> -- -- 3- 21
+<melody> -- -- 3- 2_1
 w: *终可
 
 

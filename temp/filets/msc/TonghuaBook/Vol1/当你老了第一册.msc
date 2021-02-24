@@ -23,70 +23,70 @@ patterns :
   FG : '"F"632 "G"632'
 =================
 <guitar> 0-----
-<melody> 0--6-#4
+<melody> 0-- 6-#4
 w: 当你
 
 <guitar> %C
-<melody> 3#4- ---
+<melody> 3#4- *--
 w: 老了
 
 <guitar> %C
-<melody> --- 2-3
-w: *头发
+<melody> 0-- 2-3
+w: 头发
 
 <guitar> %Em
-<melody> 6#4- ---
+<melody> 6#4- *--
 w: 白了
 
 <guitar> %Em
-<melody> --- --2
-w: **睡
+<melody> 0-- 0-2
+w: 睡
 
 <guitar> %F
 <melody> 7.-- ---
 w:意
 
 <guitar> %F
-<melody> --- 6-3
-w: *昏沉
+<melody> 0-- 6-3
+w: 昏沉
 
 <guitar> %G
 <melody> --- ---
 
 <guitar> %G
-<melody> --- 6-#4
-w: *当你
+<melody> 0-- 6-#4
+w: 当你
 
 <guitar> %C
-<melody> 3#4- ---
+<melody> 3#4- *--
 w: 老了
 
 <guitar> %C
-<melody> --- 2-3
-w: *走不
+<melody> 0-- 2-3
+w: 走不
 
 <guitar> %Em
-<melody> 6#4- ---
+<melody> 6#4- *--
 w: 动了
 
 <guitar> %Em
-<melody> --- 222
-w: *炉火旁
+<melody> 0-- 222
+w: 炉火旁
 
 <guitar> %F
-<melody> 27.- ---
+<melody> 27.- *--
 w: 打盹
 
 <guitar> %F
-<melody> --- 6.7.6
-w: *回忆青
+<melody> 0-- 6.7.6
+w: 回忆青
 
 <guitar> %G
-<melody> -3- ---
+<melody> -3- *--
 w: *春
 
 <guitar> %G
-<melody> --- ---
+<melody> 0-- ---
 
 <guitar> %Am
 <melody> 7-7 7-2'
@@ -101,8 +101,8 @@ w: 爱你青春
 w: 欢畅的时
 
 <guitar> %C
-<melody> 6-- --7.
-w: 辰 *爱
+<melody> 6-- 0-7.
+w: 辰 爱
 
 <guitar> %Dm
 <melody> 5-5 5-#4
@@ -113,11 +113,11 @@ w: 慕你的美
 w: 丽 假意或
 
 <guitar> %C
-<melody> #46- ---
+<melody> #46- *--
 w: 真心
 
 <guitar> %C7
-<melody> --- ---
+<melody> 0-- ---
 
 <guitar> %Am
 <melody> 7-7 7-2'
@@ -132,8 +132,8 @@ w: 人还爱你
 w: 虔诚的灵
 
 <guitar> %C
-<melody> 6-- --7.
-w: 魂 *爱
+<melody> 6-- 0-7.
+w: 魂 爱
 
 <guitar> %Dm
 <melody> 5-5 5-#4
@@ -148,60 +148,60 @@ w: 脸上的皱
 w: 纹
 
 <guitar> %C
-<melody> --- 6-#4
-w: *当你
+<melody> 0-- 6-#4
+w: 当你
 
 <guitar> %C
-<melody> 3#4- ---
+<melody> 3#4- *--
 w: 老了
 
 <guitar> %C
-<melody> --- 2-3
-w: *眼眉
+<melody> 0-- 2-3
+w: 眼眉
 
 <guitar> %Em
-<melody> 6#4- ---
+<melody> 6#4- *--
 w: 低垂
 
 <guitar> %Em
-<melody> --- --2
-w: **灯
+<melody> 0-- 0-2
+w: 灯
 
 <guitar> %F
-<melody> 7.-- --7
-w: 火*昏
+<melody> 7.-- 0-7
+w: 火昏
 
 <guitar> %G
-<melody> 6-- --3
-w: 黄*不
+<melody> 6-- 0-3
+w: 黄不
 
 <guitar> %C
-<melody> 6-- ---
+<melody> 6-- *--
 w: 定
 
 <guitar> %C
-<melody> --- 6-#4
-w: *风吹
+<melody> 0-- 6-#4
+w: 风吹
 
 <guitar> %Am
-<melody> 3#4- ---
+<melody> 3#4- *--
 w: 过来
 
 <guitar> %Am
-<melody> --- 2-3
-w: *你的
+<melody> 0-- 2-3
+w: 你的
 
 <guitar> %Em
-<melody> 6#4- ---
+<melody> 6#4- *--
 w: 消息
 
 <guitar> %Em
-<melody> --- --2
-w: **这
+<melody> 0-- 0-2
+w: 这
 
 <guitar> %F
-<melody> 7.-- --7
-w: 就*是
+<melody> 7.-- 0-7
+w: 就是
 
 <guitar> %G
 <melody> 6-- 327.
@@ -212,4 +212,4 @@ w: 我心里的
 w: 歌
 
 <guitar> %C
-<melody> --- ---
+<melody> 0-- ---

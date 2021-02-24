@@ -21,36 +21,36 @@ patterns :
 w: 难以
 
 <guitar> %C
-<melody> 54 -5 -4 32
-w: 忘记初次见你
+<melody> 54 *5 *4 32
+w: 忘记 *初 *次见你
 
 <guitar> %G
 <melody> -- -- -- 32
 w: *一双
 
 <guitar> %Am
-<melody> 11 -1' -- 35
-w: 迷人的眼睛
+<melody> 11 *1' *- 35
+w: 迷人 *的 *眼睛
 
 <guitar> %Em
 <melody> -- -- -- 11
 w: *在我
 
 <guitar> %F
-<melody> 2- 11 -- -1'
-w: 脑海里 你
+<melody> 2- 11 *- -1'
+w: 脑海里 *你
 
 <guitar> %Em
-<melody> 7- 65 -- -- 
+<melody> 7- 65 *- -- 
 w: 的身影
 
 <guitar> %F
-<melody> 1- -1 -3 -2
-w: 挥散不去
+<melody> 1- -1 *3 *2
+w: 挥散*不*去
 
 <guitar> %G
-<melody> -- -- -3 34
-w: **握你的
+<melody> -- -- 03 34
+w: *握你的
 
 
 <guitar> %C
@@ -62,21 +62,21 @@ w: 双手感觉你的温柔
 w: *真的
 
 <guitar> %Am
-<melody> 11 -1'-1'35
-w: 有点透不过气
+<melody> 11 *1' *1' 35
+w: 有点 *透 *不过气
 
 <guitar> %Em
-<melody> -- -- -- -5
-w: **你
+<melody> -- -- -- 05
+w: *你
 
 
 <guitar> %F
-<melody> 6- 1'1' -- -2'
-w: 的天真 我
+<melody> 6- 1'1' *- -2'
+w: 的天真 *我
 
 <guitar> %Em
-<melody> 7- 65 -- 55
-w: 想珍惜 看到
+<melody> 7- 65 *- 55
+w: 想珍惜 *看到
 
 <guitar> %F
 <melody> 61' 1'6 1'6 1'2'
@@ -88,13 +88,13 @@ w: *噢噢噢
 
 
 <guitar> %G
-<melody> -1' 76 55 1'2'
+<melody> -_1' _7_6 _55 1'2'
 w: ***** 只怕我
 
 
 <guitar> %C
-<melody> 3'2' 2'1' 1'1' -5'
-w: 自己会*爱上你
+<melody> 3'2' 2'_1' 1'1' *5'
+w: 自己会*爱上*你
 
 <guitar> %G
 <melody> -- -- -- 3'5'
@@ -114,7 +114,7 @@ w: *怕我
 w: 没什么能够给你
 
 <guitar> %Em
-<melody> -5 -- -- 55
+<melody> -_5 *- -- 55
 w: *** 爱你
 
 <guitar> %F
@@ -122,13 +122,13 @@ w: *** 爱你
 w: 也需要很大的勇气
 
 <guitar> %G
-<melody> -- -- -5 1'2'
-w: **只怕我
+<melody> -- -- 05 1'2'
+w: *只怕我
 
 
 <guitar> %C
-<melody> 3'2' 2'1' 1'1' -5'
-w: 自己会*爱上你
+<melody> 3'2' 2'1' 1'1' *5'
+w: 自己会*爱上*你
 
 <guitar> %G
 <melody> -- -- -- 3'5'
@@ -148,12 +148,12 @@ w: *想念
 w: 只让自己苦了自己
 
 <guitar> %Em
-<melody> -5 -- -- 55
+<melody> -_5 *- -- 55
 w: *** 爱上
 
 <guitar> "F"6%p "G"6%p
-<melody> 61' 1'6 3'2' 1'1'
-w: 你是我情非*得已
+<melody> 61' 1'6 3'2' _1'1'
+w: 你是我情非得*已
 
 <guitar> %C
 <melody> -- -- -- --

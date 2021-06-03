@@ -1,0 +1,285 @@
+%MUSE2
+T: 理想三旬
+T: 陈鸿宇
+I: 原调bB，变调夹3品
+L: 1/8
+C: 童话吉他编配
+K: G
+
+%%gchord G=1;3,2,0,0,0,3
+%%gchord D6/#F=1;2,0,0,2,0,X
+%%gchord D/#F=1;2(2),0,0,2(3),3(4),X
+%%gchord Em=1;0,2,2,0,0,0
+%%gchord C=1;X,3,2,0,1,0
+%%gchord Bm=2;X,1,3,3,2,1
+%%gchord Bm7=1;X,2,0,2,0,2
+%%gchord Am=1;X,0,2,2,1,0
+%%gchord D=1;X,X,0,2,3,2
+
+V:guitar0 style=tab bracket=10
+V:melody0 style=jianpu 
+
+[V:guitar0]
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxbx|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxdxbxcxaxdx|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm"dxcxbxcxaxbxcxb0|
+"C"exdxcxdxbxcxdxcx|
+"Am"exdxcxdxbxcxaxb0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm"exdxcxbxaxbxcxd0|
+"C"exdxcxdxbxcxdxcx|
+"Am"exdxcxdxbxcxdxc0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxbxcxdxcx|
+"D/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm7"exdxcxdxbxcxdxc0|
+"C"exdxcxdxbxcxdxcx|
+"D"dxcxbxaxa3axbxc0|
+"G"fxdxcxdxbxcxdxcx|
+"D/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm7"exdxcxdxbxcxdxd2|
+"C"exdxcxdxbxcxbxcx|
+"D"dxcxbxax/2-H-a3/2axbxcxdx|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm"dxcxbxcxdxcxbxc0|
+"C"exdxcxdxbxcxdxcx|
+"Am"exdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm"dxcxbxcxdxcxbxc0|
+"C"exdxcxdxbxcxdxcx|
+"Am"exdxcxdxbxcxdxc0|
+"G"fxdxcxdxbxcxdxcx|
+"D/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm7"excxbxcxaxbxcxbx|
+"C"exdxcxdxbxcxdxcx|
+"D"dxcxbxaxbxcxbxc0|
+"G"fxdxcxdxbxcxdxcx|
+"D/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"Bm7"exdxcxdxbxcxdxc0|
+"C"exdxcxdxbxcxdxcx|
+"D"dxcxbxaxbxcxdxcx|
+"D"bx*8|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxbxaxbxcxd0|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxd0|
+"C"exdxcxdxbxcxdxcx|
+"G"fxdxcxdxb3cxdxcx|
+"D6/#F"fxdxcxdxbxcxdxc0|
+"Em"fxdxcxdxbxcxdxcx|
+"C"exdxcxbxaxbxcxdx|
+"Em"B[ax*8bx*8cx*8dx*8ex*8fx*8]|
+
+[V:melody0]
+Z2EEEDCD|
+w: 雨后有车驶来
+-D2DDDCB,C'|
+w: *驶过暮色苍白
+-C'2CCCD2C|
+w: *旧铁皮往南
+F3FFEDE|
+w: 开 恋人已不在
+-E2EEEDCD|
+w: *收听浓烟下的
+-D3G,B,C2A,|
+w: *诗歌电台
+-A,2CCCD2C|
+w: *不动情的咳
+F3FFEDE|
+w:  嗽 至少看起来
+-E2EEEDCD|
+w: *归途也还可爱
+-D2DDDCB,C|
+w: *琴弦少了姿态
+-C2CCCB,2A,|
+w: *再不见那夜
+D3FFEDE|
+w: 里 听歌的小孩
+-E2EEEDCD|
+w: *时光匆匆独白
+-DDDDDCB,C|
+w: *将颠沛磨成卡带
+-C2CCCB,2A,|
+w: *已枯卷的情
+F3FFED2|
+w: 怀 踏碎成年
+E8|
+w: 代
+D8|
+w: oh
+E8|
+w: wu
+Z8|
+w: 
+Z2EEEDC2|
+w: 就老去*吧
+Z2GAG2D2|
+w:  孤独别醒
+E-E6B,|
+w: 来 *你
+B,2CB,3G,A,|
+w: 渴望的离开
+-A,4A,C2D/2C/2|
+w: *只是
+B,2B,2C2D2|
+w: 无处停摆
+Z2EEEDC2|
+w: 就歌唱*吧 
+Z2GAG2D2|
+w: 眼睛眯起
+E-E6B,|
+w: 来 *而
+B,2CB,3G,A,|
+w: 热泪的崩坏
+-A,6A,A,|
+w: *只是
+DC2B,2B,C2|
+w: 没抵达的存
+C8|
+w: 在
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z2EEEDCD|
+w: 青春又醉倒在
+-D2DDDCB,C'|
+w: *籍籍无名的怀
+-C'2CCCD2C|
+w: *靠嬉笑来虚
+F3FFEDE|
+w: 度 聚散得慷慨
+-E2EEEDCD|
+w: *辗转却去不到
+-D3G,B,C2A,|
+w: *对的站台
+-A,2CCCD2C|
+w: *如果漂泊是
+F2FFFEDE|
+w: 成长 必经的路牌
+-E2EEEDCD|
+w: *你迷醒岁月中
+-D2DDDCB,C|
+w: *那贫瘠的未来
+-C2CCCB,2A,|
+w: *像遗憾季节
+D3FFEDE|
+w: 里 未结果的爱
+-EEEEEDCD|
+w: *弄脏了每一页诗
+-DDDDDCB,C|
+w: *吻最疼痛的告白
+-C2CCCB,2A,|
+w: *而风声吹到
+F2FFFED2|
+w: 这已不需要释
+E2EEEDC2|
+w: 怀 就老去*吧
+Z2GAG2D2|
+w:  孤独别醒
+E-E6B,|
+w: 来 *你
+B,2CB,3G,A,|
+w: 渴望的离开
+-A,4A,C2D/2C/2|
+w: *只是
+B,2B,2C2D2|
+w: 无处停摆
+Z2EEEDC2|
+w: 就歌唱*吧 
+Z2GAG2D2|
+w: 眼睛眯起
+E-E6B,|
+w: 来 *而
+B,2CB,3G,A,|
+w: 热泪的崩坏
+-A,6A,A,|
+w: *只是
+DC2B,-B,4|
+w: 没抵达
+-B,-B,4B,C2|
+w: **的存
+C8|
+w: 在
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z8|
+w: 
+Z2EEEDCD|
+w: 就甜蜜地忍耐
+-D2DDDCB,C'|
+w: *繁星润湿窗台
+-C'2CCCD2C|
+w: *光影跳动着
+F2FFFEDE|
+w: 像在 困倦里说爱
+-E2EEEDCD|
+w: *再无谓的感慨
+-D3G,B,C2A,|
+w: *以为明白
+-A,2CCCD2C|
+w: *梦倒塌的地
+F2FFFED2|
+w: 方 今已爬满青
+A,8|
+w: 苔
+
+
+  

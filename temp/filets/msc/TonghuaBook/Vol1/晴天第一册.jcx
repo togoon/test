@@ -13,9 +13,9 @@ V:guitar0 style=tab bracket=10
 V:melody1 style=jianpu 
 
 [V:guitar0]
-"Cadd9"dxcxbxcx exd0/2undefinedx/2d2/2bxcx
+"Cadd9"dxcxbxcx exd0/2-H-d2/2bxcx
 |"G."fxdx bxcx fxbx f2bx
-|"Cadd9"dxcxbxdx exd0/2undefinedx/2d2/2bxcx
+|"Cadd9"dxcxbxdx exd0/2-H-d2/2bxcx
 |"G."fxdx bxcx fx/2cx/2bx f2/2cx/2bx
 |"Em"V[ax*2bx*2cx*2dx*2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2] "C"V[ax*2bx*2cx*2dx*2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]
 |"G"V[ax*2bx*2cx*2dx*2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2] "D"V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]

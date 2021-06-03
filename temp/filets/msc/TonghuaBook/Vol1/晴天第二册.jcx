@@ -21,7 +21,7 @@ V:melody0 style=jianpu
 "Cadd9"dxcxbxcx exd0/2-H-d2/2bxcx|
 "G.."fxdx bxcx fxbx f2bx|
 "Cadd9"dxcxbxdx exd0/2 -H-d2/2bxcx|
-"G.."fxdx bxcx fx/2cx/2bx f2/2cx/2 bx|
+"G.."fxdx bxcx fx/2cx/2bx f2/2cx/2bx|
 "Em"V[fxexdx]V[fxexdx]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]"Cmaj7"U[ex/2dx/2cx/2bx/2ax/2] -V[ex/2dx/2cx/2bx/2ax/2]U[ax/2bx/2cx/2dx/2]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]|
 "G."V[fxexdx]V[fxexdx]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2] -V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]"D"V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]|
 "Em"V[fxexdx]V[fxexdx]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]"Cmaj7"U[ex/2dx/2cx/2bx/2ax/2] -V[ex/2dx/2cx/2bx/2ax/2]U[ax/2bx/2cx/2dx/2]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]|
@@ -141,7 +141,7 @@ C'B GC -CC AA|
 w: 握着你手 *但偏偏
 ZA GG -GG FE|
 w: 雨渐渐 *大到我
-DE FE-E4|
+DE FE4-E|
 w: 看你不见
 E^F ^GE -E^F ^GB|
 w: 还要多久 *我才能
@@ -193,7 +193,7 @@ C'B GC -CC AA|
 w: 握着你手 *但偏偏
 ZA GG -GG FE|
 w: 雨渐渐 *大到我
-DE FE-E4|
+DE FE4-E|
 w: 看你不见
 E^F ^GE -E^F ^GB|
 w: 还要多久 *我才能

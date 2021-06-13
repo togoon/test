@@ -3,6 +3,7 @@ T: 太聪明
 T: 陈绮贞
 M: 4/4
 L: 1/8
+Q: 1/4=70
 C: 童话吉他编配
 K: E
 
@@ -16,7 +17,7 @@ K: E
 %%gchord A=1;X,0,2,2,2,0
 %%gchord Am=1;X,0,2,2,1,0
 %%gchord A7=1;X,0,2,0,2,0
-%%gchord Am/#F=1;2,3,2,2,X,X
+%%gchord Am/#F=2;1,2,1,1,X,X
 %%gchord Am/#F(1)=1;2,X,X,2,1,0
 %%gchord A/B=1;X,2,2,2,2,X
 %%gchord A/B(1)=1;X,2,X,2,2,0
@@ -30,6 +31,10 @@ K: E
 %%gchord Amaj7add13=4;X,0,X,3,4,1
 %%gchord Esus4=3;0,X,X,2,3,3
 %%gchord F#madd9=2;1,X,X,1,1,3
+%%gchord Eaug=1;0,3,2,1,X,0
+%%gchord E6=1;0,4,2,1,X,0
+%%gchord E7=1;0,X,0,1,0,0
+%%gchord Am7=1;X,0,2,0,1,0
 
 V:guitar0 style=tab bracket=10
 V:melody1 style=jianpu 
@@ -37,11 +42,49 @@ V:melody1 style=jianpu
 [V:guitar0]
 "E" fxdx/2cx/2 -cx/2ax/2fx/2bx/2 fx[dxcx] fx/2[d4*3/2c2*3/2]
 |"E" [fxcx]dx/2cx/2 -cx/2ax/2fx/2bx/2 fx[dxcx] fx/2[d4*3/2c2*3/2]
-|"E" [fx*3/2cx*3/2]ex/2 -ex/2dxcx/2 fx*3/2e3/2 -e3/2dxcx/2|
+|"E" [fx*3/2cx*3/2]ex/2 -ex/2dxcx/2 "Eaug" fx*3/2ex/2 -ex/2dxcx/2
+|"E6" fx*3/2ex/2 -ex/2dxcx/2 "E7" fx*3/2dx/2 -dx/2cxbx/2
+|"A7" [exbx]dx/2ax/2 -ax/2bx/2dx/2cx/2 "Am7" [exbx]dx/2ax/2 -ax/2bx/2ex
+|"G#m7" [fxbx]ex/2dx/2 -dx/2ax/2fx/2b6/2 "C#7" exdx/2cx/2 -cx/2bx/2fx
+|"F#m7" [fx*3/2bx*3/2]ex/2 -ex/2dxcx/2 "Am/#F" fx*3/2ex/2 -ex/2dxcx/2
+|"G#m7" [fxbx]ex/2dx/2 -dx/2cx/2fx/2cx/2 "C#7" [exbx]dx/2ax/2 -ax/2bx/2fx
+|"F#m7" [fx*3/2bx*3/2]ex/2 -ex/2dxcx/2 "A/B"exdxcxbx
+| f0d4/4-S-d6/4b5/2 c4/2d6/2b4/2d6/2  [f0/2b2/2]d4/2c2/2b4/2 d4/2c2/2b0/2c2/2
+| f0d4/4-S-d6/4b5/2 c4/2d6/2b4/2d6/2  [f0/2b2/2]d4/2c2/2b4/2 d4/2c2/2b0/2c2/2
+|"E" [fx*3/2cx*3/2]ex/2 -ex/2dxcx/2 "Eaug" fx*3/2ex/2 -ex/2dxcx/2
+|"E6" fx*3/2ex/2 -ex/2dxcx/2 "E7" fx*3/2dx/2 -dx/2cxbx/2
+|"A7" [exbx]dx/2ax/2 -ax/2bx/2dx/2cx/2 "Am" [exbx]dx/2a2/2-P- a0/2bx/2cx/2dx/2
+|"G#m7" [fxbx]ex/2dx/2 -dx/2ax/2fx/2b6/2 "C#7" exdx/2cx/2 -cx/2bx/2fx
+|"F#m7" [fx*3/2bx*3/2]exdxcx/2 "Am/#F" fx*3/2e4dxcx/2|
 
 [V:melody1]
 Z8
 |Z8
-|B,3/2^G,/2 -^G,A, B,3/2^G,/2 -^G,A,|
+|B,3/2^G,/2 -^G,A, B,3/2^G,/2 -^G,A,
+w: 总以*为谜一*般
+|B,3/2^G,/2 -^G,A,/2B,/2 -B,2 ZB,/2B,/2
+w: 难懂*的我 *在你
+|^C3/2^G/2 -^G3/2^C/2 C3/2^G/2 -^G3/2^C/2
+w: 了解*了以后 *其
+|B,B,/2^G/2 -^G/2A^G/2 -^G2 Z/2^C/2^C/2E/2
+w: 实也没*什么 *我总是
+|^G3/2^C/2 -^CE ^G3/2C/2 -CE
+w: 忽冷*又忽热 *隐
+|^GB, B,/2E^G/2 -^G2 Z/2^C/2^C/2E/2
+w: 藏我的感受 *只是怕
+|^GA/2^G/2 -^G/2E-^C/2 B,^C E^F
+w: 爱你的*心*被你看透
+|E4 Z4
+|Z8
+|B,A,/2^G,/2 -^G,/2A,3/2 B,A,/2^G,/2 -^G,/2A,3/2
+w: 猜的没*错想得太*多
+|B,A,/2^G,/2 -^G,/2A,B,/2 -B,2 ZB,/2B,/2
+w: 不会有*结果 *被你
+|^C3/2^G/2 -^G3/2^C/2 C3/2^G/2 -^G3/2^C/2
+w: 看穿*了以后 *我
+|B,B,/2^G/2 -^G/2A^G/2 -^G2 Z/2^C/2^C/2E/2
+w: 更无处*可躲 *我开始
+|^G3/2^C3/2E ^G3/2^C3/2E|
+w: 后悔不应该太
 
   

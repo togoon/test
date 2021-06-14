@@ -67,7 +67,23 @@ V:melody1 style=jianpu
 |"Aadd11+" [exax]bx/2cx/2 -cx/2axbx/2 ex/2cxax/2 -ax/2bx/2ex 
 |"Emaj7/#G" [fxbx]cx/2ax/2 fx/2bx/2-S-b6/2c6/2 "C#" ex/2cx/2bx/2ax/2 -ax/2bx/2fx
 |"F#m7" [fx*3/2bx*3/2]dx/2 -dx/2cx/2fx "Am/#F(1)" fxcx/2b2ax/2fx/2cx/2
-|"A/B(1)" excx/2bx/2 -bx/2ax/2ex/2cx/2  [cx/2bx/2][c4*3/2b4*3/2] "A/B" B[ex*2dx*2cx*2bx*2]|
+|"A/B(1)" excx/2bx/2 -bx/2ax/2ex/2cx/2  [cx/2-S-bx/2-S-][c4*3/2b4*3/2] "A/B" B[ex*2dx*2cx*2bx*2]
+|"E" [fx*3/2cx*3/2]ex/2 -ex/2dxcx/2 "Eaug" fx*3/2ex/2 -ex/2dxcx/2
+|"E6" fx*3/2ex/2 -ex/2dxcx/2 "E7" fx*3/2dx/2 -dx/2cxbx/2
+|"A7" [exbx]dx/2ax/2 -ax/2bx/2dx/2cx/2 "Am7" [exbx]dx/2ax/2 -ax/2bx/2ex
+|"G#m7" [fxbx]ex/2dx/2 -dx/2ax/2fx/2cx/2 "G#m/#C" [exbx]dx/2ax/2 -ax/2cx/2fx
+|"F#m7" [fx*3/2bx*3/2]ex/2 -ex/2dxcx/2 "F#m7b5" fx*3/2ex/2 -ex/2dxcx/2
+|"G#m7" [fxbx]ex/2dx/2 -dx/2bx/2fx/2cx/2 "C#7" [exbx]dx/2ax/2 -ax/2bx/2fx
+|"F#m7" [fx*3/2bx*3/2]ex/2 -ex/2dxcx/2 "A/B"exdxcxbx
+| f0d4/4-S-d6/4b5/2 c4/2d6/2b4/2d6/2  [f0/2b2/2]d4/2c2/2b4/2 d4/2c2/2b0/2c2/2
+| f0d4/4-S-d6/4b5/2 c4/2d6/2b4/2d6/2  [f0/2b2/2]d4/4-S-d6/4b4/2d6/4-S-d7/4 b5/2d7/4-S-d9/4b7
+| e0/2a5/2-P-a4/2b7/2 b5/2-P-b4/2c6/2b4/2 [e0/4b4/4-H-]b5/4-P-b4/2c6/2b4/2 [e0/4b4/4-H-]b5/4-P-b4/2c6/2c4/2  
+|f0b0/2[c4/2a4/2] f0/2[c2/2a2/2]f0/2[c2/4-S-a2/4-S-][c4/4a4/4] f0b0/2[c4/2a4/2] f0/2[c2/2a2/2]f0/2[c2/4-S-a2/4-S-][c4/4a4/4]
+| e0/2a5/2-P-a4/2b7/2 b5/2-P-b4/2c6/2b4/2 [e0/4b4/4-H-]b5/4-P-b4/2c6/2b4/2 [e0/4b4/4-H-]b5/4-P-b4/2c6/2c4/2  
+|f0b0/2[c4/2a4/2] f0/2[c2/2a2/2]f0/2[c2/4-S-a2/4-S-][c4/4a4/4] f0b0/2[c4/2a4/2] f0/2[c2/2a2/2]f0/2[c1/2a0/2] 
+|"Amaj7add13" [ex*3/4cx*3/4]b5/4ax/2bx/2 ex/2ax/2ex/2cx/2 ex/2axbx/2 ex/2ax/2ex/2cx/2 
+|"Emaj7/#G" [fxbx]cx/2ax/2 fx/2bx/2-S-b6/2c6/2 "C#" ex/2cx/2b7/2e0/2 cx/2b7/2fx/2cx/2
+|"F#m7(1)" [fxax]cx/2bx/2 -bx/2ax/2fx/2cx/2 "A/B(1)" excx/2bx/2-S- b4/2c4/2a2/2-P-ax/2|
 
 [V:melody1]
 Z8
@@ -119,7 +135,30 @@ w: 猜着你*的心 *要
 w: 再一次*决定**** 混
 |BB/2B/2 -B/2B3/2 A^G^FE
 w: 乱的思绪都是因为
-|EB,/2E/2 -E/2^G3/2 ^G3/2^F/2 -^F/2E/2^C/2B,/2|
+|EB,/2E/2 -E/2^G3/2 ^G3/2^F/2 -^F/2E/2^C/2B,/2
 w: 太想靠*近你
+|ZB,/2A,/2 ^G,/2A,3/2 B,A,/2^G,/2 -^G,/2A,3/2
+w: 猜的没错想得太*多
+|B,A, ^G,/2A,B,/2 -B,2 ZB,/2B,/2
+w: 不会有结果 *被你
+|^C3/2^G/2 -^G3/2^C/2 C3/2^G/2 -^G3/2^C/2
+w: 看穿*了以后 *我
+|B,B,/2^G/2 -^G/2A^G/2 -^G2 Z/2^C/2^C/2E/2
+w: 更无处*可躲 *我开始
+|^G3/2^C/2 -^CE ^G3/2C/2 -CE
+w: 后悔*不应该*太
+|^GB, B,/2E^G/2 -^G2 Z/2^C/2^C/2E/2
+w: 聪明的卖弄 *只是怕
+|^GA/2^G/2 -^G/2E^C/2 B,^C E^F
+w: 亲手将*我的真心葬送
+|E4 Z4
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8|
 
   

@@ -109,7 +109,7 @@ V:melody1 style=jianpu
 |"F#m7" [fx*3/2bx*3/2]ex/2 -ex/2dxcx/2 "A/B"exdxcxbx
 |"E" fxdx/2cx/2 -cx/2ax/2fx/2bx/2 fx[dxcx] fx/2[d4*3/2c2*3/2]
 |"E" [fxcx]dx/2cx/2 -cx/2ax/2fx/2bx/2 fx[dxcx] fx/2[d4*3/2c2*3/2]
-|"E" [fxcx]dx/2cx/2 -cx/2ax/2fx/2bx/2 fx[d7c5] [d6c4] [d4c2] 
+|"E" [fxcx]dx/2cx/2 -cx/2ax/2fx/2bx/2 fx[d7c5] [d6c4][d4c2] 
 |"E" B[fx*8ex*8dx*8cx*8bx*8ax*8]|
 
 [V:melody1]
@@ -184,11 +184,11 @@ w: 亲手将*我的真心葬送
 |Z8
 |Z8
 |Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z2 Z2 Z2 ZE
+|^C'2 ^D'2 E'2 ^F'2
+|B2 ^C'2 ^D'2 E'2
+|AB/2^C'/2 -^C'/2E'3/2 A'/2^G'/2E'/2^C'/2 -^C'/2^D'B/2
+|-B2 -B2 -B2 E'/2^D'/2^C'/2^D'/2
+|B2 Z2 Z2 ZE
 w: 我
 |BB/2B/2 -B/2BB/2 -B2 ZZ/2E/2
 w: 猜着你*的心 *要

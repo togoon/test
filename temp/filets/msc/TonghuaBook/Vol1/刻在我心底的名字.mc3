@@ -1,0 +1,74 @@
+title : [刻在我心底的名字, 卢广仲]
+artist : 童话吉他编配
+beat : 1/8
+tempo : 1/4=70
+key : 'bB'
+tracks : 
+  - name: guitar
+    format: tab
+  - name: melody
+    format: jianpu
+    instrument: flute
+    volume: 16
+customChords: 
+  'Bbsus2' : 1;X,1,3,3,1,1
+  'Am7b5' : 1;X,0,1,0,1,0
+  'D7' : 3;X,3,2,3,X,X
+  'Gm7' : 3;1,3,1,1,1,1
+  'Fm7' : 1;X,X,3,1,4,1
+  'Bb7' : 1;X,1,3,1,3,1
+patterns : 
+=================
+<guitar> {key: B-}
+<melody> {key: B-}
+<melody> {translate: 12, env: gp5}
+<melody> {translate: 0, env: jcx}
+
+<guitar> <Bbsus2>7.4 1'4 6- h7-
+<melody> 1- -7. 4.- --
+w: Ou-b-lie
+
+<guitar> <Am7b5> 6.5 1'5  <D7> 2#4 1'-
+<melody> 0- 21 32 0(16.)
+w: 好几次我告诉
+
+<guitar> <Gm7> 5.4 1'4 74 2'4
+<melody> 1- -7. 2.- --
+w: 我自己
+
+<guitar> <Fm7> 4#5 3'- <Bb7>7.4 2'4
+<melody> 0- #5.(5.5.) *4. 24
+w: 越想努*力赶上
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 光的影
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+
+<guitar> 0- -- -- --
+<melody> 0- -- -- --
+w: 
+

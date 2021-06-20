@@ -17,14 +17,55 @@ customChords:
   'Gm7' : 3;1,3,1,1,1,1
   'Fm7' : 1;X,X,3,1,4,1
   'Bb7' : 1;X,1,3,1,3,1
+  'Gm7add11' : 1;3,X,3,3,1,X
+  Ebmaj7: 3;X,4,3,1,1,X
+  'Ebadd9': 3;X,4,3,1,4,X
+  EbmM7: 3;X,4,2,1,1,X
+  'Cm7' : 3;0,1,3,1,2,1
+  'F7sus4add9' :  1;1,X,4,3,4,X
+  'Bb/D' : 3;X,3,1,1,1,X
+  Cadd9/E : 5;X,3,1,3,1,X
+  'F9-' : 5;X,4,X,4,3,1
 patterns : 
+  A1: "<Bbsus2>7.4 1'4 64 74"
+  A6: "<Gm7add11>5.4 1'4 64 74"
+  A6b: "<Gm7> 5.4 1'4 74 2'4"
+  A4: "<Ebmaj7> 35 2'5 &75 1'5"
+  A4m: "<EbmM7> 3b5 7b5 4'b5 3'b5"
+  A2: "<Cm7> 15 75 3'5 1'5"
+  A5: "<F7sus4add9> 4.3 b57 3'- --"
 =================
-<guitar> {key: B-}
-<melody> {key: B-}
+<guitar> {key: bB}
+<melody> {key: bB}
 <melody> {translate: 12, env: gp5}
-<melody> {translate: 0, env: jcx}
+<melody> {translate: 12, env: jcx}
 
-<guitar> <Bbsus2>7.4 1'4 6- h7-
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A6
+<melody> 0- -- -- --
+
+<guitar> %A4
+<melody> 0- -- -- --
+
+<guitar> %A4m
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A6b
+<melody> 0- -- -- --
+
+<guitar> %A2
+<melody> 0- -- -- --
+
+<guitar> %A5
+<melody> 0- -- -- --
+
+
+<guitar> %A1
 <melody> 1- -7. 4.- --
 w: Ou-b-lie
 
@@ -32,29 +73,29 @@ w: Ou-b-lie
 <melody> 0- 21 32 0(16.)
 w: 好几次我告诉
 
-<guitar> <Gm7> 5.4 1'4 74 2'4
+<guitar> %A6b
 <melody> 1- -7. 2.- --
 w: 我自己
 
-<guitar> <Fm7> 4#5 3'- <Bb7>7.4 2'4
+<guitar> <Fm7> 4#5 3'#5 <Bb7>7.4 2'4
 <melody> 0- #5.(5.5.) *4. 24
 w: 越想努*力赶上
 
-<guitar> 0- -- -- --
-<melody> 0- -- -- --
+<guitar> <Ebadd9> 35 75 4'- --
+<melody> 4- -3 5.- --
 w: 光的影
 
-<guitar> 0- -- -- --
-<melody> 0- -- -- --
-w: 
+<guitar> <Bb/D> 24 74 <Cadd9/E> (2s&3)5 2'5
+<melody> 3- -2 6.- 7.-
+w: 越无法抽
 
-<guitar> 0- -- -- --
-<melody> 0- -- -- --
-w: 
+<guitar> <Cm7> 15 75 2'5 3'5
+<melody> 1- -- -- 0(02)
+w: 离 而
 
-<guitar> 0- -- -- --
-<melody> 0- -- -- --
-w: 
+<guitar> <F9-> [43'b5'6']$- -- -- --
+<melody> 6.- -- -- --
+w: 已
 
 <guitar> 0- -- -- --
 <melody> 0- -- -- --

@@ -25,7 +25,7 @@ patterns :
 <melody> {translate: 0, env: jcx}
 
 <guitar> <F#> 41' 4'- <C#> [11'3']---
-<melody> 0- -(4'3') 4'- --
+<melody> 0- 0(4'3') 3'- --
 
 <guitar> <C#7> 1&7 3'- <C#sus4> [1'4']---
 <melody> 0- -- -- --
@@ -35,4 +35,5 @@ patterns :
 
 <guitar> <C#sus2add13> 16 2'- 3'- 4'@g-
 <melody> 0- -- -- --
+
 

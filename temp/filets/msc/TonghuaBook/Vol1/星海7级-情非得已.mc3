@@ -1,0 +1,63 @@
+title : [情非得已, 庾澄庆]
+artist : 童话吉他记谱
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    format: tab
+  - name: melody
+    format: jianpu
+patterns : 
+  p : '[123]x[123]'
+  p2 : '[234]x[234]'
+  C : '"C"5%p 5%p'
+  A1 : '"C"5%p2 5%p2'
+  Am : '"Am"5%p 5%p'
+  Em : '"Em"6%p 6%p'
+  F : '"F"6%p 6%p'
+  G : '"G"6%p 6%p'
+=================
+#前奏
+<guitar> "C"0- -- -- -[234]
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %C
+<guitar> %C
+<guitar> %G
+<guitar> %Am
+<guitar> %Em
+<guitar> %F
+<guitar> %Em
+<guitar> %F
+<guitar> %G
+<guitar> %C
+<guitar> %G
+<guitar> %Am
+<guitar> %Em
+<guitar> %F
+<guitar> %Em
+<guitar> %F
+<guitar> %G
+<guitar> %G
+<guitar> %C
+<guitar> %G
+<guitar> %Am
+<guitar> %Em
+<guitar> %F
+<guitar> %Em
+<guitar> %F
+<guitar> %G
+<guitar> %C
+<guitar> %G
+<guitar> %Am
+<guitar> %Em
+<guitar> %F
+<guitar> %Em
+<guitar> "F"6%p "G"6%p
+<guitar> %C
+
+#include ./情非得已简谱.mc3

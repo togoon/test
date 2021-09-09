@@ -1,5 +1,5 @@
 title : [十年, 陈奕迅]
-artist : 童话吉他编配
+artist : 童话吉他记谱
 timeSign : 4/4
 beat : 1/8
 key : G
@@ -10,44 +10,80 @@ tracks :
     format: jianpu
 customChords : 
   'G　' : 1;3,X,0,0,3,X
+  'D　' : 1;X,0,0,2,X,X
   'D/#F' : 1;2(1),0,0,2(2),3(4),X
+  'Em' : 1;0,2,2,0,0,0
+  'D' : 1;X,X,0,2,3,2
+  'C' : 1;X,3,2,0,1,0
+  'G(7)' : 7;X,4,3,1,2,1
+  'D(5)' : 5;X,1,3,3,3,1
+  'C(3)' : 3;X,1,3,3,3,1
+  'G(3)' : 3;1,3,3,2,1,1
+  'Am7' : 1;X,0,2,0,1,0
+  'F' : 1;1,3,3,2,1,1
+  'B' : 2;X,1,3,3,3,1
+  'B7' : 1;X,2,1,2,0,2
+  'C#dim' : 3;X,2,3,1,3,1
+  Em/D : 1;X,X,0,0,0,0
 patterns : 
   A15 : "<G　>5.252' <D/#F>#4.262'"
   A6m : '"Emadd9"65432---'
-  A5 : '"D"43231---'
-  Em_a : '"Em"[6432]-------'
-  C : '"C"54321234'
-  D_a : '"D"[1234]-------'
+  P6 : '<Em>[3.57]- -- -- --'
+  P6b : "{C: 11, O: 6321} \"123弦泛音\"=[3.5'7'3'']- -- -- --"
+  A5 : '<D　>26.2#4 6---'
+  A5b : "<D>262'#4' s6'---"
+  A4 : "<C >152h3@4 51'@2p75"
+  P5 : "<D>[262']- -- -- --"
+  P1 : '"G"[123456]$- -- -- --'
+  Pr5 : "<D>[262'4']$- -- -- --"
   Em9 : '"Emadd9"65432432'
-  G_b : '"G"[62]3452345'
+  B1: "<G(7)>572'5' 7'5'2'7"
+  B5: "<D(5)>262'4' 6'4'2'6"
+  B4: "<C(3)>151'3' 5'3'1'5"
+  B1b: "<G(3)>5.572' 5'2'75"
+  B2: "<Am7>6.351' 3'1'53"
+  Bb7: "<F>&4.1&46 1'6&41"
+  B3: "<B> [7.#2']747. #2'747."
   F : '"F"[62]3452345'
-  D_b : '"D"[41]2341234'
-  C_b : '"C"[52]3452345'
-  B_b : '"B"[52]3452345'
-  Am7 : '"Am7"[52]3452345'
-  G_c : '"G"[1234]^-^v_^v^v'
-  D_c : '"D"[1234]^-^v_^v^v'
-  C_c : '"C"[1234]^-^v_^v^v'
-  Em_c : '"Em"[1234]^-^v_^v^v'
-  B_c : '"B"[1234]^-^v_^v^v'
+  S: "^-[1234]^v_^v^v"
+  S2: "^- -- [1234]^-^v"
+  C37: '"B7"[345]%S'
+  C6 : '"Em"[3456]%S'
+  C4 : '"C"[3456]%S'
+  C5 : '"D"[345]%S'
+  C2M : '"A"[3456]%S'
+  Cs4d : '"C#dim"[345]%S'
+  T: '"G"[123456]^- -- -- --'
+  G_c : '"G"[3456]%S'
+  D_c : '"D"[345]%S'
+  C_c : '"C"[3456]%S'
+  B_c : '"B"[3456]%S'
   C_m_c : '"C"[1234]^-^v"Cm"[1234]^-^v'
+  D1 : '"G"[3456]%S2'
+  D4 : '"C"[3456]%S2'
+  D5o7 : '"D/#F"[3456]%S2'
+  D5 : '"D"[345]%S2'
+  D6 : '"Em"[3456]%S2'
+  D6o5 : '"Em/D"[1234]%S2'
 =================
+<guitar> {key: G}
+
 <guitar> %A15
 <melody> 0-------
-<guitar> "Emadd9"65432---
+<guitar> %A6m
 <melody> 0-------
-<guitar> "D"431 5@1 6@1---
+<guitar> %A5
 <melody> 0-------
-<guitar> "Em"[643]-------
+<guitar> %P6
 <melody> 0-------
 
-<guitar> "G"643 2@2 "D/#F"6432
+<guitar> %A15
 <melody> 0-------
-<guitar> "Emadd9"65432---
+<guitar> %A6m
 <melody> 0-------
-<guitar> "D"431 5@1 6@1---
+<guitar> %A5b
 <melody> 0-------
-<guitar> "Em"[643]-------
+<guitar> %P6b
 <melody> 0-----12
 w: 如果
 
@@ -56,24 +92,24 @@ w: 如果
 w: 那两个字
 
 <guitar> %A6m
-<melody> 217.6. --3.6.
-w: 没有颤抖 我不
+<melody> 21 7.6. *- 3.6.
+w: 没有颤抖 *我不
 
 <guitar> %A5
-<melody> 5.- -6. 7.6.-5.
-w: 会发现我难
+<melody> 5.- -6. 7.6. *5.
+w: 会发现我*难
 
-<guitar> %Em_a
-<melody> 6.- -- 17.6.7.
+<guitar> %P6
+<melody> 6.- -- 17. 6.7.
 w: 受 怎么说出
 
-<guitar> %C
+<guitar> %A4
 <melody> 6.- -- -- --
 w: 口
 
-<guitar> %D_a
-<melody> -- -3. 17.6.7.
-w: *也不过是分
+<guitar> %P5
+<melody> 0- -3. 17. 6.7.
+w: 也不过是分
 
 <guitar> %Em9
 <melody> 6.- -- -- --
@@ -85,114 +121,113 @@ w: 如果
 
 
 <guitar> %A15
-<melody> 3-3-2-3-
+<melody> 3- 3- 2- 3-
 w: 对于明天
 
 <guitar> %A6m
-<melody> 2351 -- -3
+<melody> 23 51 -- 03
 w: 没有要求 牵
 
 <guitar> %A5
 <melody> 2- 2- 21 7.1
 w: 牵手就像旅游
 
-<guitar> %Em_a
-<melody> -- -1 17.6.7.
+<guitar> %P6
+<melody> -- 01 17. 6.7.
 w: *成千上万个
 
-<guitar> %C
-<melody> 16. -- -- --
+<guitar> %A4
+<melody> 16. *- -- --
 w: 门口
 
-<guitar> %D_a
-<melody> -- -3. 17.6.7.
-w: *总有一个人
+<guitar> %P5
+<melody> 0- -3. 17. 6.5.
+w: 总有一个人
 
 <guitar> %Em9
-<melody> 6.- 7.6. -- --
+<melody> 6.- 7.6. *- --
 w: 要先走
 
-<guitar> "Emadd9"6543 2@2---
+<guitar> "Emadd9"6543 2'@2---
 <melody> -- -- -- --
 
+<guitar> |: %B1
+<melody> 0- -5. 3- 21
+w: 怀抱既然
 
-<guitar> %G_b
-<melody> -- -5. 3- 21
-w: *怀抱既然
+<guitar> %B5
+<melody> 2- 32 *5. --
+w: 不能逗*留
 
-<guitar> %D_b
-<melody> 2- 32 -5. --
-w: 不能逗留
-
-<guitar> %C_b
+<guitar> %B4
 <melody> 01 6.7. 16 51
 w: 何不在离开的时
 
-<guitar> %G_b
-<melody> 3- -- -3 23
-w: 候*一边享
+<guitar> %B1b
+<melody> 3- -- 03 23
+w: 候 一边享
 
-<guitar> %Am7
+<guitar> %B2
 <melody> 4- -- -- --
 w: 受
 
-<guitar> %F
-<melody> 2- -3 -- 4-
-w: 一边泪
+<guitar> %Bb7
+<melody> 2- -3 *- 4-
+w: 一边*泪
 
-<guitar> %B_b
+<guitar> %B3
 <melody> 3- -- -- --
 w: 流
 
-<guitar> "B"[54321]$-------
-<melody> -- -1 25 -3
-w: *十年之
+<guitar> <B7>76#27. <D>[262'4']$---
+<melody> 0- -1 25 *3
+w: 十年之
 
 
 <guitar> %G_c
-<melody> 3- -3 -4 56
-w: 前 我不认识
+<melody> 3- -3 *4 56
+w: 前 我*不认识
 
 <guitar> %D_c
-<melody> 2- -2 -4 32
-w: 你 你不属于
+<melody> 2- -2 *4 32
+w: 你 你*不属于
 
-<guitar> %Em_c
-<melody> 1- -3.-2 17.
-w: 我 我们还是
+<guitar> %C6
+<melody> 1- -3.*2 17.
+w: 我 我*们还是
 
 <guitar> %C_m_c
-<melody> 1- 6.- 017.6.
+<melody> 1- 6.- 01 7.6.
 w: 一样 陪在一
 
 <guitar> %B_c
 <melody> 7.- 43 2- 7.1
 w: 个陌生人左右
 
-<guitar> %Em_c
-<melody> -- -- -1 23
-w: **走过渐
+<guitar> %C6
+<melody> -- -- 01 23
+w: *走过渐
 
 <guitar> %C_c
 <melody> 6- -3 4- 53
 w: 渐熟悉的街
 
 <guitar> %D_c
-<melody> -2 -1 25 -3
-w: *头 十年之
+<melody> -2 *1 25 *_3
+w: *头 *十年之
 
 
 <guitar> %G_c 
-<melody> 3- -3 -4 56
-w: 后 我们是朋
+<melody> 3- -3 *4 56
+w: 后 我*们是朋
 
 <guitar> %D_c
-<melody> 2- -2 -4 32
-w: 友 还可以问
+<melody> 2- -2 *4 32
+w: 友 还*可以问
 
-<guitar> %Em_c
-<melody> 1- -3.-2 17.
-w: 候 只是那种
+<guitar> %C6
+<melody> 1- -3.*2 17.
+w: 候 只*是那种
 
 <guitar> %C_m_c
 <melody> 1- 6.- 017.6.
@@ -202,21 +237,116 @@ w: 温柔 再也找
 <melody> 7.- 43 2- 32
 w: 不到拥抱的理
 
-<guitar> %Em_c
-<melody> -1 -- -1 23
-w: 由*情人最
+<guitar> %C6
+<melody> -1 *- 01 23
+w: *由*情人最
 
 <guitar> %C_c
 <melody> 6- -3 3- 12
 w: 后难免沦为
 
 <guitar> %D_c
-<melody> -- -- -- 17.
-w: *朋
+<melody> -- -- *- 1_7.
+w: **朋
 
 <guitar> %G_c
 <melody> 1- -- -- --
 w: 友
 
-<guitar> %G_c
+<guitar> >1 "G"[123456]$- -- -- --
 <melody> 0- -- -- --
+
+<guitar> %C37
+<melody> 0- -- -- --
+
+<guitar> %C37
+<melody> 0- -- -- --
+
+<guitar> %C6
+<melody> 0- -- -- --
+
+<guitar> %C2M
+<melody> 0- -- -- --
+
+<guitar> %C5
+<melody> 0- -- -- --
+
+<guitar> %C4
+<melody> 0- -- -- --
+
+<guitar> %Cs4d
+<melody> 0- -- -- --
+
+<guitar> %C5
+<melody> 0- -- -- --
+
+<guitar> %Pr5 :|
+<melody> 0- -- -- -- 
+
+<guitar> >2 %G_c
+<melody> 0- -- -- --
+
+<guitar> "G"[123456]$- -- -- --
+<melody> 0- -- -- 12
+w: 直到 
+
+<guitar> %A15
+<melody> 3- 3- 2- 3-
+w: 和你做了
+
+<guitar> %A6m
+<melody> 23 51 -- 03
+w: 多年朋友 才
+
+<guitar> %A5
+<melody> 2- 2- 21 7.1
+w: 明白我的眼泪
+
+<guitar> %P6
+<melody> -- 01 17. 6.7.
+w: *不是为你而
+
+<guitar> <C >15 2h3 [151'3']$- --
+<melody> 6.- -- -- --
+w: 流
+
+<guitar> -- -- "D"[1234]$- --
+<melody> 0- -5. 32 12
+w: 也为别人而
+
+<guitar> %D1
+<melody> 1- -- -- --
+w: 流
+
+<guitar> %D5o7
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D6
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D6o5
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D4
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D5
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %D1
+<melody> 0- -- -- --
+w: 
+
+<guitar> %P1
+<melody> 0- -- -- --
+w: 
+

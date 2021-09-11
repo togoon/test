@@ -8,11 +8,23 @@ tracks :
     format: tab
   - name: melody
     format: jianpu
+customChords: 
+  'G/B' : 1;X,2,0,0,3,X
 patterns : 
   p : '[123]x[123]'
   p2 : '[234]x[234]'
-  C : '"C"5%p 5%p'
+  C : '"C"0- -- -- --'
   A1 : '"C"5%p2 5%p2'
+  A5o7 : '"G/B"5%p2 5%p2'
+  A6 : '"Am"5%p2 5%p2'
+  A3 : '"Em"6%p2 6%p2'
+  A4 : '"F"6%p2 6%p2'
+  A5 : '"G"6%p2 6%p2'
+  X5 : "=(5h6)1' (2's3'@2)5' (3'@2s2')1'"
+  A56_ : '"G"6[234]x"Am"[5234] *[234]x[234]'
+  A43_ : '"F"6[234]x"Em"[6234] *[234]x[234]'
+  A45_ : '"F"6[234]x"G"[6234] *[234]x[234]'
+  A4_5 : '"F"6%p2 "G"6%p2'
   Am : '"Am"5%p 5%p'
   Em : '"Em"6%p 6%p'
   F : '"F"6%p 6%p'
@@ -25,39 +37,134 @@ patterns :
 <guitar> %A1
 <melody> 0- -- -- --
 
-<guitar> %C
-<guitar> %C
-<guitar> %G
-<guitar> %Am
-<guitar> %Em
-<guitar> %F
-<guitar> %Em
-<guitar> %F
-<guitar> %G
-<guitar> %C
-<guitar> %G
-<guitar> %Am
-<guitar> %Em
-<guitar> %F
-<guitar> %Em
-<guitar> %F
-<guitar> %G
-<guitar> %G
-<guitar> %C
-<guitar> %G
-<guitar> %Am
-<guitar> %Em
-<guitar> %F
-<guitar> %Em
-<guitar> %F
-<guitar> %G
-<guitar> %C
-<guitar> %G
-<guitar> %Am
-<guitar> %Em
-<guitar> %F
-<guitar> %Em
-<guitar> "F"6%p "G"6%p
-<guitar> %C
+<guitar> %A56_
+<melody> 0- -- -- --
+
+<guitar> %A43_
+<melody> 0- -- -- --
+
+<guitar> %A45_
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A1
+
+# 开始唱
+<guitar> %A1
+<guitar> %A5o7
+<guitar> %A6
+<guitar> %A3
+<guitar> %A4
+<guitar> %A3
+<guitar> %A4
+<guitar> %A5
+
+#A2
+<guitar> %A1
+<guitar> %A5o7
+<guitar> %A6
+<guitar> %A3
+<guitar> %A4
+<guitar> %A3
+<guitar> %A4
+
+# 加花
+<guitar> "G"6[234] %X5 | ([5.1']h2')2' *- ++ "无尾下滑"=3@6-
+
+# 副歌
+<guitar> %A1
+<guitar> %A5o7
+<guitar> %A6
+<guitar> %A3
+<guitar> %A4
+<guitar> %A3
+<guitar> %A4
+<guitar> %A5
+
+<guitar> %A1
+<guitar> %A5o7
+<guitar> %A6
+<guitar> %A3
+<guitar> %A4
+<guitar> %A3
+<guitar> %A4_5
+<guitar> %A1
 
 #include ./情非得已简谱.mc3
+
+# 反复
+<guitar> "C"[123456]^- %X5
+<melody> 0- -- -- 34
+w: 难以
+
+# 间奏
+<guitar> "G"5%p2 =(5.s6.@6)1 (2@5s3@5)2@5
+<melody> 0- -- -- --
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A56_
+<melody> 0- -- -- --
+
+<guitar> %A43_
+<melody> 0- -- -- --
+
+<guitar> %A45_
+<melody> 0- -- -- --
+
+
+
+<guitar> %A1
+<melody> 0- -- -- --
+
+<guitar> %A56_
+<melody> 0- -- -- --
+
+<guitar> %A43_
+<melody> 0- -- -- --
+
+<guitar> %A45_
+<melody> 0- -- -- --
+
+<guitar> %A6
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+<guitar> %C
+
+#include ./情非得已-桥段简谱.mc3
+
+

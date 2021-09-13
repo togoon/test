@@ -7,6 +7,11 @@ C: 童话吉他记谱
 K: C
 
 %%gchord G/B=1;X,2,0,0,3,X
+%%gchord A/#C=1;X,4,2,2,2,X
+%%gchord 　　C　　=1;X,3,2,0,1,0
+%%gchord 　G/B　=1;X,2,0,0,3,X
+%%gchord D　=2;X,X,3,1,2,1
+%%gchord 　D　=13;X,X,0,2,3,2
 
 V:guitar0 style=tab bracket=10
 V:melody1 style=jianpu 
@@ -19,7 +24,7 @@ V:melody1 style=jianpu
 |"F"fx[bxcxdx]!clap!cx"G"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
 |"C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
 |"C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
-|"C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|: "C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
 |"G/B"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
 |"Am"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
 |"Em"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
@@ -51,8 +56,8 @@ V:melody1 style=jianpu
 |"Em"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
 |"F"fx[bxcxdx]!clap!cx[bxcxdx] "G"fx[bxcxdx]!clap!cx[bxcxdx]
 |"C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
-|"C"V[ax*2bx*2cx*2dx*2ex*2fx*2] c0/2-H-c2/2b1 b3/2-S-b5/2a3 b5/2-S-b3/2b1
-|"G"ex[bxcxdx]!clap!cx[bxcxdx] f3/2-S-f5/2e3 e5/2-S-e7/2e5
+|1"C"V[ax*2bx*2cx*2dx*2ex*2fx*2] c0/2-H-c2/2b1 b3/2-S-b5/2a3 b5/2-S-b3/2b1 
+:|2"G"ex[bxcxdx]!clap!cx[bxcxdx] f3/2-S-f5/2e3 e5/2-S-e7/2e5
 |"C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
 |"G"fx[bxcxdx]!clap!cx"Am"[exbxcxdx] -[exbxcxdx][bxcxdx]!clap!cx[bxcxdx]
 |"F"fx[bxcxdx]!clap!cx"Em"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
@@ -62,40 +67,43 @@ V:melody1 style=jianpu
 |"F"fx[bxcxdx]!clap!cx"Em"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
 |"F"fx[bxcxdx]!clap!cx"G"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
 |"Am"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8
-|"C"z*8|
+|"Em"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"F"fx[bxcxdx]!clap!cx[bxcxdx] "G"fx[bxcxdx]!clap!cx[bxcxdx]
+|"C"ex[bxcxdx]!clap!cx[bxcxdx] "　　C　　"[bx*2cx*2dx*2ex*2] "G/B"[bx*2cx*2dx*2ex*2]
+|"Am"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|"Em"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"F"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"A"V[bxcxdxex]V[bxcxdxex] V[bxcxdxex]V[bxcxdxex] "　G/B　"V[bx*2cx*2dx*2ex*2] "A/#C"V[bx*2cx*2dx*2ex*2]
+|"D"dx[axbxcx]!clap!cx[axbxcx] dx[axbxcx]!clap!cx[axbxcx]
+|"A/#C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|"Bm"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|"F#m"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"F#m"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"A"ex[axbxcx]!clap!cx[axbxcx] ex[axbxcx]!clap!cx[axbxcx]
+|"D"dx[axbxcx]!clap!cx[axbxcx] dx[axbxcx]!clap!cx[axbxcx]
+|"A/#C"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|"Bm"ex[bxcxdx]!clap!cx[bxcxdx] ex[bxcxdx]!clap!cx[bxcxdx]
+|"F#m"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"F#m"fx[bxcxdx]!clap!cx[bxcxdx] fx[bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] "A"ex[axbxcx]!clap!cx[axbxcx]
+|"D"dx[axbxcx]!clap!cx[axbxcx] f0[bxcxdx] f2*2
+|"G"fx[bxcxdx]!clap!cx[bxcxdx] "A"ex[axbxcx]!clap!cx[axbxcx]
+|"D"dx[axbxcx]!clap!cx[axbxcx] dx[axbxcx] e0/2-H-e2/2d0
+|"D"dx[axbxcx]!clap!cx[axbxcx] dx[axbxcx]!clap!cx[axbxcx]
+|"A"ex[bxcxdx]!clap!cx"Bm"[exbxcxdx] -[exbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx"F#m"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx"A"[exbxcxdx] -[exbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"D"dx[axbxcx]!clap!cx[axbxcx] dx[axbxcx]!clap!cx[axbxcx]
+|"A"ex[bxcxdx]!clap!cx"Bm"[exbxcxdx] -[exbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx"F#m"[fxbxcxdx] -[fxbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"G"fx[bxcxdx]!clap!cx"A"[exbxcxdx] -[exbxcxdx][bxcxdx]!clap!cx[bxcxdx]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D　"A[ax*6bx*6cx*6dx*6] "D"V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]V[axbxcxdx]
+|"　D　"V[ax*8bx*8cx*8dx*8]|
 
 [V:melody1]
 Z8
@@ -197,8 +205,8 @@ w: *的*不 愿意 就
 w: 这样陷入爱的陷阱
 |-D4 ZC' D'E'
 w: *喔喔喔
-|-E'4 ZG C'D'
-w: *只怕我
+|-E'4 -E'G C'D'
+w: *(转~D调) 只怕我
 |E'D' D'-C' C'C' -C'G'
 w: 自己会*爱上*你
 |-G'6 E'G'
@@ -233,6 +241,17 @@ w: 你是我情非得*已
 w: *爱上
 |AC' C'A E'D' -C'C'
 w: 你是我情非得*已
-|-C'8|
+|-C'8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8|
 
   

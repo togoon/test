@@ -7,8 +7,26 @@ C: Í¯»°¼ªËû¼ÇÆ×
 K: D
 
 %%gchord Asus2=1;X,0,X,2,0,0
-%%gchord D=1;X,X,0,2,3,2
+%%gchord D=1;X,0,0,2,3,2
 %%gchord B7=2;X,1,3,1,3,1
+%%gchord Bm7=2;X,1,3,1,2,1
+%%gchord A7=1;X,0,2,0,2,0
+%%gchord A7.=1;X,0,2,0,X,0
+%%gchord A7sus4=1;X,0,2(2),0,3(4),0
+%%gchord Aadd9-=4;X,0,X,3,2,3
+%%gchord ¡¡Asus4¡¡=1;X,0,2,2,3,0
+%%gchord C=1;X,3,2,0,1,0
+%%gchord F#m7=2;1,X,1,1,1,1
+%%gchord B=2;1,1,3,3,3,1
+%%gchord Em=1;0,X,2,0,0,0
+%%gchord Em/bE=1;0,X,1,0,0,0
+%%gchord Em/D=1;X,X,0,0,0,0
+%%gchord B7sus4=2;X,1,3,1,4,1
+%%gchord B7sus2=2;1,1,X,1,1,1
+%%gchord C#dim=3;X,2,3,1,3,1
+%%gchord F#dim=3;X,X,2(1),3(3),2(2),3(4)
+%%gchord ¡¡Adim¡¡=6;X,X,2(1),X,2(2),3(4)
+%%gchord F#m7-5=3;X,X,2(1),X,3(3),3(4)
 
 V:guitar0 style=tab bracket=10
 V:melody1 style=jianpu 
@@ -20,15 +38,61 @@ V:melody1 style=jianpu
 |"D" [dxbxa3]cx bx[dxbxax] -[dxbxax]cx a0/2bx/2cx
 |"D" dxcx [bxa3]dx/2[bx/2ax/2] dxcx a0/2bx/2cx
 |"D" dxcx [bxa3]dx/2[bx/2ax/2] dxcx a0/2bx/2cx
-|"D" dxcx [bxa3]dx/2[bx/2ax/2] dx*4
-|"D"dxcx[axbx]cx dxcx[axbx]cx|"Bm"excx[axbx]cx excx[axbx]cx
-|"C"excx[axbx]cx excx[axbx]cx|"A"dxcx[axbx]cx dxcx[axbx]cx
-|"D"dxcx[axbx]cx dxcx[axbx]cx|"Bm"excx[axbx]cx excx[axbx]cx
-|"C"excx[axbx]cx excx[axbx]cx|"A"dxcx[axbx]cx dxcx[axbx]cx
-|"F#m"fxcx[axbx]cx fxcx[axbx]cx|"B7"excx[axbx]cx excx[axbx]cx
-|"Em"dxcx[bxax]cx d-11 cx[axbx]cx|"Em" d-12 cx[axbx]cx "A"fxcx[axbx]cx
-|"F#m"fxcx[axbx]cx fxcx[axbx]cx|"B7"excx[axbx]cx excx[axbx]cx
-|"Em"fxcx[axbx]cx "Asus4"[ex*2bx*2cx*2] "Edim"[ax*2bx*2cx*2dx*2]|"D"dxcx [a-9bx]cx/2[ax/2bx/2] dx*4|
+|: "D" dxcx [bxa3]dx/2[bx/2ax/2] dx*4
+|"D" [dxbxax]cx bxdx dxcx dxex
+|"Bm7" [exb2]dx bxex exdx bxex
+|"C" exdx axex exdx bxex
+|"A7sus4" [exbx]dx axex "A7" [exbx]dx axex
+|"D" [dxbxax]cx bxdx dxcx dxex
+|"Bm7" [exb2]dx bxex exdx bxex
+|"C" exdx axex exdx bxex
+|"A7sus4" [exbx]dx axex "A7" [exbx]dx/2bx/2-H- b3/2ax/2b3/2dx/2
+|"F#m7" [fxbx]dx [bxax]fx fxdx bxfx
+|"B" [exbx]dx [bxax]fx exdx [bxax]fx
+|"Em" [fxbx]dx [bxax]dx "Em/bE" dxcx [bxax]dx
+|"Em/D" dxcx [bxax]dx "A7" [exbx]dx/2bx/2-H- b3/2ax/2b3/2dx/2
+|"F#m7" [fxbx]dx [bxax]fx fxdx [bxax]fx
+|"B7" [exbx]dx "B7sus4" [exbx]dx "B7" [ex*4cx*4bx*4ax*4]
+|"Em" [fxcxbxax]dx bxdx "¡¡Asus4¡¡"[ex*2dx*2cx*2bx*2] "Aadd9-" [ex*2cx*2bx*2ax*2]
+|"D" dxcx [bxa3]dx/2[bx/2ax/2] dxcx a0/2bx/2cx 
+:|"D" dxcx [bxa3]dx/2[bx/2ax/2] dxcx a0*3/4-H-ax/8-P-a0/8bx/2cx/2
+|"Em" fxdx/2cx/2 a3bx/2dx/2 "A7." [exa2]cx axdx
+|"F#m7" fxdx [cxbxa5]bx "B7sus2" [exa3]cx [bxax]fx/2ex/2
+|"Em" fxdx [cxbxa3]bx/2dx/2 "A7." [exa2]cx axa5
+|"D"dxcx bxdx  (3[dxa3]axa0 bxcx/2bx/2
+|d0c0
+|"F#m7" fxdx [cxbxa5]bx/2cx/2 "B7sus2" [exa3]cx [bxax]fx/2ex/2
+|"Em" fxdx [cxbxa3]bx/2dx/2 "A7." [exa2]cx axc4
+|"Asus2" [excx]bx cxbx cxbx "C#dim" [ex*2dx*2cx*2ax*2]
+|"F#dim" [dxcxbxax]cx bxdx "¡¡Adim¡¡"[dxax]bx "F#m7-5" [dxax]bx
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]
+|"D"[ax*8bx*8cx*8dx*8]|
 
 [V:melody1]
 Z8

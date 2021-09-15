@@ -1,0 +1,77 @@
+%MUSE2
+T: Óö¼û
+T: ËïÑà×Ë
+M: 4/4
+L: 1/8
+Q: 1/4=80
+C: Í¯»°¼ªËû¼ÇÆ×
+K: G
+
+%%gchord G=1;3,2,0,0,0,3
+%%gchord G.=1;3,2,0,0,3,X
+%%gchord D/#F=1;2(1),0,0,2(2),3(4),X
+%%gchord Em7=1;0,2,0,0,0,0
+%%gchord Am7=1;X,0,2,0,1,0
+%%gchord Em/D=1;X,X,0,0,0,0
+%%gchord C=1;X,3,2,0,1,0
+%%gchord G/B=1;X,2,0,0,3,X
+%%gchord Cadd9=1;X,3,0,0,3,0
+
+V:guitar0 style=tab bracket=10
+V:melody1 style=jianpu 
+
+[V:guitar0]
+z*6 b3b0
+|"G."fxdx bx"D/#F"cx fxdx bxc0
+|"Em7"fx*4 zex dxcx
+|"Cadd9"exdx bxcx "G/B" exdx cxbx
+|"Am7" exdx cxbx/2-H-b3/2 "Em/D" [dxbx]cx [dxb1]cx
+|"G." [fxcxb0]dx [cxbx]dx "D/#F" [fxbxa0]dx [bxa2]dx
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8
+|z*8|
+
+[V:melody1]
+Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8
+w: 
+|Z8|
+w:
+
+  

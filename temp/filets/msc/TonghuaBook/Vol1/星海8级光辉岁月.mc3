@@ -1,0 +1,88 @@
+title : [光辉岁月, Beyond]
+artist : 童话吉他记谱
+timeSign : 4/4
+beat : 1/8
+info: 原调1=E，男生可夹变调夹
+key : C
+tempo : 1/4=80
+tracks : 
+  - name: guitar
+    format: tab
+    capo: 4
+  - name: melody
+    format: jianpu
+    instrument: flute
+    volume: 16
+customChords : 
+patterns : 
+  T: '0- -- -- --'
+=================
+
+<melody> {translate: 12, env: gp5}
+<melody> {translate: 0, env: jcx}
+<melody> {key: E}
+
+<guitar> {key: E}
+<guitar> {translate: -4}
+
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+<guitar> %T
+
+#include ./光辉岁月简谱.mc3
+
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --
+<melody> 0- -- -- --

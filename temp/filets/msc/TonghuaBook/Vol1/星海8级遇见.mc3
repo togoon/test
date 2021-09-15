@@ -29,7 +29,7 @@ patterns :
   T: '0- -- -- --'
 =================
 
-<melody> {translate: 12, env: gp5}
+<melody> {translate: 24, env: gp5}
 <melody> {translate: 0, env: jcx}
 
 <guitar> {translate: -1}

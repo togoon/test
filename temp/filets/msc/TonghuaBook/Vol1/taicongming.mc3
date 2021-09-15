@@ -81,6 +81,7 @@ patterns :
 =================
 <guitar> {key: E}
 <melody> {key: E}
+
 <melody> {translate: 12, env: gp5}
 <melody> {translate: 0, env: jcx}
 

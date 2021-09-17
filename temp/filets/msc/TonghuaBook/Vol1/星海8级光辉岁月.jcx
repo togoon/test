@@ -30,7 +30,7 @@ z*4 zb0 b1b3
 |"Am" [exbx]b0 c0dx/2d0/2 "Em" [fxdx]ex bxcx
 |"F" fxc0 c0/2-H-cx/2dx "G." [fxdxcxbx]fx/2e0/2-H- e3/2dx/2-H-d2/2cx/2
 |"C" [ex*4dx*4cx*4bx*4] "G" [fx*4cx*4bx*4ax*4]
-|"C" excx [bxax]cx "G" fxcx [bxax]e3/2ex/2
+|: "C" excx [bxax]cx "G" fxcx [bxax]e3/2ex/2
 |"Am" excx [bxax]cx "Em" fxcx [bxax]cx
 |"F" fxcx [bxax]cx "G" fxcx [bxax]cx
 |"C" excx [bxax]cx "G" fx[cxbx] e0ex
@@ -49,14 +49,14 @@ z*4 zb0 b1b3
 |"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
 |"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
 |"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
-|"C" [exax]cx a1/2ax/2ax/2b3/2 "G." [fxb3]dx cxb1/2bx/2
+|1"C" [exax]cx a1/2ax/2ax/2b3/2 "G." [fxb3]dx cxb1/2bx/2
 |"Am" [excx]dx cxdx/2e5/2 "Em" [fxdx]ex bxcx
 |"F" fxc0 c0/2-H-cx/2dx "G" fxb1/2-P-bx/2 b1bx
-|"C" [exbx]cx -cx/2dx/2cx/2bx/2 "G" [fx*4cx*4bx*4ax*4]
-|"C" [ex/2dx/2cx/2bx/2ax/2][cx/2bx/2ax/2][cx/2bx/2a1/2][cx/2bx/2a3/2] -[cx/2bx/2a3/2][cx/2bx/2a1/2][cxbxax] "G" [fx/2ex/2dx/2cx/2bx/2][dx/2cx/2bx/2][dx/2cx/2b1/2][dx/2cx/2b3/2] -[dx/2cx/2b3/2][dx/2cx/2b1/2][dxcxbx]
-|"Am" [ex/2dx/2cx/2][ex/2dx/2cx/2][dx/2cx/2b0/2][dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2b0/2][exdxcx] "Em" [fx/2ex/2dx/2cx/2bx/2][dx/2cx/2bx/2][dx/2cx/2b1/2][dx/2cx/2b3/2] -[dx/2cx/2b3/2][dx/2cx/2b1/2][dxcxbx]
-|"F" [fx/2ex/2dx/2cx/2bx/2][dx/2cx/2bx/2]b3/2a0/2 -a0/2b3/2[dxcxbx] "G" [fx/2ex/2dx/2cx/2][ex/2dx/2cx/2][ex/2dx/2c2/2][dx/2cx/2bx/2] -[dx/2cx/2bx/2][ex/2dx/2c2/2][exdxcx]
-|"C" [ex/2dx/2cx/2bx/2][dx/2cx/2b3/2]-[dx/2cx/2b3/2][cx/2bx/2a3/2] -[cx/2bx/2a3/2][cx/2bx/2a3/2][cx/2bx/2a3/2][cx/2bx/2a3/2] "G" [fxexdxcxbxax][dx/2cx/2bx/2ax/2][dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2]b1bx/2
+|"C" [exbx]cx -cx/2dx/2cx/2bx/2 "G" [fx*4cx*4bx*4ax*4] 
+:|2"C" V[ex/2dx/2cx/2bx/2ax/2]U[cx/2bx/2ax/2][cx/2bx/2a1/2][cx/2bx/2a3/2] -[cx/2bx/2a3/2][cx/2bx/2a1/2]V[cxbxax] "G" V[fx/2ex/2dx/2cx/2bx/2]U[dx/2cx/2bx/2][dx/2cx/2b1/2][dx/2cx/2b3/2] -[dx/2cx/2b3/2][dx/2cx/2b1/2]V[dxcxbx]
+|"Am" V[ex/2dx/2cx/2]U[ex/2dx/2cx/2][dx/2cx/2b0/2][dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2b0/2]V[exdxcx] "Em" V[fx/2ex/2dx/2cx/2bx/2]U[dx/2cx/2bx/2][dx/2cx/2b1/2][dx/2cx/2b3/2] -[dx/2cx/2b3/2][dx/2cx/2b1/2]V[dxcxbx]
+|"F" V[fx/2ex/2dx/2cx/2bx/2]U[dx/2cx/2bx/2]b3/2a0/2 -a0/2b3/2V[dxcxbx] "G" V[fx/2ex/2dx/2cx/2]U[ex/2dx/2cx/2][ex/2dx/2c2/2]U[dx/2cx/2bx/2] -U[dx/2cx/2bx/2][ex/2dx/2c2/2]V[exdxcx]
+|"C" V[ex/2dx/2cx/2bx/2][dx/2cx/2b3/2]-[dx/2cx/2b3/2][cx/2bx/2a3/2] -[cx/2bx/2a3/2][cx/2bx/2a3/2][cx/2bx/2a3/2][cx/2bx/2a3/2] "G" V[fxexdxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] -U[dx/2cx/2bx/2ax/2]b1bx/2
 |"C" [exbx]dx cxb0/2bx/2 "G" [fxb3]b1 bx/2b1c2/2
 |"Am" exdx cxdx/2d0/2 "Em" [fxdx]ax dxcx
 |"F." fxax/2a0/2 axa3/2ax/2 "G." [fxax]b3 dxax
@@ -65,13 +65,25 @@ z*4 zb0 b1b3
 |"Am" exbx/2b0/2 bxb0 "Em." [fx/2b1/2-S-]b8/2cx bxcx
 |"F." fxa0/2ax/2 -ax/2a3ax/2 "G." [fx/2ax/2-H-]a1/4-P-ax/4b3 dxax
 |"C" [exax]cx bxcx "G." [fxcxbxax]cx e0e2
-|z*8
-|z*8
-|z*8
-|z*8
-|z*8
-|z*8
-|z*8|
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"Am" V[ex*2dx*2cx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "Em" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"F" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2] "G" V[fx*2ex*2dx*2] V[dxcxbxax]V[dx/2cx/2bx/2ax/2]U[dx/2cx/2bx/2ax/2]
+|"C" B[ex*8dx*8cx*8bx*8ax*8]|
 
 [V:melody1]
 Z8
@@ -83,49 +95,58 @@ Z8
 |Z8
 |Z8
 |Z8
-|Z2 B/2B/2B/2B/2 BB/2B/2 -BA
+|Z2 G/2G/2G/2G/2 GG/2G/2 -GF
 w: 钟声响起归家的 *讯
-|^G4 Z^F/2^G/2 ^G/2^DE/2
+w: 可否不分肤色的 *界
+|E4 ZD/2E/2 E/2B,C/2
 w: 号 在他生命里
-|-E4 Z^F/2^F/2 E/2^F^G/2
+w: 限 愿这土地里
+|-C4 ZD/2D/2 C/2DE/2
 w: * 仿佛带点唏
-|-^G3-A/2-^G/2 ^F4
+w: * 不分你我高
+|-E3-F/2-E/2 D4
 w: ***嘘
-|Z2 B/2B/2B/2B/2 BB/2B/2 -BA
+w: ***低
+|Z2 G/2G/2G/2G/2 GG/2G/2 -GF
 w: 黑色肌肤给他的*意
-|^G4 Z^F/2^G/2 ^G/2^DE/2
+w: 缤纷色彩闪出的*美
+|E4 ZD/2E/2 E/2B,C/2
 w: 义 是一生奉献
-|-E4 Z^F/2^F/2 E/2^F^G/2
+w: 丽 是因它没有
+|-C4 ZD/2D/2 C/2DE/2
 w: *肤色斗争中
-|-^G3-A/2-^G/2 -^F4
+w: *分开每种色
+|-E3-F/2-E/2 -D4
 w: ***嗯
-|Z2 ^C'3/4^D'3/4E'/2 ^D'B B^G
+w: ***彩
+|Z2 A3/4B3/4C'/2 BG GE
 w: 年月把拥有变做
-|^C'2 -^C'3/2-B/2 B4
+|A2 -A3/2-G/2 G4
 w: 失***去
-|Z2 ^C'3/4^D'3/4E'/2 ^D'B B^G
+|Z2 A3/4B3/4C'/2 BG GE
 w: 疲倦的双眼带着
-|^C'4 ^D'4
+|A4 B4
 w: 期望
-|Z2 ^G'/2^G'/2^G'/2E'/2 ^F'^F'/2A'/2 -A'^G'
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
 w: 今天只有残留的*躯
-|E'3^C'/2E'/2 ^G'^F' E'/2-^D'^C'/2
+|C'3A/2C'/2 E'D' C'/2-BA/2
 w: 壳 迎接光辉岁*月
-|-^C'2 Z^C' B^C'/2B/2 -B^C'
+|-A2 ZA GA/2G/2 -GA
 w: *风雨中抱*紧
-|^G3-A/2-^G/2 ^F4
+|E3-F/2-E/2 D4
 w: 自**由
-|Z2 ^G'/2^G'/2^G'/2E'/2 ^F'^F'/2A'/2 -A'^G'
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
 w: 一生经过彷徨的*挣
-|E'3^C'/2E'/2 ^G'^F' E'/2-^D'^C'/2
+|C'3A/2C'/2 E'D' C'/2-BA/2
 w: 扎 自信可改变未来
-|-^C'2 Z^C' B^C'/2B/2 -B^C'
+|-A2 ZA GA/2G/2 -GA
 w: *问谁又能*做
-|E'8
+|C'8
 w: 到
 |Z8
 |Z8
 |Z8
+|C'8
 |Z8
 |Z8
 |Z8
@@ -137,17 +158,42 @@ w: 到
 |Z8
 |Z8
 |Z8
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
+w: 今天只有残留的*躯
+|C'3A/2C'/2 E'D' C'/2-BA/2
+w: 壳 迎接光辉岁*月
+|-A2 ZA GA/2G/2 -GA
+w: *风雨中抱*紧
+|E3-F/2-E/2 D4
+w: 自**由
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
+w: 一生经过彷徨的*挣
+|C'3A/2C'/2 E'D' C'/2-BA/2
+w: 扎 自信可改变未来
+|-A2 ZA GA/2G/2 -GA
+w: *问谁又能*做
+|C'6 E'3/2-D'/2
+w: 到 喔
+|D'/2-C'/2-C' -C'6
+w: 喔
 |Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8
-|Z8|
+|G'8
+w: 呵
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
+w: 今天只有残留的*躯
+|C'3A/2C'/2 E'D' C'/2-BA/2
+w: 壳 迎接光辉岁*月
+|-A2 ZA GA/2G/2 -GA
+w: *风雨中抱*紧
+|E3-F/2-E/2 D4
+w: 自**由
+|Z2 E'/2E'/2E'/2C'/2 D'D'/2F'/2 -F'E'
+w: 一生经过彷徨的*挣
+|C'3A/2C'/2 E'D' C'/2-BA/2
+w: 扎 自信可改变未来
+|-A2 ZA GA/2G/2 -GA
+w: *问谁又能*做
+|C'8|
+w: 到
 
   

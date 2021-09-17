@@ -59,7 +59,23 @@ V:melody1 style=jianpu
 |"Cadd9" [exdxcxbx]z/2[ex/2dx/2cx/2bx/2] -[ex/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[ex/2dx/2cx/2bx/2] -[ex/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[ex/2dx/2cx/2bx/2] [dx/2cx/2bx/2][cx/2bx/2ax/2][cx/2bx/2ax/2][dx/2cx/2b0/2] 
 |"Am" [exdxcxb0]z/2[ex/2dx/2cx/2b0/2] -[ex/2dx/2cx/2b0/2][ex/2dx/2cx/2bx/2]z/2[ex/2cx/2bx/2ax/2] -[ex/2cx/2bx/2ax/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[ex/2dx/2cx/2bx/2] 
 |"Dm7" [dx/2cx/2bx/2a0/2][cx/2bx/2a0/2]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2]z/2[cx/2bx/2] [dx/2cx/2bx/2a0/2][cx/2bx/2a0/2]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2]z/2[cx/2bx/2] 
-|"G" [fxdxcxb1]z/2[fx/2dx/2cx/2b1/2] -[fx/2dx/2cx/2b1/2][dx/2cx/2b1/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[cx/2dx/2cx/2bx/2] -[cx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2]|
+|"G" [fxdxcxb1]z/2[fx/2dx/2cx/2b1/2] -[fx/2dx/2cx/2b1/2][dx/2cx/2b1/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2]
+|"Gm/bB" [excxbxax]z/2[ex/2cx/2bx/2ax/2] -[excxbxax]z/2[cx/2bx/2] [excxbxax]z/2[ex/2cx/2bx/2ax/2] -[excxbxax]z/2[cx/2bx/2] 
+|"A7" [exdxcxbx]z/2[ex/2dx/2cx/2bx/2] -[exdxcxbx]z/2[dx/2cx/2bx/2] [exdxcxb4]z/2[ex/2dx/2cx/2bx/2] -[exdxcxbx]z/2[dx/2cx/2] 
+|"Dm7" [dxcxbxa0]z/2[dx/2cx/2bx/2a0/2] -[dxcxbxa0]z/2[cx/2bx/2] z/2[cx/2bx/2a0/2]z/2[dx/2cx/2bx/2a0/2] -[dxcxbxa0]z/2[cx/2bx/2] 
+|"G" [fxdxcxb1]z/2[fx/2dx/2cx/2b1/2] -[fxdxcxb1]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z
+|"Gm/bB" [excxbxax]z/2[ex/2cx/2bx/2ax/2] -[excxbxax]z [excxbxax]z/2[ex/2cx/2bx/2ax/2] -[excxbxax]z 
+|"A7" [exdxcxbx]z/2[ex/2dx/2cx/2bx/2] -[ex*2dx*2cx*2bx*2] [ex/2b3/2]dx/2cx/2b3/2 [ex*2bx*2] 
+|"Dm7" [dx*8cx*8bx*8a0*8]
+|"Gsus4" [fx*8dx*8cx*8bx*8]
+|"Cadd9" [exdxcxbx]z/2[ex/2dx/2cx/2bx/2] -[exdxcxbx]z/2[dx/2cx/2] [exdxcxbx]z/2[ex/2dx/2cx/2bx/2] -[ex/2dx/2cx/2bx/2][cx/2bx/2ax/2]z 
+|"Am" [exdxcxb0]z/2[ex/2dx/2cx/2b0/2] -[ex/2dx/2cx/2b0/2][ex/2dx/2cx/2bx/2]z/2[ex/2cx/2bx/2ax/2] -[ex/2cx/2bx/2ax/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[ex/2dx/2cx/2bx/2] 
+|"Dm7" [dxcxbxa0]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2ax/2]z/2[cx/2bx/2a0/2] [dx/2cx/2bx/2a0/2][dx/2cx/2bx/2a0/2]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2]z/2[cx/2bx/2] 
+|"G" [fxdxcxb1]z/2[fx/2dx/2cx/2b1/2] z/2[dx/2cx/2b1/2]z/2[dx/2cx/2b1/2] [fx/2dx/2cx/2bx/2][fx/2dx/2cx/2bx/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2]z/2[dx/2cx/2]
+|"Cadd9" [exdxcxbx]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][cx/2bx/2ax/2]z/2[dx/2cx/2] 
+|"Am" [exdxcxb0]z/2[ex/2dx/2cx/2b0/2] -[ex/2dx/2cx/2b0/2][ex/2dx/2cx/2bx/2]z/2[ex/2cx/2bx/2ax/2] -[ex/2cx/2bx/2ax/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2] -[dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[ex/2dx/2cx/2bx/2] 
+|"Dm7" [dx/2cx/2bx/2a0/2][cx/2bx/2a0/2]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2]z/2[cx/2bx/2] [dx/2cx/2bx/2a0/2][cx/2bx/2a0/2]z/2[dx/2cx/2bx/2ax/2] -[dx/2cx/2bx/2ax/2][cx/2bx/2]z/2[cx/2bx/2] 
+|"G" [fxdxcxb1]z/2[fx/2dx/2cx/2b1/2] -[fx/2dx/2cx/2b1/2][dx/2cx/2b1/2]z/2[fx/2dx/2cx/2b1/2] [fx/2dx/2cx/2bx/2][fx/2dx/2cx/2bx/2]z/2[fx/2dx/2cx/2bx/2] -[fx/2dx/2cx/2bx/2][dx/2cx/2bx/2]z/2[dx/2cx/2bx/2]|
 
 [V:melody1]
 Z4 D3/2B,/2 -B,/2C3/2
@@ -139,7 +155,38 @@ w: *Îª
 w: Äã*** Îª
 |E-F/2-F/2 -F4 A,C
 w: Äã*** wo wu
-|E/2-D3/2 -D4 Z/2E-F/2|
+|E/2-D3/2 -D4 Z/2E-F/2
 w: ho** oh
+|G2 -G/2EF/2 G3G
+w: love--'s~in the air   it's 
+|_B3A E4
+w: e-very-where
+|E/2E/2E/2E/2 -E/2DE/2 -E4
+w: E-ve-ry-one *can see 
+|E/2E/2E/2E/2 -E/2EE/2 -E/2D3/2 -D/2E-F/2
+w: E-ve-ry-one *can fe--el *That 
+|G2 -G/2EF/2 G2 -GZ/2E/2
+w: love--'s~in the air  *it 
+|E^C/2^C/2 -^C/2DE/2 -E4
+w: do-esn't mat--ter where
+|EC/2C/2 -C/2A,C/2 -C4
+w: E-very-one *a-grees 
+|EC/2C/2 -C/2DD/2 -D4
+w: lo-ve~is all *we need
+|D4 DB,/2B,/2 -B,/2C3/2
+w: hu wa yi ya *ah
+|-C4 Z4
+|A,3/4B,3/4C/2 C4 ZZ/2A,/2
+w: da la la la *ho
+|G,8
+w: wu
+|GF/2E/2 -E/2FG/2 -G/2FE/2 -E3/2E,/2
+w: When the moon *falls in *your eyes *I 
+|B,A,/2B,/2 -B,/2CE/2 -E2 -E3/2A,/2
+w: know the sun *has set **The 
+|A-F/2E/2 -E/2DD/2 -D/2EF/2 -F2
+w: fire* still *burns with--in me 
+|CB,/2C/2 -C/2DD/2 -D2 Z/2E/2E/2E/2|
+w: since the day *we met *I know my
 
   

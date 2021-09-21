@@ -1,0 +1,63 @@
+[XiaoChengXu] 小程序
+	小程序开发指南 <url:https://developers.weixin.qq.com/ebook?action=get_post_info&docid=0008aeea9a8978ab0086a685851c0a>
+	app.json 
+		文档1 <url:https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html>
+		文档2 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE>
+		示例 <url:./filets/mini_program/app.json.js>
+	WXML
+		.<text>aa</text>
+		.<view>aa</view>
+		直接展示头像 <open-data type="userAvatarUrl"></open-data>
+		直接展示昵称 <open-data type="userNickName"></open-data>
+	WXSS		
+		引用其他样式: @import "../../app.wxss";
+	wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
+	wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
+		默认GET方法，数据类型为json
+	wx.showShareMenu 转发 <url:https://developers.weixin.qq.com/miniprogram/dev/api/share/wx.showShareMenu.html>
+		[私密消息]
+	数据监听器 observer <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html>
+	表单 form
+		表单提交使用 e.detail.value 取得表单的值
+		选择器（小程序不使用select） <url:https://developers.weixin.qq.com/miniprogram/dev/component/picker.html>
+	跳转
+		wx.navigateTo
+		wx.redirectTo 直接替换当前页面
+	自定义组件
+		基础文档 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html>
+			组件的接合方法，这里的<slot>组件非常好用 <url:https://developers.weixin.qq.com/s/1udXLnmi6KY2>
+			数据传递，很直观 <url:https://developers.weixin.qq.com/s/8ZhcXBme7djX>
+			组件通信与事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html>
+				与react类似，基本示例 <url:https://developers.weixin.qq.com/s/DFfYSKmI6vZD>
+				组件嵌套，事件冒泡层级示例 <url:https://developers.weixin.qq.com/s/UGfljKm66zZ1>
+				与react组件嵌套的区别：
+					react嵌套组件的事件行为完全由用户自定义，而小程序默认会按照代码展现出来的形态来呈现行为，比如这个代码 <A><B p='a' /></A>
+						在react里，A组件里的B组件是否会被渲染，取决于A组件的实现逻辑，而在小程序中，B组件则会按我们所看到的形式渲染出来
+			抽象节点: 类似于React里的将组件作为参数 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/generics.html>
+		官方好像不再推荐 template 的方法，这是网友的介绍 <url:https://www.cnblogs.com/bushui/p/11553366.html>
+	地图插件 <url:https://developers.weixin.qq.com/miniprogram/dev/component/map.html>
+		地址选择器（地图选点，地图上选地址） <url:https://lbs.qq.com/miniProgram/plugin/pluginGuide/locationPicker>
+			返回的格式如下：
+			address: "广东省深圳市龙华区"
+			city: "深圳市"
+			district: "龙华区"
+			latitude: 22.714714
+			longitude: 114.065689
+			name: "大布头村66栋"
+			province: "广东省"
+		城市选择器 <url:https://lbs.qq.com/miniProgram/plugin/pluginGuide/citySelector>
+			进入城市选择器
+				const key = 'DSEBZ-D7AL4-WFYUZ-XDNGX-D5INK-OAB2X'; //使用在腾讯位置服务申请的key
+				const referer = '店铺管理'; //调用插件的app的名称
+				const hotCitys = ''; // 用户自定义的的热门城市
+				wx.navigateTo({
+					url: `plugin://citySelector/index?key=${key}&referer=${referer}&hotCitys=${hotCitys}`,
+				})
+			onShow
+				const citySelector = requirePlugin('citySelector');
+				const selectedCity = citySelector.getCity();
+				console.log('selectedCity', selectedCity)
+	官方有一个 computed 库，可以了解一下 <url:https://github.com/wechat-miniprogram/computed>
+	官方还出了一个weui组件库
+	auth.code2Session 在服务端调用，获取用户的相关id <url:https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html>
+	令小程序的请求带cookie <url:https://www.cnblogs.com/jerryqi/p/9717925.html>

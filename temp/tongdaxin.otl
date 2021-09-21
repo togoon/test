@@ -1,0 +1,16 @@
+[tongdaxin] 通达信
+	序列行情函数
+		O，Open 开盘价，C, Close 收盘价，H, High 最高价 L, Low 最低价 V, Vol 成交量（手）
+	引用函数
+		REF
+			REF(Close,5) 表示 5 天前的收盘；
+			REF(Vol,10) 表示 10 天前的成交量；
+		LLV 最低值
+			LLV(X,N) 求 N 周期内 X 最低值， N=0 则从第一个有效值开始。
+			LLV(LOW,0) 表示求历史最低价
+		BARSCOUNT 有效数据周期数，即第一个数据到当天的天数，也就是总天数。但是否包括当天，得研究一下
+			但是这个数据会变啊，怎么办？
+			一般用 BARSCOUNT(CLOSE) 来统计某个股票的总k线数
+	注释：写在{ }里面
+	文档 <url:https://www.tdx.com.cn/products/helpfile/tdxw/index.html>
+	红宝书下载地址 <url:https://help.tdx.com.cn/book.asp>

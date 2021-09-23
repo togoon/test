@@ -14,7 +14,7 @@ V:melody1 style=jianpu
 "C"excx c0/2-H-c2/2bx b3ax bxax|"Dm"[dxbx]cxbxcxaxcx[bxex]cx
 |"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1b1cx|"Am"[ex/2/2c0/2]-H-c2/2dx cxbxaxbxcxdx
 |"Am"exc0 c0/2-H-c2/2bx b3ax a3ax|"Dm"[dxbx]cxbxcxaxcx[bxex]cx
-|"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1 c0/2-H-c2/2bx|"C"[exbx]cxbxcxaxcxbxcx
+|"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1 c0/2-H-c2/2b1|"C"[exbx]cxbxcxaxcxbxcx
 |: "C"excxbxcxaxcxbxcx
 |"C"excxbxcxaxcxbxcx|"Dm"dxcxbxcxaxcxbxcx
 |"Dm"dxcxbxcxaxcxbxcx|"Am"excxbxcxaxcxbxcx
@@ -27,7 +27,7 @@ V:melody1 style=jianpu
 :|"C"excx c0/2-H-c2/2bx b3ax bxax|"Dm"[dxbx]cxbxcxaxcx[bxex]cx
 |"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1b1cx|"Am"[ex/2/2c0/2]-H-c2/2dx cxbxaxbxcxdx
 |"Am"exc0 c0/2-H-c2/2bx b3ax a3ax|"Dm"[dxbx]cxbxcxaxcx[bxex]cx
-|"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1 c0/2-H-c2/2bx|"C"[exbx]cxbxcxaxcxbxcx
+|"Dm"dx[cxbx][cxbx][cxbx] [cxbx]b1 c0/2-H-c2/2b1|"C"[exbx]cxbxcxaxcxbxcx
 |"C"B[ax*8bx*8cx*8dx*8ex*8]|
 
 [V:melody1]

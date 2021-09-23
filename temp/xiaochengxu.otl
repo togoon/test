@@ -1,5 +1,6 @@
 [XiaoChengXu] 小程序
-	小程序开发指南 <url:https://developers.weixin.qq.com/ebook?action=get_post_info&docid=0008aeea9a8978ab0086a685851c0a>
+	微信公众平台 <url:https://mp.weixin.qq.com/>
+	微信开放社区 <url:https://developers.weixin.qq.com/community/homepage>
 	app.json 
 		文档1 <url:https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html>
 		文档2 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE>
@@ -11,17 +12,23 @@
 		直接展示昵称 <open-data type="userNickName"></open-data>
 	WXSS		
 		引用其他样式: @import "../../app.wxss";
-	wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
-	wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
-		默认GET方法，数据类型为json
-	wx.showShareMenu 转发 <url:https://developers.weixin.qq.com/miniprogram/dev/api/share/wx.showShareMenu.html>
-		[私密消息]
+	弹确认框 wx.showModal <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html>
+	基础事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html>
+	组件
+		tabbar 官方的tabbar并没有设置成组件，而是在app.json里指定，然后通过wx.api来控制一些行为
+	Api
+		wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
+		wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
+			默认GET方法，数据类型为json
+		wx.showShareMenu 转发 <url:https://developers.weixin.qq.com/miniprogram/dev/api/share/wx.showShareMenu.html>
+			[私密消息]
+		wx.setTabBarItem 设置tabbar的信息
 	数据监听器 observer <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html>
 	表单 form
 		表单提交使用 e.detail.value 取得表单的值
 		选择器（小程序不使用select） <url:https://developers.weixin.qq.com/miniprogram/dev/component/picker.html>
 	跳转
-		wx.navigateTo
+		wx.navigateTo <url:https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateTo.html>
 		wx.redirectTo 直接替换当前页面
 	自定义组件
 		基础文档 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html>
@@ -58,6 +65,10 @@
 				const selectedCity = citySelector.getCity();
 				console.log('selectedCity', selectedCity)
 	官方有一个 computed 库，可以了解一下 <url:https://github.com/wechat-miniprogram/computed>
-	官方还出了一个weui组件库
+	weui 官方组件库 <url:https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/extended/weui/>
+		通过扩展库的方式引入 <url:https://blog.csdn.net/lw001x/article/details/106437947>
+			另一个介绍 <url:https://blog.csdn.net/l_jd_gululu/article/details/108228311>
+		tabbar <url:https://wechat-miniprogram.github.io/weui/docs/tabbar.html>
+			但官方有一个自定义tabbar的文档，不知道是干什么用的
 	auth.code2Session 在服务端调用，获取用户的相关id <url:https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html>
 	令小程序的请求带cookie <url:https://www.cnblogs.com/jerryqi/p/9717925.html>

@@ -1,0 +1,21 @@
+[Python]
+	基础语法（以js的视角看待）
+		list列表（类似js里的数组），如:
+			journey = ['唐僧']
+			journey.append('孙悟空')
+			如果列表是只读的话，可以用 ( )来括起来，习惯称为元组tuple
+			+ 运算可以连接list
+	学习资料分享 <url:https://www.zhihu.com/question/309426015/answers/updated>
+	变量直接使用，有作用域
+	类
+		可以重载各种运算符
+	[libs] python
+		baostock
+			query_history_k_data()
+				返回类似mysql结果集api形式
+		numpy
+			曾经看过的一个视频，思路表达还比较清晰 <url:https://www.youtube.com/watch?v=8Mpc9ukltVA>
+			arange(1, 10, 2) 生成数列
+			数列可以直接 * 2
+		talib
+			MA 等函数需要显式指定float类型，并不会自动转换

@@ -1,4 +1,12 @@
 [tongdaxin] 通达信
+	公式体系 有两种：
+		技术指标
+			计算出一系列的值（这个值每个周期，比如每天都会得到一个），然后绘制出曲线
+			即可有多个输出（每个输出对应一个指标）
+		条件选股
+			只能有一个输出
+			且该输出是一个条件判断
+			这样执行时可以选出符合该条件的股
 	序列行情函数
 		O，Open 开盘价，C, Close 收盘价，H, High 最高价 L, Low 最低价 V, Vol 成交量（手）
 	引用函数
@@ -11,6 +19,22 @@
 		BARSCOUNT 有效数据周期数，即第一个数据到当天的天数，也就是总天数。但是否包括当天，得研究一下
 			但是这个数据会变啊，怎么办？
 			一般用 BARSCOUNT(CLOSE) 来统计某个股票的总k线数
+	逻辑函数
+		CROSS 上穿
+			两条线交叉.
+			用法:
+			CROSS(A,B)表示当A从下方向上穿过B时返回1,否则返回0
+			例如:
+			CROSS(MA(CLOSE,5),MA(CLOSE,10))表示5日均线与10日均线交金叉
+		NDAY 连大
+			NDAY(CLOSE,OPEN,3) 表示连续3日收阳线
+		UPNDAY 连涨
+			UPNDAY(CLOSE,M)
+		DOWNNDAY 连跌
+			DOWNNDAY(CLOSE,M)
 	注释：写在{ }里面
 	文档 <url:https://www.tdx.com.cn/products/helpfile/tdxw/index.html>
 	红宝书下载地址 <url:https://help.tdx.com.cn/book.asp>
+	资源
+		多头排列公式参考 <url:https://zhidao.baidu.com/question/322572317.html>
+		 2 <url:http://www.aichagu.com/gongshi/25126>

@@ -18,11 +18,20 @@
 		tabbar 官方的tabbar并没有设置成组件，而是在app.json里指定，然后通过wx.api来控制一些行为
 	Api
 		wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
-		wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
-			默认GET方法，数据类型为json
 		wx.showShareMenu 转发 <url:https://developers.weixin.qq.com/miniprogram/dev/api/share/wx.showShareMenu.html>
 			[私密消息]
-		wx.setTabBarItem 设置tabbar的信息
+		网络
+			普通请求 wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
+				默认GET方法，数据类型为json
+			上传 wx.uploadFile <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html>
+		媒体
+			选择图片（比如用来上传）wx.chooseImage <url:https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseImage.html>
+			选择文件（选择图片的扩展版）wx.chooseMessageFile <url:https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseMessageFile.html>
+				选择图片无法获取文件名，而选择文件则可以
+		界面
+			设置tabbar的信息 wx.setTabBarItem <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/tab-bar/wx.setTabBarItem.html>
+		设备
+			拨打电话 wx.makePhoneCall <url:https://developers.weixin.qq.com/miniprogram/dev/api/device/phone/wx.makePhoneCall.html>
 	数据监听器 observer <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html>
 	表单 form
 		表单提交使用 e.detail.value 取得表单的值

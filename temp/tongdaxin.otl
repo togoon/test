@@ -16,6 +16,9 @@
 		LLV 最低值
 			LLV(X,N) 求 N 周期内 X 最低值， N=0 则从第一个有效值开始。
 			LLV(LOW,0) 表示求历史最低价
+		MA 简单平均，即俗称的均线
+		SMA 移动平均 SMA(X,N,M):X的N日移动平均,M为权重,如Y=(X*M+Y'*(N-M))/N
+		EMA 指数移动平均 EMA(X,N)相当于SMA(X,N+1,2)
 		BARSCOUNT 有效数据周期数，即第一个数据到当天的天数，也就是总天数。但是否包括当天，得研究一下
 			但是这个数据会变啊，怎么办？
 			一般用 BARSCOUNT(CLOSE) 来统计某个股票的总k线数
@@ -38,3 +41,10 @@
 	资源
 		多头排列公式参考 <url:https://zhidao.baidu.com/question/322572317.html>
 		 2 <url:http://www.aichagu.com/gongshi/25126>
+		网上一个什么机构进场的公式？ <url:https://zhidao.baidu.com/question/1390858088120658260>
+		这个网友自称专门进行指标编写 <url:https://zhidao.baidu.com/usercenter?uid=5eb34069236f25705e799800&role=pgc>
+龙战于野
+	回踩什么意思，如何写公式？
+	如何用公式标出我想要的形状
+	p87 突破所有均线，怎么看起来没有突破60天均线？ 
+	p91 说没有形成多头排列之前，没有必要看?

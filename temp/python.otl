@@ -1,5 +1,13 @@
 [Python]
 	基础语法（以js的视角看待）
+		标准输入 input()
+			a = input('请输入xxx:') 返回字符串
+		字符串格式化 
+			print('今天是星期{}，气温 {} 度。'.format('五', 9))
+			print('{name}今年 {age} 岁。'.format(name='知枫', age=21))
+		for循环
+			for i in fruits:
+				print('我喜欢吃：' + i)
 		list列表（类似js里的数组），如:
 			journey = ['唐僧']
 			journey.append('孙悟空')

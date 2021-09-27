@@ -13,8 +13,12 @@
 	WXSS		
 		引用其他样式: @import "../../app.wxss";
 	弹确认框 wx.showModal <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html>
-	基础事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html>
+	[event] 基础事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html>
+		tap
+		longpress
 	组件
+		button <url:https://developers.weixin.qq.com/miniprogram/dev/component/button.html>
+		checkbox <url:https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html>
 		tabbar 官方的tabbar并没有设置成组件，而是在app.json里指定，然后通过wx.api来控制一些行为
 	Api
 		wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
@@ -30,6 +34,8 @@
 				选择图片无法获取文件名，而选择文件则可以
 		界面
 			设置tabbar的信息 wx.setTabBarItem <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/tab-bar/wx.setTabBarItem.html>
+			设置操作菜单 wx.showActionSheet <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showActionSheet.html>
+				类似PC上的右键菜单，关联菜单，上下文菜单
 		设备
 			拨打电话 wx.makePhoneCall <url:https://developers.weixin.qq.com/miniprogram/dev/api/device/phone/wx.makePhoneCall.html>
 	数据监听器 observer <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html>
@@ -39,7 +45,7 @@
 	跳转
 		wx.navigateTo <url:https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateTo.html>
 		wx.redirectTo 直接替换当前页面
-	自定义组件
+	自定义组件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/>
 		基础文档 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html>
 			组件的接合方法，这里的<slot>组件非常好用 <url:https://developers.weixin.qq.com/s/1udXLnmi6KY2>
 			数据传递，很直观 <url:https://developers.weixin.qq.com/s/8ZhcXBme7djX>

@@ -5,25 +5,26 @@
 		文档1 <url:https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html>
 		文档2 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE>
 		示例 <url:./filets/mini_program/app.json.js>
-	WXML
+	WXML 以及 组件
 		.<text>aa</text>
 		.<view>aa</view>
 		直接展示头像 <open-data type="userAvatarUrl"></open-data>
 		直接展示昵称 <open-data type="userNickName"></open-data>
-	WXSS		
-		引用其他样式: @import "../../app.wxss";
-	弹确认框 wx.showModal <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html>
-	[event] 基础事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html>
-		tap
-		longpress
-	组件
 		button <url:https://developers.weixin.qq.com/miniprogram/dev/component/button.html>
 		checkbox <url:https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html>
 		tabbar 官方的tabbar并没有设置成组件，而是在app.json里指定，然后通过wx.api来控制一些行为
+		.<template> 模板 <url:https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html>
+		.<swiper> 图片轮播，图片横幅 <url:https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html>
+	WXSS		
+		引用其他样式: @import "../../app.wxss";
+	[event] 基础事件 <url:https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html>
+		tap
+		longpress
 	Api
 		wx.login <url:https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html>
 		wx.showShareMenu 转发 <url:https://developers.weixin.qq.com/miniprogram/dev/api/share/wx.showShareMenu.html>
 			[私密消息]
+		弹确认框 wx.showModal <url:https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html>
 		网络
 			普通请求 wx.request <url:https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html>
 				默认GET方法，数据类型为json
@@ -39,7 +40,9 @@
 		设备
 			拨打电话 wx.makePhoneCall <url:https://developers.weixin.qq.com/miniprogram/dev/api/device/phone/wx.makePhoneCall.html>
 	数据监听器 observer <url:https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html>
-	表单 form
+	表单 [form]
+		.<input> <url:https://developers.weixin.qq.com/miniprogram/dev/component/input.html>
+			input也有change事件，还算好用，虽然官方文档没有列出该事件
 		表单提交使用 e.detail.value 取得表单的值
 		选择器（小程序不使用select） <url:https://developers.weixin.qq.com/miniprogram/dev/component/picker.html>
 	跳转
@@ -80,10 +83,11 @@
 				const selectedCity = citySelector.getCity();
 				console.log('selectedCity', selectedCity)
 	官方有一个 computed 库，可以了解一下 <url:https://github.com/wechat-miniprogram/computed>
-	weui 官方组件库 <url:https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/extended/weui/>
+	[weui] 官方组件库 <url:https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/extended/weui/>
 		通过扩展库的方式引入 <url:https://blog.csdn.net/lw001x/article/details/106437947>
 			另一个介绍 <url:https://blog.csdn.net/l_jd_gululu/article/details/108228311>
 		tabbar <url:https://wechat-miniprogram.github.io/weui/docs/tabbar.html>
 			但官方有一个自定义tabbar的文档，不知道是干什么用的
+		[grid] 格子布局 <url:https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/extended/component-plus/grid.html>
 	auth.code2Session 在服务端调用，获取用户的相关id <url:https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html>
 	令小程序的请求带cookie <url:https://www.cnblogs.com/jerryqi/p/9717925.html>

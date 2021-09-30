@@ -13,7 +13,10 @@
 		for循环
 			for i in fruits:
 				print('我喜欢吃：' + i)
-		list列表（类似js里的数组），如:
+			同样也有continue和break语句
+		while a < 5:
+			...
+		list列表（对标js里的数组），如:
 			journey = ['唐僧']
 			journey.append('孙悟空')
 			如果列表是只读的话，可以用 ( )来括起来，习惯称为元组tuple
@@ -29,6 +32,12 @@
 				这里使用内置函数，而非方法
 			对某个值计数 foods.count('奶茶')
 			元组转列表 list(tup)
+			生成元组 range(5) => 0, 1, 2, 3, 4 等价于range(0,5)
+		字典（对标js里的对象）
+			info = {'姓名': '陈知枫', '年龄': 21, '身高': 175.5}
+			[key] 如果不存在程序会报错，不报错可以使用 info.get(key)，不存在的值为None
+			字典中的key竟然可以是元组
+			del info[key] 删除某个属性
 		标准输入 input()
 			a = input('请输入xxx:') 返回字符串
 		字符串格式化 

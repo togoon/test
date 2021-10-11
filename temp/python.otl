@@ -45,9 +45,47 @@
 			print('{name}今年 {age} 岁。'.format(name='知枫', age=21))
 	学习资料分享 <url:https://www.zhihu.com/question/309426015/answers/updated>
 	变量直接使用，有作用域
+	内置函数
+		print
+		open 打开文件，类似于C底层的fopen，例 open(file_path, 'r', encoding='utf-8')
+		with as 用法示例 with open('../xxfile', 'a') as file: 这样就不用手动文件的close方法
+			with 语句实质是上下文管理。
+			1、上下文管理协议。包含方法__enter__() 和 __exit__()，支持该协议对象要实现这两个方法。
+			2、上下文管理器，定义执行with语句时要建立的运行时上下文，负责执行with语句块上下文中的进入与退出操作。
+			3、进入上下文的时候执行__enter__方法，如果设置as var语句，var变量接受__enter__()方法返回值。
+			4、如果运行时发生了异常，就退出上下文管理器。调用管理器__exit__方法。
+	定义函数
+		def drive(x, y = 1):
+			print('一辆汽车向前开')
+		缺省参数格式同js
+		可以用名字来传参: func(y=1, x=2)
 	类
 		可以重载各种运算符
+		示例
+			# 定义一个车类 Cars
+			class Cars:
+					# 属性（外形构造）
+					color = '黑'
+					shape = '小'
+					# 初始化方法，相当于构造函数
+					def __init__(self, color, shape):
+						self.color = color
+					# 方法 （动力、操作系统）
+					def drive(self):
+							print('一辆{}色的{}汽车快速向前开'.format(self.color, self.shape))
+			car = Cars()
+			car.drive()
+			如 self.color, self.shape 一样，在类内部的方法中调用类的属性或其它类的方法时，一般需要固定在前面加上self.如：
+	模块
+		import os
+		from os import listdir
+		python文件默认全导出，因此不需要像js那样需要加export
+		windows里的绝对路径格式：'C:/codes/工作/'，而node js似乎是可以用反斜杠的
 	[libs] python
+		os
+			os.listdir(../aa/bb')
+		csv 模块 风变的课程里有学到，但还是使用大家都知道的excel吧
+		------
 		baostock
 			query_history_k_data()
 				返回类似mysql结果集api形式

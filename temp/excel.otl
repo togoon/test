@@ -2,3 +2,7 @@
 	快速填充，快速拖公式 <url:http://www.xuyacheng.com/199119.html>
 	条件判断只需要一个等号，如 if(B1=1,...)
 	if示例 IF(J2<10, 0, IF(J19<0.5, -0.15, IF(J19<0.6, -0.1, IF(J19<0.65, -0.05, IF(J19<0.7, 0, IF(J19<0.76, 0.05, IF(J19<0.86, 0.1, 0.15)))))))
+	函数
+		countif 条件计数 <url:https://www.excelhome.net/308.html>
+		countifs 多条件. 一般用于记录（行）的多个列同时满足某些（多个）条件 <url:https://baijiahao.baidu.com/s?id=1648013460230762904&wfr=spider&for=pc>
+			比如countif可以统计'猴子'出现了多少次，而countifs可以统计 中国 的 公 猴子有多少条记录

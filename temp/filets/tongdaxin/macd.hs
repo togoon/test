@@ -1,0 +1,8 @@
+{-
+ - short: 12
+ - long: 26
+ - mid: 9
+ -}
+DIF:EMA(CLOSE,SHORT)-EMA(CLOSE,LONG);
+DEA:EMA(DIF,MID);
+MACD:(DIF-DEA)*2,COLORSTICK;

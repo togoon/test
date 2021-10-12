@@ -29,16 +29,20 @@
 	normal
 		例 :normal G，等价于在normal模式下直接按G
 		默认映射会生效，使用normal! 忽略映射
-	命令行（Ex模式，Ex命令）
+	命令行（Ex模式，Ex命令） ex command
 		q: 打开命令行窗口（编辑命令历史）
 		多条命令用 | 来分隔, 如 call xx | ... 
 	折叠
+		创建折叠
+			选中区域，zf
 		如何同时使用多种foldmethod? 网上讨论 <url:http://superuser.com/questions/560149/is-there-a-way-to-use-multiple-vim-folding-methods-at-once>
 		貌似outliner实现了这个功能，其foldmethod为默认值，但折叠得很好。可研究一下 <url:#r=vimoutliner>
-	register寄存器
+	[register] 寄存器
 		网上的一个文章(cheatsheet) <url:http://www.adp-gmbh.ch/vim/misc/register.html>
 		复制到寄存器，比如到a寄存器
 			"ayaw
+			如果寄存器是大写，则是追加，比如"Ayy，则将内容追加到a寄存器
+		粘贴寄存器的内容 "ap
 		特殊寄存器
 		+ 系统剪贴板，可以直接赋值将数据写到剪贴板，如let @+='hahaha'
 		插入寄存器值：<c-r> 在插入模式和Ex命令下都可使用
@@ -236,6 +240,7 @@
 						见 <url:vimhelp:'conceallevel'> <url:vimhelp:'concealcursor'>
 		官网wiki
 			文章总表 <url:http://vim.wikia.com/wiki/Special:AllPages>
+			95 Capture ex command output 获取（读取）命令(ex command)输出 <url:https://vim.fandom.com/wiki/Capture_ex_command_output>
 			filetype文件类型
 				Filetype.vim 1606 <url:http://vim.wikia.com/wiki/Filetype.vim>
 			mapping

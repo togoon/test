@@ -129,8 +129,8 @@
 			某vi论坛：Creating & maintaining flowcharts in Vim <url:http://vi.stackexchange.com/questions/538/creating-maintaining-flowcharts-in-vim>
 		效率、记事、思维导图
 			utl.vim <url:https://github.com/vim-scripts/utl.vim>
-				vimhelp
-					例：<url:vimhelp::ls>
+				定位到vimhelp的位置：<url:vimhelp::ls>
+				定位到指定文件的指定位置：<url:./filets/ChordPulse/单身情歌.cps#variant>
 				执行vimscript、执行命令
 					要escape两重"关"
 					首先是url escape: 这是所有utl链接都面临的转义
@@ -174,7 +174,7 @@
 			ftplugin/cpp.vim
 			ftplugin/cpp_2.vim
 			ftplugin/cpp/haha.vim
-		语法高亮
+		[syntax] 语法高亮
 			世界观: syntax（语法项）和highlight（配色）
 				一个最基本的语法高亮配置示例
 					" 定义语法项
@@ -183,9 +183,8 @@
 					" 定义配色：将语法项与用于配色的基本项关联起来
 					highlight link xType Type
 					highlight link xStatement Statement
-			syntax
+			ex命令
 				- :syntax 查看定义的语法项
-			highlight
 				- :highlight 查看定义的配色方案
 	脚本语法
 	奇技淫巧
@@ -241,6 +240,8 @@
 		官网wiki
 			文章总表 <url:http://vim.wikia.com/wiki/Special:AllPages>
 			95 Capture ex command output 获取（读取）命令(ex command)输出 <url:https://vim.fandom.com/wiki/Capture_ex_command_output>
+			1561 Creating your own syntax files 创建自己的语法文件 <url:https://vim.fandom.com/wiki/Creating_your_own_syntax_files>
+				通过一个实例来讲解
 			filetype文件类型
 				Filetype.vim 1606 <url:http://vim.wikia.com/wiki/Filetype.vim>
 			mapping

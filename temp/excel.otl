@@ -7,8 +7,26 @@
 		Ctrl+G 直接输入要去的位置
 	条件判断只需要一个等号，如 if(B1=1,...)
 	if示例 IF(J2<10, 0, IF(J19<0.5, -0.15, IF(J19<0.6, -0.1, IF(J19<0.65, -0.05, IF(J19<0.7, 0, IF(J19<0.76, 0.05, IF(J19<0.86, 0.1, 0.15)))))))
-	函数
+	字符串连接: "a"&123
+	公式原来可以返回序列：选中目标区域，按ctrl + shift + enter，比如index函数
+	[function] 函数，所有函数参考 <url:https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188>
+		[rank] 求某个值在集合中的排名: rank.eq(B1, B:B)
+			[rank.eq] 取最佳排名
+			[rank.avg] 取排名平均值，比如并列2、3名，则各为2.5名
+		[index] 取一个表格的某个位置，或者子集
+		[match] 在一个序列里找一个值, 返回序列里的位置 <url:https://support.microsoft.com/en-us/office/match-function-e8dffd45-c762-47d6-bf89-533f4a37673a>
+		[offset] 取得距离某个位置指定一个偏移量的区域 <url:https://support.microsoft.com/en-us/office/offset-function-c8de19ae-dd79-4b9b-a14e-b4d906d11b66>
+		xlookup [office365] <url:https://support.microsoft.com/en-us/office/xlookup-function-b7fd680e-6d10-43e6-84f9-88eae8bf5929>
+			旧版不支持
+		vlookup [建议用xlookup代替] 其实就类似于数据库里的关联查找，比如查id为22的学生的成绩是多少？
+			这里要求查找的值要在目标中的第一列...，可以通过 if({1,0}...)来拼出需要的表
 		countif 条件计数 <url:https://www.excelhome.net/308.html>
 		countifs 多条件. 一般用于记录（行）的多个列同时满足某些（多个）条件 <url:https://baijiahao.baidu.com/s?id=1648013460230762904&wfr=spider&for=pc>
 			比如countif可以统计'猴子'出现了多少次，而countifs可以统计 中国 的 公 猴子有多少条记录
-	快速填充，快速拖公式 <url:http://www.xuyacheng.com/199119.html>
+	资源
+		逆向查找例子：非常经典！！值得好好学习 <url:http://www.360doc.com/content/18/0518/19/36564425_755031943.shtml>
+		快速填充，快速拖公式 <url:http://www.xuyacheng.com/199119.html>
+		给动态数据（有公式的数据）排序 <url:https://www.extendoffice.com/documents/excel/895-excel-sort-dynamic-data.html>
+			因为如果直接给表格排序的话，对应的公式就会乱掉，所以需要通过再建视图来实现
+		vba的一个案例 实现智能输入框 <url:https://zh-cn.extendoffice.com/documents/excel/2401-excel-drop-down-list-autocomplete.html>
+

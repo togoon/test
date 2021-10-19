@@ -1,7 +1,8 @@
 %MUSE2
 T: 夜空中最亮的星
 T: 逃跑计划
-I: 原调1=bB，变调夹4品
+I: 原调1=B，变调夹4品
+M: 4/4
 L: 1/8
 C: 童话吉他编配
 K: G
@@ -11,119 +12,118 @@ K: G
 %%gchord A7sus4=1;X,0,2,0,3,0
 
 V:guitar0 style=tab bracket=10
-V:melody0 style=jianpu 
+V:melody1 style=jianpu 
 
 [V:guitar0]
- (3c0b0a7 (3c0b0a7 (3c0b0a7 (3c0b0a7|
- (3c0b0a7 (3c0b0a7 (3c0b0a7 (3c0b0a7|
- (3c0b0a3 (3c0b0a3 (3c0b0a3 (3c0b0a3|
- (3c0b0a3 (3c0b0a3 (3c0b0a3 (3c0b0a3|
-"G"fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx|
-"G"fx[dxcxbx][dxcxbx][dxcxbx]-[dx*4cx*4bx*4]|
-"Cadd9"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"Cadd9"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"A7sus4"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"A7sus4"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"G"fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx|
-"G"fx[dxcxbx][dxcxbx][dxcxbx]-[dx*4cx*4bx*4]|
-"G"fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx|
-"G"fx[dxcxbx][dxcxbx][dxcxbx]-[dx*4cx*4bx*4]|
-"Cadd9"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"Cadd9"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"A7sus4"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"A7sus4"exdxcx[exdxcxbxax]-[ex*4dx*4cx*4bx*4ax*4]|
-"G"fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx|
-"G"fxdx[cxbx]dxf2dx[cxbx]dx|
-"Em"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"C"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"G"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"D"V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex]-V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]|
-"Em"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"C"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"G"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"D"V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex]-V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]|
-"Em"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"C"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"G"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"D"V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex]-V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]|
-"Em"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"C"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"G"V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx]-V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]|
-"D"V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex]-V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]|
+ (3c0b0a7  (3c0b0a7  (3c0b0a7  (3c0b0a7
+| (3c0b0a7  (3c0b0a7  (3c0b0a7  (3c0b0a7
+| (3c0b0a3  (3c0b0a3  (3c0b0a3  (3c0b0a3
+| (3c0b0a3  (3c0b0a3  (3c0b0a3  (3c0b0a3
+|"G" fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx
+|"G" fx[dxcxbx][dxcxbx][dx*4cx*4bx*4]-[dxcxbx]
+|"Cadd9" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"Cadd9" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"A7sus4" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"A7sus4" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"G" fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx
+|"G" fx[dxcxbx][dxcxbx][dx*4cx*4bx*4]-[dxcxbx]
+|"G" fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx
+|"G" fx[dxcxbx][dxcxbx][dx*4cx*4bx*4]-[dxcxbx]
+|"Cadd9" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"Cadd9" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"A7sus4" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"A7sus4" exdxcx[ex*4dx*4cx*4bx*4ax*4]-[exdxcxbxax]
+|"G" fx[dxcxbx][dxcxbx][dx*2cx*2bx*2]dxbxdx
+|"G" fxdx[cxbx]dx f2 dx[cxbx]dx
+|"Em" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"C" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"G" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"D" V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex] -V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]
+|"Em" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"C" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"G" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"D" V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex] -V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]
+|"Em" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"C" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"G" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"D" V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex] -V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]
+|"Em" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"C" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"G" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"D" V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex] -V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]|
 
-[V:melody0]
-Z8|
+[V:melody1]
+Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-EDEDEGG2|
+|^D^C ^D^C ^D^F ^F2
 w: 夜空中最亮的星 
--G-G6G,|
-w: **能
-C3D2C3|
+|-^F6 Z^F,
+w: *能
+|B,3^C2B,3
 w: 否听清
--C-C6C|
+|-B,6-B,B,
 w: **那
-CDEC4G,|
+|B,^C ^DB,4^F,
 w: 仰望的人 心
-DDEC2G,2D|
+|^C^C ^DB,2^F,2^C
 w: 底的孤独和叹
--D3E-E4|
+|-^C3^D4-^D
 w: *息
-ZZ6G,|
+|Z6Z^F,
 w: Oh 
-EDEDEGG2|
+|^D^C ^D^C ^D^F ^F2
 w: 夜空中最亮的星 
--G-G6G,|
+|-^F6-^F^F,
 w: **能
-C3D2C3|
+|B,3^C2B,3
 w: 否记起
--C-C6C|
+|-B,6-B,B,
 w: **曾
-CDEC4G,|
+|B,^C ^DB,4^F,
 w: 与我同行 消
-DDEC2G,2G|
+|^C^C ^DB,2^F,2^F
 w: 失在风里的身
--GE4EFG|
+|-^F^D4^D E^F
 w: 影 
--G3EE'D'2C'|
+|-^F3^D ^D'^C'2B
 w: *我祈祷 拥
--C'C'2C'2C'AG|
+|-BB2B2B ^G^F
 w: *有一颗透明
-G'A'2A'3C'D'|
+|^F'^G'2^G'3 B^C'
 w: 的心灵 和会
-E'G'2G'2C'2D'|
+|^D'^F'2^F'2B2^C'
 w: 流泪的眼睛
--D'8|
+|-^C'8
 w: 
-Z2C'C'C'C'AG|
+|Z2 BB BB ^G^F
 w: 给我再去相信
-G'A'2A'2C'C'D'|
+|^F'^G'2^G'2B B^C'
 w: 的勇气 Oh 越过
-E'G'2GG'E'2D'|
+|^D'^F'2^F ^F'^D'2^C'
 w: 谎言去拥抱你
--D'4E'D'2C'|
+|-^C'4 ^D'^C'2B
 w: *每当我
--C'2C'2C'C'AG|
+|-B2 B2 BB ^G^F
 w: *找不到存在
-G'A'2A'2C'C'D'|
+|^F'^G'2^G'2B B^C'
 w: 的意义 每当我
-E'3/2G'3/2G'G'3/2C'3/2D'|
+|^D'3/2^F'3/2^F' ^F'3/2B3/2^C'
 w: 迷失在黑夜里
--D'-D'4E'3|
+|-^C'4-^C'^D'3
 w: **Oh 
-Z2C'C'C'3A|
+|Z2 BB B3^G
 w: 夜空中最
-G'A'2A'3C'D'|
+|^F'^G'2^G'3 B^C'
 w: 亮的星 请指
-E'G'2G'2E'2D'|
+|^D'^F'2^F'2^D'2^C'
 w: 引我靠近你
--D'8|
+|-^C'8|
 w:
-
 
   

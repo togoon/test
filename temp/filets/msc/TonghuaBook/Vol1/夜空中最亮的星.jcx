@@ -11,6 +11,7 @@ K: G
 %%gchord G=1;3,2,0,0,0,3
 %%gchord Cadd9=1;X,3,2,0,3,0
 %%gchord A7sus4=1;X,0,2,0,3,0
+%%gchord Em=1;0,2,2,0,0,0
 
 V:guitar0 style=tab bracket=10
 V:melody1 style=jianpu 
@@ -40,7 +41,7 @@ V:melody1 style=jianpu
 |"A7sus4" exdx cxB[exdxcxbxax] -B[ex*4dx*4cx*4bx*4ax*4]
 |"G" fx[dxcxbx] [dxcxbx][dxcxbx] -[dxcxbx]dxbxdx
 |"G" fx[dxcxbx] [dxcxbx][dxcxbx] f2dx [cxbx]dx
-|"Em" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
+|"Em" V[fx*2ex*2dx*2cx*2]V[fxexdxcx]V[fxexdxcxbxax] -V[fxexdxcxbxax]V[fxexdxcx]V[fxexdxcxbxax]V[fxexdxcx]
 |"C" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
 |"G" V[cx*2dx*2ex*2fx*2]V[cxdxexfx]V[axbxcxdxexfx] -V[axbxcxdxexfx]V[cxdxexfx]V[axbxcxdxexfx]V[cxdxexfx]
 |"D" V[cx*2dx*2ex*2]V[cxdxex]V[axbxcxdxex] -V[axbxcxdxex]V[cxdxex]V[axbxcxdxex]V[cxdxex]

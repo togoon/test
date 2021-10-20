@@ -2,7 +2,9 @@
 T: 理想三旬
 T: 陈鸿宇
 I: 原调bB，变调夹3品
+M: 4/4
 L: 1/8
+Q: 1/4=110
 C: 童话吉他编配
 K: G
 
@@ -17,269 +19,268 @@ K: G
 %%gchord D=1;X,X,0,2,3,2
 
 V:guitar0 style=tab bracket=10
-V:melody0 style=jianpu 
+V:melody1 style=jianpu 
 
 [V:guitar0]
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxbx|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxdxbxcxaxdx|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm"dxcxbxcxaxbxcxb0|
-"C"exdxcxdxbxcxdxcx|
-"Am"exdxcxdxbxcxaxb0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm"exdxcxbxaxbxcxd0|
-"C"exdxcxdxbxcxdxcx|
-"Am"exdxcxdxbxcxdxc0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxbxcxdxcx|
-"D/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm7"exdxcxdxbxcxdxc0|
-"C"exdxcxdxbxcxdxcx|
-"D"dxcxbxaxa3axbxc0|
-"G"fxdxcxdxbxcxdxcx|
-"D/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm7"exdxcxdxbxcxdxd2|
-"C"exdxcxdxbxcxbxcx|
-"D"dxcxbxax/2-H-a3/2axbxcxdx|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm"dxcxbxcxdxcxbxc0|
-"C"exdxcxdxbxcxdxcx|
-"Am"exdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm"dxcxbxcxdxcxbxc0|
-"C"exdxcxdxbxcxdxcx|
-"Am"exdxcxdxbxcxdxc0|
-"G"fxdxcxdxbxcxdxcx|
-"D/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm7"excxbxcxaxbxcxbx|
-"C"exdxcxdxbxcxdxcx|
-"D"dxcxbxaxbxcxbxc0|
-"G"fxdxcxdxbxcxdxcx|
-"D/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"Bm7"exdxcxdxbxcxdxc0|
-"C"exdxcxdxbxcxdxcx|
-"D"dxcxbxaxbxcxdxcx|
-"D"bx*8|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxbxaxbxcxd0|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxd0|
-"C"exdxcxdxbxcxdxcx|
-"G"fxdxcxdxb3cxdxcx|
-"D6/#F"fxdxcxdxbxcxdxc0|
-"Em"fxdxcxdxbxcxdxcx|
-"C"exdxcxbxaxbxcxdx|
-"Em"B[ax*8bx*8cx*8dx*8ex*8fx*8]|
+"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxbx
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxdxbxcxaxdx
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm" dxcxbxcxaxbxcxb0
+|"C" exdxcxdxbxcxdxcx
+|"Am" exdxcxdxbxcxaxb0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm" exdxcxbxaxbxcx d0
+|"C" exdxcxdxbxcxdxcx
+|"Am" exdxcxdxbxcxdxc0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxbxcxdxcx
+|"D/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm7" exdxcxdx bxcxdxc0
+|"C" exdxcxdxbxcxdxcx
+|"D" dxcxbxax a3axbxc0
+|"G" fxdxcxdxbxcxdxcx
+|"D/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm7" exdxcxdx bxcxdxd2
+|"C" exdxcxdxbxcxbxcx
+|"D" dxcxbxax/2-H-a3/2 axbxcxdx
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm" dxcxbxcx dxcxbxc0
+|"C" exdxcxdxbxcxdxcx
+|"Am" exdxcxdxbxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm" dxcxbxcx dxcxbxc0
+|"C" exdxcxdxbxcxdxcx
+|"Am" exdxcxdxbxcxdxc0
+|"G" fxdxcxdxbxcxdxcx
+|"D/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm7" excxbxcx axbxcxbx
+|"C" exdxcxdxbxcxdxcx
+|"D" dxcxbxax bxcxbxc0
+|"G" fxdxcxdxbxcxdxcx
+|"D/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"Bm7" exdxcxdx bxcxdxc0
+|"C" exdxcxdxbxcxdxcx
+|"D" dxcxbxax bxcxdxcx
+|"D" bx*8
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxbxaxbxcxd0
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxd0
+|"C" exdxcxdxbxcxdxcx
+|"G" fxdxcxdxb3cxdxcx
+|"D6/#F" fxdxcxdx bxcxdxc0
+|"Em" fxdxcxdxbxcxdxcx
+|"C" exdxcxbxaxbxcxdx
+|"Em" B[ax*8bx*8cx*8dx*8ex*8fx*8]|
 
-[V:melody0]
-Z2EEEDCD|
+[V:melody1]
+Z2 EE ED CD
 w: 雨后有车驶来
--D2DDDCB,C'|
+|-D2 DD DC B,C
 w: *驶过暮色苍白
--C'2CCCD2C|
-w: *旧铁皮往南
-F3FFEDE|
+|-C2 CC CD -DC
+w: *旧铁皮往*南
+|F3F FE DE
 w: 开 恋人已不在
--E2EEEDCD|
+|-E2 EE ED CD
 w: *收听浓烟下的
--D3G,B,C2A,|
-w: *诗歌电台
--A,2CCCD2C|
-w: *不动情的咳
-F3FFEDE|
+|-D3G, B,C -CA,
+w: *诗歌电*台
+|-A,2 CC CD -DC
+w: *不动情的*咳
+|F3F FE DE
 w:  嗽 至少看起来
--E2EEEDCD|
+|-E2 EE ED CD
 w: *归途也还可爱
--D2DDDCB,C|
+|-D2 DD DC B,C
 w: *琴弦少了姿态
--C2CCCB,2A,|
-w: *再不见那夜
-D3FFEDE|
+|-C2 CC CB, -B,A,
+w: *再不见那*夜
+|D3F FE DE
 w: 里 听歌的小孩
--E2EEEDCD|
+|-E2 EE ED CD
 w: *时光匆匆独白
--DDDDDCB,C|
+|-DD DD DC B,C
 w: *将颠沛磨成卡带
--C2CCCB,2A,|
-w: *已枯卷的情
-F3FFED2|
+|-C2 CC CB, -B,A,
+w: *已枯卷的*情
+|F3F FE D2
 w: 怀 踏碎成年
-E8|
+|E8
 w: 代
-D8|
+|D8
 w: oh
-E8|
+|E8
 w: wu
-Z8|
+|Z8
 w: 
-Z2EEEDC2|
+|Z2 EE E-D C2
 w: 就老去*吧
-Z2GAG2D2|
+|Z2 GA G2 D2
 w:  孤独别醒
-E-E6B,|
-w: 来 *你
-B,2CB,3G,A,|
-w: 渴望的离开
--A,4A,C2D/2C/2|
+|E6 ZB,
+w: 来 你
+|B,2 CB, -B,2 G,A,
+w: 渴望的*离开
+|-A,4 A,C -C-D/2-C/2
 w: *只是
-B,2B,2C2D2|
+|B,2 B,2 C2 D2
 w: 无处停摆
-Z2EEEDC2|
+|Z2 EE E-D C2
 w: 就歌唱*吧 
-Z2GAG2D2|
+|Z2 GA G2 D2
 w: 眼睛眯起
-E-E6B,|
-w: 来 *而
-B,2CB,3G,A,|
-w: 热泪的崩坏
--A,6A,A,|
+|E6 ZB,
+w: 来 而
+|B,2 CB, -B,2 G,A,
+w: 热泪的*崩坏
+|-A,6 A,A,
 w: *只是
-DC2B,2B,C2|
-w: 没抵达的存
-C8|
+|DC -CB, -B,B, C2
+w: 没抵*达*的存
+|C8
 w: 在
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z2EEEDCD|
+|Z2 EE ED CD
 w: 青春又醉倒在
--D2DDDCB,C'|
+|-D2 DD DC B,C
 w: *籍籍无名的怀
--C'2CCCD2C|
-w: *靠嬉笑来虚
-F3FFEDE|
+|-C2 CC CD -DC
+w: *靠嬉笑来*虚
+|F3F FE DE
 w: 度 聚散得慷慨
--E2EEEDCD|
+|-E2 EE ED CD
 w: *辗转却去不到
--D3G,B,C2A,|
-w: *对的站台
--A,2CCCD2C|
-w: *如果漂泊是
-F2FFFEDE|
+|-D3G, B,C -CA,
+w: *对的站*台
+|-A,2 CC CD -DC
+w: *如果漂泊*是
+|F2 FF FE DE
 w: 成长 必经的路牌
--E2EEEDCD|
+|-E2 EE ED CD
 w: *你迷醒岁月中
--D2DDDCB,C|
+|-D2 DD DC B,C
 w: *那贫瘠的未来
--C2CCCB,2A,|
-w: *像遗憾季节
-D3FFEDE|
+|-C2 CC CB, -B,A,
+w: *像遗憾季*节
+|D3F FE DE
 w: 里 未结果的爱
--EEEEEDCD|
+|-EE EE ED CD
 w: *弄脏了每一页诗
--DDDDDCB,C|
+|-DD DD DC B,C
 w: *吻最疼痛的告白
--C2CCCB,2A,|
-w: *而风声吹到
-F2FFFED2|
+|-C2 CC CB, -B,A,
+w: *而风声吹*到
+|F2 FF FE D2
 w: 这已不需要释
-E2EEEDC2|
+|E2 EE E-D C2
 w: 怀 就老去*吧
-Z2GAG2D2|
+|Z2 GA G2 D2
 w:  孤独别醒
-E-E6B,|
-w: 来 *你
-B,2CB,3G,A,|
-w: 渴望的离开
--A,4A,C2D/2C/2|
+|E6 ZB,
+w: 来 你
+|B,2 CB, -B,2 G,A,
+w: 渴望的*离开
+|-A,4 A,C -C-D/2-C/2
 w: *只是
-B,2B,2C2D2|
+|B,2 B,2 C2 D2
 w: 无处停摆
-Z2EEEDC2|
+|Z2 EE E-D C2
 w: 就歌唱*吧 
-Z2GAG2D2|
+|Z2 GA G2 D2
 w: 眼睛眯起
-E-E6B,|
-w: 来 *而
-B,2CB,3G,A,|
-w: 热泪的崩坏
--A,6A,A,|
+|E6 ZB,
+w: 来 而
+|B,2 CB, -B,2 G,A,
+w: 热泪的*崩坏
+|-A,6 A,A,
 w: *只是
-DC2B,-B,4|
-w: 没抵达
--B,-B,4B,C2|
+|DC -CB, -B,4
+w: 没抵*达
+|-B,4 -B,B, C2
 w: **的存
-C8|
+|C8
 w: 在
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z8|
+|Z8
 w: 
-Z2EEEDCD|
+|Z2 EE ED CD
 w: 就甜蜜地忍耐
--D2DDDCB,C'|
+|-D2 DD DC B,C
 w: *繁星润湿窗台
--C'2CCCD2C|
-w: *光影跳动着
-F2FFFEDE|
+|-C2 CC CD -DC
+w: *光影跳动*着
+|F2 FF FE DE
 w: 像在 困倦里说爱
--E2EEEDCD|
+|-E2 EE ED CD
 w: *再无谓的感慨
--D3G,B,C2A,|
-w: *以为明白
--A,2CCCD2C|
-w: *梦倒塌的地
-F2FFFED2|
+|-D3G, B,C -CA,
+w: *以为明*白
+|-A,2 CC CD -DC
+w: *梦倒塌的*地
+|F2 FF FE D2
 w: 方 今已爬满青
-A,8|
+|A,8|
 w: 苔
-
 
   

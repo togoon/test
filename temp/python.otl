@@ -16,14 +16,15 @@
 			同样也有continue和break语句
 		while a < 5:
 			...
-		list列表（对标js里的数组），如:
+		[list] 列表（对标js里的数组），如:
 			journey = ['唐僧']
 			journey.append('孙悟空')
 			如果列表是只读的话，可以用 ( )来括起来，习惯称为元组tuple
-			+ 运算可以连接list
-			自带切片方法（取的都是下标，而非长度）
+			+ 运算为连接list [1,2] + [3,4] = [1,2,3,4]
+			切片（取的都是下标，而非长度）
 				foods[:1]
 				foods[1:3]
+				采用半封闭原则，与js一致
 				列表切片得到的仍是列表
 				元素切片后得到的仍是元组
 			判断是否有元素 if '吉他' in skills:
@@ -54,6 +55,10 @@
 			2、上下文管理器，定义执行with语句时要建立的运行时上下文，负责执行with语句块上下文中的进入与退出操作。
 			3、进入上下文的时候执行__enter__方法，如果设置as var语句，var变量接受__enter__()方法返回值。
 			4、如果运行时发生了异常，就退出上下文管理器。调用管理器__exit__方法。
+		type 取类型
+		zip 序列合并
+			for a, b in zip(x, y): #x, y是两个序列
+				print(a, b)
 	定义函数
 		def drive(x, y = 1):
 			print('一辆汽车向前开')
@@ -79,6 +84,7 @@
 	模块
 		import os
 		from os import listdir
+		import pandas as pd
 		python文件默认全导出，因此不需要像js那样需要加export
 		windows里的绝对路径格式：'C:/codes/工作/'，而node js似乎是可以用反斜杠的
 	[libs] python
@@ -86,6 +92,79 @@
 			os.listdir(../aa/bb')
 		csv 模块 风变的课程里有学到，但还是使用大家都知道的excel吧
 		------
+		[pandas]
+			两种数据结构
+				Series [序列]，综合了数组与对象的概念
+					创建方法示例：surname = pd.Series(['赵', '钱', '孙', '李']) # 这相当于数组（列表）
+					surname = pd.Series({'a':1, 'b':2}) # 这相当于对象（字典）
+					+运算 Series([1,2]) + Series([3,4]) = Series([5,6])
+				DataFrame [数据帧] 类似于表格，类似于excel，mysql表里的一系列记录:
+					在这里简写为df
+					字典构造示例:
+						pd.DataFrame({
+							'姓名':['小明','小红'],
+							'年龄':[22,21],
+						})
+						|---+------+------|
+						|   | 姓名 | 年龄 |
+						|---+------+------|
+						| 0 | 小明 | 22   |
+						|---+------+------|
+						| 1 | 小红 | 21   |
+						|---+------+------|
+					np对象构造示例：
+						import numpy as np
+						class_df2 = pd.DataFrame(np.array([[25, '女'],
+																							 [18, '女'],
+																							 [23, '女'],
+																							 [18, '男']]),
+																		 columns = ['年龄', '性别'],
+																		 index = [1, 2, 3, 4])
+						|---+------+------|
+						|   | 年龄 | 性别 |
+						|---+------+------|
+						| 1 | 25   | 女   |
+						|---+------+------|
+						| 2 | 18   | 女   |
+						|---+------+------|
+						| 3 | 23   | 男   |
+						|---+------+------|
+						| 4 | 18   | 男   |
+						|---+------+------|
+					info() 最基本的统计
+					describe() 稍微详细一点的统计：标准差，中位数等
+					head(n) tail(n) 查看前后几行，缺省5行
+					isna() 查看表格中哪些单元格数据缺失
+					dropna() 把有缺失值的记录删除，直接整条记录（整行）删除，返回新的df，原df数据不动
+						只针对指定列的缺失值进行删除：dropna(subset=['品牌', '上牌时间', '里程数(km)', '保值率'])
+							这样可以允许某些列留空
+					drop_duplicates() 删除重复的记录
+					布尔索引
+						df[df['单价'] <= 200]
+					整列进行操作
+						date_test = pd.to_datetime(test_data['上牌时间'], format = '%Y-%m-%d') #转为datetime格式，并返回一个列
+						year_data = date_test.dt.year #取该列的年份
+						test_data['上牌年份'] = year_data #直接新增一列
+						# 查看数据
+						test_data
+					read_csv 从csv读取 exercise = pd.read_csv('./工作/exercise.csv', encoding = 'utf-8')
+					to_csv 写入到csv文件
+						df.to_csv('./工作/mask_data_clean.csv', encoding = 'utf-8')
+						不写索引：mask_data.to_csv('./工作/mask_data_clean.csv', index = False)
+					fillna 填写缺失值 exercise['明细'] = exercise['明细'].fillna('矿泉水')
+					groupby 分组
+						分组之后，返回一个特殊的对象，其并不是DataFrame也不是Series
+						按班级求平均分 df.groupby('班级').mean()
+							按班级求总和 df.groupby('班级').sum()
+							只求'成绩'列的平均：df.groupby('性别')['成绩'].mean()
+							median() 中位数
+						多级分组 groupby(['班级', '性别'])['成绩'].mean()
+						unstack 把分组后的结果当DataFrame使用
+							grade_df6 = grade_df.groupby(['班级', '眼镜', '性别'])['成绩'].mean().unstack()
+			绘图，绘制图表
+				order_number.plot(kind='line', figsize=(6, 6), title='各月总订单量趋势图')
+				据说使用matplotlib更强大
+		[matplotlib]
 		baostock
 			query_history_k_data()
 				返回类似mysql结果集api形式

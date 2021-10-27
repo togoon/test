@@ -1,0 +1,20 @@
+{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
+{更多指标，请关注微信公众号免费获取:Trader_AI;}
+{欢迎指标交流QQ群:75200686,备注：指标交流;}
+VAR1:=HHV(HIGH,70);
+DD:=VAR1*0.83;
+DDC:=EXIST(DD/L>1.08,10);
+A1:=COST(85);
+A2:=COST(15);
+A3:=A1-A2;
+A4:=(A1+A2)/2;
+DM:=A3/A4*100<15;
+DMCX:=LAST(DM,15,1);
+B1:=MA(C,13)<REF(MA(C,13),1);
+SSRP:=MA(SSRP,1);
+ZLBT:= DMCX AND SSRP/L>1.18 ;
+TJ:=EXIST(ZLBT,2);
+SJT:=C/REF(C,10);
+DS:=SJT<=0.85;
+找深套买:TJ AND DDC AND B1 AND DS,COLORWHITE;
+STICKLINE(找深套买, 1.5,8,1,0),COLORWHITE;

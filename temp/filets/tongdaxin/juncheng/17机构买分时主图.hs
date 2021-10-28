@@ -1,16 +1,17 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 成交额:=V*C/100,NODRAW;
 A2:=SUM((IF(((成交额/8>20) AND (CLOSE>(REF(CLOSE,1)))),成交额,0)),0);
 A3:=SUM((IF(((成交额/8>20) AND (CLOSE<(REF(CLOSE,1)))),成交额,0)),0);
 A6:=(A2+A3);
+
 A7:=IF((ISLASTBAR),((100*A2)/A6),0);
 A8:=IF((ISLASTBAR),((100*A3)/A6),0);
+
 DD1:=1;
+
 AAA1:=STRCAT(STRCAT('机构买',CON2STR((100*A2)/A6,0)),'%%');
 AAA2:=STRCAT(STRCAT('机构卖',CON2STR((100*A3)/A6,0)),'%%');
 AAA3:=STRCAT(STRCAT('总买入',CON2STR((100*(A2-A3))/A6,0)),'%%');
+
 DRAWTEXT_FIX(DD1=1,0,0.02,0,AAA1),COLORRED;
 DRAWTEXT_FIX(DD1=1,0,0.13,0,AAA2),COLOR00FF00;
 DRAWTEXT_FIX(DD1=1,0,0.24,0,AAA3),COLOR00FFFF;

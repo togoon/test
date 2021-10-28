@@ -1,0 +1,9 @@
+{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
+{更多指标，请关注微信公众号免费获取:Trader_AI;}
+{欢迎指标交流QQ群:75200686,备注：指标交流;}
+周J:=MA("KDJ.J#WEEK"(9,3,3),5);
+周J1:=MA("KDJ.J#WEEK"(9,3,3) ,5);
+逃顶:REF(周J1,1)>=REF(周J1,2) AND 周J1<=REF(周J1,1),COLOR00FF00,LINETHICK3;
+DRAWNUMBER(逃顶=1,1,C),COLOR00FF00;
+抄底:REF(周J1,1)<=REF(周J1,2) AND 周J1>=REF(周J1,1),COLOR0000FF,LINETHICK3;
+DRAWNUMBER(抄底=1,1,C),COLOR0000FF;

@@ -1,6 +1,3 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 A1:=REF(HIGH,3)=HHV(HIGH,2*3+1); B1:=FILTER(A1,3); C1:=BACKSET(B1,3+1); D1:=FILTER(C1,3);
 A2:=REF(LOW,3)=LLV(LOW,2*3+1); B2:=FILTER(A2,3); C2:=BACKSET(B2,3+1); D2:=FILTER(C2,3);
 E1:=(REF(LLV(LOW,2*3),1)+REF(HHV(HIGH,2*3),1))/2; E2:=(HIGH+LOW)/2;

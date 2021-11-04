@@ -8,14 +8,21 @@
 		Ctrl+G 直接输入要去的位置
 		Alt+F11 查看代码
 	宏
+	逻辑运算
+		用的是函数，而非运算符: and(...), or(...), not(.)
 	条件判断只需要一个等号，如 if(B1=1,...)
 	if示例 IF(J2<10, 0, IF(J19<0.5, -0.15, IF(J19<0.6, -0.1, IF(J19<0.65, -0.05, IF(J19<0.7, 0, IF(J19<0.76, 0.05, IF(J19<0.86, 0.1, 0.15)))))))
 	字符串连接: "a"&123
 	表格常量：{1,2}，或者 {1,2;3,4}，暂时还不知道怎么区分行和列？
 	公式原来可以返回序列：选中目标区域，按ctrl + shift + enter，比如index函数
 	[function] 函数，所有函数参考 <url:https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188>
-		[text] 文本格式化，类似于时间的format <url:https://jingyan.baidu.com/article/c1a3101e674d6ede646deb46.html>
-			TEXT(C3,"e-mm-dd") 转为类似2021-10-23这样的格式
+		[text][字符串函数]
+			[T] 转为字符串，注：数字将返回空串，T(123) 将返回 ""
+			[text] 文本格式化，类似于时间的format <url:https://jingyan.baidu.com/article/c1a3101e674d6ede646deb46.html>
+				TEXT(C3,"e-mm-dd") 转为类似2021-10-23这样的格式
+				text(123, "#") 得到 "123"
+			[right] [rightb] 取右边子串
+				right("abcde",3) 返回"cde"
 		[rank] 求某个值在集合中的排名: rank.eq(B1, B:B)
 			[rank.eq] 取最佳排名
 			[rank.avg] 取排名平均值，比如并列2、3名，则各为2.5名
@@ -42,6 +49,7 @@
 			SUMIF(B2:B25,">5", C2:C25)，这样实际加的是C列的数据，B列只是用来筛选。这种情况建议统一用sumifs来代替，这样格式会统一
 		[sumifs]
 			前面的SUMIF(B2:B25,">5", C2:C25) 相当于SUMIFS(C2:C25, B2:B25,">5")
+		[datevalue] 取日期值，便于比较等
 	资源
 		dollar excel网站，很多excel技巧: <url:https://dollarexcel.com/how-to-get-unique-values-without-unique-function/>
 			对序列去重，求unique（不使用unique函数） <url:https://dollarexcel.com/how-to-get-unique-values-without-unique-function/>

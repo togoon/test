@@ -1,0 +1,527 @@
+[awesome js] 第三方库
+	[lodash] <url:http://underscorejs.org/> <url:https://lodash.com/docs>
+		Lang
+			_.isArray
+			_.isFunction(value)
+			_.isObject
+				数组也是object: _.isObject([1, 2, 3]) // true
+				isObject(null) // false
+			_.cloneDeep 是可以处理环形数据结构
+		数字、数值
+			_.isEqual(a, b)
+			_.clamp(number, [lower], upper)
+				_.clamp(-10, -5, 5); // => -5 _.clamp(10, -5, 5); // => 5
+		数组
+			_.without 删除元素（返回新数组，使用简单的相等比较）
+			_.pull类似without，区别在于其修改原数组
+			_.remove 修改原数组，传入一个函数作为删除条件（跟_.filter类似吗）
+			_.flatten _.flattenDeep _.flattenDepth 扁平化
+			_.union 求并集
+				除了合并，还有去重的功能
+				_.union([3,2,1,1], [1,2,5])
+				[3, 2, 1, 5]
+				会保持元素出场的顺序
+			_.findIndex, _.findLastIndex 类似find，但返回的是index
+				_.findIndex(array, [predicate=_.identity], [fromIndex=0])
+			_.indexOf 则是findIndex的简单版
+			去杂
+				_.compact, 清洗去掉false（falsy, falsey）的元素: false, null, 0, "", undefined, NaN
+			截取
+				_.head、_.first 取第一个元素（原数组元素级别）
+				_.tail 去掉第一个元素（与原数组同级）
+				_.initial 去掉最后一个元素（与原数组同级）
+					如果只有一个元素，则该元素会作为"最后一个元素"（_.last）而被去掉，返回空数组，即_.initial([1]) => []
+					可以接受非法输入，不符合逻辑的输入，均返回[]: 很利于编写高容错性代码
+				_.last 取最后一个元素（原数组元素级别）
+		对象
+			_.get 对象取值，任意深度，支持缺省，省下处理抛异常的麻烦
+				var object = { 'a': [{ 'b': { 'c': 3 } }] };
+				_.get(object, 'a[0].b.c'); // => 3
+				_.get(object, ['a', '0', 'b', 'c']); // => 3
+				_.get(object, 'a.b.c', 'default'); // => 'default'
+			_.set 对象设值，与_.get对应（会修改原对象）
+				_.set(object, 'a[0].b.c', 4)
+				_.set(object, ['a', 'b', 'c'], 4)
+				对于不期望修改原对象的情况，可以用assign、defaults等方法
+				注意：
+					如果object不是一个对象，修改无效，直接原值返回
+			_.unset 删除属性，会修改原对象。容错性强
+				只支持删除一个路径
+				_.unset(object, ['a', '0', 'b', 'c'])
+				_.unset(object, 'a.0.b.c')
+			_.at: _.get的批量版（取一系列的值，返回数组），这样好像就不支持缺省值了吧？
+				var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+				_.at(object, ['a[0].b.c', 'a[1]']); // => [3, 4]
+			_.keys: 取对象的属性列表
+				该方法取不到方法列表，要实现这一点可参考自己封装的uniquer.js里的代码
+			_.keysIn
+				对应for in
+			_.assign、_.assignIn, _.extend, _.merge, _.mergeWith系列
+				_.assignIn（别名_.extend）的区别好像是其只考虑own and inherited source properties
+				_.merge 深度拷贝（递归），会改变原对象，但不会修改参数
+					能处理环路的数据结构！
+					坑：
+						通常用merge是用于的场景，但对于数组是不能实现覆盖的，因此使用时要特别注意
+						let a = {a:[1, 2]}
+						let b = {a:[2]}
+						_.merge(a, b) // => {a:[2,2]}
+				注：以上函数都修改原对象
+			_.defaults, _.defaultsDeep
+				与assign同为对象叠加的方法，但其逻辑是：仅当目前没有对应值时，才选择覆盖
+				处理react的props时，不能正常工作，需要wash
+				注：会修改原对象
+			_.pick、_.pickBy 选出部分属性
+				_.pick(object, ['a', 'c'])
+				_.pick(object, 'a', 'c')
+				pickBy(obj, (val, key) => bool )
+				注：对于没有的属性，将会忽略（而不是pick出一个undefined值来）
+			_.omit 去掉部分属性
+				_.omit(object, ['a', 'c'])
+				_.omit(object, 'a', 'c') 
+			_.omitBy
+			_.keys 返回数组
+			_.mapKeys, _.mapValues 给keys或者values变换
+				可以用于数组，可将数组转为对象
+				_.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) { return key + value; }) // => { 'a1': 1, 'b2': 2 }
+					注：mapKeys无法减少项目的个数
+				var users = { 'fred':    { 'user': 'fred',    'age': 40 }, 'pebbles': { 'user': 'pebbles', 'age': 1 } }; 
+				_.mapValues(users, function(o) { return o.age; }); // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+				_.mapValues(users, 'age'); // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+			_.has / _.hasIn 判断是否有某个属性（支持深度路径）
+				hasIn检查祖先
+				如_.has(object, 'a.b')
+		集合（对象、数组都适用）
+			_.includes 是否有某个元素[废弃underscore里的_.contains]
+				数组和对象都适用（对象只检查key，不查value），还可用于字符串
+			_.each（_.forEach）
+			_.isEmpty. 对于{}和[]都返回true
+			lodash里没有all和any，只有some和every
+			_.some 返回bool（underscore里有别名 _.any）
+				_.some([null, 0, 'yes', false], Boolean); // => true
+				对于空集，_.some返回false
+			_.every 与some相对（underscore里好像有别名，_.all）
+				「坑」「注」：为了与some的逻辑相对称，_.every(空集合)为true！！
+			_.groupBy （与自己的group的思路有一些交集，但定位不完全一样）
+				_.groupBy([6.1, 4.2, 6.3], Math.floor);
+				// => { '4': [4.2], '6': [6.1, 6.3] }
+				// The `_.property` iteratee shorthand.
+				_.groupBy(['one', 'two', 'three'], 'length');
+				// => { '3': ['one', 'two'], '5': ['three'] }
+			_.filter 筛选（有点类似sql的select）
+				可以操作对象，但返回的结果一定是数组（类似_.map的机制）
+				注：哪怕是筛选出来之后只有一个结果，仍然是返回数组，这跟sql的select一样!
+				如果要返回对象，可以使用pick、pickBy
+				: var users = [
+				: 	{ 'user': 'barney', 'age': 36, 'active': true },
+				: 	{ 'user': 'fred',   'age': 40, 'active': false }
+				: ];
+				:
+				:	支持一些快捷方法
+				: _.filter(users, function(o) { return !o.active; });
+				: // => objects for ['fred']
+				:
+				: // The `_.matches` iteratee shorthand.
+				: _.filter(users, { 'age': 36, 'active': true });
+				: // => objects for ['barney']
+				:
+				: // The `_.matchesProperty` iteratee shorthand.
+				: _.filter(users, ['active', false]);
+				: // => objects for ['fred']
+				:
+				: // The `_.property` iteratee shorthand.
+				: _.filter(users, 'active');
+				: // => objects for ['barney']
+			_.find 类似filter，但只找第一个
+			_.findLast 类似find，但从后开始找
+			[_.map]
+				缺省调用，如：_.map(a)返回a的克隆
+				lodash的map和数组原生的map相比，其容错性更强，还能兼容arraylike
+				非对象，返回[]
+			随机取一个 _.sample
+				_.sample({a:1, b:2}) // 得到1或者2
+			随机取指定个 _.sampleSize
+			[废弃_.pluck] 用 _.map代替
+				var objects = [{ 'a': 1 }, { 'a': 2 }]
+				_.map(objects, 'a'); // → [1, 2]
+		函数
+			_.curry <?utl:id=lodash_curry?> 非常强大的柯里化！支持直接拿 _ 对象来作占位符！
+				它的神奇效果实在是太令人兴奋了! 相见恨晚的感觉.  _ 终于亲自派上了用场! 
+				var abc = function(a, b, c) { return [a, b, c]; };
+				var curried = _.curry(abc);
+				curried(1)(2)(3);
+				// => [1, 2, 3]
+				curried(1, 2)(3);
+				// => [1, 2, 3]
+				curried(1, 2, 3);
+				// => [1, 2, 3]
+				// Curried with placeholders.
+				curried(1)(_, 3)(2);
+				// => [1, 2, 3]
+				注：一个参数被传了undefined和"该参数没传"等价
+				因此，curried() === curried，进而curried()()()...() === curried，只有被传入不是undefined的参数之后，函数才会被降阶
+				这里和天然的高阶函数的行为不一致：柯里化后的函数用法更灵活强大，同时也带来了这些坑
+			据说 lodash/fp 模块还提供了更强大的函数式编程的工具 <url:https://github.com/lodash/lodash/wiki/FP-Guide>
+				但好像fp里的方法在主模块（即_）里也有，比如fp.compose等同于_.flow（没有_.compose）
+			_.flow, _.flowRight
+			_.memoize（具有cache的函数）
+				_.memoize(func, [resolver])
+			_.debounce, _.throttle
+				debounce像友善地等电梯（如果一直有人来，电梯可能一直走不了），throttle像班车（固定时间一班，到点即走不等人）。另外可以参考rxjs
+		字符串
+			_.trim, _.trimEnd, _.trimStart
+				_.trim('  abc  '); // => 'abc'
+			_.camelCase
+			_.capitalize('FRED'); // 转成首字母大写
+				// => 'Fred'
+		Util: 一些函数生成器，通常用作map等函数的functor
+			_.property
+			_.identity
+	[ramda] <?utl:id=ramda?> <url:http://ramdajs.com/docs/>
+		还有一个附加的扩展包：Ramda Adjunct <url:https://github.com/char0n/ramda-adjunct>
+		ramda也有占位符R.__
+		阮一峰强烈推荐！支持在线测试: 首页 -> try ramda
+		有一个自动得到ramda解决方案的库（ramda解题机器人） <url:https://github.com/bahmutov/rambo>
+			const solution = solve([1, 2, 3, 4], [5, 6, 7, 8])
+			console.log(solution.name) // "R.map(R.add(4))" 可以把解法给试出来！！！通过穷举法！
+		cookbook 用实例来讲解使用ramda进行函数式编程的技巧 <url:https://github.com/ramda/ramda/wiki/Cookbook>
+		R.curry 与lodash的curry类似
+		R.curryN 类似curry，用于curry化参数不确定的函数
+		R.map
+			与lodash的区别:
+			_.map({a:1, b:2}, v=>v+1) // [ 2, 3 ]
+			R.map(v=>v+1, {a:1, b:2}) // { a: 2, b: 3 }
+			对于非对象，得到[undefined]
+			注：函数只能接收一个参数！！不能接收(key, value)
+		intersperse 给数组元素间插一个分隔元素
+			R.intersperse('n', ['ba', 'a', 'a']); //=> ['ba', 'n', 'a', 'n', 'a']
+		filter, reject: 类似lodash对应的功能, 但结果会保留原来的对象或者数组形式，但只能访问value
+		R.pick, R.omit: 仅针对对象，因此可以访问到key和value
+			跟lodash有点类似，但序列只支持用数组表示
+		transduce, into <url:./filets/ramda_transduce_into.js>
+		groupBy (fn, arr)=>{res1: [...], res2: [...], ...}
+		reduceBy 为 groupBy的一般化，可自定义reduce算法
+		groupWith 将数组按一定规则切块
+		converge 聚焦 <url:./filets/ramda_converge.js>
+		--- 函数式 ---
+		compose, pipe: 由于其特殊使用场景，其结果不会柯里化
+			注：真正理解了ramda之后，才真正理解ramda.compose的精髓！一般不会有使用pipe的场景
+		tap 分线器（用于类似接入测量仪、电流表等的功能，不影响原来的数据流动，常用于打日志，或者是数据分流（像shell里的Tee命令））
+			var sayX = x => console.log('x is ' + x); // 定义一个日志函数
+			R.tap(sayX, 100); //接入日志函数，原来的数据原封不到，区别只是多打出了日志：logs 'x is 100'
+		R.flip 将函数的前两个参数替换
+	[rxjs] "lodash for events" <url:http://reactivex.io/rxjs/>
+		rx支持多语言，其大主页: <url:http://reactivex.io/>
+			在v6没完善之前，旧版的文档还得查 <url:http://reactivex.io/rxjs/manual>
+		v6的划时代意义: 更纯，方能发挥函数式的威力
+		[fromEvent]
+			const clicks = fromEvent(document, 'click')
+		[fromEventPattern] 根据提供addHandler/removeHandler来构建obserable
+		[operators] rxjs
+			[map]
+			[flatMap] 先map->observable再flat
+			[pairwise] 每人拉上其后面的一位 <url:https://rxjs-dev.firebaseapp.com/api/operators/pairwise>
+		资源
+			教程 <url:https://www.learnrxjs.io>
+			旧版笔记
+				Observable: 通常称为"源"
+					「官方的test代码是一个非常形象的说明文档」
+						以debounceTime为例 <url:http://reactivex.io/rxjs/test-file/spec-js/operators/debounceTime-spec.js.html#lineNumber5>
+						具体符号的定义还未深究
+					do: debug神器
+					delay: 所有事件延迟指定时间
+					reduce: 类似于array的reduce. <url:http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-reduce>
+						记忆方法，所谓reduce，一定是要把东西'减少'，才能叫reduce!
+						reduce((累积值, 当前值)=>新的累积值)
+					scan: 类似reduce（参数完全同），但将每次累积的值emit出来 <url:http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-scan>
+					mergeScan: 类似scan，区别为参数是一个observable的变换, 先scan再merge
+					filter: 过滤。类似lodash的filter
+						partition: 类似filter，但把剩下的那部分也拿来有用
+					distinct: 去重（全局去重）
+						distinctUntilChanged 局部去重
+					partition: 同filter，但返回两个结果：合格的和不合格的都返回
+					bufferToggle: 类似水龙头的一开，一关的一杯一杯装水动作
+					window / windowToggle : 类似buffer，但拆成多路流，而不是数组
+					startWith 在前面插入一个值
+					多路合并
+						switch: 新路直接覆盖旧路
+						exhaust
+					限流
+						debounce: 类似等电梯案例，特点是如果陆续来人，电梯有可能永远没有机会走
+						debounceTime: 直接传入时间间隔参数来debounce（原始debounce方法需要传一个流）
+						throttleTime
+						audit / auditTime: 跟throttle类似，暂不深究
+						sample / sampleTime
+				mumuzhenzhen的专栏教程 <url:https://segmentfault.com/a/1190000004293922>
+					翻译自 The introduction to Reactive Programming you've been missing <url:https://gist.github.com/staltz/868e7e9bc2a7b8c1f754>
+					文末系统推荐的文章似乎也不错
+				汇智网的教程 <url:http://cw.hubwiz.com/card/c/569d92e3acf9a45a69b05154/1/1/3/>
+				与react结合
+					手写代码时，要特别注意避免发生事件重复订阅的情况，尤其是与ref结合使用时，因为react的ref经常会允许多次调用
+					用redux的风格来将rxjs应用到react上
+						Use RxJS with React, 这是一个很厉害的思想 <url:https://michalzalecki.com/use-rxjs-with-react/>
+						Use RxJS with React <url:http://slides.com/michalzalecki/use-rxjs-with-react>
+					rxjs-react-component 将react的事件转成observable的形式 <url:https://www.npmjs.com/package/rxjs-react-component>
+						谨慎使用! 感觉使用的人不多
+				旧版安装事项：官方的安装说明不适用于react, 直接npm i rxjs，而非官方文档上的npm i rxjs-es!!
+					rxjs-es在create-react-app上不能编译
+				示例
+					who to follow demo <url:./filets/rxjs/who_to_follow>
+	jscodeshift js代码批量自动修改神器！<url:https://github.com/facebook/jscodeshift>
+		网上教程 <url:https://www.toptal.com/javascript/write-code-to-rewrite-your-code>
+		另一个网上的示例 <url:https://glebbahmutov.com/blog/jscodeshift-example/>
+		一个改注释的例子 <url:http://astexplorer.net/#/gist/8c7d9f81226bbbdee5d9c7a2468ddaa0/c3d93b44e2bf90e0ff2553ec1c8d85dd2daf807e>
+		自定义逻辑完成代码的自动修改. 主页有大量的示例供参考，实在是太赞了！
+		其是对recast的一个包装，recast就是一个用来批量修改js代码的库 <url:https://github.com/benjamn/recast>
+		作者对其背景的讲解 <url:https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb>
+	esnextbin 一个直接在浏览器端做前端项目的库 <url:https://github.com/voronianski/esnextbin>
+	Flow <url:https://flow.org/>
+	[mathjs] 处理数学的js库 <url:http://mathjs.org/docs/getting_started.html>
+		[fraction]
+			math.fraction('1/3')   // Fraction, 1/3
+			math.fraction(2, 3)    // Fraction, 2/3
+			math.fraction('0.(3)') // Fraction, 1/3
+	[exceljs] 处理excel的库。以目前所了解的水平来看，功能不比python的openpyxl弱的感觉
+		workbook, 简写为wb
+			wb.worksheets 取得所有的worksheet，应该是一个数组
+			遍历各个sheet: workbook.eachSheet(function(worksheet, sheetId) {
+				// ...
+			});
+		worksheet, 简写为ws
+	astexplorer 一个强大的语法树解析库 <url:http://astexplorer.net/>
+		支持多种语言的语法树的解析
+		源码 <url:https://github.com/fkling/JSNetworkX> 
+	PACE.js 页面loading效果的解决方案（页面加载）<url:http://github.hubspot.com/pace/>
+	[D3] <url:https://d3js.org/>
+		世界观：d3是一个很庞大的体系，但它并不是一个庞大的专制性的框架，而是被拆分成了许多个工具，允许你在任何框架中使用
+			d3并没有彻底拥抱npm以及es6的模式，因此其官网的教程还是传统的js引入的方法（像传统的jquery全家桶）
+			但由于它的各子模块还是放到了npm，给已经转入es6的用户带来了极大的便利
+			以下笔记按npm的模块进行整理，基本上不影响传统风格示例代码的学习
+		最近版本的在线js <script src="https://d3js.org/d3.v4.min.js"></script>
+		github官方教程 <url:https://github.com/d3/d3/wiki/Tutorials>
+		gallery 很多很酷的demo <url:https://github.com/d3/d3/wiki/Gallery>
+		api参考 <url:https://github.com/d3/d3/blob/master/API.md>
+		示例见: <url:./filets/d3_example> 
+		d3-array 与lodash有些交集，但仍有一些独家工具（数学统计层面） <url:https://github.com/d3/d3-array>
+			extent 求数组的范围，即[min, max]
+			mean 求平均值（同lodash）
+			median 中位数（lodash没有）
+			quantile 数学含义未研究
+			variance 方差
+			deviation 偏差
+			...
+		d3-interpolate 插值算法（的构造器） <url:https://github.com/d3/d3-interpolate>
+			为了标准化，插值的定义域都在0 ~ 1区间，但真正使用时可超过这个范围（越界）
+				var i = d3.interpolateNumber(10, 20);
+				i(0.0) => 10,  i(0.2) => 12, i(-1) => 0, i(2) => 30
+			interpolateZoom 跟zoom相关的插值
+				其数据的格式为[ 中心坐标cy, xy, 尺寸（一个值）w ]
+		d3-scale 插值的进一步封装 <url:https://www.npmjs.com/package/d3-scale>
+			其实是一个映射，将真实的数据，映射为用于可视化的值。比如将人口的比例映射为柱状图显示的长度
+			import {scaleLinear} from 'd3-scale' // 注：不支持 import ds from 'd3-scale'，然后使用ds.scaleLinear的写法
+			官方推荐作者写的介绍文章 <url:https://medium.com/@mbostock/introducing-d3-scale-61980c51545f>
+			linear示例 <url:./filets/d3_example/1_bar_chart/main.js#d3-scale>
+			附带几个常用的调色板 d3.schemeCategory10, d3.schemeCategory20, d3.schemeCategory20b, d3.schemeCategory20c
+				其实就是几个预置的数组而已，和ordinal scale配合使用
+			d3.scaleOrdinal() 构造一个离散的scale，定义域是整数序列
+		d3-scale-chromatic 更全面的调色板<url:https://github.com/d3/d3-scale-chromatic>
+		d3-hierarchy 层级结构（树形结构、树状） <url:https://github.com/d3/d3-hierarchy>
+			d3.hierarchy(data[, children]) 传入一个数据源对象，返回一个解析过的层级对象
+				children参数用来指定获取子节点的函数，缺省为 function children(d) { return d.children; }
+				解析后的对象，拥有大量实用属性和方法（详见文档）
+					之前的C++时代还尝试自己写过json_count之类的函数还很有成就感，现在直接被d3秒杀！
+			d3.stratify 示例见 <url:./filets/d3_example/dendrogram/main.js#stratify>
+			d3.cluster() 用于树形布局。（得到一个cluster对象，布局函数, 见下）
+				cluster布局的特点是所有叶子节点都在最底层
+				cluster(root) 传入一个层级数据结构，给其注入布局坐标
+				示例 <url:./filets/d3_example/dendrogram/main.js>
+			d3.tree() 与cluster的区别是tree更加紧凑，同一depth节点在同样的高度
+			d3.pack() 用于圆球布局（circle packing） <url:./filets/d3_example/circle_packing/main.js#d3.pack>
+				必须要使用node.sum方法
+			node 是一个递归的结构
+			node.descendants() 返回包括自己在内的所有子节点平铺的一个数组 <url:./filets/d3_example/dendrogram/main.js#descendants>
+			node.sum(...) <url:./filets/d3_example/circle_packing/main.js#sum>
+		d3-format 显示格式化 <url:https://github.com/d3/d3-format>
+			详见文档，很强大的格式化工具库，比如 1234 格式化为 1,234
+		d3-selection 跟jquery重叠相对最多的一块 
+			selection.on('click', fn(d, i, ...){ this为当前dom元素 }) 事件响应
+			selection.call 对selection调用一个函数，使用其call方法的意义在于实现链式调用
+		d3-transition
+			最简单示例： d3.select("body").transition().style("background-color", "lightblue")
+			transition.duration(2000)
+			transition.ease(timing_function) 指定时间函数
+			transition.tween 自定义变换时间轴的行为
+				区分于前面的类似于css transition的简便方法，tween可以通过流出时间插值，让用户根据时间插值来决定当前这一刻（这一帧）要处于什么状态
+				这个思想和react motion非常接近
+		d3-force <url:https://github.com/d3/d3-force>
+		d3-drag <url:https://github.com/d3/d3-drag>
+		d3-shape <url:https://github.com/d3/d3-shape>
+		资源
+			十二月咖啡 国内的不错的站点 <url:http://www.decembercafe.org/>
+				做了很多酷炫的ui动画工具，其中有一个调色教程很赞
+			ourd3js <url:http://www.ourd3js.com/>
+			作者的代码博客
+				Let’s Make a Bar Chart 柱状图1 <url:https://bost.ocks.org/mike/bar/>
+				Let’s Make a Bar Chart, II：引入svg，以及ajax请求数据 <url:https://bost.ocks.org/mike/bar/2/>
+				Let’s Make a Bar Chart, III: 引入坐标轴 <url:https://bost.ocks.org/mike/bar/3/>
+				Three Little Circles <url:https://bost.ocks.org/mike/circles/>
+				How Selections Work <url:https://bost.ocks.org/mike/selection/>
+				How selectAll Works <url:https://bl.ocks.org/mbostock/5369146>
+				Collapsible Tree 可折叠的树 <url:https://bl.ocks.org/mbostock/4339083>
+				Tidy Tree（其实就是dendrogram） <url:https://bl.ocks.org/mbostock/4339184>
+			Scott Murray: D3 Tutorials <url:http://alignedleft.com/tutorials/d3>
+				About these tutorials <url:http://alignedleft.com/tutorials/d3/about>
+				Fundamentals <url:http://alignedleft.com/tutorials/d3/fundamentals>
+				Setup <url:http://alignedleft.com/tutorials/d3/setup>
+				Adding elements <url:http://alignedleft.com/tutorials/d3/adding-elements>
+				Chaining methods <url:http://alignedleft.com/tutorials/d3/chaining-methods>
+			Adjustable Link Strength <url:https://bl.ocks.org/mbostock/aba1a8d1a484f5c5f294eebd353842da>
+			Mike Bostock’s Blocks <url:https://bl.ocks.org/mbostock>
+			Force Dragging I <url:https://bl.ocks.org/mbostock/2675ff61ea5e063ede2b5d63c08020c7>
+			Force Dragging III <url:https://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048>
+			Force-Directed Tree <url:https://bl.ocks.org/mbostock/95aa92e2f4e8345aaa55a4a94d41ce37>
+	[AntV] 阿里的d3山寨版 <url:https://antv.alipay.com/zh-cn/index.html>
+	ESLint <url:http://eslint.org/>
+		参考 <url:http://eslint.org/docs/user-guide/getting-started>
+			先全局安装，然后到具体项目目录eslint --init，会自动将eslint locally安装
+			eslint --init的命令行向导界面做得很赞！（虽然生成的配置完全不能用）
+			如果要在package.json里配置，加到eslintConfig字段
+			真正使用时，使用局部安装到版本：node_modules\.bin\eslint .
+		坑
+			其默认的配置是完全不能用（连箭头函数都不能识别），但把create react app的配置（其实是在eslint-config-react-app模块里）拿来是可以直接用的
+	表单
+		form-urlencoded <url:https://www.npmjs.com/package/form-urlencoded> 
+			官方querystring库的加强版，官方库不能处理多级对象，比如 {a:{b:1, c2}}，而这个库则可以
+			目前在用，示例：
+			var formurlencoded = require('form-urlencoded');
+			var obj = {
+				str : 'val',
+				num : 0,
+				arr : [3, {prop : false}, 1, null, 6],
+				obj : {prop1 : null, prop2 : ['elem']}
+			};
+			console.log(formurlencoded(obj));
+			// str=val&num=0&arr%5B%5D=3&arr%5B%5D%5Bprop%5D=false&arr% 
+			// 5B%5D=1&arr%5B%5D=null&arr%5B%5D=6&obj%5Bprop1%5D=null&o 
+			// bj%5Bprop2%5D%5B%5D=elem
+	Immutable  <url:https://facebook.github.io/immutable-js>
+		通用方法
+			.toJS()
+		需要用其自带的.equals或者Immutable.is函数来判断相等性
+			例：
+			const xx1 = IMap({ b : IMap({ 
+				key : 1,
+			}), a: 'fuck'})
+			const xx2 = IMap({ a:'fuck', b: IMap({ 
+				key : 1,
+			}), })
+			console.log(xx1.equals(xx2)) // true
+			: 如果key下面的value是对象，要必须要将其immutable化
+		github <url:https://github.com/facebook/immutable-js/>
+		Map
+			map1.set('b', 50);
+			map1.get('b');
+			例：这里不会进行深度immu化，m1下面的对象仍然保存原始的raw object形式
+			Map({ 
+			m1 : {
+				type : 'mysql',
+				x : 150,
+				y : 100,
+			})
+		据说有一个devtool，在weavescope的源码里有看到，还未用过
+			import installDevTools from 'immutable-devtools';
+			installDevTools(Immutable);
+	immutability-helper
+	memoize-one 只记忆上一次调用 <url:https://www.npmjs.com/package/memoize-one>
+		lodash的memoize有点复杂，很多时候这个库更实用
+	Freezer.js: 另一个immutable的方案 <url:https://github.com/arqex/freezer>
+		最大优势：很方便地更新一个很深的节点数据
+		比immutable.js更轻量 与React结合时，相当于取代react的state，setState的机制
+			它本身有store的概念，似乎有一定的和redux结合的可能性，但有一些文档则是建议用freezer代替flux(or redux)？有待好好研究 <url:https://medium.com/@arqex/react-the-simple-way-cabdf1f42f12#.g41jpw16v>
+		世界观：store和state（data），store（全局唯一，存放data），data从store获取, immutable
+			store = new Freezer({..初始状态..}) // 构造函数的参数一定是个对象（至少是{}），缺省参数的话会报错
+			state = store.get() // 获得data
+			state.set(key, value)或者state.set({...}) // 后者类似react setState
+				该调用改变了store里的数据，返回新的修改后期望得到的变量对象，但原状态的引用者（这里是state），仍然保持不变（immutable）
+				state.reset({...}) 类似react replaceState
+				对象删除属性：obj.remove('a'), obj.remove(['a', 'b'])
+				「注」不支持递归深度set
+			store.on('update', function( currentState, prevState ){ }) // 监听state变化，作为取代react setState机制的必要条件之一
+			store.set(another_state) // 重置data，注意与data.set相区别
+			state.pivot() 对于需要一次性更新多处地方的场景，非常有用，例
+				store.get().people.pivot().John.set({age: 30}).Alice.set({age: 30})
+				注：在下一个tick时，pivot会被自动清除，使其不影响后面的使用
+					即，上例中如果把两个set操作直接断开来执行的话，是不能正常工作的
+			state.remove 删除属性
+				freezer.get().remove('d').remove(['b', 'c'])
+		坑
+			与某些库结合使用时，需要净化数据（使用toJS()方法，或者是用modash里的wash）。比如_.merge，如果不wash将得不到正确的结果
+	时间操作
+		moment 较受欢迎 <url:http://momentjs.com/docs/#/displaying/format/>
+			import moment from 'moment'
+			const tag = moment().format('YYYYMMDD_HH.mm') // 坑：注意是moment()，而不是直接用moment!
+		date-fns 后起之秀。dan大神推荐过 <url:https://date-fns.org/>
+			import { format } from 'date-fns'
+			format(new Date(), 'yyyy-MM-dd', )
+	jsmind 思维导图js库
+	cookie操作 js-cookie <url:https://www.npmjs.com/package/js-cookie>
+	颜色操作 color <url:https://www.npmjs.com/package/color>
+		功能非常全面，可以对颜色进行各种变换，运算，比如求亮度，求灰度，颜色混合等
+	url解析
+		query-string <url:https://www.npmjs.com/package/query-string> <url:https://github.com/sindresorhus/query-string>
+			暂时用的是这个，github star较高
+		querystring: 这是将node内建的querystring模块可移植化. 似乎更应该被使用？<url:https://github.com/Gozala/querystring>
+	yaml
+		js-yaml: 目前正使用 <url:https://www.npmjs.com/package/js-yaml>
+			坑！：我已经修改了其代码！见自己folk的github地址，使用该库时要注意！
+			从npm文档上看，是针对nodejs的，但目前前端也正在使用未发现问题
+			以抛异常的方式处理错误
+			yaml.dump(obj[, opts]) // 从对象导出yaml
+			yaml.load(str[, opts])
+		yamljs <url:https://www.npmjs.com/package/yamljs> <url:https://github.com/jeremyfa/yaml.js>
+			使用dump的时候，好像有bug 2016年12月23日
+		yaml <url:https://www.npmjs.com/package/yaml>
+	jszip 前后端通用的压缩库（打zip包和解zip包） <url:https://stuk.github.io/jszip/>
+		支持直接从前端下载
+	dom-align <url:https://github.com/yiminghe/dom-align>
+		rc-align以及ant design里tooltip组件的基石. 实现类似Sticker的功能
+	layui（前身为layer） <url:http://www.layui.com/>
+	uuid <url:https://www.npmjs.com/package/uuid>
+		import uuid from 'uuid/v1' // 还有v4, v5，一般用v1即可
+		直接 uuid() 即可生成
+	ART 绘图 <url:https://github.com/sebmarkbage/art/>
+	Vue.js <url:http://cn.vuejs.org/>
+		60分钟快速入门 <url:http://www.cnblogs.com/rik28/p/6024425.html>
+	直接操作dom样式：dom-css <url:https://www.npmjs.com/package/dom-css>
+	图形库
+		强大的图形库：gojs!! <url:http://gojs.net/latest/samples/dynamicPorts.html>
+			太厉害了！感觉比d3还要厉害啊
+			使用canvas来实现
+			虽然好像不是开源，但好像给出了model!!!，是一个很好的参考
+		JSNetworkX （astexplorer的作者从python库NetworkX上移植过来的） <url:https://github.com/fkling/JSNetworkX>
+		gooflow流程设计插件, 好像也很有参考价值 <url:http://www.jq22.com/jquery-info16922>
+	[theia] <url:https://github.com/theia-ide/theia>
+	xterm.js web终端的解决方案 <url:https://github.com/sourcelair/xterm.js>
+		vs code也使用了该库
+	ascii表格
+		string-length: 除了正确计算unicode长度之外，还忽略掉了ansi控制代码 <url:https://www.npmjs.com/package/string-length>
+		string-width: 计算显示的长度，比如中文占2的长度，同样忽略掉ansi控制代码<url:https://github.com/sindresorhus/string-width>
+		widest-line: 计算一个多行字符串里面最宽的一行的显示长度 <url:https://github.com/sindresorhus/widest-line>
+			感觉不是很实用
+	css-element-queries <url:https://www.npmjs.com/package/css-element-queries>
+		里面有一个ResizeSensor，可以用来监听dom元素尺寸的变化
+		但其有一定的侵入作用: 会将原来元素的position改为relative，并且还会注入一些辅助的元素
+		因此对于在svg foreignObject里的html元素来说，可能会带来问题
+	3D库 Three.js <url:https://threejs.org/>
+		一些很酷炫的demo <url:http://christmasexperiments.com/experiments>
+		react-three-render demo <url:http://toxicfork.github.io/react-three-renderer-example/#/webgl_draggable_cubes>
+		react-three <url:https://github.com/Izzimach/react-three>
+		The interactive example from react-three <url:http://izzimach.github.io/demos/react-three-interactive/index.html>
+		react and three.js <url:https://tweedegolf.com/2016/02/16/react-threejs/>
+	html编码、解码
+		He（html entities） <url:https://www.npmjs.com/package/he>
+			issue: encode一段中文会把所有东西都encode进去了
+	模板 ejs <url:https://www.npmjs.com/package/ejs>
+		流程<% %>
+		转义<%= %>
+		不转义<%- %>
+		找到几个vim的插件，未体验 <url:https://github.com/nikvdp/ejs-syntax> <url:https://github.com/briancollins/vim-jst>

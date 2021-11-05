@@ -1,3 +1,761 @@
+[javascript]
+	语法基础
+		[typeof]
+			typeof NaN // "number"
+			typeof null // "object"
+			typeof undefined // "undefined"
+			typeof true // "boolean"
+			typeof new String('123') // "object"
+		[===][==] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness>
+			如果 a === b，则a==b
+			NaN != NaN
+			+true === 1
+			true == 1
+			true == "1"
+			true != "true"
+			-0 === +0
+			null == undefined
+			null !== undefined
+			null === null
+			undefined === undefined
+			Infinity === Infinity
+			要从设计者的用意来理解 == 的比较规则
+				[ToNumber(A)] 即+A运算，转为数字. 因为boolean更接近number类型，所以遇到boolean的比较，会转成数字来比
+				[ToPrimitive(A)] 对于object的类型，primitive会依次取toString，valueOf
+		布尔类型
+			falsy值: ''
+			true值: '0'
+		数值类型
+			取小数点固定几位: toFixed(3) // 取小数点后3位，返回的是字符串
+		[undefined]
+			undefined === undefined
+		单双引号互括用于规避引号转义
+			这是很多语言的做法
+		...操作符
+			对象里展开：{ ...xxx } 如果xxx不是对象，直接忽略
+				即：...undefined, ...null, ...123 都是合法的，但仅限于对象内，在其他场合的使用方法会不同
+			数组中的应用
+				const arr = [1, 2, 3, 4, 5]
+				let [...a, b] = arr // 错误！
+				let [a, ...b] = arr // 正确
+				可以直接把字符串转为数组
+					当然split方法也可以
+			函数参数中的奇招: function group(o, [...by], {...opt}){...}
+				这样很明了参数的意图，并且传入的参数非法时，也能至少保证by是一个空数组, opt是一个空对象，而不会报错
+			坑：
+				[...undefined]是非法的，{...undefined}却又是合法，这已经被坑了好多次了
+		交换变量 [a, b] = [b, a] // es6以上
+		连等陷阱 <url:./filets/js/syntax/equal.js>
+		(,)陷阱 <url:./filets/js/syntax/parentheses.js>
+		[toString()]
+			js里通常不提接口，但很多地方使用了对象的toString()方法来生成用于显示的字符串信息，这里属于js里"接口"理念的一个轻淡地体现
+		[valueOf()]
+		声明、赋值、运算符
+			声明多个变量
+				let a, b = 1 // a为undefined, b为1
+			连等赋值
+				let a = b.c = {}
+			解构赋值（...）
+				支持特殊字符串构成的key，例: const {'&:first-child':xx, ...rest} = a
+				支持key里为变量：const {[aaa]:a, [bbb]:b} = x
+			解构组合
+				{...1, ...null, ...undefined, ...true} -> {}
+			幂运算 2 ** 3 // = 8
+	[other of global]其他内建对象
+		[binary] 二进制
+			另起炉灶
+				无视Node的Buffer标准，重新定义几个新概念
+			[ArrayBuffer]
+				底层buffer，不直接操作
+					作为TypedArray和DataView的载体
+			[TypedArray] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray>
+				记代表: Int8Array, Uint8Array, Float64Array
+				只支持big endian
+				享受Array的其他操作，这也是另起炉灶的原因之一
+			[DataView] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView>
+				类似C里的struct的操作
+				支持指定endian
+				.setInt16(12, 42, [true])
+				.getInt16(3, [true])
+			[Blob] 与文件联接
+				new Blob([字符串, buffer, 或者blob, ...], {type: "text/plain;charset=utf-8"})
+				最简单的用法：new Blob(['aa'])
+			[File] Blob的扩展
+				还是Blob，多了一些文件属性
+				通常由控件取得
+					比如file input，文件拖入
+			[FileReader]
+				new FileReader()
+				提供读File方法, 通过reader.result来取值
+					readAsDataURL(blob)
+					readAsText(blob)
+					readAsArrayBuffer(blob)
+					...
+				提供事件（遵循dom模型）
+					load
+					progress
+					...
+		[timers]
+			[setTimeout]
+				clearTimeout可以真正撤消（不同于asio会触发回调）
+			[setInterval]
+				timer = 窗口.setInterval(fn, time); clearInterval(timer)
+		Date
+			UTC: 世界统一时间。GMT: 格林威治时间. 可以认为是UTC的一种表达方式. 在date对象里，toUTCString === toGMTString [deprecated]
+			date对象, 由new Date(...)生成, 直接调Date()等价于(new Date()).toString()
+			new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])
+			一系列的get*, set*方法，查文档
+			直接生成毫秒值：Date.now
+			Date.parse, Date.UTC
+			高级功能：见moment库
+		[URL] <url:https://developer.mozilla.org/en-US/docs/Web/API/URL>
+			url的类
+				和location相似
+			浏览器端的两个方法
+				根据文件快速创建一个临时url
+					URL.createObjectURL(blob)
+				回收临时url
+					URL.revokeObjectURL(url)
+			资料
+				base64形式: 'data:image/png;base64,xxxxxxx' // 似乎逗号后没有空格
+	parseInt, parseFloat: 在新的标准中，它们将被收编入Number类方法里。Number.parseInt === global.parseInt
+	事件循环: 任务队列、执行栈
+		据说有多个任务队列？不深究了. 总之Promise的then是异步，但前于setTimeout和setImmediate
+		而setImmediate和setTimeout在浏览器和node上行为不同
+	[Object] Object对象的酷魔法
+		[Object.defineProperty]
+			Object.defineProperty(obj, 'aa', ...)
+			configurable
+				一次性门，一旦关上则不能再被打开
+			enumerable
+			value
+			writable
+			get
+			set
+		[Object.keys]
+			不取原型链, enumerable only
+			对应_.keys()
+		[Object.is]
+			Object.is(NaN, NaN) => true
+			Object.is(+0, 0) => true
+			Object.is(+0, -0) => false
+			Object.is(0, -0) => false
+			其余时候同 ===
+		[for in]
+			会取原型链，enumerable only
+		[Object.getOwnPropertyNames] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames>
+		[restriction] 限制
+			[Object.isExtensible] [Object.preventExtensions]
+			[Object.isSealed] [Object.seal]
+			[Object.isFrozen] [Object.freeze]
+		[prototype]
+			[obj.hasOwnProperty]
+			[obj.propertyIsEnumerable]
+	Symbol
+		解决标志变量、属性名全局唯一的问题
+		Symbol()和 Symbol.for/Symbol.keyFor 并不共享
+		需要通过Object.getOwnPropertySymbols才能枚举symbol属性. 或者通过反射Reflect.ownKeys
+		Symbol.hasInstance
+		Symbol.isConcatSpreadable
+		Symbol.iterator
+		Symbol.match: 只针对regxp是否能被startsWidth/endsWith
+		Symbol.prototype
+		Symbol.replace
+		Symbol.search
+		Symbol.species: 似乎只针对array.map的情况
+		Symbol.split
+		Symbol.toPrimitive: 便于快速转换类型, 比如 +x（转为number）
+		Symbol.toStringTag
+		Symbol.unscopables
+			object1[Symbol.unscopables] = { property1: true };
+			with (object1) { console.log(property1); } // 会报错
+		Symbol.for()
+		Symbol.keyFor()
+		Symbol.prototype.toSource()
+		Symbol.prototype.toString()
+		Symbol.prototype.valueOf()
+		Symbol.prototype[@@toPrimitive]
+	[String]
+		unicode问题
+			在通常情况下，字母和中文字都作为一个字符（char）对待，对Unicode码点大于某个值的字符，js需要用两个长度来表示
+			传统的方法（不能解决该问题）
+				String.fromCharCode(num1[, num2...])
+				str.charAt()，跟[]很像，但在一些边缘情况的行为略不同
+				str.charCodeAt()
+			新的方法
+				String.fromCodePoint(num1[, num2...])
+				str.codePointAt()
+		template literal
+			tagged template literal
+				fn`some string here` 等价于 fn([ 'some string here' ])
+				fn`this is a ${a} day ${b}` 等价于 fn([ 'this is a ', ' day ', '' ], a, b)
+				如果不是tagged，`this is a ${a} day`将直接把a变量转成string
+		str.length
+		str.concat(string2[, string3, ..., stringN])
+			和数组concat的用法类似，但建议直接用+运算符代替
+		查找、替换
+			正则语法糖: 参数不支持正则表达式，因此如果都传了正则，还需要这些语法糖干什么
+				str.endsWith(searchString[, length]) 
+				str.startsWith(searchString[, position])
+				str.includes(searchString[, position])
+			查找
+				str.indexOf(s[, from])：from指定从哪里往后找
+				str.lastIndexOf(s[, from])：from是指定从哪里往前找
+					这里的from的负值行为不一样，如果为负，则相当于为0
+				str.includes
+			正则
+				str.match(regexp)
+					参数为正则表达式（如果传入的不是正则，将隐式转换）
+					如果正则没有g，返回结果中str.match(regx)等价于regx.exec(str)
+					如果有g，则返回一个所有匹配的数组
+						一个纯数组，没有其他额外信息比如index
+				str.search(regexp) 正则版的indexOf. 但没有第二个参数
+				str.replace(regexp|substr, newSubstr|function)
+					巧用replace可以用于从字符串中截取某个特定位置的子串 reg.replace(/<%\s*\.(.+?)\s*%>/, '$1')
+					支持正则表达式，并支持选项，如/haha/g（当然也可以用字符串）
+						很多高级用法，参见手册
+					坑：如果不通过正则表达式指定/g，则默认只替换第一个找到的结果
+					例：text.replace(/javascript/gi, "JavaScript")
+					name = "Doe, John";
+					name.replace(/(\w+)\s*, \s*(\w+)/, "$2 $1"); // John Doe
+					如果要取整个串，好像是$&
+					支持传入一个函数：
+						text = text.replace(/<img src="res\/img\/biaoqing\/(.*?)\.bmp">/g, function (t)
+						{
+								t = t.slice(t.search(/\d+\.bmp/));
+								t = t.slice(0, t.search(/\.bmp/));
+								// 返回的字符串则表示要替换的新串
+								return biaoqing_code[t];
+						});
+					如replace(/^[^\d.]*/, '')，代表什么含义？
+		裁剪
+			str.slice(begin[, end]) // to
+				slice(0); // 相当于创建了字符串的副本
+				slice(-2); // 从倒数第2个开始
+				slice(1,3); // halfopen，即选1、2个，不包括第3个
+				slice(0, -2) // 支持负数：去掉最后两个
+			str.substr(start[, length]) // by
+			str.substring(indexStart[, indexEnd]) // 很像slice. 一个重要的区别是 start和end支持交换
+			str.trim()
+			str.trimEnd(); str.trimRight();
+			str.trimStart(); str.trimLeft();
+			str.split([separator[, limit]])
+				可以用正则
+				'1232'.split() // ['1232']
+				'1234'.split('') // ['1','2','3','4']
+				'1234'.split('4') // ['123','']
+				'22'.split('2') // ['', '', '']
+		大小写
+			str.toLowerCase()
+			str.toUpperCase()
+		画表格
+			str.padEnd(targetLength [, padString])
+			str.padStart(targetLength [, padString])
+		str.repeat(count)
+		String.raw`Hi\n${2+3}!` => Hi\n5，注\n就真的是'\n' + 'n'，而不是换行
+		不常用
+			str.localeCompare() 不常用，略
+			str.normalize()
+			str.toLocaleLowerCase()
+			str.toLocaleUpperCase()
+	Number
+		==类==
+		parseInt, parseFloat陷阱: 传入的参数是字符串. 
+		==实例==
+	[Array] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array>
+		*表示改变原数组
+		arr.length
+		构造
+			Array(3): 构造有三个元素的数组
+			Array.from()
+				Array.from(arrayLike[, mapFn[, thisArg]])
+				Array.from(iterable)
+			Array.of()
+				跟new Array一个重要区别是：Array.of(7) => [7] 
+		Array.isArray() 官方的判断是否为数组的方法，lodash也是调用它
+		arr.concat(value1[, value2[, ...[, valueN]]])
+		*arr.copyWithin(target[, start[, end]]): 类似c++里的move
+			[1, 2, 3, 4, 5].copyWithin(-2, -3, -1); // [1, 2, 3, 3, 4]
+		迭代
+			arr.entries() 返回迭代器
+				['a', 'b', 'c'] 迭代的内容是[0, 'a'], [1, 'b'], [2, 'c']
+			arr.keys() 返回keys的迭代器（注：不是keys数组，似乎有点鸡肋）
+		对标lodash: 但lodash的兼容性及容错性更强
+			注：lodash不提供this参数）
+			arr.some, arr.every, arr.filter
+				arr.some(callback[, thisArg])
+			arr.forEach（注：lodash有each和forEach，两者是alias关系）
+			arr.map
+			arr.reduce((a, c)=>new_a, init_value])：反向为reduceRight
+				初始值可以缺省
+			arr.reverse()
+			arr.sort 和 _.sortBy 有所区别
+		*splice(start[, deleteCount[, item1[, item2[, ...]]]]): 剪辑（字符串没有该方法）
+			会改变原数组
+			返回删除的子数组
+			deleteCount缺省的话，会把后面的全删掉
+		同字符串
+			arr.includes
+			arr.indexOf
+			arr.lastIndexOf: 与数组不同！其from支持负，而数组如果from为负则相当于0
+				[1,2,3,2].lastIndexOf(2,-2) // 1
+				'1232'.lastIndexOf('2', -2) // -1
+			arr.slice
+		查找
+			[arr.find]
+				返回元素值
+					arr.find(func[, thisArg])
+			arr.findIndex(func[, thisArg]) 同find，但返回找到的元素index
+		*栈和队列
+			arr.push(element1[, ...[, elementN]])，返回push的数目
+			arr.pop() 弹出最后一个元素，返回弹出的元素
+			arr.unshift(element1[, ...[, elementN]]) 反向push
+			arr.shift() 反向pop
+		arr.join(sep = ',')
+		arr.fill(value[, start[, end]]) // 填值
+		提案中
+			arr.flat(depth = 1)
+			arr.flatMap(...) // 先map，再flattern 1级. 用于那些map函数会提升层级的场景
+				[1, 2, 3, 4].flatMap(x => [x * 2]) => [2, 4, 6, 8]
+	Math
+		Math.min(1,2,3,4) / Math.max类似
+		Math.hypot 用来求距离很方便: Math.hypot(3, 4) => 5
+	函数
+		函数的名字可以通过其name属性取到，但尽量不要依赖它。因为js压缩混淆之后，函数名会丢失
+		函数的length: 即函数定义时的参数个数
+			应该是确定参数的个数吧？对于(a, b, ...c)这种形式还未深究
+		箭头函数技巧
+			(([x])=>{ /* 当为对象，数组的解构形态时，外层 ( ) 不能省 */ console.log(x) })(['haha'])
+			类里的箭头函数方法，是可以被完美继承的
+		arguments
+			似乎es6要将其相关特性废除（caller, callee等）
+		自己约定
+			纯函数用箭头函数，不纯函数使用function
+	[class]
+		[class declaration]
+			getter和setter
+				例：set value(val){this.value = val}
+			es规范不支持多继承
+				虽然可以人为实现，但值得思考是否必要
+			杂
+				私有属性、方法 #前缀: #a, #fun，好像现在babel还不支持
+		[constructor function]
+			[new] new的实质
+				var obj  = {};  
+				obj.__proto__ = Base.prototype;
+				Base.call(obj);
+			[inheritance]
+				with __proto__
+					Dog.prototype.__proto__ = Animal.prototype
+				without __proto__
+					方法就多种多样了
+	/../ [RegExp] 正则表达式 <url:#r=regexp>
+		正则表达式语法 <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions>
+			\
+			^, $
+			*
+			+
+			?：{0,1}，又用来表示非贪婪模式，如a*?（可用于任意数量修饰符之后）
+			.：除了\n，所以如果要匹配真正意义的任意字符，要用[^]，当然[\s\S]，[\d\D]等也可以
+			(ｘ)：子匹配，子匹配是可以嵌套的. 放入寄存器的顺序是进栈的顺序，即'('的顺序（先根遍历）
+			(?:ｘ)：匹配子模块但不放入$1-$9里
+			ｘ(?=ｙ)：look ahead
+			ｘ(?!ｙ)：negated look ahead
+				现在也普遍支持look behind了
+				console.log(/(?<=Jack|Tom)Sprat/.test('TomSprat')) // true
+				console.log(/(?<=Jack|Tom)Sprat/.test('TSprat')) // false
+			ｘ|ｙ
+			{n}
+			{n,}
+			{n,m}
+			[ｘｙｚ]
+			[^ｘｙｚ]
+			[\b]
+			\b word boundary. 词语的边界
+			\B
+			\cｘ
+			\d
+			\D
+			\f
+			\n
+			\r
+			\s
+			\S
+			\t
+			\v
+			\w
+			\W
+			\n
+			\0
+			\xｈｈ
+			\uｈｈｈｈ
+			\u{ｈｈ}
+		构造函数
+			字面量表示法略
+			new RegExp()同RegExp()，可以接收一个字符串或者一个对象
+				注：RegExp(/a/) 跟 RegExp('/a/')不等价!
+				RegExp('ab+c', 'i') => /ab+c/
+				RegExp('\\w+') => /\w+/
+		flags（后缀）
+			i 忽略大小写
+			g 全局匹配（多个匹配）
+			m 多行模式。缺省^和$匹配整个字符串的首和尾，启用了m之后，^和$则用来表示行首和行尾
+			u unicode模式: 比如/a.b/u 中的「.」可以匹配一个大的unicode字符，但如果不加/u的话，仍会把大unicode字符当两个字符看待，导致不匹配
+			y sticky
+				sticky其实隐含了g的行为，区别是其严格按lastIndex所在的位置来检查是否匹配（普通情形是从lastIndex开始往后找到匹配就行）
+		匹配检测方法
+			[状态机]: regx是以状态机的机制来进行匹配的，尤其是对于g
+			regx.test()：最常用的检测方法。注：对于g flag状态机，test可以多次调用来'查找下一个'，直到找不到时，会返回false。然后循环此过程。因此可用来进行查找计数
+			regx.exec()：test的详尽版：除了返回true和false之外，还返回详尽的结果。状态机机制与test完全一样
+				返回结果, 是一个扩展的数组{ 
+					[匹配的串，...匹配的子串（取决有没有加括号）], 
+					index: 匹配的位置, 
+					input: 被检测的串}
+					chrome里还有一个groups:undefined，暂时不知何用。mdn里没有介绍，firefox里没有该字段
+				不匹配则返回null
+		寄存器: 只要发生成功的正则匹配，寄存器都会被刷新，如果匹配不成功，则寄存器的值不变
+			RegExp.$1-$9：对应string.replace里的$1-$9. 取最后的9个. 它们未赋值状态下都是''
+			RegExp.input（$_）：被测试的字符串
+			RegExp.lastMatch（$&）：匹配的结果字符串（不是子匹配）
+				其实命名里'last'修饰是多余的。这里所有寄存器隐含last的含义
+			RegExp.lastParen（$+）：最后一个子匹配
+				虽然它必然在$1-$9中，但你有时不知道是其中的哪一个
+			RegExp.leftContext（$`）：匹配串前面的部分
+			RegExp.rightContext（$'）：匹配串后面的部分
+		regx.flags: 取flags，如'gi'，按字母顺序排列: /aa/mig.flgs => 'gim'
+		regx.global, regx.ignorecase, regx.multiline, regx.sticky, regx.unicode: 对应几个flag
+		regx.source：原始字符串，没有首尾两个//。如果用toString()方法的话，会包含//
+		regx.lastIndex：可读可写。一开始只用于g；扩展用法见y
+		另见 sring.match <url:#r=string.match>, string.replace <url:#r=string.replace>
+		资料
+			网上一个知识点速查 <url:http://www.jb51.net/article/43190.htm>
+			网友整理常用正则表达式 <url:http://www.jb51.net/tools/regex.htm>
+	Map
+		const map = new Map([ ['name', '张三'], ['title', 'Author'] ]); // 或者new Map()
+		map.size // 2
+		map.has('name') // true
+		map.delete(o) // 删除
+		map.get('name') // "张三"
+		map.has('title') // true
+		map.get('title') // "Author"
+	Set <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set>
+		阮一峰的介绍 <url:http://es6.ruanyifeng.com/#docs/set-map>
+		var set = new Set([1, 2, 3, 4, 4])
+		let set2 = new Set() // 空集
+		set.add(5)
+		set.delete(3) 
+		set.has(4) 
+		set.clear()
+		[...set] // 用set来进行数组去重
+	WeakSet和WeakMap
+		主要用于全局变量上的内存管理性能上的优化。并非编码上的优化
+	[proxy] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy>
+	[reflect] <url:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect>
+		跟proxy配合使用，取默认行为
+	模块化Modules: import/export
+		语法理念：导出和导入的书写形式需要保持一致
+			例：导入为
+			import React, { Component } from 'react'
+			导出则应为
+			export default React
+			export { Component }
+		import单例性：多次import只执行一次
+		无名导入side effect（缺省加载）
+			import 'xxxx'
+		导入所有 impot * as
+			import * as user from './user.js'; // 随后用user.xx来访问具体导入的成员
+			似乎有人建议用这种方式来代替 import R from 'ramda'的形式
+		级联写法（从别处导入，再导出）
+			export { foo, bar } from 'my_module'
+			透传导出
+				export * from './api_mock.js'
+		import()函数: 好像babel还不支持
+		导出的变量都是只读？
+			在create-react-app这里是如此，但似乎变量里面的属性，可写
+		不支持的写法
+			export {...xxx} // 这是动态解构，而es6的模块机制是静态的
+			import { a : {b, c} } from ... // 不支持
+			export aaa // 可以export const aaa = xxx，但export aaa则是非法语句，应写成export {aaa}
+	函数式编程 <?utl:id=js_fp?>
+		纯函数: 简单理解为没有状态的函数
+			那等同于输出完全被输入决定吗？那如果一个随机数函数呢？感觉这是个灰色地带
+		柯里化（Currying）: 部分绑定的完美形态，<url:#r=lodash_curry>
+		Hindley-Milner风格的函数类型签名（在注释里标明js函数的类型）
+			类似箭头函数的风格，仅供参考
+			例：//  replace :: Regex -> String -> String -> String
+		知乎用户vczh对其的描述 <url:https://www.zhihu.com/people/excited-vczh/answers>
+			函数式编程在使用的时候的特点就是，你已经再也不知道数据是从哪里来了，每一个函数都是为了用小函数组织成更大的函数，函数的参数也是函数，函数返回的也是函数，最后得到一个超级牛逼的函数，就等着别人用他来写一个main函数把数据灌进去了。 
+			知乎讨论 <url:https://www.zhihu.com/question/28292740/answer/40336090>
+	JSON
+		parse
+		stringify
+			JSON.stringify(p.bp, null, '  ') // 这样可带有缩进, 缺省形式JSON.stringify(xx)得到的结果是没有缩进的，应该是紧凑的一个单行json
+	Arson json的升级版 <url:https://github.com/benjamn/arson>
+		支持更变态的数据结构，比如环状引用等
+		可以解构导入：import {encode, decode} from 'arson'
+	Promise对象
+		世界观（promise对象的哲学理念）
+			promise世界观是async诞生的基石
+			故事
+				在之前的js中，异步操作（调用）必要指定回调函数，并且构造时就要指定好，否则就再无机会
+				而为何不能晚一步再指定回调呢？这就是promise
+				promise对象：对所有的异步操作（广义地，还可以把同步操作也包括进来）进行了抽象，它一旦产生，异步任务便开始启动。但此时它并不打算在任务完成之后，做点什么
+				直到你来告诉他，通过其then方法。例: promise.then( x => y )，这时它便知道任务完成之后要做的事情
+				如果之后要做的事情，也是promise的性质，便可以写成级联的形式 .then(x => y).then(y => z)...
+			promise的对象是数据
+				任何形式的promise，不管是同步还是异步，都可以抽象为最终会得到某些数据，比如是一个用户id，为了便于概念提炼，我们可以称之为一个"用户id的promise"
+			promise只能返回一个值（只返回一个变量）
+				当然如果es委员会愿意，js可以像go一样，令promise也可返回多个值（到了async函数层面需要支持函数也返回多个值），但考量了之后似乎没有这个必要
+				限制为一个值也许更利于代码的组织和维护
+		初探 <url:./filets/promise.html>
+		resolve的接管
+			如果resolve的参数是一个promise，则原promise的then将连接新promise
+			这个理念常用于promise对象的设计中（比如将一些回调形式的库promise化）, 而在promise的使用中不太需要用到
+		then 方法
+			伪代码：then( x => y ) -> z 注：这里x为new Promise时传入给resolve的变量（y展开则为函数体, 其返回值为y）
+				完整版是then( x => y [, e => ]), 即还可以传一个reject
+			then总会又返回一个promise对象，因此可以继续对该promise进行级联处理
+		catch 方法
+			其实是 then(null, reject)的别名
+			catch的返回值与then的返回值性质完全一样（即可以进行级联，接管等）
+			如果catch里没有解决问题，应当throw出去，以交由外层的catch来处理
+			注：使用nodejs bluebird里的catch能捕获所有异常，即在promise链最后接一个catch，前面的普通js异常都能捕获，实在是太强大！不知道这是否为Promise的规范
+			bluebird实现的catch还能filter <url:http://bluebirdjs.com/docs/api/catch.html>
+		Promise.all 全部都要完成
+			例：Promise.all([p1, p2, ...]).then([f1, f2, ...]=>{})
+		Promise.race 取最快完成的那个
+			例：Promise.race([p1, p2, ...]).then(最快那个=>{})
+		Promise.resolve/Promise.reject 快速就地构建一个 promise 对象
+		阮一峰在es6里的介绍 <url:http://es6.ruanyifeng.com/#docs/promise>
+		网友讨论如何加超时 <url:https://github.com/matthew-andrews/isomorphic-fetch/issues/48>
+	[decorator] 装饰器、修饰器 <url:http://es6.ruanyifeng.com/#docs/decorator>
+		提案 <url:https://tc39.github.io/proposal-decorators/#sec-syntax>
+		示例: <url:./filets/js/decorator/01.js>
+		自己粗略实现的一个autobind <url:./filets/js/decorator/02_autobind_simple_implemetation.js>
+			问题：直接按一个包装函数的形式写的，而大概看了下官方的源码，没有返回一个类啊。这是什么操作？得好好研究一下
+	iterator迭代器
+		世界观：对于forof循环，以及类似[...xx]这样的遍历操作，需要一个统一的迭代器接口来适配
+		迭代器接口：{ next() = { value: ..., done: true/false } }
+			只要满足如上述规范能不停执行next()的对象，都可称之为迭代器（鸭子类型）
+		给对象部署迭代器
+			{ [Symbol.iterator]: ()=> 迭代器对象 }
+			示例：
+				let obj = {
+					...
+					// 返回一个{ next() }的对象
+					[Symbol.iterator]() { return { next() { ...  return { value: .., done: ... } } } } }
+	[Generator] 函数（状态机、生成器）
+		生成器调用之后，返回迭代器。其具有一些特殊属性
+			自迭代: 它自己的迭代器又是它自己（故称为自迭代器）
+				一般的迭代器用法通常是部署到主体上，使得主体可以被迭代解构（...或者forof等），而generator生成的迭代器自己就是自己的主体
+				function* gen(){ // some code }
+				var g = gen()
+				g[Symbol.iterator]() === g
+			作为async函数的基石
+			throw() （未深究）
+			return() 直接终结迭代。暂不深究
+				据说如果有try catch finally的话，也需要等finally执行完才终止
+		function *foo() {
+			yield 1
+			yield 2
+			return 3 // forof循环体不会走到return的值，这符合经典的迭代器半开闭模型 }
+		yield* 令生成器可拼装（composable）
+			yield* 跟的是迭代体，而generator返回的对象即是迭代器又是迭代体，因此可作为yield*的对象实现generator的组装
+			function* gen(){
+				yield* ["a", "b", "c"] } // 这时gen()便得到了另一个同样可以遍历数组的迭代器
+		示例
+			forof
+				function *foo() {
+					yield 1
+					yield 2
+					return 3 // forof循环体不会走到return的值，这符合经典的迭代器半开闭模型 }
+				for (let v of foo()) { console.log(v) } // 不输出3
+			co原理（async函数前身）
+				定义一个generator
+				在内部逐一yield异步任务的promise
+					之所以yield的是promise，是因为promise是js中对异步调用最合适的抽象
+				在外部，由一个统一的执行器（比如经典的co）来执行该generator，执行器返回promise
+					执行器做的主要事情就是在yield出来的promise的then里，调用状态机的next，这样便把一系列异步任务串了起来，最终完成整个流程
+	async函数
+		本质上是co模式的语法糖, 但其令语义更直观清晰 <url:./filets/co.js>
+		基本语法：const xx = await SomePromise
+		返回promise
+		使用场合跟普通函数几乎相同
+			可自调用
+			可作为对象方法
+			...
+		异常处理
+			坑：async函数要想能正确地处理异常，需要所有的异步调用都显式地加上async/await，否则隐式的返回promise的代码里的异常将无法被catch
+				如果这个promise也被显式地await的话，可以避免这个问题吗？
+	[fetch]
+		参考（不能作文档）<url:https://fetch.spec.whatwg.org>
+		示例 <url:./filets/js/fetch/>
+			有传header的示例
+			上传文件的示例
+			下载进度
+		非常好的一篇讲解 <url:http://louiszhai.github.io/2016/11/02/fetch/>
+		返回promise of res:
+			res.ok: bool，判断http请求是否成功
+			获取http头（headers）
+				res.headers.has('content-type'), res.headers.get('transfer-encoding')，这里与koa不同，只能通过方法获取，不能通过对象的属性来得到
+		传cookie: (url, {credentials: 'include', ...})
+			include: 始终传cookie
+			same-origin: 不跨域才传
+			omit: 缺省。始终不传
+		异常
+			在同一条then链上的throw是可以被后面的catch捕获的，但内部如果又另起一个promise的链，则外部promise的catch无法捕获其异常，例：
+				: xxx.then(
+				: 	throw xx
+				: 	yyy.then(
+				: 		throw yy
+				: 	)
+				: ).catch(
+				: 	这里可以捕获到xx，而不能捕获yy
+				: )
+		中断: 使用AbortController和AbortSignal的方式，可以将fetch abort. 要非常新的Chrome才支持
+		资料
+			这个Api很fetching <url:https://www.w3ctech.com/topic/854>
+			传统 Ajax 已死，Fetch 永生 <url:https://github.com/camsong/blog/issues/2>
+			mdn <url:https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch>
+			可以跨域（需要服务端支持），比如试试这个链接: <url:https://api.github.com/gists>
+		坑
+			在微软edge浏览器里，不允许将某个header设为空，否则会抛异常
+	测试
+		Jest <?utl:id=jest?> <url:https://facebook.github.io/jest/> <url:https://facebook.github.io/jest/docs/api.html>
+			facebook官方推荐的很强大的测试库，可以测试React和React Native
+				据说已经超过mocha等框架成为js测试的最佳选择
+				已整合进create-react-app以及react native的cli里
+				通过快照来测试react组件，非常方便!
+			xx.test.js为测试代码文件. 示例 <url:https://facebook.github.io/jest/docs/getting-started.html#content>
+				据说create-react-app还支持识别__tests__/下的文件作为测试代码，但个人暂时不使用该方式
+			配置 <url:https://facebook.github.io/jest/docs/getting-started.html>
+				create-react-app自动集成jest，不用配置
+				如果是node的项目，按照官方文档下载对应的包，普通使用场景不需要任何jest的配置即可正常使用
+					babel的配置还是需要的
+					自动watch的功能，可借鉴create-react-app项目eject之后的script/test.js，搬到当前项目中来即可
+			可以用describe来对用例进行分组 <url:https://facebook.github.io/jest/docs/api.html>
+			测试react
+				用jest自带的snapshot详见 <url:./filets/jest_react/Link.test.js>
+					官网示例 <url:https://facebook.github.io/jest/docs/tutorial-react.html#content>
+				Enzyme <url:http://airbnb.io/enzyme/index.html>
+					jest的snapshot机制只能检查简单的渲染，对于复杂的ui交互则可以使用Enzyme
+			测试异步代码 <url:https://facebook.github.io/jest/docs/asynchronous.html>
+				官网文档非常直观，正如你想象中简单！
+			mock <url:./filets/jest_async_mock/user.test.js>
+				mock机制世界观
+					放置mock代码
+						在__mocks__目录里放置对应的mock模块。mock模块没有特殊的依赖，保证与目标的导出接口完全一致即可
+					指定哪些在mock
+						在测试用例（测试代码）里jest.mock('./xx.js')
+							据说默认情况下，node的原生的模块只要有mock，不需要指定就会自动mock?
+				mock函数（mock工具） <url:https://facebook.github.io/jest/docs/mock-functions.html#content>
+					mock的模块只是角色是mock而已，和真正的实现在本质上是没有区别的。但为了更好地测试和统计，jest提供了一些工具来辅助mock模块的实现
+					详见代码
+			npm t ...或jest ...，即可启动测试
+				例：npm t -- -t="haha" 对应 jest -t="haha"
+				不建议在git-bash上运行
+			命令行参数
+				arg（直接参数，非选项） 匹配文件，regex
+				-u --updateSnapshot 更新react组件的快照
+				-t --testNamePattern=<regex> 匹配名字
+					名字指的是每个测试用例的描述字符串，如test('这就是名字', ...)
+			坑
+				jest里不能用 x=>{}这样的写法，好像test这一行不能写，里面还是可以的
+	[webpack] <url:https://webpack.js.org>
+		[concepts]
+			Entry
+			Output
+			loaders
+			Plugins <url:https://webpack.js.org/concepts/>
+		Loaders
+			css-loader: css文件的原始loader，通常需要配合其他loader使用（比如style-loader）
+			style-loader: 将css loader得到的对象加到DOM里作为一个<script>标签
+		[plugins]
+			html-webpack-plugin
+			clean-webpack-plugin 构建前清空指定某些目录 <url:https://www.npmjs.com/package/clean-webpack-plugin>
+				create react app也会清空目录，但是在build.js里调用fs-extra里的函数来清空的。因此没有用到该模块
+		webpack命令
+			-w watch模式
+		[config]
+			externals 见webx里的示例
+		坑: webpack dev server的host是有限制的。不能随便用域名
+			通过看其源码，改其中一个选项即可以放开该限制
+		资源
+			中文书 <url:http://webpack.wuhaolin.cn/>
+			合集 <url:https://github.com/poetries/mywiki/wiki/webpack>
+	Babel <url:https://babeljs.io/>
+		阮一峰教程 <url:http://www.ruanyifeng.com/blog/2016/01/babel.html>
+		插件（plugin、preset）常用的有latest, state-1，详见文档
+			Remove console transform 删掉所有的console.* <url:https://babeljs.io/docs/plugins/transform-remove-console/>
+			babel-plugin-module-resolver 修改module的路径 <url:https://github.com/tleunen/babel-plugin-module-resolver>
+				可以用来模拟一个全局module的机制，适用于快速编写一些编译、部署、测试脚本。不适合生产环境的程序
+				示例："plugins": [ [ "module-resolver", { "root": [ "C:/Users/guanghui/react_playground/node_modules" ] } ] ]
+					结合官网查看完整例子
+		配置示例
+			"babel": {
+				"presets": [
+					"latest",
+					"stage-1", "react"
+				],
+				"plugins": []
+			}
+			这些presets都要单独安装，比如react对应的npm包为babel-preset-react
+		process对象
+			似乎会在用于web前端的js模块内注入一个process对象（就像在nodejs里一样访问），其特征是：process.browser = true，可用来区分当前代码是执行在node环境还是浏览器环境
+			用于编写同构化（即浏览器和node通用）的代码
+		Babel-Polyfill
+			通常是补上一些prototype，可以一定程度地解决浏览器兼容性的问题
+		坑
+			export const json = fetch_fn => async (...para) => { // 猜测是，...para直接透传的话就会出bug？，还是跟async有关
+				// eslint-disable-next-line
+				para; // 这是babel的bug，经试验，若省略这一行的话，会出现诡异的错误
+				const res = await fetch_fn(...para)
+				return res.json() }
+			[...null, 1, 2] 会报错，而"..."用在对象中，则是不会抛异常的
+	js算法
+		实现任意数组的'乘': ['a','b','c'],['d','e'] => ["ad", "ae", "bd", "be", "cd", "ce"] <url:./filets/js/algorithm/array_product.js>
+	坑
+		闭包前面加分号！
+			比如写下面的函数，如果前面的分号省略，会当成 a = b(function...) 来解析！
+				: a = b
+				: ;(function(){
+				: 	console.log("haha")
+				: })()
+		promise结果的作用域
+			使用promise的常用套路：
+			xx.then(res => {...}).then(res => {...}) 根据代码习惯，会重复res变量名，但这个时候要非常小心注意不同的then里面的res含义不一样！
+				曾经就是忽略了这一点，逻辑短路引起BUG
+	奇技淫巧
+		~~x 将其取整
+		base64解码: b = new Buffer(a, 'base64') // 但这个方法已经被node官方废弃，最新版改为Buffer.from(a, 'base64')
+			注：解出来是Buffer，而不是string
+		arrayBuffer转Buffer: b = new Buffer(new Uint8Array(a))
+		取Buffer里的字节的整数形式（字节转整数）: const num = buf[0] & 0xff; // 取自parse gp5的源代码
+		高阶函数的"阶"的一个经典应用：计数生成器。计数器处在哪一阶，将决定其计数空间
+		Console的高级用法
+			node控制台版：console.table <url:https://www.npmjs.com/package/console.table>
+			你真的了解 console 吗 <url:https://segmentfault.com/a/1190000000481884>
+				涵盖了以下内容：
+				console.assert
+				console.count: 统计执行的次数
+				console.group: 日志折叠
+					可以嵌套
+				console.table: 打印表格
+				console.profile: 性能分析
+				console.time: 运行计时
+				console.trace: 打印函数的调用堆栈
+			console.log和console.dir的微妙区别: <url:http://blog.csdn.net/manyangyangya/article/details/44859685>
+			mdn console.table <url:https://developer.mozilla.org/en-US/docs/Web/API/Console/table>
+			前端不为人知的一面--前端冷知识集锦 <url:http://www.cnblogs.com/Wayou/p/things_you_dont_know_about_frontend.html>
+			Chrome 控制台新玩法-console显示图片以及为文字加样式 <url:http://www.cnblogs.com/Wayou/p/chrome_dev_tool_style_console.html>
+			Colors in JavaScript console <url:http://stackoverflow.com/questions/7505623/colors-in-javascript-console>
+		获取一个函数各参数的名字！ <url:https://davidwalsh.name/javascript-arguments>
+			感觉似乎在做一些依赖注入的时候很有用，但由于babel的不确定性，可能会带来很多隐患，不建议使用
+		字符串转数字 +"123"
+	资料
+		一次围绕setTimeout展开的面试（包含了promise的一些机制）<url:https://zhuanlan.zhihu.com/p/25407758>
+		array-like objects（类数组对象）: arguments, dom里的东西
+		browserify-as-a-service <url:https://wzrd.in/>
 [awesome js] 第三方库
 	[lodash] <url:http://underscorejs.org/> <url:https://lodash.com/docs>
 		Lang
@@ -280,13 +1038,6 @@
 			math.fraction('1/3')   // Fraction, 1/3
 			math.fraction(2, 3)    // Fraction, 2/3
 			math.fraction('0.(3)') // Fraction, 1/3
-	[exceljs] 处理excel的库。以目前所了解的水平来看，功能不比python的openpyxl弱的感觉
-		workbook, 简写为wb
-			wb.worksheets 取得所有的worksheet，应该是一个数组
-			遍历各个sheet: workbook.eachSheet(function(worksheet, sheetId) {
-				// ...
-			});
-		worksheet, 简写为ws
 	astexplorer 一个强大的语法树解析库 <url:http://astexplorer.net/>
 		支持多种语言的语法树的解析
 		源码 <url:https://github.com/fkling/JSNetworkX> 

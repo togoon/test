@@ -151,7 +151,7 @@
 		[prototype]
 			[obj.hasOwnProperty]
 			[obj.propertyIsEnumerable]
-	Symbol
+	Symbol <url:https://blog.csdn.net/qq_33408245/article/details/82953143>
 		解决标志变量、属性名全局唯一的问题
 		Symbol()和 Symbol.for/Symbol.keyFor 并不共享
 		需要通过Object.getOwnPropertySymbols才能枚举symbol属性. 或者通过反射Reflect.ownKeys
@@ -393,7 +393,7 @@
 		构造函数
 			字面量表示法略
 			new RegExp()同RegExp()，可以接收一个字符串或者一个对象
-				注：RegExp(/a/) 跟 RegExp('/a/')不等价!
+				注：RegExp(/a/) 等价于RegExp('a') 但跟 RegExp('/a/')不等价!
 				RegExp('ab+c', 'i') => /ab+c/
 				RegExp('\\w+') => /\w+/
 		flags（后缀）
@@ -412,7 +412,7 @@
 					index: 匹配的位置, 
 					input: 被检测的串}
 					chrome里还有一个groups:undefined，暂时不知何用。mdn里没有介绍，firefox里没有该字段
-				不匹配则返回null
+				不匹配则返回null，然后循环
 		寄存器: 只要发生成功的正则匹配，寄存器都会被刷新，如果匹配不成功，则寄存器的值不变
 			RegExp.$1-$9：对应string.replace里的$1-$9. 取最后的9个. 它们未赋值状态下都是''
 			RegExp.input（$_）：被测试的字符串
@@ -491,7 +491,7 @@
 		stringify
 			JSON.stringify(p.bp, null, '  ') // 这样可带有缩进, 缺省形式JSON.stringify(xx)得到的结果是没有缩进的，应该是紧凑的一个单行json
 	Arson json的升级版 <url:https://github.com/benjamn/arson>
-		支持更变态的数据结构，比如环状引用等
+		支持更变态的数据结构，比如环状引用等，Set，Map，Buffer等都能编解码，但似乎Symbol不行
 		可以解构导入：import {encode, decode} from 'arson'
 	Promise对象
 		世界观（promise对象的哲学理念）

@@ -16,6 +16,7 @@
 	表格常量：{1,2}，或者 {1,2;3,4}，暂时还不知道怎么区分行和列？
 	公式原来可以返回序列：选中目标区域，按ctrl + shift + enter，比如index函数
 	[function] 函数，所有函数参考 <url:https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188>
+		[iferror] IFERROR(value, value_if_error)
 		[text][字符串函数]
 			[T] 转为字符串，注：数字将返回空串，T(123) 将返回 ""
 			[text] 文本格式化，类似于时间的format <url:https://jingyan.baidu.com/article/c1a3101e674d6ede646deb46.html>

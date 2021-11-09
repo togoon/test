@@ -1,7 +1,6 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
+{- 用到未来数据 -}
 MA20:MA(C,20),ColorFF8888;
+
 三日不破:=MIN(MIN(L,REF(L,1)),REF(L,2))>=REF(L,3);
 三日量缩:=(MAX(MAX(V,REF(V,1)),REF(V,2))<REF(V,3));
 三日价涨A:=C>=REF(C,1);
@@ -12,7 +11,9 @@ MA20:MA(C,20),ColorFF8888;
 倍量柱:=C>REF(C,1)*1.04 AND (VOL>=1.9*REF(VOL,1));
 四日前倍量柱:=(REF(VOL,3)>1.9*REF(VOL,4));
 四日前高量柱:=(REF(VOL,3)>=REF(VOL,4) AND REF(VOL,3)<1.9*REF(VOL,4) AND 三日量缩);
+
 前三引用不成立:=COUNT(REF(四日前倍量柱,1) AND (REF(三日不破,1) OR REF(三日价涨C,1)),3)=0 AND COUNT(REF(四日前高量柱,1) AND (REF(三日不破,1) OR REF(三日价涨C,1)),3)=0;
+
 倍量黄金柱:=四日前倍量柱 AND 三日量缩 AND 三日不破 AND 三日价涨A AND 前三引用不成立;
 高量黄金柱:=四日前高量柱 AND 三日量缩 AND 三日不破 AND 三日价涨A AND 前三引用不成立;
 黄金柱:=倍量黄金柱 OR 高量黄金柱;
@@ -31,6 +32,7 @@ MA20:MA(C,20),ColorFF8888;
 准倍量将军柱:=NOT(黄金柱 OR 次黄金柱 OR 准黄金柱 OR 将军柱 OR 次将军柱) AND 四日前倍量柱 AND 三日价涨C AND 前三引用不成立;
 准高量将军柱:=NOT(黄金柱 OR 次黄金柱 OR 准黄金柱 OR 将军柱 OR 次将军柱) AND 四日前高量柱 AND 三日价涨C AND 前三引用不成立;
 准将军柱:=准倍量将军柱 OR 准高量将军柱;
+
 BACKSET100:=BACKSET(黄金柱 OR 次黄金柱 OR 准黄金柱 OR 将军柱 OR 次将军柱 OR 准将军柱,4);
 FILTER100:=FILTER(BACKSET100,3);
 BACKSET101:=BACKSET(黄金柱,4);

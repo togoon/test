@@ -1,6 +1,3 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 最新价: CLOSE, COLORWHITE;
 防守价: HHV(HIGH,3)-HHV(HIGH,3)*0.03, COLORGREEN;
 出击价: LLV(LOW,3)+LLV(LOW,3)*0.03, COLORRED;

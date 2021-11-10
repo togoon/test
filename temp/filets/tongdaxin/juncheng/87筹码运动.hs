@@ -1,11 +1,11 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 VAR1:=EMA((WINNER(C*1.1)-WINNER(C*0.9))*80,1);
+
 主筹:EMA(WINNER(C)*70,1),COLORRED,LINETHICK1;
 主筹月均:EMA(主筹,21),COLORWHITE;
+
 主筹长期成本:EMA(EMA(主筹,5),89),COLOR009500;
 筹差值:VAR1-主筹,COLORYELLOW;
+
 VAR2:=IF(C>=O,H,0);
 VAR3:=IF(C<=O,REF(H,1),VAR2);
 VAR4:=IF(C>=O,V,0);

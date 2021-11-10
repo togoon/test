@@ -1,6 +1,3 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 今日开盘线:DYNAINFO(4),COLORMAGENTA;
 今日最高价:=DYNAINFO(5),COLORBLUE;
 今日最低价:DYNAINFO(6),COLORGREEN;

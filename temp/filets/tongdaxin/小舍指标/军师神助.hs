@@ -1,3 +1,4 @@
+{- 感觉这就是个骗人的公式啊，根本选不出股来 -}
 VA1:=HHV(HIGH,12)-LLV(LOW,26);
 
 VA2:=HHV(HIGH,9)-CLOSE;

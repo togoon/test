@@ -8,11 +8,13 @@
 		send 打字，或者是模拟按键
 		转义：
 			`% 发送 % 符号
+			{+} 发送 + 符号
 		组合键
 			^ ctrl键
 			+ shift键
 			# win键
 			! alt键
+			!{Tab} alt+tab组合键
 	[hotkeys] <url:https://autohotkey.com/docs/Hotkeys.htm> <url:https://autohotkey.com/docs/KeyList.htm>
 		简易版参考 <url:http://xahlee.info/mswin/autohotkey_key_notations.html>
 			这里还介绍了一些常用的windows快捷键

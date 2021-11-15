@@ -1,9 +1,7 @@
-{操作问题可以联系客服 微信号:traderByAI QQ号:2097927606;}
-{更多指标，请关注微信公众号免费获取:Trader_AI;}
-{欢迎指标交流QQ群:75200686,备注：指标交流;}
 工作线:eMA(CLOSE,14),colorFF00FF,linethick1;
 二号线:eMA(CLOSE,25),coloryellow;三号线:eMA(CLOSE,99),colorgreen;
 四号线:eMA(CLOSE,144),colorblue;生命线:eMA(CLOSE,453),coloryellow,linethick2;
+
 VAR1:=SUM(MAX(MAX(HIGH-LOW,ABS(HIGH-REF(CLOSE,1))),ABS(LOW-REF(CLOSE,1))),25);
 VAR2:=HIGH-REF(HIGH,1);
 VAR3:=REF(LOW,1)-LOW;
@@ -14,12 +12,14 @@ VAR7:=VAR5*100/VAR1;
 VAR8:=MA(ABS(VAR7-VAR6)/(VAR7+VAR6)*100,15);
 VAR9:=(VAR8+REF(VAR8,15))/2;
 A:=(VAR7>VAR6 AND VAR7>25 AND VAR6<25);
+
 B:=ZIG(3,5)*100;
 G:=MA(B,2);
 D:=CROSS(B,G);
 W:=CROSS(G,B);
 E:=REF(INDEXC,1);
 F:=SMA(MAX(INDEXC-E,0),3,1)/SMA(ABS(INDEXC-E),3,1);
+
 VAR10:=F AND F<8;
 VAR11:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
 VAR12:=SMA(VAR11,3,1);
